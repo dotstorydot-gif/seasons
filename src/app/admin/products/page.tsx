@@ -38,7 +38,10 @@ export default function AdminProductsPage() {
     const [products, setProducts] = useState<AdminProduct[]>([]);
     const [categories, setCategories] = useState<AdminCategory[]>([]);
     const [loading, setLoading] = useState(true);
+    const [search, setSearch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
+    const [editProduct, setEditProduct] = useState<Partial<AdminProduct> | null>(null);
+    const [form, setForm] = useState({ ...EMPTY_FORM });
     const [saving, setSaving] = useState(false);
     const [newImageUrl, setNewImageUrl] = useState('');
 
