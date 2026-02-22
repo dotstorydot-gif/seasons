@@ -4,26 +4,29 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from '@/components/ui/ProductCard';
 import styles from './Shop.module.css';
 import { Search } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 
 export default function ShopPage() {
+    const searchParams = useSearchParams();
+    const categoryParam = searchParams.get('category');
+
     const [products, setProducts] = useState<any[]>([]);
     const [categories, setCategories] = useState<any[]>([]);
     const [search, setSearch] = useState('');
-    const [activeCategory, setActiveCategory] = useState('All');
+    const [activeCategory, setActiveCategory] = useState(categoryParam || 'All');
     const [loading, setLoading] = useState(true);
 
-    const fetchData = async () => {
-        setLoading(true);
-        const { data: productsData } = await supabase.from('products').select('*');
-        const { data: categoriesData } = await supabase.from('categories').select('*');
-
-        if (productsData) setProducts(productsData);
-        if (categoriesData) setCategories(categoriesData);
-        setLoading(false);
-    };
-
     useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            const { data: productsData } = await supabase.from('products').select('*');
+            const { data: categoriesData } = await supabase.from('categories').select('*');
+
+            if (productsData) setProducts(productsData);
+            if (categoriesData) setCategories(categoriesData);
+            setLoading(false);
+        };
         fetchData();
     }, []);
 

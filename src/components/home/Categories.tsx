@@ -1,16 +1,23 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Categories.module.css';
-
-const CATEGORIES = [
-    { id: '1', nameEn: 'Seating', nameAr: 'المقاعد', color: '#E5E1DA' },
-    { id: '2', nameEn: 'Tables', nameAr: 'الطاولات', color: '#D4CFC9' },
-    { id: '3', nameEn: 'Lighting', nameAr: 'الإضاءة', color: '#C3BEB8' },
-    { id: '4', nameEn: 'Decor', nameAr: 'الديكور', color: '#B2ADA7' }
-];
+import { supabase } from '@/lib/supabase';
+import { useLanguage } from '@/context/LanguageContext';
+import Link from 'next/link';
 
 const Categories = () => {
+    const [categories, setCategories] = useState<any[]>([]);
+    const { language } = useLanguage();
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            const { data } = await supabase.from('categories').select('*');
+            if (data) setCategories(data);
+        };
+        fetchCategories();
+    }, []);
+
     return (
         <section className={styles.categories}>
             <div className={styles.container}>
@@ -18,13 +25,15 @@ const Categories = () => {
                     <h2 className={styles.title}>Browse Categories</h2>
                 </div>
                 <div className={styles.grid}>
-                    {CATEGORIES.map(cat => (
-                        <div key={cat.id} className={styles.categoryCard}>
-                            <div className={styles.imagePlaceholder} style={{ backgroundColor: cat.color }}></div>
-                            <div className={styles.label}>
-                                <h3>{cat.nameEn}</h3>
+                    {categories.map(cat => (
+                        <Link href={`/shop?category=${cat.id}`} key={cat.id} className={styles.categoryCard}>
+                            <div className={styles.imagePlaceholder} style={{ backgroundColor: '#E5E1DA' }}>
+                                {cat.image_url && <img src={cat.image_url} alt={cat.name_en} className={styles.categoryImage} />}
                             </div>
-                        </div>
+                            <div className={styles.label}>
+                                <h3>{language === 'en' ? cat.name_en : cat.name_ar}</h3>
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </div>

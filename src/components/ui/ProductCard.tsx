@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import styles from './ProductCard.module.css';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -21,7 +22,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
     const category = language === 'en' ? product.categoryEn : product.categoryAr;
 
     return (
-        <div className={styles.card}>
+        <Link href={`/product/${product.id}`} className={styles.card}>
             <div className={styles.imageWrapper}>
                 {product.image ? (
                     <img src={product.image} alt={name} className={styles.image} />
@@ -35,7 +36,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
                 <h3 className={styles.name}>{name}</h3>
                 <p className={styles.price}>{product.price} EGP</p>
             </div>
-        </div>
+        </Link>
     );
 };
 
