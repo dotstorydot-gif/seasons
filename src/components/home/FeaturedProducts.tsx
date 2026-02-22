@@ -49,7 +49,8 @@ const FeaturedProducts = () => {
                                     price: product.price,
                                     categoryEn: categories.find(c => c.id === product.category_id)?.name_en || '',
                                     categoryAr: categories.find(c => c.id === product.category_id)?.name_ar || '',
-                                    image: product.image_url || (product.images?.[0]) || ''
+                                    image: product.image_url || (product.images?.[0]) || '',
+                                    images: product.images || [],
                                 }}
                             />
                         ))}

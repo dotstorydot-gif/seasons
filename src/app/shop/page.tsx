@@ -106,7 +106,8 @@ const ShopContent = () => {
                                             price: product.price,
                                             categoryEn: category?.name_en || '',
                                             categoryAr: category?.name_ar || '',
-                                            image: product.image_url || (product.images?.[0]) || ''
+                                            image: product.image_url || (product.images?.[0]) || '',
+                                            images: product.images || [],
                                         }}
                                     />
                                 );
