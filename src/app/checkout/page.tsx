@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from 'react';
 import styles from './Checkout.module.css';
 import { ShieldCheck, Loader2 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
