@@ -17,7 +17,7 @@ const Footer = () => {
                     {/* Brand */}
                     <div className={styles.brand}>
                         <Link href="/" className={styles.logoLink}>
-                            <Image src="/images/logolight.png" alt="Seasons Logo" width={140} height={35} className={styles.logoImg} />
+                            <Image src="/images/logolight.png" alt="Seasons Logo" width={160} height={40} className={styles.logoImg} />
                         </Link>
                         <p className={styles.tagline}>
                             Handcrafted wooden pieces that bring warmth and elegance to your everyday life.
