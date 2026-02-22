@@ -13,10 +13,6 @@ export default function ShopPage() {
     const [activeCategory, setActiveCategory] = useState('All');
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        fetchData();
-    }, []);
-
     const fetchData = async () => {
         setLoading(true);
         const { data: productsData } = await supabase.from('products').select('*');
@@ -26,6 +22,10 @@ export default function ShopPage() {
         if (categoriesData) setCategories(categoriesData);
         setLoading(false);
     };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     const filteredProducts = products.filter(p => {
         const matchesSearch = (p.name_en?.toLowerCase() || '').includes(search.toLowerCase()) ||
