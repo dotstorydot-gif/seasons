@@ -117,13 +117,13 @@ export default function AdminProductsPage() {
 
     const addImageUrl = () => {
         if (newImageUrl.trim()) {
-            setForm(f => ({ ...f, images: [...f.images, newImageUrl.trim()] }));
+            setForm((f: any) => ({ ...f, images: [...f.images, newImageUrl.trim()] }));
             setNewImageUrl('');
         }
     };
 
     const removeImage = (idx: number) => {
-        setForm(f => ({ ...f, images: f.images.filter((_, i) => i !== idx) }));
+        setForm((f: any) => ({ ...f, images: f.images.filter((_, i) => i !== idx) }));
     };
 
     const filtered = products.filter(p => {
@@ -285,7 +285,7 @@ export default function AdminProductsPage() {
                                 <div className={`${styles.formGroup} ${styles.fullWidth}`}>
                                     <label>Images (URLs in order — first is main, second is hover)</label>
                                     <div className={styles.imageList}>
-                                        {form.images.map((url, i) => (
+                                        {form.images.map((url: string, i: number) => (
                                             <div key={i} className={styles.imageRow}>
                                                 <div className={styles.thumbWrapper}><Image src={url} alt={`Preview ${i}`} width={32} height={32} className={styles.imageThumb} unoptimized /></div>
                                                 <span className={styles.imageUrl}>{url}</span>
