@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     }
 };
 
+export const revalidate = 0;
+
 export default async function ShopPage() {
     const { data: productsData } = await supabase.from('products').select('*');
     const { data: categoriesData } = await supabase.from('categories').select('*');
