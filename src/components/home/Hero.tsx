@@ -18,8 +18,8 @@ const Hero = () => {
                 </h1>
                 <p className={styles.subtitle}>{t('hero.subtitle')}</p>
                 <div className={styles.actions}>
-                    <button className="premium-button">{t('hero.cta')}</button>
-                    <button className="ghost-button">{t('nav.about')}</button>
+                    <button className="hero-button-primary">{t('hero.cta')}</button>
+                    <button className="hero-button-ghost">{t('nav.about')}</button>
                 </div>
             </div>
         </section>

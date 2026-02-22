@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { CartProvider } from "@/context/CartContext";
@@ -9,21 +9,24 @@ import { SpeedInsights } from "@vercel/speed-insights/react"
 import { FacebookPixel } from "@/components/marketing/FacebookPixel";
 import { CustomScripts } from "@/components/marketing/CustomScripts";
 
-const inter = Inter({
+const poppins = Poppins({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
-const playfair = Playfair_Display({
+// Poppins also used for headings (premium feel with heavier weights)
+const poppinsSerif = Poppins({
   variable: "--font-serif",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Premium E-Commerce | Bilingual & COD",
-  description: "Bilingual e-commerce platform with premium design and COD support.",
+  title: "Seasons by Nature | Handcrafted Wooden Pieces",
+  description: "Timeless wooden pieces for the modern home. Handcrafted with love.",
 };
 
 export default function RootLayout({
@@ -33,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+      <body className={`${poppins.variable} ${poppinsSerif.variable} antialiased`}>
         <LanguageProvider>
           <CartProvider>
             <Shell>
