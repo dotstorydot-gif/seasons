@@ -98,6 +98,29 @@
     }
 }
 
+.mobileMenu {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 24px;
+    z-index: 999;
+}
+
+.mobileMenu a {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 0 20px;
