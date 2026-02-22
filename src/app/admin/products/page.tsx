@@ -5,7 +5,6 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import styles from './AdminProducts.module.css';
 import { Search, Plus, Edit, Trash2, Loader2, X, Save, Image as ImageIcon } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
-import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import Image from 'next/image';
 
 interface AdminCategory {
@@ -115,11 +114,21 @@ export default function AdminProductsPage() {
         };
 
         if (editProduct?.id) {
-            const { error } = await supabaseAdmin.from('products').update(payload).eq('id', editProduct.id);
-            if (error) { alert('Error updating product: ' + error.message); setSaving(false); return; }
+            const res = await fetch('/api/admin/products', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: editProduct.id, payload }),
+            });
+            const json = await res.json();
+            if (!res.ok) { alert('Error updating product: ' + json.error); setSaving(false); return; }
         } else {
-            const { error } = await supabaseAdmin.from('products').insert([payload]);
-            if (error) { alert('Error creating product: ' + error.message); setSaving(false); return; }
+            const res = await fetch('/api/admin/products', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ payload }),
+            });
+            const json = await res.json();
+            if (!res.ok) { alert('Error creating product: ' + json.error); setSaving(false); return; }
         }
         setSaving(false);
         setEditProduct(null);
@@ -128,8 +137,13 @@ export default function AdminProductsPage() {
 
     const handleDelete = async (id: string) => {
         if (!confirm('Delete this product?')) return;
-        const { error } = await supabaseAdmin.from('products').delete().eq('id', id);
-        if (error) { alert('Error deleting product: ' + error.message); return; }
+        const res = await fetch('/api/admin/products', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id }),
+        });
+        const json = await res.json();
+        if (!res.ok) { alert('Error deleting product: ' + json.error); return; }
         fetchData();
     };
 

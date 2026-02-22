@@ -5,7 +5,6 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import styles from './Coupons.module.css';
 import { Plus, X, Loader2, Save, Trash2, Copy, Check } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
-import { supabaseAdmin } from '@/lib/supabaseAdmin';
 
 type DiscountType = 'percentage' | 'free_delivery';
 
@@ -97,8 +96,13 @@ export default function CouponsPage() {
             expires_at: form.expires_at || null,
             is_active: form.is_active,
         };
-        const { error } = await supabaseAdmin.from('coupons').insert([payload]);
-        if (error) { alert('Error creating coupon: ' + error.message); setSaving(false); return; }
+        const res = await fetch('/api/admin/coupons', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ payload }),
+        });
+        const json = await res.json();
+        if (!res.ok) { alert('Error creating coupon: ' + json.error); setSaving(false); return; }
         setSaving(false);
         setShowForm(false);
         setForm({ ...EMPTY_FORM });
@@ -106,13 +110,21 @@ export default function CouponsPage() {
     };
 
     const toggleActive = async (id: string, current: boolean) => {
-        await supabaseAdmin.from('coupons').update({ is_active: !current }).eq('id', id);
+        await fetch('/api/admin/coupons', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id, is_active: !current }),
+        });
         fetchCoupons();
     };
 
     const deleteCoupon = async (id: string) => {
         if (!confirm('Delete this coupon?')) return;
-        await supabaseAdmin.from('coupons').delete().eq('id', id);
+        await fetch('/api/admin/coupons', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id }),
+        });
         fetchCoupons();
     };
 
