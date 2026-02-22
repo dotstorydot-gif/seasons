@@ -23,8 +23,11 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
     return (
         <div className={styles.card}>
             <div className={styles.imageWrapper}>
-                <div className={styles.placeholderImage} style={{ backgroundColor: '#E5E1DA' }}></div>
-                {/* <img src={product.image} alt={name} className={styles.image} /> */}
+                {product.image ? (
+                    <img src={product.image} alt={name} className={styles.image} />
+                ) : (
+                    <div className={styles.placeholderImage} style={{ backgroundColor: '#E5E1DA' }}></div>
+                )}
                 <button className={styles.quickAdd}>Quick Add</button>
             </div>
             <div className={styles.info}>

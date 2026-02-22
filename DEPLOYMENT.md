@@ -1,51 +1,37 @@
 # Deployment Documentation - SEASONS BY NATURE
 
-Since you have a **WordPress Hosting Plan** at Bluehost, follow these steps to deploy your premium e-commerce site.
+I have successfully connected your project to GitHub: `https://github.com/dotstorydot-gif/seasons.git`.
 
-## 1. Prepare for Static Hosting
+You can now deploy your site to **Vercel** for the best performance and easiest management.
 
-Since your plan is designed for WordPress (PHP), it cannot run a live Node.js server. We will convert your website into a **Static Site** (HTML/CSS/JS) that works perfectly on your plan.
+## 1. Deploy to Vercel (Recommended)
 
-### Step 1: Build the Site Locally
+1. Login to **[Vercel.com](https://vercel.com)** using your GitHub account.
+2. Click **"Add New" > "Project"**.
+3. Import the **`seasons`** repository.
+4. **Environment Variables**: During setup, add your Supabase credentials (copy them from your local `.env.local`):
+    - `NEXT_PUBLIC_SUPABASE_URL`
+    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+5. Click **Deploy**.
 
-On your computer, open the terminal in your project folder and run:
+## 2. Pointing seasonsbynature.com to Vercel
 
-```bash
-npm run build
-```
+Once deployed on Vercel:
 
-This will create a new folder named **`out`** in your project directory. This folder contains your entire website ready for the internet.
-
-### Step 2: Upload to Bluehost
-
-1. Compress everything **inside** the `out` folder into a **.zip** file.
-2. Login to **cPanel > File Manager**.
-3. Go to the **`public_html`** folder (this is the root of your domain).
-4. **Upload** your `.zip` file there.
-5. **Extract** it. You should see `index.html`, `_next`, etc., directly inside `public_html`.
-
----
-
-## 2. Pointing your Domain (seasonsbynature.com)
-
-If your domain is already at Bluehost, it's likely already pointing to `public_html`. If not:
-
-### Update DNS A Records
-
-| Type | Host | Points to | TTL |
-| :--- | :--- | :--- | :--- |
-| A | @ | `66.81.203.198` | 2 Hours |
-| A | www | `66.81.203.198` | 2 Hours |
+1. Go to the **Settings > Domains** tab in your Vercel project.
+2. Add `seasonsbynature.com`.
+3. Follow the instructions to update your **Nameservers** in Bluehost to:
+    - `ns1.vercel-dns.com`
+    - `ns2.vercel-dns.com`
 
 ---
 
-## 3. Alternative: Vercel (Recommended)
+## 3. Alternative: WordPress Hosting (Static Export)
 
-If you find cPanel difficult, the "Industry Standard" for Next.js is **Vercel** (Free):
+If you still wish to use your WordPress plan:
 
-1. Connect your project to **Vercel.com**.
-2. Update your domain's **Nameservers** in Bluehost to point to Vercel.
-3. This gives you better speed, automatic SSL, and global performance.
+1. Run `npm run build` locally.
+2. Upload the contents of the **`out`** folder to your Bluehost `public_html` via FTP or File Manager.
 
 ---
-**Note**: Since we are using **Supabase** for your database, your real-time data will still work perfectly on your WordPress plan!
+**Note**: I have already pushed the latest code to your branch `main`. Any changes you make and push to GitHub will automatically update your Vercel site!

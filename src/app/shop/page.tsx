@@ -83,13 +83,15 @@ export default function ShopPage() {
                         {filteredProducts.map(product => (
                             <ProductCard
                                 key={product.id}
-                                id={product.id}
-                                nameEn={product.name_en}
-                                nameAr={product.name_ar}
-                                price={product.price}
-                                categoryEn={categories.find(c => c.id === product.category_id)?.name_en || ''}
-                                categoryAr={categories.find(c => c.id === product.category_id)?.name_ar || ''}
-                                image={product.images?.[0] || ''}
+                                product={{
+                                    id: product.id,
+                                    nameEn: product.name_en,
+                                    nameAr: product.name_ar,
+                                    price: product.price,
+                                    categoryEn: categories.find(c => c.id === product.category_id)?.name_en || '',
+                                    categoryAr: categories.find(c => c.id === product.category_id)?.name_ar || '',
+                                    image: product.images?.[0] || ''
+                                }}
                             />
                         ))}
                     </div>
