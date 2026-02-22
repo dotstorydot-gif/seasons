@@ -109,8 +109,8 @@ export default function ProductClient({ product }: ProductClientProps) {
                                 className="premium-button"
                                 style={{ flex: 1 }}
                                 onClick={() => {
-                                    addItem(product);
-                                    showToast(language === 'en' ? '1 item added to cart 🛒' : 'تمت الإضافة إلى السلة', 'cart');
+                                    addItem(product, quantity);
+                                    showToast(language === 'en' ? `${quantity} item${quantity > 1 ? 's' : ''} added to cart 🛒` : 'تمت الإضافة إلى السلة', 'cart');
                                 }}
                             >
                                 Add to Cart
