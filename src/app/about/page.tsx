@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from './About.module.css';
 import { ShieldCheck, Leaf, Droplets, Sparkles } from 'lucide-react';
@@ -86,10 +87,14 @@ export default function AboutPage() {
                         <p>{story.p3}</p>
                     </div>
                     <div className={styles.imageSection}>
-                        <img
-                            src="/images/abotus.png"
-                            alt="Seasons by Nature — Our Story"
-                        />
+                        <div style={{ position: 'relative', width: '100%', aspectRatio: '1/1' }}>
+                            <Image
+                                src="/images/abotus.png"
+                                alt="Seasons by Nature — Our Story"
+                                fill
+                                style={{ objectFit: 'contain' }}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
