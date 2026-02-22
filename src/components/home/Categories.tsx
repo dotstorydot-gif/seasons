@@ -42,15 +42,14 @@ const Categories = () => {
                 ) : categories.length > 0 ? (
                     <div className={styles.grid}>
                         {categories.map(cat => (
-                            <Link href={`/shop?category=${cat.id}`} key={cat.id} className={styles.categoryCard}>
-                                <div className={styles.imagePlaceholder} style={{ backgroundColor: '#E5E1DA', position: 'relative', overflow: 'hidden' }}>
+                            <Link key={cat.id} href={`/shop?category=${cat.id}`} className={styles.categoryCard}>
+                                <div className={styles.imagePlaceholder}>
                                     {cat.image_url && (
                                         <Image
                                             src={cat.image_url}
-                                            alt={cat.name_en}
+                                            alt={language === 'en' ? cat.name_en : cat.name_ar}
                                             fill
                                             className={styles.categoryImage}
-                                            style={{ objectFit: 'cover' }}
                                         />
                                     )}
                                 </div>

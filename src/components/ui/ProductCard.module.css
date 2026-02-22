@@ -6,7 +6,9 @@
 
 .imageWrapper {
     position: relative;
-    aspect-ratio: 3/4;
+    width: 100%;
+    padding-bottom: 133.33%;
+    /* 3:4 aspect ratio */
     overflow: hidden;
     margin-bottom: 20px;
 }
@@ -40,13 +42,14 @@
     /* main stays visible underneath */
 }
 
+/* Add to Cart - Footer-inspired Dark Brown */
 .quickAdd {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background: var(--text-primary);
-    color: var(--bg-primary);
+    background: #3D2E1E;
+    color: #FFFFFF;
     border: none;
     padding: 12px;
     font-family: var(--font-sans);
