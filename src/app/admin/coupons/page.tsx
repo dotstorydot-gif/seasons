@@ -5,6 +5,7 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import styles from './Coupons.module.css';
 import { Plus, X, Loader2, Save, Trash2, Copy, Check } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabaseAdmin';
 
 type DiscountType = 'percentage' | 'free_delivery';
 
@@ -96,7 +97,8 @@ export default function CouponsPage() {
             expires_at: form.expires_at || null,
             is_active: form.is_active,
         };
-        await supabase.from('coupons').insert([payload]);
+        const { error } = await supabaseAdmin.from('coupons').insert([payload]);
+        if (error) { alert('Error creating coupon: ' + error.message); setSaving(false); return; }
         setSaving(false);
         setShowForm(false);
         setForm({ ...EMPTY_FORM });
@@ -104,13 +106,13 @@ export default function CouponsPage() {
     };
 
     const toggleActive = async (id: string, current: boolean) => {
-        await supabase.from('coupons').update({ is_active: !current }).eq('id', id);
+        await supabaseAdmin.from('coupons').update({ is_active: !current }).eq('id', id);
         fetchCoupons();
     };
 
     const deleteCoupon = async (id: string) => {
         if (!confirm('Delete this coupon?')) return;
-        await supabase.from('coupons').delete().eq('id', id);
+        await supabaseAdmin.from('coupons').delete().eq('id', id);
         fetchCoupons();
     };
 

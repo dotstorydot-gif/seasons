@@ -5,6 +5,7 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import styles from './AdminProducts.module.css';
 import { Search, Plus, Edit, Trash2, Loader2, X, Save, Image as ImageIcon } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import Image from 'next/image';
 
 interface AdminCategory {
@@ -114,9 +115,11 @@ export default function AdminProductsPage() {
         };
 
         if (editProduct?.id) {
-            await supabase.from('products').update(payload).eq('id', editProduct.id);
+            const { error } = await supabaseAdmin.from('products').update(payload).eq('id', editProduct.id);
+            if (error) { alert('Error updating product: ' + error.message); setSaving(false); return; }
         } else {
-            await supabase.from('products').insert([payload]);
+            const { error } = await supabaseAdmin.from('products').insert([payload]);
+            if (error) { alert('Error creating product: ' + error.message); setSaving(false); return; }
         }
         setSaving(false);
         setEditProduct(null);
@@ -125,7 +128,8 @@ export default function AdminProductsPage() {
 
     const handleDelete = async (id: string) => {
         if (!confirm('Delete this product?')) return;
-        await supabase.from('products').delete().eq('id', id);
+        const { error } = await supabaseAdmin.from('products').delete().eq('id', id);
+        if (error) { alert('Error deleting product: ' + error.message); return; }
         fetchData();
     };
 

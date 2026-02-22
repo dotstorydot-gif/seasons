@@ -5,6 +5,7 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import styles from './Orders.module.css';
 import { Search, Download, Loader2, ChevronDown, Package, Truck, CheckCircle, XCircle, Clock, X, Bell, CornerDownLeft } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabaseAdmin';
 
 const STATUS_OPTIONS = ['pending', 'confirmed', 'shipped', 'delivered', 'cancelled', 'returned'] as const;
 type OrderStatus = typeof STATUS_OPTIONS[number];
@@ -57,7 +58,8 @@ export default function OrdersPage() {
 
     const updateStatus = async (orderId: string, status: OrderStatus) => {
         setUpdatingId(orderId);
-        await supabase.from('orders').update({ status }).eq('id', orderId);
+        const { error } = await supabaseAdmin.from('orders').update({ status }).eq('id', orderId);
+        if (error) { alert('Error updating status: ' + error.message); setUpdatingId(null); return; }
         setUpdatingId(null);
         fetchOrders();
         if (selectedOrder?.id === orderId) setSelectedOrder((p: any) => ({ ...p, status }));

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Save, Loader2, Globe, Mail, Phone, Truck } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { useToast } from '@/context/ToastContext';
 
 export default function SettingsPage() {
@@ -48,7 +49,7 @@ export default function SettingsPage() {
             updated_at: new Date().toISOString()
         };
 
-        const { error } = await supabase.from('settings').upsert([payload]);
+        const { error } = await supabaseAdmin.from('settings').upsert([payload]);
 
         if (error) {
             console.error('Error saving settings:', error);
