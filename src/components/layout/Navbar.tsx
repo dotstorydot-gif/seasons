@@ -7,7 +7,7 @@ import styles from './Navbar.module.css';
 import { ShoppingBag, Menu, Search, Globe } from 'lucide-react';
 
 const Navbar = () => {
-    const { t, language, setLanguage } = useLanguage();
+    const { t, language, setLanguage, dir } = useLanguage();
 
     const [menuOpen, setMenuOpen] = React.useState(false);
 
