@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import { useWishlist } from '@/context/WishlistContext';
 import { useCart } from '@/context/CartContext';
@@ -46,7 +47,17 @@ export default function WishlistPage() {
                                 <div key={item.id} className={styles.card}>
                                     <Link href={`/product/${item.id}`} className={styles.imageLink}>
                                         {item.image
-                                            ? <img src={item.image} alt={name} className={styles.image} />
+                                            ? (
+                                                <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                                                    <Image
+                                                        src={item.image}
+                                                        alt={name}
+                                                        fill
+                                                        className={styles.image}
+                                                        style={{ objectFit: 'cover' }}
+                                                    />
+                                                </div>
+                                            )
                                             : <div className={styles.placeholder} />
                                         }
                                     </Link>

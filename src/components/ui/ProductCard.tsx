@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './ProductCard.module.css';
 import { useLanguage } from '@/context/LanguageContext';
 import { useCart } from '@/context/CartContext';
@@ -46,16 +47,20 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
             <div className={styles.imageWrapper}>
                 {mainImage ? (
                     <>
-                        <img
+                        <Image
                             src={mainImage}
                             alt={name}
+                            fill
                             className={`${styles.image} ${hovered && hoverImage ? styles.imageHidden : ''}`}
+                            style={{ objectFit: 'cover' }}
                         />
                         {hoverImage && (
-                            <img
+                            <Image
                                 src={hoverImage}
                                 alt={`${name} — alternate`}
+                                fill
                                 className={`${styles.image} ${styles.imageHover} ${hovered ? styles.imageHoverVisible : ''}`}
+                                style={{ objectFit: 'cover' }}
                             />
                         )}
                     </>
