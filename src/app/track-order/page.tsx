@@ -6,7 +6,7 @@ import styles from './TrackOrder.module.css';
 import { Search, Package, MapPin, Calendar, CheckCircle2, XCircle, RotateCcw, Truck, CornerDownLeft } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
-type OrderItem = { id: string; nameEn: string; price: number; quantity: number };
+type OrderItem = { id: string; nameEn: string; nameAr?: string; price: number; quantity: number };
 
 type Order = {
     id: string;
@@ -159,7 +159,7 @@ export default function TrackOrderPage() {
                                 <div className={styles.itemsList}>
                                     {order.items.map((item, idx) => (
                                         <div key={idx} className={styles.item}>
-                                            <span className={styles.itemName}>{item.quantity}x {language === 'en' ? item.nameEn : (item as any).nameAr || item.nameEn}</span>
+                                            <span className={styles.itemName}>{item.quantity}x {language === 'en' ? item.nameEn : item.nameAr || item.nameEn}</span>
                                             <span className={styles.itemPrice}>{(item.price * item.quantity).toLocaleString()} {language === 'en' ? 'EGP' : 'ج.م'}</span>
                                         </div>
                                     ))}

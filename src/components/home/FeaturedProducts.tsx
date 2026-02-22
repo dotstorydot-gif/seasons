@@ -4,10 +4,17 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from '../ui/ProductCard';
 import styles from './FeaturedProducts.module.css';
 import { supabase } from '@/lib/supabase';
+import { Product } from '@/context/CartContext';
+
+interface Category {
+    id: string;
+    name_en: string;
+    name_ar: string;
+}
 
 const FeaturedProducts = () => {
-    const [products, setProducts] = useState<any[]>([]);
-    const [categories, setCategories] = useState<any[]>([]);
+    const [products, setProducts] = useState<Product[]>([]);
+    const [categories, setCategories] = useState<Category[]>([]);
 
     const [loading, setLoading] = useState(true);
 
@@ -44,12 +51,12 @@ const FeaturedProducts = () => {
                                 key={product.id}
                                 product={{
                                     id: product.id,
-                                    nameEn: product.name_en,
-                                    nameAr: product.name_ar,
+                                    nameEn: product.name_en || product.nameEn || '',
+                                    nameAr: product.name_ar || product.nameAr || '',
                                     price: product.price,
                                     categoryEn: categories.find(c => c.id === product.category_id)?.name_en || '',
                                     categoryAr: categories.find(c => c.id === product.category_id)?.name_ar || '',
-                                    image: product.image_url || (product.images?.[0]) || '',
+                                    image: product.image_url || product.image || (product.images?.[0]) || '',
                                     images: product.images || [],
                                 }}
                             />

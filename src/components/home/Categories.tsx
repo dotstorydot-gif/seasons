@@ -5,9 +5,18 @@ import styles from './Categories.module.css';
 import { supabase } from '@/lib/supabase';
 import { useLanguage } from '@/context/LanguageContext';
 import Link from 'next/link';
+import Image from 'next/image';
+
+interface Category {
+    id: string;
+    name_en: string;
+    name_ar: string;
+    image_url?: string;
+    sort_order?: number;
+}
 
 const Categories = () => {
-    const [categories, setCategories] = useState<any[]>([]);
+    const [categories, setCategories] = useState<Category[]>([]);
     const [loading, setLoading] = useState(true);
     const { language } = useLanguage();
 
@@ -34,8 +43,16 @@ const Categories = () => {
                     <div className={styles.grid}>
                         {categories.map(cat => (
                             <Link href={`/shop?category=${cat.id}`} key={cat.id} className={styles.categoryCard}>
-                                <div className={styles.imagePlaceholder} style={{ backgroundColor: '#E5E1DA' }}>
-                                    {cat.image_url && <img src={cat.image_url} alt={cat.name_en} className={styles.categoryImage} />}
+                                <div className={styles.imagePlaceholder} style={{ backgroundColor: '#E5E1DA', position: 'relative', overflow: 'hidden' }}>
+                                    {cat.image_url && (
+                                        <Image
+                                            src={cat.image_url}
+                                            alt={cat.name_en}
+                                            fill
+                                            className={styles.categoryImage}
+                                            style={{ objectFit: 'cover' }}
+                                        />
+                                    )}
                                 </div>
                                 <div className={styles.label}>
                                     <h3>{language === 'en' ? cat.name_en : cat.name_ar}</h3>

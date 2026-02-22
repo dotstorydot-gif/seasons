@@ -2,11 +2,17 @@
 
 import React, { useState } from 'react';
 import styles from './Checkout.module.css';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { ShieldCheck, Loader2, Tag, X, Check } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { useCart } from '@/context/CartContext';
 
 const SHIPPING_FEE = 30;
+
+const generateOrderNumber = () => {
+    return `ORD-${Math.random().toString(36).substring(2, 11).toUpperCase()}`;
+};
 
 type CouponResult = {
     id: string;
@@ -17,6 +23,7 @@ type CouponResult = {
 };
 
 export default function CheckoutPage() {
+    const router = useRouter();
     const { items, total, clearCart } = useCart();
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
@@ -129,7 +136,7 @@ export default function CheckoutPage() {
         if (items.length === 0) { alert('Your cart is empty'); return; }
 
         setLoading(true);
-        const orderNumber = `ORD-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
+        const orderNumber = generateOrderNumber();
 
         const { data: orderData, error } = await supabase.from('orders').insert([{
             order_number: orderNumber,
@@ -196,7 +203,7 @@ export default function CheckoutPage() {
 
         clearCart();
         localStorage.removeItem('seasons-order-note'); // clear note after order
-        window.location.href = `/checkout/thank-you?order=${orderNumber}`;
+        router.push(`/checkout/thank-you?order=${orderNumber}`);
     };
 
     return (
@@ -298,7 +305,13 @@ export default function CheckoutPage() {
                                         <div className={styles.previewImageContainer}>
                                             <div className={styles.quantityBadge}>{item.quantity}</div>
                                             {item.image ? (
-                                                <img src={item.image} alt={item.nameEn} />
+                                                <Image
+                                                    src={item.image}
+                                                    alt={item.nameEn}
+                                                    width={64}
+                                                    height={64}
+                                                    style={{ objectFit: 'cover', borderRadius: '8px' }}
+                                                />
                                             ) : (
                                                 <div style={{ width: '100%', height: '100%', background: '#E5E1DA', borderRadius: '8px' }} />
                                             )}

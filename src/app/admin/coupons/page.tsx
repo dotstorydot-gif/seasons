@@ -18,8 +18,21 @@ const EMPTY_FORM = {
     is_active: true,
 };
 
+interface Coupon {
+    id: string;
+    code: string;
+    discount_type: DiscountType;
+    discount_value: number;
+    max_uses: number | null;
+    per_user_limit: number | null;
+    expires_at: string | null;
+    is_active: boolean;
+    used_count?: number;
+    coupon_usages?: { count: number }[];
+}
+
 export default function CouponsPage() {
-    const [coupons, setCoupons] = useState<any[]>([]);
+    const [coupons, setCoupons] = useState<Coupon[]>([]);
     const [loading, setLoading] = useState(true);
     const [showForm, setShowForm] = useState(false);
     const [form, setForm] = useState({ ...EMPTY_FORM });
@@ -27,16 +40,43 @@ export default function CouponsPage() {
     const [copiedId, setCopiedId] = useState<string | null>(null);
 
     const fetchCoupons = useCallback(async () => {
-        setLoading(true);
         const { data } = await supabase
             .from('coupons')
             .select('*, coupon_usages(count)')
             .order('created_at', { ascending: false });
-        if (data) setCoupons(data);
+        if (data) {
+            // Map usage count
+            const mapped = data.map((c: Coupon) => ({
+                ...c,
+                used_count: c.coupon_usages?.[0]?.count || 0
+            }));
+            setCoupons(mapped);
+        }
         setLoading(false);
     }, []);
 
-    useEffect(() => { fetchCoupons(); }, [fetchCoupons]);
+    useEffect(() => {
+        let isMounted = true;
+        const fetch = async () => {
+            const { data } = await supabase
+                .from('coupons')
+                .select('*, coupon_usages(count)')
+                .order('created_at', { ascending: false });
+
+            if (isMounted) {
+                if (data) {
+                    const mapped = data.map((c: Coupon) => ({
+                        ...c,
+                        used_count: c.coupon_usages?.[0]?.count || 0
+                    }));
+                    setCoupons(mapped);
+                }
+                setLoading(false);
+            }
+        };
+        fetch();
+        return () => { isMounted = false; };
+    }, []);
 
     const generateCode = () => {
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';

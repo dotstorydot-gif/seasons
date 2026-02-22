@@ -12,9 +12,23 @@ export interface CartItem {
     sku?: string;
 }
 
+export interface Product {
+    id: string;
+    nameEn?: string;
+    nameAr?: string;
+    name_en?: string;
+    name_ar?: string;
+    price: number;
+    image?: string;
+    image_url?: string;
+    images?: string[];
+    sku?: string;
+    category_id?: string;
+}
+
 interface CartContextType {
     items: CartItem[];
-    addItem: (product: any, quantity?: number) => void;
+    addItem: (product: Product, quantity?: number) => void;
     removeItem: (id: string) => void;
     updateQuantity: (id: string, quantity: number) => void;
     clearCart: () => void;
@@ -30,31 +44,44 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const [items, setItems] = useState<CartItem[]>([]);
     const [orderNote, setOrderNote] = useState('');
 
+    // Use a flag to prevent server/client mismatch if SSR is used
+    const [isInitialized, setIsInitialized] = useState(false);
+
     // Load cart from localStorage on mount
     useEffect(() => {
-        const savedCart = localStorage.getItem('seasons-cart');
-        if (savedCart) {
-            try {
-                setItems(JSON.parse(savedCart));
-            } catch (e) {
-                console.error('Failed to parse saved cart:', e);
+        // Defer to next tick to avoid cascading renders warning
+        Promise.resolve().then(() => {
+            const savedCart = localStorage.getItem('seasons-cart');
+            if (savedCart) {
+                try {
+                    const parsed = JSON.parse(savedCart);
+                    setItems(parsed);
+                } catch (e) {
+                    console.error('Failed to parse saved cart:', e);
+                }
             }
-        }
 
-        const savedNote = localStorage.getItem('seasons-order-note');
-        if (savedNote) setOrderNote(savedNote);
+            const savedNote = localStorage.getItem('seasons-order-note');
+            if (savedNote) setOrderNote(savedNote);
+
+            setIsInitialized(true);
+        });
     }, []);
 
-    // Save cart to localStorage on changes
+    // Save cart to localStorage on changes (only after initialization)
     useEffect(() => {
-        localStorage.setItem('seasons-cart', JSON.stringify(items));
-    }, [items]);
+        if (isInitialized) {
+            localStorage.setItem('seasons-cart', JSON.stringify(items));
+        }
+    }, [items, isInitialized]);
 
     useEffect(() => {
-        localStorage.setItem('seasons-order-note', orderNote);
-    }, [orderNote]);
+        if (isInitialized) {
+            localStorage.setItem('seasons-order-note', orderNote);
+        }
+    }, [orderNote, isInitialized]);
 
-    const addItem = (product: any, quantity: number = 1) => {
+    const addItem = (product: Product, quantity: number = 1) => {
         setItems(prev => {
             const existingItem = prev.find(item => item.id === product.id);
             if (existingItem) {
@@ -66,11 +93,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
             }
             return [...prev, {
                 id: product.id,
-                nameEn: product.nameEn || product.name_en,
-                nameAr: product.nameAr || product.name_ar,
+                nameEn: (product.nameEn || product.name_en || '') as string,
+                nameAr: (product.nameAr || product.name_ar || '') as string,
                 price: product.price,
-                image: product.image || product.image_url || product.images?.[0] || '',
-                sku: product.sku,
+                image: (product.image || product.image_url || product.images?.[0] || '') as string,
+                sku: product.sku || '',
                 quantity
             }];
         });

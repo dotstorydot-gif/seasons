@@ -3,7 +3,7 @@
 import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { CheckCircle, ShoppingBag, ArrowRight } from 'lucide-react';
+import { CheckCircle, ArrowRight } from 'lucide-react';
 import styles from './ThankYou.module.css';
 
 function ThankYouContent() {
@@ -17,7 +17,7 @@ function ThankYouContent() {
                     <CheckCircle className={styles.icon} size={64} />
                     <h1 className={styles.title}>Thank You For Your Order</h1>
                     <p className={styles.subtitle}>
-                        Your order has been placed successfully. We'll send you a confirmation email shortly.
+                        Your order has been placed successfully. We&apos;ll send you a confirmation email shortly.
                     </p>
 
                     <div className={styles.orderBox}>

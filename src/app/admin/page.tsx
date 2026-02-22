@@ -15,8 +15,16 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarEleme
 
 type TimeRange = 'week' | 'month' | 'year';
 
+interface Order {
+    id: string;
+    created_at: string;
+    total_amount: number;
+    status: string;
+    city: string;
+}
+
 export default function AdminDashboard() {
-    const [orders, setOrders] = useState<any[]>([]);
+    const [orders, setOrders] = useState<Order[]>([]);
     const [productsCount, setProductsCount] = useState(0);
     const [loading, setLoading] = useState(true);
     const [timeRange, setTimeRange] = useState<TimeRange>('month');
