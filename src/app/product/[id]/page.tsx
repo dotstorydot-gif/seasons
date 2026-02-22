@@ -120,17 +120,6 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                 <MessageCircle size={20} />
                                 Order via WhatsApp
                             </a>
-                            <button
-                                className={styles.quickAdd}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    // Add to cart logic here
-                                    alert(`${name} added to cart!`);
-                                }}
-                            >
-                                Quick Add
-                            </button>
                             <button className={styles.shareButton}>
                                 <Share2 size={20} />
                                 Share
