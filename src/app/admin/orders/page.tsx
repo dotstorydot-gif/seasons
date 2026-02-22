@@ -3,10 +3,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import styles from './Orders.module.css';
-import { Search, Download, Loader2, ChevronDown, Package, Truck, CheckCircle, XCircle, Clock, X, Bell } from 'lucide-react';
+import { Search, Download, Loader2, ChevronDown, Package, Truck, CheckCircle, XCircle, Clock, X, Bell, CornerDownLeft } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
-const STATUS_OPTIONS = ['pending', 'confirmed', 'shipped', 'delivered', 'cancelled'] as const;
+const STATUS_OPTIONS = ['pending', 'confirmed', 'shipped', 'delivered', 'cancelled', 'returned'] as const;
 type OrderStatus = typeof STATUS_OPTIONS[number];
 
 const STATUS_ICONS: Record<OrderStatus, React.ReactNode> = {
@@ -15,6 +15,7 @@ const STATUS_ICONS: Record<OrderStatus, React.ReactNode> = {
     shipped: <Truck size={14} />,
     delivered: <CheckCircle size={14} />,
     cancelled: <XCircle size={14} />,
+    returned: <CornerDownLeft size={14} />,
 };
 
 export default function OrdersPage() {

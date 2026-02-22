@@ -2,11 +2,12 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from './Footer.module.css';
 
 const Footer = () => {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     return (
         <footer className={styles.footer}>
@@ -15,7 +16,9 @@ const Footer = () => {
 
                     {/* Brand */}
                     <div className={styles.brand}>
-                        <h2 className={styles.logo}>SEASONS</h2>
+                        <Link href="/" className={styles.logoLink}>
+                            <Image src="/images/logolight.png" alt="Seasons Logo" width={140} height={35} className={styles.logoImg} />
+                        </Link>
                         <p className={styles.tagline}>
                             Handcrafted wooden pieces that bring warmth and elegance to your everyday life.
                         </p>
@@ -44,7 +47,8 @@ const Footer = () => {
                             <li><Link href="/shop">{t('nav.shop')}</Link></li>
                             <li><Link href="/about">{t('nav.about')}</Link></li>
                             <li><Link href="/contact">{t('nav.contact')}</Link></li>
-                            <li><Link href="/wishlist">❤️ Wishlist</Link></li>
+                            <li><Link href="/wishlist">{language === 'en' ? '♥ Wishlist' : '♥ قائمة الأمنيات'}</Link></li>
+                            <li><Link href="/track-order">{language === 'en' ? '📦 Track Order' : '📦 تتبع الطلب'}</Link></li>
                         </ul>
                     </div>
 
@@ -56,9 +60,13 @@ const Footer = () => {
                             <li>+20 100 000 0000</li>
                             <li>Cairo, Egypt</li>
                         </ul>
+                        <div className={styles.legalLinks}>
+                            <Link href="/privacy-policy">{language === 'en' ? 'Privacy Policy' : 'سياسة الخصوصية'}</Link>
+                            <Link href="/terms-conditions">{language === 'en' ? 'Terms & Conditions' : 'الشروط والأحكام'}</Link>
+                        </div>
                         <div className={styles.securityNote}>
                             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                            HTTPS Encrypted — Verified by Let&apos;s Encrypt
+                            {language === 'en' ? "HTTPS Encrypted — Verified by Let's Encrypt" : "مشفر بـ HTTPS — تم التحقق منه بواسطة Let's Encrypt"}
                         </div>
                     </div>
 

@@ -14,6 +14,39 @@
     color: var(--text-muted);
 }
 
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.rangeSelector {
+    display: flex;
+    background: white;
+    padding: 4px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.rangeBtn {
+    padding: 6px 16px;
+    border: none;
+    background: none;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    color: var(--text-muted);
+    transition: all 0.2s;
+}
+
+.rangeBtn.active {
+    background: #F5F0E8;
+    color: #B8945A;
+}
+
 .statsGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
@@ -33,7 +34,9 @@ const Navbar = () => {
                 </div>
 
                 <div className={styles.logo}>
-                    <Link href="/">SEASONS</Link>
+                    <Link href="/">
+                        <Image src="/images/mainlogo.png" alt="Seasons Logo" width={140} height={35} className={styles.logoImg} priority />
+                    </Link>
                 </div>
 
                 <div className={styles.right}>

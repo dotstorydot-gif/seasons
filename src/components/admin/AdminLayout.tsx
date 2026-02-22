@@ -2,7 +2,9 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { LayoutDashboard, ShoppingCart, Package, Settings, LogOut, BarChart3, Tag } from 'lucide-react';
+
 import styles from './AdminLayout.module.css';
 
 const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -10,9 +12,10 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className={styles.adminContainer}>
             <aside className={styles.sidebar}>
                 <div className={styles.sidebarHeader}>
-                    <h2>SEASONS</h2>
+                    <Image src="/images/logolight.png" alt="Seasons Admin" width={140} height={35} className={styles.logoImg} />
                     <span>Admin Panel</span>
                 </div>
+
 
                 <nav className={styles.nav}>
                     <Link href="/admin"><LayoutDashboard size={18} /> Dashboard</Link>

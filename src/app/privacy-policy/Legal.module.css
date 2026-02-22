@@ -1,0 +1,85 @@
+.page {
+    padding: 100px 0;
+    background-color: var(--bg-primary);
+    min-height: calc(100vh - 80px);
+    /* Account for navbar */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px;
+    background: white;
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.content {
+    padding: 60px 40px;
+}
+
+.content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.content>p:first-of-type {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.content h2 {
+    font-size: 1.2rem;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+}
+
+.content p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+/* RTL Support */
+.content[dir="rtl"] {
+    font-family: inherit;
+    text-align: right;
+}
+
+.content[dir="rtl"] h1,
+.content[dir="rtl"] h2 {
+    font-family: var(--font-sans);
+    /* Fallback to sans for Arabic headers for better legibility */
+}
+
+@media (max-width: 768px) {
+    .page {
+        padding: 40px 0;
+    }
+
+    .container {
+        padding: 0 20px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .content {
+        padding: 40px 20px;
+    }
+
+    .content h1 {
+        font-size: 2rem;
+    }
+}

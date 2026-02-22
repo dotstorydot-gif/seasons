@@ -1,119 +1,214 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import styles from './Dashboard.module.css';
-import { TrendingUp, Users, ShoppingBag, DollarSign, Loader2 } from 'lucide-react';
+import { TrendingUp, Users, ShoppingBag, DollarSign, Loader2, XCircle, CornerDownLeft } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-    Filler
+    Chart as ChartJS, CategoryScale, LinearScale, PointElement,
+    LineElement, BarElement, Title, Tooltip, Legend, Filler
 } from 'chart.js';
 import { Line, Bar } from 'react-chartjs-2';
 
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-    Filler
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend, Filler);
+
+type TimeRange = 'week' | 'month' | 'year';
 
 export default function AdminDashboard() {
-    const [stats, setStats] = useState<any[]>([]);
+    const [orders, setOrders] = useState<any[]>([]);
+    const [productsCount, setProductsCount] = useState(0);
     const [loading, setLoading] = useState(true);
-    const [salesData, setSalesData] = useState<any>(null);
+    const [timeRange, setTimeRange] = useState<TimeRange>('month');
 
     useEffect(() => {
-        fetchStats();
+        const fetchInitialData = async () => {
+            setLoading(true);
+            const [{ data: orderData }, { count }] = await Promise.all([
+                supabase.from('orders').select('*').order('created_at', { ascending: true }),
+                supabase.from('products').select('*', { count: 'exact', head: true })
+            ]);
+            if (orderData) setOrders(orderData);
+            if (count) setProductsCount(count);
+            setLoading(false);
+        };
+        fetchInitialData();
     }, []);
 
-    const fetchStats = async () => {
-        setLoading(true);
-        const { data: orders } = await supabase.from('orders').select('*');
-        const { count: productsCount } = await supabase.from('products').select('*', { count: 'exact', head: true });
+    const { filteredOrders, revenue, aov, chartData, cityData, cancelledOrders, returnedOrders } = useMemo(() => {
+        const now = new Date();
+        let startDate = new Date();
+        if (timeRange === 'week') startDate.setDate(now.getDate() - 7);
+        if (timeRange === 'month') startDate.setMonth(now.getMonth() - 1);
+        if (timeRange === 'year') startDate.setFullYear(now.getFullYear() - 1);
 
-        if (orders) {
-            const totalRevenue = orders.reduce((acc, curr) => acc + Number(curr.total_amount), 0);
-            const todayOrders = orders.filter(o => new Date(o.created_at).toDateString() === new Date().toDateString()).length;
+        // Include all orders in range, except pure abandoned or failed if tracking status
+        // Assume 'pending', 'confirmed', 'shipped', 'delivered' are revenue-generating
+        const validStatuses = ['pending', 'confirmed', 'shipped', 'delivered'];
+        const activeOrders = orders.filter(o =>
+            new Date(o.created_at) >= startDate &&
+            new Date(o.created_at) <= now &&
+            validStatuses.includes(o.status)
+        );
 
-            setStats([
-                { label: 'Total Revenue', value: `${totalRevenue.toLocaleString()} EGP`, icon: <DollarSign />, trend: '+12.5%' },
-                { label: 'Today\'s Orders', value: todayOrders.toString(), icon: <ShoppingBag />, trend: '+4.2%' },
-                { label: 'Total Products', value: productsCount?.toString() || '0', icon: <Users />, trend: '+8.1%' },
-                { label: 'Conversion Rate', value: '3.2%', icon: <TrendingUp />, trend: '+0.5%' },
-            ]);
+        const rev = activeOrders.reduce((acc, o) => acc + Number(o.total_amount || 0), 0);
+        const average = activeOrders.length > 0 ? (rev / activeOrders.length).toFixed(0) : '0';
 
-            // Simple sales chart data
-            setSalesData({
-                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                datasets: [{
-                    label: 'Weekly Sales (EGP)',
-                    data: [4000, 3000, 2000, 5000, 4000, 6000, totalRevenue],
-                    borderColor: '#53402D',
-                    backgroundColor: 'rgba(83, 64, 45, 0.1)',
-                    fill: true,
-                    tension: 0.4
-                }]
-            });
+        // Group for chart
+        const groups: Record<string, number> = {};
+
+        // Init groups
+        if (timeRange === 'year') {
+            for (let i = 11; i >= 0; i--) {
+                const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+                groups[d.toLocaleString('default', { month: 'short' })] = 0;
+            }
+        } else {
+            const days = timeRange === 'week' ? 7 : 30;
+            for (let i = days - 1; i >= 0; i--) {
+                const d = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
+                groups[d.toLocaleDateString('default', { month: 'short', day: 'numeric' })] = 0;
+            }
         }
-        setLoading(false);
-    };
 
-    const CITY_DATA = {
-        labels: ['Cairo', 'Giza', 'Alexandria', 'Mansoura', 'Suez'],
-        datasets: [{
-            label: 'Orders by City',
-            data: [45, 32, 18, 12, 10],
-            backgroundColor: '#C5A059'
-        }]
-    };
+        activeOrders.forEach(o => {
+            const d = new Date(o.created_at);
+            const key = timeRange === 'year'
+                ? d.toLocaleString('default', { month: 'short' })
+                : d.toLocaleDateString('default', { month: 'short', day: 'numeric' });
+            if (groups[key] !== undefined) {
+                groups[key] += Number(o.total_amount || 0);
+            }
+        });
+
+        const cData = {
+            labels: Object.keys(groups),
+            datasets: [{
+                label: `Revenue (EGP)`,
+                data: Object.values(groups),
+                borderColor: '#8B5E3C',
+                backgroundColor: 'rgba(139, 94, 60, 0.1)',
+                fill: true,
+                tension: 0.4
+            }]
+        };
+
+        // City distribution
+        const cities: Record<string, number> = {};
+        activeOrders.forEach(o => {
+            if (o.city) {
+                cities[o.city] = (cities[o.city] || 0) + 1;
+            }
+        });
+        const sortedCities = Object.entries(cities).sort((a, b) => b[1] - a[1]).slice(0, 5);
+
+        const ctData = {
+            labels: sortedCities.length ? sortedCities.map(c => c[0]) : ['No Data'],
+            datasets: [{
+                label: 'Orders by City',
+                data: sortedCities.length ? sortedCities.map(c => c[1]) : [0],
+                backgroundColor: '#C5A059',
+                borderRadius: 4
+            }]
+        };
+
+        const cancelledOrders = orders.filter(o =>
+            new Date(o.created_at) >= startDate &&
+            new Date(o.created_at) <= now &&
+            o.status === 'cancelled'
+        ).length;
+
+        const returnedOrders = orders.filter(o =>
+            new Date(o.created_at) >= startDate &&
+            new Date(o.created_at) <= now &&
+            o.status === 'returned'
+        ).length;
+
+        return { filteredOrders: activeOrders, revenue: rev, aov: average, chartData: cData, cityData: ctData, cancelledOrders, returnedOrders };
+    }, [orders, timeRange]);
 
     return (
         <AdminLayout>
             <div className={styles.dashboard}>
                 <header className={styles.header}>
                     <h1>Dashboard Overview</h1>
-                    <p>Welcome back, Admin. Here&apos;s what&apos;s happening today.</p>
+                    <p>Track your store&apos;s performance with real data.</p>
                 </header>
 
+                <div className={styles.toolbar}>
+                    <div className={styles.rangeSelector}>
+                        <button
+                            className={`${styles.rangeBtn} ${timeRange === 'week' ? styles.active : ''}`}
+                            onClick={() => setTimeRange('week')}
+                        >7 Days</button>
+                        <button
+                            className={`${styles.rangeBtn} ${timeRange === 'month' ? styles.active : ''}`}
+                            onClick={() => setTimeRange('month')}
+                        >30 Days</button>
+                        <button
+                            className={`${styles.rangeBtn} ${timeRange === 'year' ? styles.active : ''}`}
+                            onClick={() => setTimeRange('year')}
+                        >12 Months</button>
+                    </div>
+                </div>
+
                 {loading ? (
-                    <div className={styles.loading}><Loader2 className={styles.spinner} /></div>
+                    <div className={styles.loading}><Loader2 size={32} className={styles.spinner} /></div>
                 ) : (
                     <>
                         <div className={styles.statsGrid}>
-                            {stats.map((stat, i) => (
-                                <div key={i} className={styles.statCard}>
-                                    <div className={styles.statIcon}>{stat.icon}</div>
-                                    <div className={styles.statInfo}>
-                                        <span className={styles.statValue}>{stat.value}</span>
-                                        <span className={styles.statLabel}>{stat.label}</span>
-                                    </div>
-                                    <span className={styles.statTrend}>{stat.trend}</span>
+                            <div className={styles.statCard}>
+                                <div className={styles.statIcon}><DollarSign /></div>
+                                <div className={styles.statInfo}>
+                                    <span className={styles.statValue}>{revenue.toLocaleString()} EGP</span>
+                                    <span className={styles.statLabel}>Revenue</span>
                                 </div>
-                            ))}
+                            </div>
+                            <div className={styles.statCard}>
+                                <div className={styles.statIcon}><ShoppingBag /></div>
+                                <div className={styles.statInfo}>
+                                    <span className={styles.statValue}>{filteredOrders.length}</span>
+                                    <span className={styles.statLabel}>Orders</span>
+                                </div>
+                            </div>
+                            <div className={styles.statCard}>
+                                <div className={styles.statIcon}><TrendingUp /></div>
+                                <div className={styles.statInfo}>
+                                    <span className={styles.statValue}>{Number(aov).toLocaleString()} EGP</span>
+                                    <span className={styles.statLabel}>Avg Order Value</span>
+                                </div>
+                            </div>
+                            <div className={styles.statCard}>
+                                <div className={styles.statIcon}><Users /></div>
+                                <div className={styles.statInfo}>
+                                    <span className={styles.statValue}>{productsCount}</span>
+                                    <span className={styles.statLabel}>Total Products</span>
+                                </div>
+                            </div>
+                            <div className={styles.statCard}>
+                                <div className={styles.statIcon} style={{ color: '#c62828', background: '#ffebee' }}><XCircle /></div>
+                                <div className={styles.statInfo}>
+                                    <span className={styles.statValue}>{cancelledOrders}</span>
+                                    <span className={styles.statLabel}>Cancelled</span>
+                                </div>
+                            </div>
+                            <div className={styles.statCard}>
+                                <div className={styles.statIcon} style={{ color: '#616161', background: '#f5f5f5' }}><CornerDownLeft /></div>
+                                <div className={styles.statInfo}>
+                                    <span className={styles.statValue}>{returnedOrders}</span>
+                                    <span className={styles.statLabel}>Returned</span>
+                                </div>
+                            </div>
                         </div>
 
                         <div className={styles.chartsGrid}>
                             <div className={styles.chartCard}>
-                                <h3>Sales Performance</h3>
-                                {salesData && <Line data={salesData} />}
+                                <h3>Revenue Over Time</h3>
+                                {chartData && <Line data={chartData} options={{ responsive: true, maintainAspectRatio: false }} height={300} />}
                             </div>
                             <div className={styles.chartCard}>
-                                <h3>Orders by City</h3>
-                                <Bar data={CITY_DATA} />
+                                <h3>Top Cities</h3>
+                                {cityData && <Bar data={cityData} options={{ responsive: true, maintainAspectRatio: false }} height={300} />}
                             </div>
                         </div>
                     </>

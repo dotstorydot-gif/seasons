@@ -6,7 +6,8 @@
 
 .sidebar {
     width: 260px;
-    background-color: var(--accent-brown);
+    background-color: #1E1A17;
+    /* Dark elegant brown/black */
     color: white;
     display: flex;
     flex-direction: column;
@@ -14,6 +15,7 @@
     height: 100vh;
     left: 0;
     top: 0;
+    z-index: 1000;
 }
 
 .sidebarHeader {
@@ -25,6 +27,14 @@
     font-family: var(--font-serif);
     font-size: 1.5rem;
     letter-spacing: 0.1em;
+    margin-bottom: 4px;
+}
+
+.logoImg {
+    display: block;
+    height: 30px;
+    width: auto;
+    object-fit: contain;
     margin-bottom: 4px;
 }
 

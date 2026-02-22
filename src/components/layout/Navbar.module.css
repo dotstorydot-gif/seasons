@@ -51,12 +51,11 @@
     opacity: 0.6;
 }
 
-.logo a {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    letter-spacing: 0.2em;
-    color: var(--text-primary);
-    font-weight: 500;
+.logoImg {
+    display: block;
+    height: 35px;
+    width: auto;
+    object-fit: contain;
 }
 
 .iconButton {
