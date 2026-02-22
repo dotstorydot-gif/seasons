@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useState } from 'react';
+import styles from './Checkout.module.css';
 import { ShieldCheck, Loader2 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { useCart } from '@/context/CartContext';
-import { useLanguage } from '@/context/LanguageContext';
 
 export default function CheckoutPage() {
     const { items, total, clearCart } = useCart();
-    const { language, t } = useLanguage();
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         fullName: '',
