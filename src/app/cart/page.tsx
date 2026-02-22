@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import { useCart } from '@/context/CartContext';
-
 import styles from './Cart.module.css';
 import { Trash2, ChevronLeft, Minus, Plus, ClipboardList, Truck, Tag } from 'lucide-react';
 
@@ -53,7 +53,7 @@ export default function CartPage() {
                                     <div key={item.id} className={styles.item}>
                                         <div className={styles.thumbWrapper}>
                                             {item.image
-                                                ? <img src={item.image} alt={name} className={styles.thumb} />
+                                                ? <Image src={item.image} alt={name} width={80} height={100} className={styles.thumb} />
                                                 : <div className={styles.thumbPlaceholder} />
                                             }
                                         </div>
