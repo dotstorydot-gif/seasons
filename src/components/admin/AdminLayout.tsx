@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { LayoutDashboard, ShoppingCart, Package, Settings, LogOut, BarChart3 } from 'lucide-react';
+import { LayoutDashboard, ShoppingCart, Package, Settings, LogOut, BarChart3, Tag } from 'lucide-react';
 import styles from './AdminLayout.module.css';
 
 const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -18,6 +18,7 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     <Link href="/admin"><LayoutDashboard size={18} /> Dashboard</Link>
                     <Link href="/admin/orders"><ShoppingCart size={18} /> Orders</Link>
                     <Link href="/admin/products"><Package size={18} /> Products</Link>
+                    <Link href="/admin/coupons"><Tag size={18} /> Coupons</Link>
                     <Link href="/admin/analytics"><BarChart3 size={18} /> Analytics</Link>
                     <Link href="/admin/settings"><Settings size={18} /> Settings</Link>
                 </nav>

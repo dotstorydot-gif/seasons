@@ -1,0 +1,64 @@
+.toastContainer {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    animation: slideIn 0.3s ease;
+    min-width: 220px;
+    max-width: 320px;
+}
+
+.cart {
+    background: #1E1A17;
+}
+
+.wishlist {
+    background: #8A3A3A;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .toastContainer {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+    }
+}

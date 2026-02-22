@@ -90,3 +90,41 @@
     color: var(--text-primary);
     margin-top: 4px;
 }
+
+/* Wishlist heart button — top-right corner */
+.wishlistBtn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    color: var(--text-muted);
+    z-index: 2;
+}
+
+.card:hover .wishlistBtn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.wishlistBtn.wishlisted {
+    opacity: 1;
+    transform: scale(1);
+    color: #B8945A;
+}
+
+.wishlistBtn:hover {
+    transform: scale(1.1);
+    color: #B8945A;
+}

@@ -2,42 +2,114 @@
 
 import React, { useState } from 'react';
 import styles from './Checkout.module.css';
-import { ShieldCheck, Loader2 } from 'lucide-react';
+import { ShieldCheck, Loader2, Tag, X, Check } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { useCart } from '@/context/CartContext';
+
+const SHIPPING_FEE = 30;
+
+type CouponResult = {
+    id: string;
+    code: string;
+    discount_type: 'percentage' | 'free_delivery';
+    discount_value: number;
+    used_count: number;
+};
 
 export default function CheckoutPage() {
     const { items, total, clearCart } = useCart();
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
-        fullName: '',
-        phone: '',
-        altPhone: '',
-        city: '',
-        area: '',
-        address: '',
-        notes: ''
+        fullName: '', phone: '', altPhone: '', city: '', area: '', address: '', notes: ''
     });
+    // Coupon state
+    const [couponCode, setCouponCode] = useState('');
+    const [couponLoading, setCouponLoading] = useState(false);
+    const [appliedCoupon, setAppliedCoupon] = useState<CouponResult | null>(null);
+    const [couponError, setCouponError] = useState('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const DELIVERY_FEE = 150;
-    const finalTotal = total + DELIVERY_FEE;
+    // Calculate discount
+    const discount = appliedCoupon
+        ? appliedCoupon.discount_type === 'percentage'
+            ? Math.round(total * appliedCoupon.discount_value / 100)
+            : SHIPPING_FEE // free delivery = shipping waived
+        : 0;
+    const shipping = appliedCoupon?.discount_type === 'free_delivery' ? 0 : SHIPPING_FEE;
+    const finalTotal = total - (appliedCoupon?.discount_type === 'percentage' ? discount : 0) + shipping;
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (items.length === 0) {
-            alert('Your cart is empty');
+    const applyCoupon = async () => {
+        if (!couponCode.trim()) return;
+        setCouponLoading(true);
+        setCouponError('');
+        setAppliedCoupon(null);
+
+        const code = couponCode.trim().toUpperCase();
+
+        // 1. Look up the coupon
+        const { data: coupons, error } = await supabase
+            .from('coupons')
+            .select('*')
+            .eq('code', code)
+            .eq('is_active', true)
+            .single();
+
+        if (error || !coupons) {
+            setCouponError('Invalid coupon code.');
+            setCouponLoading(false);
             return;
         }
 
-        setLoading(true);
+        // 2. Check expiry
+        if (coupons.expires_at && new Date(coupons.expires_at) < new Date()) {
+            setCouponError('This coupon has expired.');
+            setCouponLoading(false);
+            return;
+        }
 
+        // 3. Check max uses
+        if (coupons.max_uses !== null && coupons.used_count >= coupons.max_uses) {
+            setCouponError('This coupon has reached its usage limit.');
+            setCouponLoading(false);
+            return;
+        }
+
+        // 4. Check per-user usage (by phone if provided, otherwise skip)
+        if (coupons.per_user_limit !== null && formData.phone) {
+            const { count } = await supabase
+                .from('coupon_usages')
+                .select('*', { count: 'exact', head: true })
+                .eq('coupon_id', coupons.id)
+                .eq('user_phone', formData.phone);
+
+            if ((count ?? 0) >= coupons.per_user_limit) {
+                setCouponError('You have already used this coupon.');
+                setCouponLoading(false);
+                return;
+            }
+        }
+
+        setAppliedCoupon(coupons);
+        setCouponLoading(false);
+    };
+
+    const removeCoupon = () => {
+        setAppliedCoupon(null);
+        setCouponCode('');
+        setCouponError('');
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (items.length === 0) { alert('Your cart is empty'); return; }
+
+        setLoading(true);
         const orderNumber = `ORD-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
 
-        const { error } = await supabase.from('orders').insert([{
+        const { data: orderData, error } = await supabase.from('orders').insert([{
             order_number: orderNumber,
             full_name: formData.fullName,
             phone: formData.phone,
@@ -48,39 +120,45 @@ export default function CheckoutPage() {
             delivery_notes: formData.notes,
             total_amount: finalTotal,
             status: 'pending',
+            coupon_code: appliedCoupon?.code || null,
+            discount_amount: discount,
             items: items.map(item => ({
-                id: item.id,
-                name: item.nameEn,
-                price: item.price,
-                quantity: item.quantity
+                id: item.id, nameEn: item.nameEn, price: item.price, quantity: item.quantity
             }))
-        }]);
+        }]).select('id').single();
 
         if (error) {
             alert('Error placing order. Please try again.');
             console.error(error);
             setLoading(false);
-        } else {
-            // Send email confirmation (don't block the UI)
-            fetch('/api/send-confirmation', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    orderNumber,
-                    fullName: formData.fullName,
-                    phone: formData.phone,
-                    totalAmount: finalTotal,
-                    items: items.map(item => ({
-                        name: item.nameEn,
-                        price: item.price,
-                        quantity: item.quantity
-                    }))
-                })
-            }).catch(e => console.error('Confirmation email failed:', e));
-
-            clearCart();
-            window.location.href = `/checkout/thank-you?order=${orderNumber}`;
+            return;
         }
+
+        // Record coupon usage & increment count
+        if (appliedCoupon && orderData) {
+            await supabase.from('coupon_usages').insert([{
+                coupon_id: appliedCoupon.id,
+                order_id: orderData.id,
+                user_phone: formData.phone,
+            }]);
+            await supabase.from('coupons')
+                .update({ used_count: appliedCoupon.used_count + 1 })
+                .eq('id', appliedCoupon.id);
+        }
+
+        // Email confirmation (non-blocking)
+        fetch('/api/send-confirmation', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                orderNumber, fullName: formData.fullName, phone: formData.phone,
+                totalAmount: finalTotal,
+                items: items.map(i => ({ name: i.nameEn, price: i.price, quantity: i.quantity }))
+            })
+        }).catch(e => console.error('Email failed:', e));
+
+        clearCart();
+        window.location.href = `/checkout/thank-you?order=${orderNumber}`;
     };
 
     return (
@@ -118,6 +196,8 @@ export default function CheckoutPage() {
                                         <option value="Cairo">Cairo</option>
                                         <option value="Giza">Giza</option>
                                         <option value="Alexandria">Alexandria</option>
+                                        <option value="Hurghada">Hurghada</option>
+                                        <option value="Luxor">Luxor</option>
                                     </select>
                                 </div>
                                 <div className={styles.field}>
@@ -126,11 +206,11 @@ export default function CheckoutPage() {
                                 </div>
                                 <div className={`${styles.field} ${styles.full}`}>
                                     <label>Detailed Address *</label>
-                                    <textarea name="address" required value={formData.address} onChange={handleChange} placeholder="Building, Apartment, Street name" rows={3}></textarea>
+                                    <textarea name="address" required value={formData.address} onChange={handleChange} placeholder="Building, Apartment, Street name" rows={3} />
                                 </div>
                                 <div className={`${styles.field} ${styles.full}`}>
                                     <label>Delivery Notes</label>
-                                    <textarea name="notes" value={formData.notes} onChange={handleChange} placeholder="Special instructions for delivery" rows={2}></textarea>
+                                    <textarea name="notes" value={formData.notes} onChange={handleChange} placeholder="Special instructions for delivery" rows={2} />
                                 </div>
                             </div>
                         </section>
@@ -150,24 +230,78 @@ export default function CheckoutPage() {
                     <aside className={styles.sidebar}>
                         <div className={styles.orderSummary}>
                             <h2>Your Order</h2>
+
+                            {/* Cart items preview */}
+                            <div className={styles.itemsPreview}>
+                                {items.map(item => (
+                                    <div key={item.id} className={styles.previewItem}>
+                                        <span>{item.nameEn} × {item.quantity}</span>
+                                        <span>{(item.price * item.quantity).toLocaleString()} EGP</span>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Coupon section */}
+                            <div className={styles.couponSection}>
+                                <label className={styles.couponLabel}>
+                                    <Tag size={14} /> Have a coupon?
+                                </label>
+                                {appliedCoupon ? (
+                                    <div className={styles.couponApplied}>
+                                        <Check size={15} />
+                                        <span>
+                                            <strong>{appliedCoupon.code}</strong> —{' '}
+                                            {appliedCoupon.discount_type === 'free_delivery'
+                                                ? 'Free delivery applied!'
+                                                : `${appliedCoupon.discount_value}% off applied!`}
+                                        </span>
+                                        <button type="button" onClick={removeCoupon} className={styles.removeCoupon}><X size={13} /></button>
+                                    </div>
+                                ) : (
+                                    <div className={styles.couponInput}>
+                                        <input
+                                            type="text"
+                                            placeholder="ENTER CODE"
+                                            value={couponCode}
+                                            onChange={e => setCouponCode(e.target.value.toUpperCase())}
+                                            onKeyDown={e => e.key === 'Enter' && (e.preventDefault(), applyCoupon())}
+                                        />
+                                        <button type="button" onClick={applyCoupon} disabled={couponLoading} className={styles.applyBtn}>
+                                            {couponLoading ? <Loader2 size={14} className={styles.spin} /> : 'Apply'}
+                                        </button>
+                                    </div>
+                                )}
+                                {couponError && <p className={styles.couponError}>{couponError}</p>}
+                            </div>
+
+                            {/* Totals */}
                             <div className={styles.summaryRow}>
                                 <span>Subtotal</span>
                                 <span>{total.toLocaleString()} EGP</span>
                             </div>
+                            {appliedCoupon?.discount_type === 'percentage' && (
+                                <div className={`${styles.summaryRow} ${styles.discount}`}>
+                                    <span>Discount ({appliedCoupon.discount_value}%)</span>
+                                    <span>−{discount.toLocaleString()} EGP</span>
+                                </div>
+                            )}
                             <div className={styles.summaryRow}>
-                                <span>Delivery</span>
-                                <span>{DELIVERY_FEE} EGP</span>
+                                <span>Shipping</span>
+                                <span className={shipping === 0 ? styles.free : ''}>
+                                    {shipping === 0 ? 'FREE' : `${shipping} EGP`}
+                                </span>
                             </div>
                             <div className={`${styles.summaryRow} ${styles.total}`}>
                                 <span>Total</span>
                                 <span>{finalTotal.toLocaleString()} EGP</span>
                             </div>
-                            <button type="submit" disabled={loading} className="premium-button" style={{ width: '100%', opacity: loading ? 0.7 : 1 }}>
+
+                            <button type="submit" disabled={loading || items.length === 0} className="premium-button" style={{ width: '100%', opacity: loading ? 0.7 : 1 }}>
                                 {loading ? <Loader2 className={styles.spinner} /> : 'Confirm Order'}
                             </button>
                             <div className={styles.security}>
                                 <ShieldCheck size={16} />
-                                <span>Secure SSL Encrypted Checkout</span>
+                                <span>SSL Encrypted · Secure Checkout</span>
                             </div>
                         </div>
                     </aside>

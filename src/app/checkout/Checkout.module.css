@@ -155,6 +155,135 @@
     letter-spacing: 0.05em;
 }
 
+/* --- Items preview in sidebar --- */
+.itemsPreview {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.previewItem {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* --- Coupon section --- */
+.couponSection {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.couponLabel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.couponInput {
+    display: flex;
+    gap: 8px;
+}
+
+.couponInput input {
+    flex: 1;
+    border: 1px solid var(--border-subtle);
+    padding: 9px 12px;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.couponInput input:focus {
+    border-color: #B8945A;
+}
+
+.applyBtn {
+    background: #1E1A17;
+    color: #fff;
+    border: none;
+    padding: 0 16px;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s;
+}
+
+.applyBtn:hover:not(:disabled) {
+    background: #3D2E1E;
+}
+
+.applyBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.couponApplied {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #E8F5E9;
+    color: #2E7D32;
+    padding: 10px 12px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    border-radius: 2px;
+}
+
+.removeCoupon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #2E7D32;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.couponError {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: #C62828;
+}
+
+/* Discount row */
+.discount {
+    color: #2E7D32;
+}
+
+.free {
+    color: #2E7D32;
+    font-weight: 600;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
 @media (max-width: 1024px) {
     .layout {
         grid-template-columns: 1fr;

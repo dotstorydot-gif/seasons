@@ -151,3 +151,282 @@
 .iconBtn:hover {
     color: var(--text-primary);
 }
+
+/* ---- New additions ---- */
+
+.subheader {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.activeFilter {
+    color: var(--text-primary);
+    border-bottom: 2px solid #B8945A;
+}
+
+.filterCount {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #F5F0E8;
+    color: var(--text-primary);
+    border-radius: 10px;
+    min-width: 20px;
+    height: 18px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0 5px;
+    margin-left: 5px;
+}
+
+.alertBanner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #1E1A17;
+    color: #F5E6C8;
+    padding: 14px 20px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    animation: slideIn 0.4s ease;
+}
+
+.alertBanner button {
+    background: none;
+    border: none;
+    color: #F5E6C8;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.row {
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.row:hover {
+    background: #FAFAFA;
+}
+
+.statusBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.statusSelect {
+    background: none;
+    border: none;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    color: inherit;
+}
+
+.confirmed {
+    background: #EDE7F6;
+    color: #4527A0;
+}
+
+.shipped {
+    background: #E3F2FD;
+    color: #1565C0;
+}
+
+.delivered {
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.pending {
+    background: #FFF3E0;
+    color: #EF6C00;
+}
+
+.cancelled {
+    background: #FFEBEE;
+    color: #C62828;
+}
+
+.detailBtn {
+    background: none;
+    border: 1px solid var(--border-subtle);
+    padding: 5px 12px;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.detailBtn:hover {
+    background: var(--bg-primary);
+}
+
+.empty {
+    padding: 48px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.loading {
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--text-muted);
+}
+
+/* Order detail modal */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+    padding: 20px;
+}
+
+.modal {
+    background: white;
+    width: 720px;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 4px;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal h2 {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.modalDate {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+}
+
+.modalClose {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.modalGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.modalSection h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    color: var(--text-muted);
+}
+
+.modalSection p {
+    font-size: 0.88rem;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+.modalItem {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    margin-bottom: 8px;
+}
+
+.modalTotal {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.modalStatus {
+    margin-top: 8px;
+}
+
+.modalStatus h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    color: var(--text-muted);
+}
+
+.statusButtons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.statusBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: 1px solid var(--border-subtle);
+    background: none;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.statusBtn:hover {
+    background: #F5F0E8;
+    border-color: #B8945A;
+}
+
+.statusBtnActive {
+    background: #F5F0E8;
+    border-color: #B8945A;
+    color: #8B5E3C;
+    font-weight: 700;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}

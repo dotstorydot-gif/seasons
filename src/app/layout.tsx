@@ -3,9 +3,11 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { CartProvider } from "@/context/CartContext";
+import { WishlistProvider } from "@/context/WishlistContext";
+import { ToastProvider } from "@/context/ToastContext";
 import Shell from "@/components/layout/Shell";
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { FacebookPixel } from "@/components/marketing/FacebookPixel";
 import { CustomScripts } from "@/components/marketing/CustomScripts";
 
@@ -16,7 +18,6 @@ const poppins = Poppins({
   display: "swap",
 });
 
-// Poppins also used for headings (premium feel with heavier weights)
 const poppinsSerif = Poppins({
   variable: "--font-serif",
   subsets: ["latin"],
@@ -39,9 +40,11 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${poppinsSerif.variable} antialiased`}>
         <LanguageProvider>
           <CartProvider>
-            <Shell>
-              {children}
-            </Shell>
+            <WishlistProvider>
+              <ToastProvider>
+                <Shell>{children}</Shell>
+              </ToastProvider>
+            </WishlistProvider>
           </CartProvider>
         </LanguageProvider>
         <Analytics />

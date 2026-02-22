@@ -3,14 +3,18 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useCart } from '@/context/CartContext';
+import { useWishlist } from '@/context/WishlistContext';
+import { useToast } from '@/context/ToastContext';
 import styles from './ProductPage.module.css';
-import { MessageCircle, Share2, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+import { MessageCircle, Share2, ChevronLeft, ChevronRight, Loader2, Heart } from 'lucide-react';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
     const { language, t } = useLanguage();
     const { addItem } = useCart();
+    const { isWishlisted, toggle } = useWishlist();
+    const { showToast } = useToast();
     const [product, setProduct] = useState<any>(null);
     const [quantity, setQuantity] = useState(1);
     const [activeImage, setActiveImage] = useState(0);
@@ -109,18 +113,50 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                             <button
                                 className="premium-button"
                                 style={{ flex: 1 }}
-                                onClick={() => addItem(product, quantity)}
+                                onClick={() => {
+                                    addItem(product);
+                                    showToast(language === 'en' ? '1 item added to cart 🛒' : 'تمت الإضافة إلى السلة', 'cart');
+                                }}
                             >
                                 Add to Cart
                             </button>
                         </div>
 
                         <div className={styles.secondaryActions}>
-                            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.whatsappOrder}>
+                            <a
+                                href={whatsappUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.whatsappOrder}
+                            >
                                 <MessageCircle size={20} />
                                 Order via WhatsApp
                             </a>
-                            <button className={styles.shareButton}>
+                            <button
+                                className={`${styles.iconBtn} ${isWishlisted(product.id) ? styles.wishlisted : ''}`}
+                                type="button"
+                                onClick={() => {
+                                    toggle({ id: product.id, nameEn: product.name_en, nameAr: product.name_ar, price: product.price, image: product.images?.[0] || product.image_url || '', sku: product.sku });
+                                    showToast(isWishlisted(product.id) ? 'Removed from wishlist' : 'Added to wishlist ❤️', 'wishlist');
+                                }}
+                                title="Wishlist"
+                            >
+                                <Heart size={20} fill={isWishlisted(product.id) ? '#B8945A' : 'none'} />
+                            </button>
+                            <button
+                                className={styles.shareButton}
+                                type="button"
+                                onClick={async () => {
+                                    const url = window.location.href;
+                                    const shareData = { title: product.name_en, text: `Check out ${product.name_en} on Seasons!`, url };
+                                    if (navigator.share) {
+                                        try { await navigator.share(shareData); } catch { }
+                                    } else {
+                                        await navigator.clipboard.writeText(url);
+                                        showToast('Link copied to clipboard!', 'cart');
+                                    }
+                                }}
+                            >
                                 <Share2 size={20} />
                                 Share
                             </button>

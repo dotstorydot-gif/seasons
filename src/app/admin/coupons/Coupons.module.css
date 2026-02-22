@@ -1,0 +1,373 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+}
+
+.sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.addBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #1E1A17;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.addBtn:hover {
+    background: #3D2E1E;
+}
+
+.tableWrapper {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    text-align: left;
+    padding: 16px 20px;
+    background: var(--bg-primary);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.88rem;
+}
+
+.expired td {
+    opacity: 0.5;
+}
+
+.codeCell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.code {
+    font-family: monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    background: #F5F0E8;
+    padding: 3px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.06em;
+}
+
+.copyBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    transition: color 0.2s;
+}
+
+.copyBtn:hover {
+    color: var(--text-primary);
+}
+
+.typeBadge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.percentage {
+    background: #FFF3E0;
+    color: #B45309;
+}
+
+.free_delivery {
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.statusToggle {
+    padding: 5px 12px;
+    border: none;
+    border-radius: 20px;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.active {
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.inactive {
+    background: #F5F5F5;
+    color: #666;
+}
+
+.deleteBtn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.deleteBtn:hover {
+    color: #d44;
+}
+
+.loading,
+.empty {
+    padding: 48px;
+    text-align: center;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Modal */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+}
+
+.modal {
+    background: white;
+    width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 4px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.modalHeader h2 {
+    font-size: 1.4rem;
+}
+
+.modalHeader button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.field input,
+.field select {
+    border: 1px solid var(--border-subtle);
+    padding: 10px 14px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.field input:focus,
+.field select:focus {
+    border-color: #B8945A;
+}
+
+.codeInput {
+    display: flex;
+    gap: 8px;
+}
+
+.codeField {
+    flex: 1;
+}
+
+.generateBtn {
+    background: #F5F0E8;
+    border: 1px solid var(--border-subtle);
+    padding: 0 14px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.generateBtn:hover {
+    background: #EDE5D8;
+}
+
+/* Toggle switch */
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.toggle input {
+    display: none;
+}
+
+.slider {
+    width: 42px;
+    height: 24px;
+    background: #ccc;
+    border-radius: 12px;
+    position: relative;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.slider::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.toggle input:checked+.slider {
+    background: #B8945A;
+}
+
+.toggle input:checked+.slider::after {
+    transform: translateX(18px);
+}
+
+.preview {
+    background: #F5F0E8;
+    border-radius: 4px;
+    padding: 14px 16px;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+}
+
+.preview code {
+    font-weight: 700;
+}
+
+.modalFooter {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.cancelBtn {
+    background: none;
+    border: 1px solid var(--border-subtle);
+    padding: 10px 24px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.saveBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #1E1A17;
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.saveBtn:hover:not(:disabled) {
+    background: #3D2E1E;
+}
+
+.saveBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}

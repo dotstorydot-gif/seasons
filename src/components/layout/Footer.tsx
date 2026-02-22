@@ -19,6 +19,21 @@ const Footer = () => {
                         <p className={styles.tagline}>
                             Handcrafted wooden pieces that bring warmth and elegance to your everyday life.
                         </p>
+                        {/* Trust badges */}
+                        <div className={styles.trustBadges}>
+                            <div className={styles.badge}>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+                                <span>SSL Secured</span>
+                            </div>
+                            <div className={styles.badge}>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2" /><line x1="1" y1="10" x2="23" y2="10" /></svg>
+                                <span>Cash on Delivery</span>
+                            </div>
+                            <div className={styles.badge}>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+                                <span>Fast Delivery</span>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Navigate */}
@@ -29,6 +44,7 @@ const Footer = () => {
                             <li><Link href="/shop">{t('nav.shop')}</Link></li>
                             <li><Link href="/about">{t('nav.about')}</Link></li>
                             <li><Link href="/contact">{t('nav.contact')}</Link></li>
+                            <li><Link href="/wishlist">❤️ Wishlist</Link></li>
                         </ul>
                     </div>
 
@@ -36,17 +52,22 @@ const Footer = () => {
                     <div className={styles.col}>
                         <h3 className={styles.colTitle}>CONTACT</h3>
                         <ul className={styles.colList}>
-                            <li>hello@seasonswoodenco.com</li>
+                            <li>hello@seasonsbynature.com</li>
                             <li>+20 100 000 0000</li>
                             <li>Cairo, Egypt</li>
                         </ul>
+                        <div className={styles.securityNote}>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                            HTTPS Encrypted — Verified by Let&apos;s Encrypt
+                        </div>
                     </div>
 
                 </div>
             </div>
 
             <div className={styles.bottom}>
-                <p>&copy; {new Date().getFullYear()} Seasons Wooden. All rights reserved.</p>
+                <p>© {new Date().getFullYear()} Seasons by Nature. All rights reserved.</p>
+                <p className={styles.bottomNote}>Secure checkout · Your data is never shared</p>
             </div>
         </footer>
     );

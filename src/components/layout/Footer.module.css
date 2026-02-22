@@ -107,3 +107,46 @@
         padding: 20px 24px;
     }
 }
+
+/* Trust badges */
+.trustBadges {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.badge svg {
+    color: #B8945A;
+    flex-shrink: 0;
+}
+
+.securityNote {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 8px;
+}
+
+.securityNote svg {
+    color: #4CAF50;
+    flex-shrink: 0;
+}
+
+.bottomNote {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.3);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+}

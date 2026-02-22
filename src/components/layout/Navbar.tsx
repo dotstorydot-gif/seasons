@@ -3,11 +3,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { useCart } from '@/context/CartContext';
+import { useWishlist } from '@/context/WishlistContext';
 import styles from './Navbar.module.css';
-import { ShoppingBag, Menu, Search, Globe } from 'lucide-react';
+import { ShoppingBag, Menu, Search, Globe, Heart } from 'lucide-react';
 
 const Navbar = () => {
     const { t, language, setLanguage, dir } = useLanguage();
+    const { itemCount } = useCart();
+    const { count: wishlistCount } = useWishlist();
 
     const [menuOpen, setMenuOpen] = React.useState(false);
 
@@ -44,8 +48,23 @@ const Navbar = () => {
                     <button className={styles.iconButton}>
                         <Search size={20} />
                     </button>
-                    <Link href="/checkout" className={styles.iconButton}>
-                        <ShoppingBag size={20} />
+                    {/* Wishlist */}
+                    <Link href="/wishlist" className={styles.iconButton} aria-label="Wishlist">
+                        <div className={styles.badgeWrapper}>
+                            <Heart size={20} />
+                            {wishlistCount > 0 && (
+                                <span className={styles.badge}>{wishlistCount}</span>
+                            )}
+                        </div>
+                    </Link>
+                    {/* Cart */}
+                    <Link href="/cart" className={styles.iconButton} aria-label="Cart">
+                        <div className={styles.badgeWrapper}>
+                            <ShoppingBag size={20} />
+                            {itemCount > 0 && (
+                                <span className={styles.badge}>{itemCount}</span>
+                            )}
+                        </div>
                     </Link>
                 </div>
             </div>
@@ -57,6 +76,7 @@ const Navbar = () => {
                     <Link href="/shop" onClick={() => setMenuOpen(false)}>{t('nav.shop')}</Link>
                     <Link href="/about" onClick={() => setMenuOpen(false)}>{t('nav.about')}</Link>
                     <Link href="/contact" onClick={() => setMenuOpen(false)}>{t('nav.contact')}</Link>
+                    <Link href="/wishlist" onClick={() => setMenuOpen(false)}>❤️ Wishlist</Link>
                 </div>
             )}
         </nav>

@@ -254,6 +254,30 @@
     line-height: 1.8;
 }
 
+/* Wishlist heart on product detail page */
+.iconBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid var(--border-subtle);
+    padding: 0 20px;
+    height: 48px;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.iconBtn:hover {
+    color: #B8945A;
+    border-color: #B8945A;
+}
+
+.wishlisted {
+    color: #B8945A;
+    border-color: #B8945A;
+}
+
 @media (max-width: 1024px) {
     .layout {
         grid-template-columns: 1fr;

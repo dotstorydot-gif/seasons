@@ -5,6 +5,9 @@ import Link from 'next/link';
 import styles from './ProductCard.module.css';
 import { useLanguage } from '@/context/LanguageContext';
 import { useCart } from '@/context/CartContext';
+import { useWishlist } from '@/context/WishlistContext';
+import { useToast } from '@/context/ToastContext';
+import { Heart } from 'lucide-react';
 
 interface Product {
     id: string;
@@ -12,24 +15,25 @@ interface Product {
     nameAr: string;
     price: number;
     image: string;
-    images?: string[];   // full array: [0]=main, [1]=hover, [2..]=gallery
+    images?: string[];
     categoryEn: string;
     categoryAr: string;
+    sku?: string;
 }
 
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
     const { language } = useLanguage();
     const { addItem } = useCart();
+    const { isWishlisted, toggle } = useWishlist();
+    const { showToast } = useToast();
     const [hovered, setHovered] = useState(false);
 
     const name = language === 'en' ? product.nameEn : product.nameAr;
     const category = language === 'en' ? product.categoryEn : product.categoryAr;
 
-    // Use images array if available, fallback to single image
     const mainImage = (product.images && product.images[0]) || product.image;
     const hoverImage = product.images && product.images[1];
-
-    const displayImage = hovered && hoverImage ? hoverImage : mainImage;
+    const wishlisted = isWishlisted(product.id);
 
     return (
         <Link
@@ -41,33 +45,51 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
             <div className={styles.imageWrapper}>
                 {mainImage ? (
                     <>
-                        {/* Main image — always rendered */}
                         <img
                             src={mainImage}
                             alt={name}
                             className={`${styles.image} ${hovered && hoverImage ? styles.imageHidden : ''}`}
                         />
-                        {/* Hover image — pre-loaded, fades in */}
                         {hoverImage && (
                             <img
                                 src={hoverImage}
-                                alt={`${name} — alternate view`}
+                                alt={`${name} — alternate`}
                                 className={`${styles.image} ${styles.imageHover} ${hovered ? styles.imageHoverVisible : ''}`}
                             />
                         )}
                     </>
                 ) : (
-                    <div className={styles.placeholderImage} style={{ backgroundColor: '#E5E1DA' }}></div>
+                    <div className={styles.placeholderImage} style={{ backgroundColor: '#E5E1DA' }} />
                 )}
+
+                {/* Wishlist heart */}
+                <button
+                    className={`${styles.wishlistBtn} ${wishlisted ? styles.wishlisted : ''}`}
+                    onClick={(e) => {
+                        e.preventDefault(); e.stopPropagation();
+                        toggle({ id: product.id, nameEn: product.nameEn, nameAr: product.nameAr, price: product.price, image: mainImage, sku: product.sku });
+                        showToast(
+                            wishlisted
+                                ? (language === 'en' ? 'Removed from wishlist' : 'تمت الإزالة من الأمنيات')
+                                : (language === 'en' ? 'Added to wishlist ❤️' : 'أضيف إلى قائمة الأمنيات'),
+                            'wishlist'
+                        );
+                    }}
+                    aria-label="Wishlist"
+                >
+                    <Heart size={16} fill={wishlisted ? '#B8945A' : 'none'} />
+                </button>
+
+                {/* Add to cart */}
                 <button
                     className={styles.quickAdd}
                     onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
+                        e.preventDefault(); e.stopPropagation();
                         addItem(product);
+                        showToast(language === 'en' ? '1 item added to cart 🛒' : 'تمت الإضافة إلى السلة', 'cart');
                     }}
                 >
-                    Add to Cart
+                    {language === 'en' ? 'Add to Cart' : 'أضف للسلة'}
                 </button>
             </div>
             <div className={styles.info}>
