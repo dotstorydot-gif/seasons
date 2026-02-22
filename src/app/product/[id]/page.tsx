@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { useCart } from '@/context/CartContext';
 import styles from './ProductPage.module.css';
 import { MessageCircle, Share2, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import Link from 'next/link';
@@ -9,6 +10,7 @@ import { supabase } from '@/lib/supabase';
 
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
     const { language, t } = useLanguage();
+    const { addItem } = useCart();
     const [product, setProduct] = useState<any>(null);
     const [quantity, setQuantity] = useState(1);
     const [activeImage, setActiveImage] = useState(0);
@@ -16,13 +18,23 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
 
     const fetchProduct = async (id: string) => {
         setLoading(true);
+        console.log('Fetching product with ID:', id);
         const { data, error } = await supabase
             .from('products')
             .select('*, categories(name_en, name_ar)')
             .eq('id', id)
             .single();
 
-        if (data) setProduct(data);
+        if (error) {
+            console.error('Supabase error fetching product:', error);
+        }
+
+        if (data) {
+            console.log('Product data fetched successfully:', data);
+            setProduct(data);
+        } else {
+            console.warn('No product found for ID:', id);
+        }
         setLoading(false);
     };
 
@@ -94,7 +106,13 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                 <span>{quantity}</span>
                                 <button onClick={() => setQuantity(quantity + 1)}>+</button>
                             </div>
-                            <button className="premium-button" style={{ flex: 1 }}>Add to Cart</button>
+                            <button
+                                className="premium-button"
+                                style={{ flex: 1 }}
+                                onClick={() => addItem(product, quantity)}
+                            >
+                                Add to Cart
+                            </button>
                         </div>
 
                         <div className={styles.secondaryActions}>

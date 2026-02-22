@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { CartProvider } from "@/context/CartContext";
 import Shell from "@/components/layout/Shell";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
@@ -34,9 +35,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <LanguageProvider>
-          <Shell>
-            {children}
-          </Shell>
+          <CartProvider>
+            <Shell>
+              {children}
+            </Shell>
+          </CartProvider>
         </LanguageProvider>
         <Analytics />
         <SpeedInsights />

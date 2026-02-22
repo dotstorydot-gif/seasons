@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './ProductCard.module.css';
 import { useLanguage } from '@/context/LanguageContext';
+import { useCart } from '@/context/CartContext';
 
 interface Product {
     id: string;
@@ -17,6 +18,7 @@ interface Product {
 
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
     const { language } = useLanguage();
+    const { addItem } = useCart();
 
     const name = language === 'en' ? product.nameEn : product.nameAr;
     const category = language === 'en' ? product.categoryEn : product.categoryAr;
@@ -34,11 +36,11 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
                     onClick={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        // Toast or alert for now
-                        alert(`${name} added to cart!`);
+                        addItem(product);
+                        // Future: Add a nice toast instead of alert
                     }}
                 >
-                    Quick Add
+                    Add to Cart
                 </button>
             </div>
             <div className={styles.info}>
