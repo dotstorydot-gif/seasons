@@ -19,12 +19,36 @@ const STATUS_ICONS: Record<OrderStatus, React.ReactNode> = {
     returned: <CornerDownLeft size={14} />,
 };
 
+interface OrderItem {
+    nameEn?: string;
+    name_en?: string;
+    price: number;
+    quantity: number;
+}
+
+interface Order {
+    id: string;
+    order_number: string;
+    full_name: string;
+    phone: string;
+    alt_phone?: string;
+    city: string;
+    area: string;
+    address: string;
+    delivery_notes?: string;
+    status: OrderStatus;
+    total_amount: number;
+    items: OrderItem[];
+    created_at: string;
+}
+
+
 export default function OrdersPage() {
-    const [orders, setOrders] = useState<any[]>([]);
+    const [orders, setOrders] = useState<Order[]>([]);
     const [activeFilter, setActiveFilter] = useState('all');
     const [search, setSearch] = useState('');
     const [loading, setLoading] = useState(true);
-    const [selectedOrder, setSelectedOrder] = useState<any | null>(null);
+    const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
     const [updatingId, setUpdatingId] = useState<string | null>(null);
     const [newOrderAlert, setNewOrderAlert] = useState<string | null>(null);
 
@@ -38,7 +62,8 @@ export default function OrdersPage() {
     }, [activeFilter]);
 
     useEffect(() => {
-        fetchOrders();
+        // Defer to next tick to avoid cascading renders warning
+        Promise.resolve().then(() => fetchOrders());
 
         // Real-time new order notifications
         const channel = supabase
@@ -62,14 +87,14 @@ export default function OrdersPage() {
         if (error) { alert('Error updating status: ' + error.message); setUpdatingId(null); return; }
         setUpdatingId(null);
         fetchOrders();
-        if (selectedOrder?.id === orderId) setSelectedOrder((p: any) => ({ ...p, status }));
+        if (selectedOrder?.id === orderId) setSelectedOrder((p: Order | null) => p ? { ...p, status } : p);
     };
 
     const exportCSV = () => {
         const rows = [['Order #', 'Customer', 'Phone', 'City', 'Area', 'Address', 'Total', 'Shipping', 'Status', 'Date']];
         orders.forEach(o => rows.push([
             o.order_number, o.full_name, o.phone, o.city, o.area, o.address,
-            o.total_amount, '30 EGP', o.status, new Date(o.created_at).toLocaleDateString()
+            String(o.total_amount), '30 EGP', o.status, new Date(o.created_at).toLocaleDateString()
         ]));
         const csv = rows.map(r => r.join(',')).join('\n');
         const blob = new Blob([csv], { type: 'text/csv' });
@@ -212,7 +237,7 @@ export default function OrdersPage() {
                                 </div>
                                 <div className={styles.modalSection}>
                                     <h3>Order Items</h3>
-                                    {Array.isArray(selectedOrder.items) ? selectedOrder.items.map((item: any, i: number) => (
+                                    {Array.isArray(selectedOrder.items) ? selectedOrder.items.map((item: OrderItem, i: number) => (
                                         <div key={i} className={styles.modalItem}>
                                             <span>{item.nameEn || item.name_en} × {item.quantity}</span>
                                             <span>{(item.price * item.quantity).toLocaleString()} EGP</span>
