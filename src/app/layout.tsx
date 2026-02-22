@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+// BUILD_MARKER: 2026-02-22-1407
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
