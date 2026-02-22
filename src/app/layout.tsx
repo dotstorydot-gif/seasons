@@ -5,6 +5,7 @@ import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Shell from "@/components/layout/Shell";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import { FacebookPixel } from "@/components/marketing/FacebookPixel";
 import { CustomScripts } from "@/components/marketing/CustomScripts";
 
@@ -39,6 +40,7 @@ export default function RootLayout({
           </Shell>
         </LanguageProvider>
         <Analytics />
+        <SpeedInsights />
         <FacebookPixel />
         <CustomScripts />
       </body>
