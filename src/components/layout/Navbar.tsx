@@ -9,6 +9,8 @@ import { ShoppingBag, Menu, Search, Globe } from 'lucide-react';
 const Navbar = () => {
     const { t, language, setLanguage } = useLanguage();
 
+    const [menuOpen, setMenuOpen] = React.useState(false);
+
     const toggleLanguage = () => {
         setLanguage(language === 'en' ? 'ar' : 'en');
     };
@@ -17,7 +19,7 @@ const Navbar = () => {
         <nav className={styles.navbar}>
             <div className={styles.container}>
                 <div className={styles.left}>
-                    <button className={styles.menuButton}>
+                    <button className={styles.menuButton} onClick={() => setMenuOpen(!menuOpen)}>
                         <Menu size={20} />
                     </button>
                     <div className={styles.navLinks}>
@@ -42,11 +44,21 @@ const Navbar = () => {
                     <button className={styles.iconButton}>
                         <Search size={20} />
                     </button>
-                    <button className={styles.iconButton}>
+                    <Link href="/checkout" className={styles.iconButton}>
                         <ShoppingBag size={20} />
-                    </button>
+                    </Link>
                 </div>
             </div>
+
+            {/* Mobile Menu */}
+            {menuOpen && (
+                <div className={styles.mobileMenu} dir={dir}>
+                    <Link href="/" onClick={() => setMenuOpen(false)}>{t('nav.home')}</Link>
+                    <Link href="/shop" onClick={() => setMenuOpen(false)}>{t('nav.shop')}</Link>
+                    <Link href="/about" onClick={() => setMenuOpen(false)}>{t('nav.about')}</Link>
+                    <Link href="/contact" onClick={() => setMenuOpen(false)}>{t('nav.contact')}</Link>
+                </div>
+            )}
         </nav>
     );
 };
