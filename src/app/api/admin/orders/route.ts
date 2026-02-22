@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseAdmin = createClient(
+const getAdmin = () => createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!,
     { auth: { autoRefreshToken: false, persistSession: false } }
@@ -9,7 +9,7 @@ const supabaseAdmin = createClient(
 
 export async function PUT(req: NextRequest) {
     const { id, status } = await req.json();
-    const { error } = await supabaseAdmin.from('orders').update({ status }).eq('id', id);
+    const { error } = await getAdmin().from('orders').update({ status }).eq('id', id);
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
     return NextResponse.json({ success: true });
 }
