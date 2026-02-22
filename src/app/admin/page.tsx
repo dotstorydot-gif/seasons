@@ -37,7 +37,7 @@ export default function AdminDashboard() {
 
     const { filteredOrders, revenue, aov, chartData, cityData, cancelledOrders, returnedOrders } = useMemo(() => {
         const now = new Date();
-        let startDate = new Date();
+        const startDate = new Date();
         if (timeRange === 'week') startDate.setDate(now.getDate() - 7);
         if (timeRange === 'month') startDate.setMonth(now.getMonth() - 1);
         if (timeRange === 'year') startDate.setFullYear(now.getFullYear() - 1);
@@ -204,11 +204,30 @@ export default function AdminDashboard() {
                         <div className={styles.chartsGrid}>
                             <div className={styles.chartCard}>
                                 <h3>Revenue Over Time</h3>
-                                {chartData && <Line data={chartData} options={{ responsive: true, maintainAspectRatio: false }} height={300} />}
+                                <div className={styles.chartWrapper}>
+                                    <Line
+                                        data={chartData}
+                                        options={{
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            plugins: { legend: { display: false } },
+                                            scales: { y: { beginAtZero: true } }
+                                        }}
+                                    />
+                                </div>
                             </div>
                             <div className={styles.chartCard}>
-                                <h3>Top Cities</h3>
-                                {cityData && <Bar data={cityData} options={{ responsive: true, maintainAspectRatio: false }} height={300} />}
+                                <h3>Sales by City</h3>
+                                <div className={styles.chartWrapper}>
+                                    <Bar
+                                        data={cityData}
+                                        options={{
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            plugins: { legend: { display: false } }
+                                        }}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </>

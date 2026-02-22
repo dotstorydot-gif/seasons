@@ -19,6 +19,7 @@ interface Product {
     categoryEn: string;
     categoryAr: string;
     sku?: string;
+    compareAtPrice?: number | null;
 }
 
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
@@ -95,7 +96,12 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
             <div className={styles.info}>
                 <span className={styles.category}>{category}</span>
                 <h3 className={styles.name}>{name}</h3>
-                <p className={styles.price}>{product.price} EGP</p>
+                <div className={styles.priceRow}>
+                    {product.compareAtPrice && product.compareAtPrice > product.price && (
+                        <span className={styles.originalPrice}>{product.compareAtPrice} EGP</span>
+                    )}
+                    <p className={styles.price}>{product.price} EGP</p>
+                </div>
             </div>
         </Link>
     );

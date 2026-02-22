@@ -5,37 +5,64 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import styles from './AdminProducts.module.css';
 import { Search, Plus, Edit, Trash2, Loader2, X, Save, Image as ImageIcon } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import Image from 'next/image';
+
+interface AdminCategory {
+    id: string;
+    name_en: string;
+}
+
+interface AdminProduct {
+    id: string;
+    name_en: string;
+    name_ar: string;
+    description_en: string;
+    description_ar: string;
+    price: number;
+    compare_at_price: number | null;
+    sku: string;
+    stock: number;
+    is_featured: boolean;
+    category_id: string | null;
+    images: string[];
+    categories?: { name_en: string };
+}
 
 const EMPTY_FORM = {
     name_en: '', name_ar: '', description_en: '', description_ar: '',
-    price: '', sku: '', stock: '', is_featured: false, category_id: '',
+    price: '', compare_at_price: '', sku: '', stock: '', is_featured: false, category_id: '',
     images: [] as string[],
 };
 
 export default function AdminProductsPage() {
-    const [products, setProducts] = useState<any[]>([]);
-    const [categories, setCategories] = useState<any[]>([]);
+    const [products, setProducts] = useState<AdminProduct[]>([]);
+    const [categories, setCategories] = useState<AdminCategory[]>([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState('');
-    const [editProduct, setEditProduct] = useState<any | null>(null);
+    const [editProduct, setEditProduct] = useState<Partial<AdminProduct> | null>(null);
     const [form, setForm] = useState({ ...EMPTY_FORM });
     const [saving, setSaving] = useState(false);
     const [newImageUrl, setNewImageUrl] = useState('');
 
     const fetchData = useCallback(async () => {
-        setLoading(true);
-        const [{ data: products }, { data: cats }] = await Promise.all([
+        const [{ data: productsData }, { data: catsData }] = await Promise.all([
             supabase.from('products').select('*, categories(name_en)').order('created_at', { ascending: false }),
             supabase.from('categories').select('id, name_en').order('sort_order')
         ]);
-        if (products) setProducts(products);
-        if (cats) setCategories(cats);
-        setLoading(false);
+        if (productsData) setProducts(productsData as AdminProduct[]);
+        if (catsData) setCategories(catsData as AdminCategory[]);
     }, []);
 
-    useEffect(() => { fetchData(); }, [fetchData]);
+    useEffect(() => {
+        const load = async () => {
+            setLoading(true);
+            await fetchData();
+            setLoading(false);
+        };
+        load();
+    }, [fetchData]);
 
-    const openEdit = (product: any) => {
+    const openEdit = (product: AdminProduct) => {
         setEditProduct(product);
         setForm({
             name_en: product.name_en || '',
@@ -43,6 +70,7 @@ export default function AdminProductsPage() {
             description_en: product.description_en || '',
             description_ar: product.description_ar || '',
             price: product.price?.toString() || '',
+            compare_at_price: product.compare_at_price?.toString() || '',
             sku: product.sku || '',
             stock: product.stock?.toString() || '',
             is_featured: product.is_featured || false,
@@ -62,6 +90,7 @@ export default function AdminProductsPage() {
             name_en: form.name_en, name_ar: form.name_ar,
             description_en: form.description_en, description_ar: form.description_ar,
             price: parseFloat(form.price) || 0,
+            compare_at_price: form.compare_at_price ? parseFloat(form.compare_at_price) : null,
             sku: form.sku,
             stock: parseInt(form.stock) || 0,
             is_featured: form.is_featured,
@@ -131,6 +160,7 @@ export default function AdminProductsPage() {
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Price</th>
+                                    <th>Sale Price</th>
                                     <th>Stock</th>
                                     <th>Featured</th>
                                     <th>Actions</th>
@@ -141,7 +171,7 @@ export default function AdminProductsPage() {
                                     <tr key={product.id}>
                                         <td>
                                             {product.images?.[0]
-                                                ? <img src={product.images[0]} alt="" className={styles.thumb} />
+                                                ? <div className={styles.thumbWrapper}><Image src={product.images[0]} alt={product.name_en} width={40} height={40} className={styles.thumb} unoptimized /></div>
                                                 : <div className={styles.thumbPlaceholder}><ImageIcon size={16} /></div>
                                             }
                                         </td>
@@ -149,6 +179,7 @@ export default function AdminProductsPage() {
                                         <td><strong>{product.name_en}</strong><br /><small>{product.name_ar}</small></td>
                                         <td>{product.categories?.name_en || '—'}</td>
                                         <td>{product.price} EGP</td>
+                                        <td>{product.compare_at_price ? `${product.compare_at_price} EGP` : '—'}</td>
                                         <td>
                                             <span className={product.stock > 5 ? styles.inStock : styles.lowStock}>
                                                 {product.stock}
@@ -208,6 +239,10 @@ export default function AdminProductsPage() {
                                     <input type="number" value={form.price} onChange={e => setForm(f => ({ ...f, price: e.target.value }))} placeholder="610" />
                                 </div>
                                 <div className={styles.formGroup}>
+                                    <label>Compare at Price (EGP)</label>
+                                    <input type="number" value={form.compare_at_price} onChange={e => setForm(f => ({ ...f, compare_at_price: e.target.value }))} placeholder="750" />
+                                </div>
+                                <div className={styles.formGroup}>
                                     <label>Stock</label>
                                     <input type="number" value={form.stock} onChange={e => setForm(f => ({ ...f, stock: e.target.value }))} placeholder="50" />
                                 </div>
@@ -237,7 +272,7 @@ export default function AdminProductsPage() {
                                     <div className={styles.imageList}>
                                         {form.images.map((url, i) => (
                                             <div key={i} className={styles.imageRow}>
-                                                <img src={url} alt="" className={styles.imageThumb} />
+                                                <div className={styles.thumbWrapper}><Image src={url} alt={`Preview ${i}`} width={32} height={32} className={styles.imageThumb} unoptimized /></div>
                                                 <span className={styles.imageUrl}>{url}</span>
                                                 <span className={styles.imageLabel}>{i === 0 ? 'Main' : i === 1 ? 'Hover' : `#${i + 1}`}</span>
                                                 <button onClick={() => removeImage(i)} className={styles.removeImg}><X size={14} /></button>

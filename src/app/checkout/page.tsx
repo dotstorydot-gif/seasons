@@ -20,8 +20,30 @@ export default function CheckoutPage() {
     const { items, total, clearCart } = useCart();
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
-        fullName: '', phone: '', altPhone: '', city: '', area: '', address: '', notes: ''
+        fullName: '', email: '', phone: '', altPhone: '', city: '', area: '', address: '', notes: ''
     });
+    const [saveInfo, setSaveInfo] = useState(false);
+
+    // Initial load for saved info
+    React.useEffect(() => {
+        const saved = localStorage.getItem('seasons-checkout-info');
+        if (saved) {
+            try {
+                const parsed = JSON.parse(saved);
+                setFormData(prev => ({ ...prev, ...parsed }));
+                setSaveInfo(true);
+            } catch (e) {
+                console.error('Failed to load saved info:', e);
+            }
+        }
+
+        // Also pre-fill the notes if the user entered one in the cart
+        const cartNote = localStorage.getItem('seasons-order-note');
+        if (cartNote) {
+            setFormData(prev => ({ ...prev, notes: cartNote }));
+        }
+    }, []);
+
     // Coupon state
     const [couponCode, setCouponCode] = useState('');
     const [couponLoading, setCouponLoading] = useState(false);
@@ -157,7 +179,23 @@ export default function CheckoutPage() {
             })
         }).catch(e => console.error('Email failed:', e));
 
+        // Save info for next time if checked
+        if (saveInfo) {
+            localStorage.setItem('seasons-checkout-info', JSON.stringify({
+                fullName: formData.fullName,
+                email: formData.email,
+                phone: formData.phone,
+                altPhone: formData.altPhone,
+                city: formData.city,
+                area: formData.area,
+                address: formData.address
+            }));
+        } else {
+            localStorage.removeItem('seasons-checkout-info');
+        }
+
         clearCart();
+        localStorage.removeItem('seasons-order-note'); // clear note after order
         window.location.href = `/checkout/thank-you?order=${orderNumber}`;
     };
 
@@ -169,59 +207,81 @@ export default function CheckoutPage() {
                 <form onSubmit={handleSubmit} className={styles.layout}>
                     <div className={styles.main}>
                         <section className={styles.section}>
-                            <h2>Contact Information</h2>
-                            <div className={styles.formGrid}>
-                                <div className={styles.field}>
-                                    <label>Full Name *</label>
-                                    <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} placeholder="First and last name" />
+                            <div className={styles.contactBlock}>
+                                <h2>Contact</h2>
+                                <div className={styles.formGrid}>
+                                    <div className={`${styles.field} ${styles.full}`}>
+                                        <input type="email" name="email" required value={formData.email} onChange={handleChange} placeholder="Email or mobile phone number" />
+                                    </div>
+                                    <div className={`${styles.field} ${styles.full}`}>
+                                        <label style={{ display: 'flex', alignItems: 'center', gap: '8px', textTransform: 'none', fontWeight: 'normal', color: 'var(--text-primary)', cursor: 'pointer', fontSize: '0.9rem' }}>
+                                            <input type="checkbox" checked={saveInfo} onChange={(e) => setSaveInfo(e.target.checked)} style={{ width: '16px', height: '16px', margin: 0, padding: 0 }} />
+                                            Email me with news and offers
+                                        </label>
+                                    </div>
                                 </div>
-                                <div className={styles.field}>
-                                    <label>Phone Number *</label>
-                                    <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} placeholder="e.g. 01234567890" />
-                                </div>
-                                <div className={styles.field}>
-                                    <label>Alternative Phone (Optional)</label>
-                                    <input type="tel" name="altPhone" value={formData.altPhone} onChange={handleChange} />
+                            </div>
+
+                            <div className={styles.deliveryBlock} style={{ marginTop: '40px' }}>
+                                <h2>Delivery</h2>
+                                <div className={styles.formGrid}>
+                                    <div className={`${styles.field} ${styles.full}`}>
+                                        <select disabled style={{ backgroundColor: '#f5f5f5', color: '#666' }}>
+                                            <option>Egypt</option>
+                                        </select>
+                                    </div>
+                                    <div className={styles.field}>
+                                        <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} placeholder="First and last name" />
+                                    </div>
+                                    <div className={styles.field}>
+                                        <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} placeholder="Phone (e.g. 01234567890)" />
+                                    </div>
+                                    <div className={`${styles.field} ${styles.full}`}>
+                                        <textarea name="address" required value={formData.address} onChange={handleChange} placeholder="Address (Building, Apartment, Street)" rows={2} />
+                                    </div>
+                                    <div className={styles.field}>
+                                        <select name="city" required value={formData.city} onChange={handleChange}>
+                                            <option value="">Governorate</option>
+                                            <option value="Cairo">Cairo</option>
+                                            <option value="Giza">Giza</option>
+                                            <option value="Alexandria">Alexandria</option>
+                                            <option value="Hurghada">Hurghada</option>
+                                            <option value="Luxor">Luxor</option>
+                                        </select>
+                                    </div>
+                                    <div className={styles.field}>
+                                        <input type="text" name="area" required value={formData.area} onChange={handleChange} placeholder="City / Area" />
+                                    </div>
+                                    <div className={`${styles.field} ${styles.full}`}>
+                                        <textarea name="notes" value={formData.notes} onChange={handleChange} placeholder="Special instructions / delivery notes (optional)" rows={1} />
+                                    </div>
+
+                                    <div className={`${styles.field} ${styles.full}`} style={{ marginTop: '8px' }}>
+                                        <label style={{ display: 'flex', alignItems: 'center', gap: '8px', textTransform: 'none', fontWeight: 'normal', color: 'var(--text-primary)', cursor: 'pointer', fontSize: '0.9rem' }}>
+                                            <input type="checkbox" checked={saveInfo} onChange={(e) => setSaveInfo(e.target.checked)} style={{ width: '16px', height: '16px', margin: 0, padding: 0 }} />
+                                            Save this information for next time
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </section>
 
                         <section className={styles.section}>
-                            <h2>Delivery Address</h2>
-                            <div className={styles.formGrid}>
-                                <div className={styles.field}>
-                                    <label>City *</label>
-                                    <select name="city" required value={formData.city} onChange={handleChange}>
-                                        <option value="">Select city</option>
-                                        <option value="Cairo">Cairo</option>
-                                        <option value="Giza">Giza</option>
-                                        <option value="Alexandria">Alexandria</option>
-                                        <option value="Hurghada">Hurghada</option>
-                                        <option value="Luxor">Luxor</option>
-                                    </select>
-                                </div>
-                                <div className={styles.field}>
-                                    <label>Area *</label>
-                                    <input type="text" name="area" required value={formData.area} onChange={handleChange} placeholder="e.g. Maadi, New Cairo" />
-                                </div>
-                                <div className={`${styles.field} ${styles.full}`}>
-                                    <label>Detailed Address *</label>
-                                    <textarea name="address" required value={formData.address} onChange={handleChange} placeholder="Building, Apartment, Street name" rows={3} />
-                                </div>
-                                <div className={`${styles.field} ${styles.full}`}>
-                                    <label>Delivery Notes</label>
-                                    <textarea name="notes" value={formData.notes} onChange={handleChange} placeholder="Special instructions for delivery" rows={2} />
-                                </div>
+                            <h2>Shipping method</h2>
+                            <div className={styles.paymentMethod} style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+                                <span>Standard Shipping</span>
+                                <strong>{shipping === 0 ? 'Free' : `${shipping} EGP`}</strong>
                             </div>
                         </section>
 
                         <section className={styles.section}>
-                            <h2>Payment Method</h2>
+                            <h2>Payment</h2>
+                            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '16px' }}>All transactions are secure and encrypted.</span>
                             <div className={styles.paymentMethod}>
-                                <input type="radio" checked readOnly />
+                                <input type="radio" checked readOnly style={{ accentColor: '#A05A2C' }} />
                                 <div className={styles.paymentLabel}>
                                     <strong>Cash on Delivery (COD)</strong>
-                                    <span>Pay with cash when your order arrives.</span>
+                                    <span>Pay with cash upon delivery.</span>
                                 </div>
                             </div>
                         </section>
@@ -235,8 +295,20 @@ export default function CheckoutPage() {
                             <div className={styles.itemsPreview}>
                                 {items.map(item => (
                                     <div key={item.id} className={styles.previewItem}>
-                                        <span>{item.nameEn} × {item.quantity}</span>
-                                        <span>{(item.price * item.quantity).toLocaleString()} EGP</span>
+                                        <div className={styles.previewImageContainer}>
+                                            <div className={styles.quantityBadge}>{item.quantity}</div>
+                                            {item.image ? (
+                                                <img src={item.image} alt={item.nameEn} />
+                                            ) : (
+                                                <div style={{ width: '100%', height: '100%', background: '#E5E1DA', borderRadius: '8px' }} />
+                                            )}
+                                        </div>
+                                        <div className={styles.previewInfo}>
+                                            <h4>{item.nameEn}</h4>
+                                        </div>
+                                        <div className={styles.previewPrice}>
+                                            {(item.price * item.quantity).toLocaleString()} EGP
+                                        </div>
                                     </div>
                                 ))}
                             </div>

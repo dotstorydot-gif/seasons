@@ -1,19 +1,27 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { useCart } from '@/context/CartContext';
+import CartUpsell from '@/components/cart/CartUpsell';
 import styles from './Cart.module.css';
-import { Trash2, ChevronLeft, Minus, Plus } from 'lucide-react';
+import { Trash2, ChevronLeft, Minus, Plus, ClipboardList, Truck, Tag } from 'lucide-react';
 
 const SHIPPING_FEE = 30;
 
 export default function CartPage() {
     const { language } = useLanguage();
-    const { items, removeItem, updateQuantity, total } = useCart();
+    const { items, removeItem, updateQuantity, total, orderNote, setOrderNote } = useCart();
+    const [activeAction, setActiveAction] = useState<'note' | 'shipping' | 'coupon' | null>(null);
+    const [tempNote, setTempNote] = useState(orderNote);
 
     const finalTotal = total + (items.length > 0 ? SHIPPING_FEE : 0);
+
+    const handleSaveNote = () => {
+        setOrderNote(tempNote);
+        setActiveAction(null);
+    };
 
     if (items.length === 0) {
         return (
@@ -73,6 +81,88 @@ export default function CartPage() {
                                 );
                             })}
                         </div>
+                        <div className={styles.actionToolbar}>
+                            <button
+                                className={`${styles.actionBtn} ${activeAction === 'note' ? styles.active : ''}`}
+                                onClick={() => setActiveAction(activeAction === 'note' ? null : 'note')}
+                                title={language === 'en' ? "Add Order Note" : "إضافة ملاحظة للطلب"}
+                            >
+                                <ClipboardList size={22} strokeWidth={1.5} />
+                            </button>
+                            <button
+                                className={`${styles.actionBtn} ${activeAction === 'shipping' ? styles.active : ''}`}
+                                onClick={() => setActiveAction(activeAction === 'shipping' ? null : 'shipping')}
+                                title={language === 'en' ? "Estimate Shipping" : "حساب الشحن"}
+                            >
+                                <Truck size={22} strokeWidth={1.5} />
+                            </button>
+                            <button
+                                className={`${styles.actionBtn} ${activeAction === 'coupon' ? styles.active : ''}`}
+                                onClick={() => setActiveAction(activeAction === 'coupon' ? null : 'coupon')}
+                                title={language === 'en' ? "Add Coupon" : "إضافة كوبون"}
+                            >
+                                <Tag size={22} strokeWidth={1.5} />
+                            </button>
+                        </div>
+
+                        {activeAction === 'note' && (
+                            <div className={styles.actionContent}>
+                                <div className={styles.actionHeader}>{language === 'en' ? 'Add Order Note' : 'إضافة ملاحظة للطلب'}</div>
+                                <div className={styles.actionSubtext}>{language === 'en' ? 'How can we help you?' : 'كيف يمكننا مساعدتك؟'}</div>
+                                <textarea
+                                    className={styles.noteTextarea}
+                                    value={tempNote}
+                                    onChange={(e) => setTempNote(e.target.value)}
+                                    placeholder={language === 'en' ? 'Special instructions for delivery...' : 'تعليمات خاصة للتوصيل...'}
+                                />
+                                <div className={styles.actionFooter}>
+                                    <button className={styles.saveBtn} onClick={handleSaveNote}>{language === 'en' ? 'Save' : 'حفظ'}</button>
+                                    <button className={styles.cancelBtn} onClick={() => setActiveAction(null)}>{language === 'en' ? 'Cancel' : 'إلغاء'}</button>
+                                </div>
+                            </div>
+                        )}
+
+                        {activeAction === 'shipping' && (
+                            <div className={styles.actionContent}>
+                                <div className={styles.actionHeader}>{language === 'en' ? 'Estimate Shipping' : 'حساب الشحن'}</div>
+                                <div className={styles.actionSubtext}>{language === 'en' ? 'Enter your destination to get a shipping estimate.' : 'أدخل وجهتك للحصول على تقدير الشحن.'}</div>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '24px' }}>
+                                    <select className={styles.noteTextarea} style={{ minHeight: 'auto', marginBottom: 0 }}>
+                                        <option value="EG">Egypt</option>
+                                    </select>
+                                    <select className={styles.noteTextarea} style={{ minHeight: 'auto', marginBottom: 0 }}>
+                                        <option value="Cairo">Cairo</option>
+                                        <option value="Giza">Giza</option>
+                                        <option value="Alexandria">Alexandria</option>
+                                        <option value="Other">Other Governorates</option>
+                                    </select>
+                                </div>
+                                <div className={styles.actionFooter}>
+                                    <button className={styles.saveBtn} onClick={() => setActiveAction(null)}>{language === 'en' ? 'Calculate' : 'احسب'}</button>
+                                    <button className={styles.cancelBtn} onClick={() => setActiveAction(null)}>{language === 'en' ? 'Cancel' : 'إلغاء'}</button>
+                                </div>
+                            </div>
+                        )}
+
+                        {activeAction === 'coupon' && (
+                            <div className={styles.actionContent}>
+                                <div className={styles.actionHeader}>{language === 'en' ? 'Add a Coupon' : 'إضافة كوبون'}</div>
+                                <div className={styles.actionSubtext}>{language === 'en' ? 'Coupon code will work on checkout page' : 'سيعمل رمز الكوبون في صفحة الدفع'}</div>
+                                <input
+                                    type="text"
+                                    className={styles.noteTextarea}
+                                    style={{ minHeight: 'auto' }}
+                                    placeholder={language === 'en' ? 'Coupon code' : 'رمز الكوبون'}
+                                />
+                                <div className={styles.actionFooter}>
+                                    <button className={styles.saveBtn} onClick={() => setActiveAction(null)}>{language === 'en' ? 'Save' : 'حفظ'}</button>
+                                    <button className={styles.cancelBtn} onClick={() => setActiveAction(null)}>{language === 'en' ? 'Cancel' : 'إلغاء'}</button>
+                                </div>
+                            </div>
+                        )}
+
+                        <CartUpsell />
+
                         <Link href="/shop" className={styles.back}>
                             <ChevronLeft size={16} />
                             {language === 'en' ? 'Continue Shopping' : 'تابع التسوق'}

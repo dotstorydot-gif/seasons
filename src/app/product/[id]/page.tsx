@@ -96,7 +96,12 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                     <div className={styles.info}>
                         <span className={styles.sku}>SKU: {product.sku}</span>
                         <h1 className={styles.title}>{name}</h1>
-                        <p className={styles.price}>{product.price} EGP</p>
+                        <div className={styles.priceContainer}>
+                            {product.compare_at_price && product.compare_at_price > product.price && (
+                                <span className={styles.compareAtPrice}>{product.compare_at_price} EGP</span>
+                            )}
+                            <p className={styles.price}>{product.price} EGP</p>
+                        </div>
 
                         <div className={styles.shortDesc}>{shortDesc}</div>
 

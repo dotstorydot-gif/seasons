@@ -20,12 +20,15 @@ interface CartContextType {
     clearCart: () => void;
     total: number;
     itemCount: number;
+    orderNote: string;
+    setOrderNote: (note: string) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [items, setItems] = useState<CartItem[]>([]);
+    const [orderNote, setOrderNote] = useState('');
 
     // Load cart from localStorage on mount
     useEffect(() => {
@@ -37,12 +40,19 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
                 console.error('Failed to parse saved cart:', e);
             }
         }
+
+        const savedNote = localStorage.getItem('seasons-order-note');
+        if (savedNote) setOrderNote(savedNote);
     }, []);
 
     // Save cart to localStorage on changes
     useEffect(() => {
         localStorage.setItem('seasons-cart', JSON.stringify(items));
     }, [items]);
+
+    useEffect(() => {
+        localStorage.setItem('seasons-order-note', orderNote);
+    }, [orderNote]);
 
     const addItem = (product: any, quantity: number = 1) => {
         setItems(prev => {
@@ -79,13 +89,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const clearCart = () => {
         setItems([]);
+        setOrderNote('');
     };
 
     const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
     return (
-        <CartContext.Provider value={{ items, addItem, removeItem, updateQuantity, clearCart, total, itemCount }}>
+        <CartContext.Provider value={{ items, addItem, removeItem, updateQuantity, clearCart, total, itemCount, orderNote, setOrderNote }}>
             {children}
         </CartContext.Provider>
     );

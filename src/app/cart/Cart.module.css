@@ -136,6 +136,122 @@
     color: var(--text-muted);
 }
 
+.actionToolbar {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin: 40px 0;
+    padding: 32px 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.actionBtn {
+    background: #F8F8F8;
+    border: none;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+    background: #E8E8E8;
+    transform: translateY(-2px);
+}
+
+.actionBtn.active {
+    background: var(--bg-primary);
+    border: 2px solid var(--text-primary);
+}
+
+.actionContent {
+    background: #F8F8F8;
+    padding: 32px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    animation: slideDown 0.3s ease-out;
+}
+
+.actionHeader {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.actionSubtext {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.noteTextarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 16px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    resize: vertical;
+    outline: none;
+    margin-bottom: 16px;
+}
+
+.actionFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.saveBtn,
+.cancelBtn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 30px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.saveBtn {
+    background: #A05A2C;
+    color: white;
+    border: none;
+}
+
+.cancelBtn {
+    background: transparent;
+    color: #A05A2C;
+    border: 1px solid #A05A2C;
+}
+
+.saveBtn:hover,
+.cancelBtn:hover {
+    opacity: 0.9;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .summary {
     background: white;
     padding: 40px;

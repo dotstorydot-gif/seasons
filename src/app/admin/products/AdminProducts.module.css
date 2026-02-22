@@ -111,11 +111,17 @@
     margin-top: 4px;
 }
 
+.thumbWrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
 .thumb {
     width: 52px;
     height: 60px;
     object-fit: cover;
-    border-radius: 2px;
     display: block;
 }
 
