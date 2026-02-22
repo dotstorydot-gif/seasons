@@ -102,7 +102,15 @@ const ShopContent = () => {
                         ))}
                 </div>
                 )}
-            </main>
+            </div>
         </div>
+    );
+};
+
+export default function ShopPage() {
+    return (
+        <Suspense fallback={<div className={styles.loading}>Loading shop...</div>}>
+            <ShopContent />
+        </Suspense>
     );
 }
