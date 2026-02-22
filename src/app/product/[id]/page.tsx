@@ -14,14 +14,6 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     const [activeImage, setActiveImage] = useState(0);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const loadParams = async () => {
-            const resolvedParams = await params;
-            fetchProduct(resolvedParams.id);
-        };
-        loadParams();
-    }, [params]);
-
     const fetchProduct = async (id: string) => {
         setLoading(true);
         const { data, error } = await supabase
@@ -33,6 +25,14 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         if (data) setProduct(data);
         setLoading(false);
     };
+
+    useEffect(() => {
+        const loadParams = async () => {
+            const resolvedParams = await params;
+            fetchProduct(resolvedParams.id);
+        };
+        loadParams();
+    }, [params]);
 
     if (loading) return <div className={styles.loadingState}><Loader2 className={styles.spinner} /></div>;
     if (!product) return <div className={styles.errorState}>Product not found</div>;
@@ -102,6 +102,17 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                                 <MessageCircle size={20} />
                                 Order via WhatsApp
                             </a>
+                            <button
+                                className={styles.quickAdd}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    // Add to cart logic here
+                                    alert(`${name} added to cart!`);
+                                }}
+                            >
+                                Quick Add
+                            </button>
                             <button className={styles.shareButton}>
                                 <Share2 size={20} />
                                 Share

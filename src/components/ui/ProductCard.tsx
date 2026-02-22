@@ -29,7 +29,17 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
                 ) : (
                     <div className={styles.placeholderImage} style={{ backgroundColor: '#E5E1DA' }}></div>
                 )}
-                <button className={styles.quickAdd}>Quick Add</button>
+                <button
+                    className={styles.quickAdd}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        // Toast or alert for now
+                        alert(`${name} added to cart!`);
+                    }}
+                >
+                    Quick Add
+                </button>
             </div>
             <div className={styles.info}>
                 <span className={styles.category}>{category}</span>
