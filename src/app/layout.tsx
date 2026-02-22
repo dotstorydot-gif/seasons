@@ -26,8 +26,41 @@ const poppinsSerif = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Seasons by Nature | Handcrafted Wooden Pieces",
-  description: "Timeless wooden pieces for the modern home. Handcrafted with love.",
+  title: {
+    default: "Seasons by Nature | Handcrafted Wooden Pieces",
+    template: "%s | Seasons by Nature"
+  },
+  description: "Timeless wooden pieces for the modern home. Handcrafted with love and natural materials.",
+  keywords: ["handcrafted", "wooden decor", "modern home", "natural materials", "interior design", "egyptian crafts"],
+  authors: [{ name: "Seasons by Nature" }],
+  creator: "Seasons by Nature",
+  publisher: "Seasons by Nature",
+  robots: "index, follow",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://seasons-nature.com",
+    title: "Seasons by Nature | Handcrafted Wooden Pieces",
+    description: "Timeless wooden pieces for the modern home. Handcrafted with love.",
+    siteName: "Seasons by Nature",
+    images: [{
+      url: "/og-image.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Seasons by Nature Collection"
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Seasons by Nature | Handcrafted Wooden Pieces",
+    description: "Timeless wooden pieces for the modern home. Handcrafted with love.",
+    images: ["/og-image.jpg"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
