@@ -99,9 +99,9 @@ const ShopContent = () => {
                                     image: product.images?.[0] || ''
                                 }}
                             />
-                        ))}
+                        ))
+                    )}
                 </div>
-                )}
             </div>
         </div>
     );
