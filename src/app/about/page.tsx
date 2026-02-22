@@ -55,8 +55,8 @@ export default function AboutPage() {
                     </div>
                     <div className={styles.imageSection}>
                         <img
-                            src="https://images.unsplash.com/photo-1581578017093-cd30fce4eeb7?auto=format&fit=crop&q=80"
-                            alt="Artisan at work"
+                            src="/images/abotus.png"
+                            alt="Seasons by Nature — Our Story"
                         />
                     </div>
                 </div>
