@@ -61,6 +61,23 @@ export default function CheckoutPage() {
             console.error(error);
             setLoading(false);
         } else {
+            // Send email confirmation (don't block the UI)
+            fetch('/api/send-confirmation', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    orderNumber,
+                    fullName: formData.fullName,
+                    phone: formData.phone,
+                    totalAmount: finalTotal,
+                    items: items.map(item => ({
+                        name: item.nameEn,
+                        price: item.price,
+                        quantity: item.quantity
+                    }))
+                })
+            }).catch(e => console.error('Confirmation email failed:', e));
+
             clearCart();
             window.location.href = `/checkout/thank-you?order=${orderNumber}`;
         }
