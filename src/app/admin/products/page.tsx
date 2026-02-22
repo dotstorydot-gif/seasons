@@ -28,7 +28,21 @@ interface AdminProduct {
     categories?: { name_en: string };
 }
 
-const EMPTY_FORM = {
+interface ProductForm {
+    name_en: string;
+    name_ar: string;
+    description_en: string;
+    description_ar: string;
+    price: string;
+    compare_at_price: string;
+    sku: string;
+    stock: string;
+    is_featured: boolean;
+    category_id: string;
+    images: string[];
+}
+
+const EMPTY_FORM: ProductForm = {
     name_en: '', name_ar: '', description_en: '', description_ar: '',
     price: '', compare_at_price: '', sku: '', stock: '', is_featured: false, category_id: '',
     images: [] as string[],
@@ -117,13 +131,13 @@ export default function AdminProductsPage() {
 
     const addImageUrl = () => {
         if (newImageUrl.trim()) {
-            setForm((f: any) => ({ ...f, images: [...f.images, newImageUrl.trim()] }));
+            setForm((f: ProductForm) => ({ ...f, images: [...f.images, newImageUrl.trim()] }));
             setNewImageUrl('');
         }
     };
 
     const removeImage = (idx: number) => {
-        setForm((f: any) => ({ ...f, images: f.images.filter((_, i) => i !== idx) }));
+        setForm((f: ProductForm) => ({ ...f, images: f.images.filter((_, i) => i !== idx) }));
     };
 
     const filtered = products.filter(p => {
