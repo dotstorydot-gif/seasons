@@ -135,6 +135,21 @@
     z-index: 999;
 }
 
+
+.mobileMenuLogo {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.mobileLogoImg {
+    display: block;
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
 .mobileMenu a {
     font-family: var(--font-sans);
     font-size: 1rem;

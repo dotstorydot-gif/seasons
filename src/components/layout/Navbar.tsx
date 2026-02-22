@@ -75,6 +75,11 @@ const Navbar = () => {
             {/* Mobile Menu */}
             {menuOpen && (
                 <div className={styles.mobileMenu} dir={dir}>
+                    <div className={styles.mobileMenuLogo}>
+                        <Link href="/" onClick={() => setMenuOpen(false)}>
+                            <Image src="/images/mainlogo.png" alt="Seasons Logo" width={160} height={40} className={styles.mobileLogoImg} />
+                        </Link>
+                    </div>
                     <Link href="/" onClick={() => setMenuOpen(false)}>{t('nav.home')}</Link>
                     <Link href="/shop" onClick={() => setMenuOpen(false)}>{t('nav.shop')}</Link>
                     <Link href="/about" onClick={() => setMenuOpen(false)}>{t('nav.about')}</Link>
