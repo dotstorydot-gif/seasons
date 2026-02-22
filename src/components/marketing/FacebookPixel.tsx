@@ -2,7 +2,7 @@
 
 declare global {
     interface Window {
-        fbq: any;
+        fbq: (...args: any[]) => void;
     }
 }
 
