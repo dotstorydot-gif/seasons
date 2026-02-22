@@ -5,6 +5,7 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import Shell from "@/components/layout/Shell";
 import { Analytics } from "@vercel/analytics/react"
 import { FacebookPixel } from "@/components/marketing/FacebookPixel";
+import { CustomScripts } from "@/components/marketing/CustomScripts";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
         </LanguageProvider>
         <Analytics />
         <FacebookPixel />
+        <CustomScripts />
       </body>
     </html>
   );
