@@ -173,3 +173,10 @@
         padding: 0 20px;
     }
 }
+
+.loading {
+    text-align: center;
+    padding: 100px 0;
+    font-family: var(--font-sans);
+    color: var(--text-muted);
+}
