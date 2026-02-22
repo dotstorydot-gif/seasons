@@ -55,18 +55,18 @@ const Navbar = () => {
                     <Link href="/wishlist" className={styles.iconButton} aria-label="Wishlist">
                         <div className={styles.badgeWrapper}>
                             <Heart size={20} />
-                            {wishlistCount > 0 && (
-                                <span className={styles.badge}>{wishlistCount}</span>
-                            )}
+                            <span className={`${styles.badge} ${wishlistCount === 0 ? styles.badgeHidden : ''}`}>
+                                {wishlistCount || ''}
+                            </span>
                         </div>
                     </Link>
                     {/* Cart */}
                     <Link href="/cart" className={styles.iconButton} aria-label="Cart">
                         <div className={styles.badgeWrapper}>
                             <ShoppingBag size={20} />
-                            {itemCount > 0 && (
-                                <span className={styles.badge}>{itemCount}</span>
-                            )}
+                            <span className={`${styles.badge} ${itemCount === 0 ? styles.badgeHidden : ''}`}>
+                                {itemCount || ''}
+                            </span>
                         </div>
                     </Link>
                 </div>
