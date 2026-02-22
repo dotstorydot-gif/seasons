@@ -12,7 +12,7 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className={styles.adminContainer}>
             <aside className={styles.sidebar}>
                 <div className={styles.sidebarHeader}>
-                    <Image src="/images/logolight.png" alt="Seasons Admin" width={180} height={45} className={styles.logoImg} />
+                    <Image src="/images/logolight.png" alt="Seasons Admin" width={220} height={55} className={styles.logoImg} />
                     <span>Admin Panel</span>
                 </div>
 
