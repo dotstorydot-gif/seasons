@@ -33,6 +33,7 @@ const Navbar = () => {
                 <div className={styles.right}>
                     <div className={styles.navLinks}>
                         <Link href="/about">{t('nav.about')}</Link>
+                        <Link href="/contact">{t('nav.contact')}</Link>
                     </div>
                     <button onClick={toggleLanguage} className={styles.iconButton} aria-label="Toggle Language">
                         <Globe size={20} />
