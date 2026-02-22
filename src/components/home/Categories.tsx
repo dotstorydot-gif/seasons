@@ -14,7 +14,7 @@ const Categories = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             setLoading(true);
-            const { data } = await supabase.from('categories').select('*');
+            const { data } = await supabase.from('categories').select('*').order('sort_order', { ascending: true });
             if (data) setCategories(data);
             setLoading(false);
         };
