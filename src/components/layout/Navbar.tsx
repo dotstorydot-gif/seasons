@@ -35,7 +35,7 @@ const Navbar = () => {
 
                 <div className={styles.logo}>
                     <Link href="/">
-                        <Image src="/images/mainlogo.png" alt="Seasons Logo" width={240} height={60} className={styles.logoImg} priority />
+                        <Image src="/images/mainlogo.png" alt="Seasons Logo" width={400} height={100} className={styles.logoImg} priority />
                     </Link>
                 </div>
 
@@ -77,7 +77,7 @@ const Navbar = () => {
                 <div className={styles.mobileMenu} dir={dir}>
                     <div className={styles.mobileMenuLogo}>
                         <Link href="/" onClick={() => setMenuOpen(false)}>
-                            <Image src="/images/mainlogo.png" alt="Seasons Logo" width={240} height={60} className={styles.mobileLogoImg} />
+                            <Image src="/images/mainlogo.png" alt="Seasons Logo" width={400} height={100} className={styles.mobileLogoImg} />
                         </Link>
                     </div>
                     <Link href="/" onClick={() => setMenuOpen(false)}>{t('nav.home')}</Link>
