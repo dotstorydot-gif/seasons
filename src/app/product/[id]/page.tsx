@@ -7,7 +7,7 @@ import { MessageCircle, Share2, ChevronLeft, ChevronRight, Loader2 } from 'lucid
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 
-export default function ProductPage({ params }: { params: { id: string } }) {
+export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
     const { language, t } = useLanguage();
     const [product, setProduct] = useState<any>(null);
     const [quantity, setQuantity] = useState(1);
@@ -15,15 +15,19 @@ export default function ProductPage({ params }: { params: { id: string } }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchProduct();
-    }, [params.id]);
+        const loadParams = async () => {
+            const resolvedParams = await params;
+            fetchProduct(resolvedParams.id);
+        };
+        loadParams();
+    }, [params]);
 
-    const fetchProduct = async () => {
+    const fetchProduct = async (id: string) => {
         setLoading(true);
         const { data, error } = await supabase
             .from('products')
             .select('*, categories(name_en, name_ar)')
-            .eq('id', params.id)
+            .eq('id', id)
             .single();
 
         if (data) setProduct(data);
