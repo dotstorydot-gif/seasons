@@ -1,19 +1,19 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import ProductCard from '@/components/ui/ProductCard';
 import styles from './Shop.module.css';
 import { Search } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 
-export default function ShopPage() {
+const ShopContent = () => {
     const searchParams = useSearchParams();
     const categoryParam = searchParams.get('category');
 
     const [products, setProducts] = useState<any[]>([]);
     const [categories, setCategories] = useState<any[]>([]);
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState(''); // Re-added search state
     const [activeCategory, setActiveCategory] = useState(categoryParam || 'All');
     const [loading, setLoading] = useState(true);
 
@@ -30,6 +30,12 @@ export default function ShopPage() {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        if (categoryParam) {
+            setActiveCategory(categoryParam);
+        }
+    }, [categoryParam]);
+
     const filteredProducts = products.filter(p => {
         const matchesSearch = (p.name_en?.toLowerCase() || '').includes(search.toLowerCase()) ||
             (p.name_ar || '').includes(search);
@@ -38,52 +44,49 @@ export default function ShopPage() {
     });
 
     return (
-        <div className={styles.shop}>
-            <header className={styles.header}>
-                <div className={styles.container}>
-                    <h1>Our Collection</h1>
-                    <p>Carefully curated pieces for your home.</p>
-                </div>
-            </header>
-
-            <div className={styles.controls}>
-                <div className={styles.container}>
-                    <div className={styles.filters}>
+        <div className={styles.shopContainer}>
+            <div className={styles.sidebar}>
+                <h2 className={styles.sidebarTitle}>Categories</h2>
+                <div className={styles.categoryFilters}>
+                    <button
+                        className={`${styles.categoryBtn} ${activeCategory === 'All' ? styles.active : ''}`}
+                        onClick={() => setActiveCategory('All')}
+                    >
+                        All Products
+                    </button>
+                    {categories.map(cat => (
                         <button
-                            className={activeCategory === 'All' ? styles.active : ''}
-                            onClick={() => setActiveCategory('All')}
+                            key={cat.id}
+                            className={`${styles.categoryBtn} ${activeCategory === cat.id ? styles.active : ''}`}
+                            onClick={() => setActiveCategory(cat.id)}
                         >
-                            All
+                            {cat.name_en}
                         </button>
-                        {categories.map(cat => (
-                            <button
-                                key={cat.id}
-                                className={activeCategory === cat.id ? styles.active : ''}
-                                onClick={() => setActiveCategory(cat.id)}
-                            >
-                                {cat.name_en}
-                            </button>
-                        ))}
-                    </div>
-
-                    <div className={styles.search}>
-                        <Search size={20} />
-                        <input
-                            type="text"
-                            placeholder="Search products..."
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                        />
-                    </div>
+                    ))}
                 </div>
             </div>
 
-            <main className={styles.container}>
-                {loading ? (
-                    <div className={styles.loading}>Loading pieces...</div>
-                ) : (
-                    <div className={styles.grid}>
-                        {filteredProducts.map(product => (
+            <div className={styles.mainContent}>
+                <header className={styles.header}>
+                    <h1 className={styles.title}>Shop Collection</h1>
+                    <div className={styles.controls}>
+                        <div className={styles.searchBar}>
+                            <Search size={18} />
+                            <input
+                                type="text"
+                                placeholder="Search items..."
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                </header>
+
+                <div className={styles.productsGrid}>
+                    {loading ? (
+                        <div className={styles.loading}>Loading artifacts...</div>
+                    ) : (
+                        filteredProducts.map(product => (
                             <ProductCard
                                 key={product.id}
                                 product={{
@@ -97,7 +100,7 @@ export default function ShopPage() {
                                 }}
                             />
                         ))}
-                    </div>
+                </div>
                 )}
             </main>
         </div>
