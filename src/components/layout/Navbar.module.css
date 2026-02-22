@@ -1,0 +1,105 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.left,
+.right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.right {
+    justify-content: flex-end;
+}
+
+.navLinks {
+    display: flex;
+    gap: 32px;
+}
+
+.navLinks a {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    transition: opacity 0.3s ease;
+}
+
+.navLinks a:hover {
+    opacity: 0.6;
+}
+
+.logo a {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.iconButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.iconButton:hover {
+    opacity: 0.6;
+}
+
+.langLabel {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.menuButton {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+@media (max-width: 1024px) {
+    .navLinks {
+        display: none;
+    }
+
+    .menuButton {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+}

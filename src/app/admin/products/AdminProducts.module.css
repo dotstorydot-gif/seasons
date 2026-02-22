@@ -1,0 +1,104 @@
+.products {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+}
+
+.addBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--accent-brown);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.toolbar {
+    background: white;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-primary);
+    padding: 8px 16px;
+    border-radius: 4px;
+    width: 400px;
+}
+
+.search input {
+    background: none;
+    border: none;
+    width: 100%;
+    outline: none;
+}
+
+.tableWrapper {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    text-align: left;
+    padding: 20px;
+    background: var(--bg-primary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.table td {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.9rem;
+}
+
+.inStock {
+    color: #4CAF50;
+    font-weight: 500;
+}
+
+.lowStock {
+    color: #EF6C00;
+    font-weight: 500;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+}
+
+.iconBtn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.delete:hover {
+    color: #ff4444;
+}

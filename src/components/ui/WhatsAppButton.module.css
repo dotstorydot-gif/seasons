@@ -1,0 +1,65 @@
+.button {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    /* WhatsApp Green */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+[dir="rtl"] .button {
+    right: auto;
+    left: 40px;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    background-color: #128C7E;
+}
+
+.tooltip {
+    position: absolute;
+    right: 70px;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+[dir="rtl"] .tooltip {
+    right: auto;
+    left: 70px;
+}
+
+.button:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .button {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+
+    [dir="rtl"] .button {
+        left: 20px;
+    }
+}
