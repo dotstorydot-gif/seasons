@@ -35,6 +35,12 @@
     border-radius: 4px;
 }
 
+.filtersWrapper {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
 .search {
     display: flex;
     align-items: center;
@@ -42,7 +48,20 @@
     background: var(--bg-primary);
     padding: 8px 16px;
     border-radius: 4px;
-    width: 400px;
+    width: 350px;
+}
+
+.categoryFilter {
+    background: var(--bg-primary);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    outline: none;
+    cursor: pointer;
+    min-width: 180px;
 }
 
 .search input {

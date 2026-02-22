@@ -38,9 +38,7 @@ export default function AdminProductsPage() {
     const [products, setProducts] = useState<AdminProduct[]>([]);
     const [categories, setCategories] = useState<AdminCategory[]>([]);
     const [loading, setLoading] = useState(true);
-    const [search, setSearch] = useState('');
-    const [editProduct, setEditProduct] = useState<Partial<AdminProduct> | null>(null);
-    const [form, setForm] = useState({ ...EMPTY_FORM });
+    const [selectedCategory, setSelectedCategory] = useState('');
     const [saving, setSaving] = useState(false);
     const [newImageUrl, setNewImageUrl] = useState('');
 
@@ -125,10 +123,12 @@ export default function AdminProductsPage() {
         setForm(f => ({ ...f, images: f.images.filter((_, i) => i !== idx) }));
     };
 
-    const filtered = products.filter(p =>
-        p.name_en?.toLowerCase().includes(search.toLowerCase()) ||
-        p.sku?.toLowerCase().includes(search.toLowerCase())
-    );
+    const filtered = products.filter(p => {
+        const matchesSearch = p.name_en?.toLowerCase().includes(search.toLowerCase()) ||
+            p.sku?.toLowerCase().includes(search.toLowerCase());
+        const matchesCategory = !selectedCategory || p.category_id === selectedCategory;
+        return matchesSearch && matchesCategory;
+    });
 
     return (
         <AdminLayout>
@@ -142,9 +142,21 @@ export default function AdminProductsPage() {
                 </header>
 
                 <div className={styles.toolbar}>
-                    <div className={styles.search}>
-                        <Search size={16} />
-                        <input type="text" placeholder="Search by name or SKU..." value={search} onChange={e => setSearch(e.target.value)} />
+                    <div className={styles.filtersWrapper}>
+                        <div className={styles.search}>
+                            <Search size={16} />
+                            <input type="text" placeholder="Search by name or SKU..." value={search} onChange={e => setSearch(e.target.value)} />
+                        </div>
+                        <select
+                            className={styles.categoryFilter}
+                            value={selectedCategory}
+                            onChange={e => setSelectedCategory(e.target.value)}
+                        >
+                            <option value="">All Categories</option>
+                            {categories.map(c => (
+                                <option key={c.id} value={c.id}>{c.name_en}</option>
+                            ))}
+                        </select>
                     </div>
                 </div>
 
