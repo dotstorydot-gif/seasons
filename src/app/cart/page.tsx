@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { useCart } from '@/context/CartContext';
-import CartUpsell from '@/components/cart/CartUpsell';
+
 import styles from './Cart.module.css';
 import { Trash2, ChevronLeft, Minus, Plus, ClipboardList, Truck, Tag } from 'lucide-react';
 
@@ -161,7 +161,7 @@ export default function CartPage() {
                             </div>
                         )}
 
-                        <CartUpsell />
+
 
                         <Link href="/shop" className={styles.back}>
                             <ChevronLeft size={16} />
