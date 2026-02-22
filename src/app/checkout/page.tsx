@@ -1,11 +1,14 @@
 "use client";
 
 import React, { useState } from 'react';
-import styles from './Checkout.module.css';
 import { ShieldCheck, Loader2 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import { useCart } from '@/context/CartContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function CheckoutPage() {
+    const { items, total, clearCart } = useCart();
+    const { language, t } = useLanguage();
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         fullName: '',
@@ -21,16 +24,19 @@ export default function CheckoutPage() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    const DELIVERY_FEE = 150;
+    const finalTotal = total + DELIVERY_FEE;
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (items.length === 0) {
+            alert('Your cart is empty');
+            return;
+        }
+
         setLoading(true);
 
         const orderNumber = `ORD-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
-
-        // In a real app, you would get items from a CartContext
-        const items = [
-            { id: '1', name: 'Serene Lounge Chair', price: 4500, quantity: 1 }
-        ];
 
         const { error } = await supabase.from('orders').insert([{
             order_number: orderNumber,
@@ -41,19 +47,23 @@ export default function CheckoutPage() {
             area: formData.area,
             address: formData.address,
             delivery_notes: formData.notes,
-            total_amount: 4650, // subtotal + delivery
+            total_amount: finalTotal,
             status: 'pending',
-            items: items
+            items: items.map(item => ({
+                id: item.id,
+                name: item.nameEn,
+                price: item.price,
+                quantity: item.quantity
+            }))
         }]);
-
-        setLoading(false);
 
         if (error) {
             alert('Error placing order. Please try again.');
             console.error(error);
+            setLoading(false);
         } else {
-            alert(`Order Confirmed! Your order number is ${orderNumber}`);
-            window.location.href = '/';
+            clearCart();
+            window.location.href = `/checkout/thank-you?order=${orderNumber}`;
         }
     };
 
@@ -126,15 +136,15 @@ export default function CheckoutPage() {
                             <h2>Your Order</h2>
                             <div className={styles.summaryRow}>
                                 <span>Subtotal</span>
-                                <span>4,500 EGP</span>
+                                <span>{total.toLocaleString()} EGP</span>
                             </div>
                             <div className={styles.summaryRow}>
                                 <span>Delivery</span>
-                                <span>150 EGP</span>
+                                <span>{DELIVERY_FEE} EGP</span>
                             </div>
                             <div className={`${styles.summaryRow} ${styles.total}`}>
                                 <span>Total</span>
-                                <span>4,650 EGP</span>
+                                <span>{finalTotal.toLocaleString()} EGP</span>
                             </div>
                             <button type="submit" disabled={loading} className="premium-button" style={{ width: '100%', opacity: loading ? 0.7 : 1 }}>
                                 {loading ? <Loader2 className={styles.spinner} /> : 'Confirm Order'}
