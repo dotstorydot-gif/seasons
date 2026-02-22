@@ -91,8 +91,8 @@ const ShopContent = () => {
             <main className={styles.container}>
                 <div className={styles.gridSection}>
                     {loading ? (
-                        <div className={styles.loading}>Loading pieces...</div>
-                    ) : (
+                        <div className={styles.loading}>Curating collection...</div>
+                    ) : filteredProducts.length > 0 ? (
                         <div className={styles.grid}>
                             {filteredProducts.map(product => {
                                 const category = categories.find(c => c.id === product.category_id);
@@ -112,10 +112,10 @@ const ShopContent = () => {
                                 );
                             })}
                         </div>
-                    )}
-                    {!loading && filteredProducts.length === 0 && (
+                    ) : (
                         <div className={styles.noResults}>
-                            No items found in this category.
+                            <h3>No items found</h3>
+                            <p>We couldn&apos;t find any items matching your selected criteria. Try adjusting your filters or search.</p>
                         </div>
                     )}
                 </div>
