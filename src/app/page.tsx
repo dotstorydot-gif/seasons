@@ -6,6 +6,8 @@ import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import EmailPopup from "@/components/ui/EmailPopup";
 import { Metadata } from 'next';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: "Seasons by Nature | Handcrafted Wooden Decor",
   description: "Exquisite handcrafted wooden pieces for your modern home. From unique trays to artistic carvings, discover the soul of nature in every piece.",

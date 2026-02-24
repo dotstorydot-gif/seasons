@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import { supabase } from '@/lib/supabase';
 import ShopClient from './ShopClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
     title: 'Shop Collection',
     description: 'Explore our curated collection of handcrafted wooden pieces for your modern home.',
