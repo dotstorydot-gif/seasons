@@ -96,7 +96,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
                 nameEn: (product.nameEn || product.name_en || '') as string,
                 nameAr: (product.nameAr || product.name_ar || '') as string,
                 price: product.price,
-                image: (product.image || product.image_url || product.images?.[0] || '') as string,
+                image: (product.images?.[0] || product.image || product.image_url || '') as string,
                 sku: product.sku || '',
                 quantity
             }];

@@ -112,7 +112,7 @@ const ShopContent = ({ initialProducts, initialCategories }: ShopClientProps) =>
                                             price: product.price,
                                             categoryEn: category?.name_en || '',
                                             categoryAr: category?.name_ar || '',
-                                            image: product.image_url || (product.images?.[0]) || '',
+                                            image: (product.images?.[0]) || product.image_url || '',
                                             images: product.images || [],
                                         }}
                                     />
