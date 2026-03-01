@@ -3,18 +3,17 @@
     height: 90svh;
     /* small viewport height — stable on mobile */
     min-height: 560px;
-    /* prevent collapse before background loads */
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-image: url('/images/hero-banner.png');
-    background-size: cover;
-    background-position: center;
     overflow: hidden;
-    /* Reserve space immediately to prevent shift */
     contain: layout;
+}
+
+.heroImage {
+    z-index: 1;
 }
 
 .overlay {

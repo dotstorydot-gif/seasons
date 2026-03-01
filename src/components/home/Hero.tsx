@@ -3,12 +3,21 @@
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from './Hero.module.css';
+import Image from 'next/image';
 
 const Hero = () => {
     const { t } = useLanguage();
 
     return (
         <section className={styles.hero}>
+            <Image
+                src="/images/hero-banner.png"
+                alt="Seasons by Nature Banner"
+                fill
+                priority
+                className={styles.heroImage}
+                style={{ objectFit: 'cover' }}
+            />
             <div className={styles.overlay}></div>
             <div className={styles.content}>
                 <h1 className={styles.title}>
