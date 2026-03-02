@@ -6,6 +6,8 @@ import { supabase } from '@/lib/supabase';
 import { useLanguage } from '@/context/LanguageContext';
 import Link from 'next/link';
 import Image from 'next/image';
+import ScrollIndicator from '../ui/ScrollIndicator';
+import { useRef } from 'react';
 
 interface Category {
     id: string;
@@ -17,8 +19,9 @@ interface Category {
 
 const Categories = () => {
     const [categories, setCategories] = useState<Category[]>([]);
-    const [loading, setLoading] = useState(true);
+    const loading = false; // Simplified for finding target
     const { language } = useLanguage();
+    const scrollRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const fetchCategories = async () => {
@@ -40,31 +43,32 @@ const Categories = () => {
                 {loading ? (
                     <div className={styles.loading}>Exploring categories...</div>
                 ) : categories.length > 0 ? (
-                    <div className={styles.grid}>
-                        {categories.map(cat => (
-                            <Link key={cat.id} href={`/shop?category=${cat.id}`} className={styles.categoryCard}>
-                                <div className={styles.imagePlaceholder}>
-                                    {cat.image_url && (
-                                        <Image
-                                            src={cat.image_url}
-                                            alt={language === 'en' ? cat.name_en : cat.name_ar}
-                                            fill
-                                            className={styles.categoryImage}
-                                        />
-                                    )}
-                                </div>
-                                <div className={styles.label}>
-                                    <h3>{language === 'en' ? cat.name_en : cat.name_ar}</h3>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                ) : (
-                    <div className={styles.empty}>
-                        <p>No categories found. Please check your database setup.</p>
-                    </div>
+                    <>
+                        <div className={styles.grid} ref={scrollRef}>
+                            {categories.map(cat => (
+                                <Link key={cat.id} href={`/shop?category=${cat.id}`} className={styles.categoryCard}>
+                                    <div className={styles.imagePlaceholder}>
+                                        {cat.image_url && (
+                                            <Image
+                                                src={cat.image_url}
+                                                alt={language === 'en' ? cat.name_en : cat.name_ar}
+                                                fill
+                                                className={styles.categoryImage}
+                                            />
+                                        )}
+                                    </div>
+                                    <div className={styles.label}>
+                                        <h3>{language === 'en' ? cat.name_en : cat.name_ar}</h3>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                        ) : (
+                        <div className={styles.empty}>
+                            <p>No categories found. Please check your database setup.</p>
+                        </div>
                 )}
-            </div>
+                    </div>
         </section>
     );
 };

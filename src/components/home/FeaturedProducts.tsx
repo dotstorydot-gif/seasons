@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import ProductCard from '../ui/ProductCard';
+import ScrollIndicator from '../ui/ScrollIndicator';
+import { useRef } from 'react';
 import styles from './FeaturedProducts.module.css';
 import { supabase } from '@/lib/supabase';
 import { Product } from '@/context/CartContext';
@@ -17,6 +19,7 @@ const FeaturedProducts = () => {
     const [categories, setCategories] = useState<Category[]>([]);
 
     const [loading, setLoading] = useState(true);
+    const scrollRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -45,29 +48,30 @@ const FeaturedProducts = () => {
                 {loading ? (
                     <div className={styles.loading}>Loading featured pieces...</div>
                 ) : products.length > 0 ? (
-                    <div className={styles.grid}>
-                        {products.map(product => (
-                            <ProductCard
-                                key={product.id}
-                                product={{
-                                    id: product.id,
-                                    nameEn: product.name_en || product.nameEn || '',
-                                    nameAr: product.name_ar || product.nameAr || '',
-                                    price: product.price,
-                                    categoryEn: categories.find(c => c.id === product.category_id)?.name_en || '',
-                                    categoryAr: categories.find(c => c.id === product.category_id)?.name_ar || '',
-                                    image: (product.images?.[0]) || product.image_url || product.image || '',
-                                    images: product.images || [],
-                                }}
-                            />
-                        ))}
-                    </div>
-                ) : (
-                    <div className={styles.empty}>
-                        <p>No featured pieces found. Please ensure you have run the database scripts.</p>
-                    </div>
+                    <>
+                        <div className={styles.grid} ref={scrollRef}>
+                            {products.map(product => (
+                                <ProductCard
+                                    key={product.id}
+                                    product={{
+                                        id: product.id,
+                                        nameEn: product.name_en || product.nameEn || '',
+                                        nameAr: product.name_ar || product.nameAr || '',
+                                        price: product.price,
+                                        categoryEn: categories.find(c => c.id === product.category_id)?.name_en || '',
+                                        categoryAr: categories.find(c => c.id === product.category_id)?.name_ar || '',
+                                        image: (product.images?.[0]) || product.image_url || product.image || '',
+                                        images: product.images || [],
+                                    }}
+                                />
+                            ))}
+                        </div>
+                        ) : (
+                        <div className={styles.empty}>
+                            <p>No featured pieces found. Please ensure you have run the database scripts.</p>
+                        </div>
                 )}
-            </div>
+                    </div>
         </section>
     );
 };
