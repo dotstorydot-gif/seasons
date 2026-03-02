@@ -340,12 +340,27 @@
 @media (max-width: 1024px) {
     .layout {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
 }
 
 @media (max-width: 768px) {
+    .checkoutPage {
+        padding: 40px 0;
+    }
+
+    .title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .section, .orderSummary {
+        padding: 24px;
+    }
+
     .formGrid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .full {

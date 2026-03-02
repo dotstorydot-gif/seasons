@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import styles from './Reviews.module.css';
 import { Star } from 'lucide-react';
 
@@ -40,7 +39,7 @@ const Reviews = () => {
                                     <Star key={i} size={16} fill="var(--accent-gold)" color="var(--accent-gold)" />
                                 ))}
                             </div>
-                            <p className={styles.text}>"{review.text}"</p>
+                            <p className={styles.text}>&quot;{review.text}&quot;</p>
                             <span className={styles.author}>— {review.author}</span>
                         </div>
                     ))}

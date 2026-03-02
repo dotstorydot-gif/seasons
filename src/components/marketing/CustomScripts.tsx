@@ -1,11 +1,11 @@
 "use client";
 
-import Script from "next/script";
+
 
 export const CustomScripts = () => {
-    return (
-        <>
-            {/* 
+  return (
+    <>
+      {/* 
           Add any additional marketing scripts here using next/script.
           Example (Google Tag Manager):
           <Script
@@ -20,6 +20,6 @@ export const CustomScripts = () => {
             }}
           />
       */}
-        </>
-    );
+    </>
+  );
 };
