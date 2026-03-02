@@ -188,7 +188,39 @@
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        height: 70px;
+    }
+
     .container {
-        padding: 0 20px;
+        padding: 0 16px;
+        grid-template-columns: 40px auto 1fr;
+        gap: 12px;
+    }
+
+    .logoImg {
+        height: 40px !important;
+        width: auto;
+    }
+
+    .right {
+        gap: 8px;
+        /* Significantly reduced for small screens */
+    }
+
+    .langLabel {
+        display: none;
+        /* Hide 'EN' text to save space on mobile */
+    }
+
+    .mobileMenu {
+        top: 70px;
+    }
+
+    .mobileMenu a {
+        font-size: 1.25rem;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid var(--border-subtle);
+        padding-bottom: 16px;
     }
 }
