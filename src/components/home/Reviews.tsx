@@ -2,6 +2,7 @@
 
 import styles from './Reviews.module.css';
 import { Star } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const REVIEWS = [
     {
