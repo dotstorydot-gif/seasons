@@ -25,7 +25,6 @@ const Hero = () => {
                         <span key={i}>{line}{i === 0 ? <br /> : null}</span>
                     ))}
                 </h1>
-                <p className={styles.subtitle}>{t('hero.subtitle')}</p>
                 <div className={styles.actions}>
                     <button className="hero-button-primary">{t('hero.cta')}</button>
                     <button className="hero-button-ghost">{t('nav.about')}</button>
