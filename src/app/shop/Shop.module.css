@@ -104,6 +104,8 @@
     transition: all 0.3s ease;
     border-radius: 4px;
     color: var(--text-primary);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .filters button:hover {
@@ -111,9 +113,13 @@
     color: #B8945A;
 }
 
+.filters button:focus {
+    outline: none;
+}
+
 .filters button.active {
     background-color: #B8945A;
-    color: white;
+    color: white !important;
     border-color: #B8945A;
 }
 
