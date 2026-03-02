@@ -14,6 +14,8 @@
 
 .heroImage {
     z-index: 1;
+    object-position: center 30%;
+    /* Focus on the wooden pieces */
 }
 
 .overlay {
@@ -64,8 +66,9 @@
 
 @media (max-width: 768px) {
     .hero {
-        height: 85svh;
-        min-height: 500px;
+        height: 70svh;
+        /* Reduced height to show more image context */
+        min-height: 400px;
     }
 
     .title {
