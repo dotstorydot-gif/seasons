@@ -133,58 +133,82 @@
     }
 }
 
+/* Mobile Menu - Fixed to Viewport */
 .mobileMenu {
     position: fixed;
-    /* Fixed instead of absolute for better drawer feel */
-    top: 80px;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    /* Cover full height */
     background: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 11000;
+    /* Higher than navbar */
+    animation: fadeIn 0.3s ease-out;
+}
+
+.mobileMenuHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    height: 80px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.mobileLinks {
     display: flex;
     flex-direction: column;
     padding: 40px 24px;
     gap: 32px;
-    z-index: 10001;
-    animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-y: auto;
 }
 
-@keyframes slideDown {
+@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-10px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
     }
-}
-
-
-.mobileMenuLogo {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 32px;
-    border-bottom: 1px solid var(--border-subtle);
 }
 
 .mobileLogoImg {
     display: block;
-    height: 60px;
+    height: 40px;
     width: auto;
     object-fit: contain;
 }
 
 .mobileMenu a {
     font-family: var(--font-sans);
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--text-primary);
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wishlistLink {
+    color: #B8945A !important;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {
@@ -192,10 +216,14 @@
         height: 70px;
     }
 
+    .mobileMenuHeader {
+        height: 70px;
+    }
+
     .container {
         padding: 0 16px;
         grid-template-columns: 40px auto 1fr;
-        gap: 12px;
+        gap: 8px;
     }
 
     .logoImg {
@@ -205,22 +233,9 @@
 
     .right {
         gap: 8px;
-        /* Significantly reduced for small screens */
     }
 
     .langLabel {
         display: none;
-        /* Hide 'EN' text to save space on mobile */
-    }
-
-    .mobileMenu {
-        top: 70px;
-    }
-
-    .mobileMenu a {
-        font-size: 1.25rem;
-        letter-spacing: 0.05em;
-        border-bottom: 1px solid var(--border-subtle);
-        padding-bottom: 16px;
     }
 }
