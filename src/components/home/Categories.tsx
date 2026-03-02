@@ -18,8 +18,7 @@ interface Category {
 }
 
 const Categories = () => {
-    const [categories, setCategories] = useState<Category[]>([]);
-    const loading = false; // Simplified for finding target
+    const [loading, setLoading] = useState(true);
     const { language } = useLanguage();
     const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -63,13 +62,16 @@ const Categories = () => {
                                 </Link>
                             ))}
                         </div>
-                        ) : (
-                        <div className={styles.empty}>
-                            <p>No categories found. Please check your database setup.</p>
-                        </div>
-                )}
+                        <ScrollIndicator containerRef={scrollRef} />
+                    </>
+                ) : (
+                    <div className={styles.empty}>
+                        <p>No categories found. Please check your database setup.</p>
                     </div>
+                )}
+            </div>
         </section>
+        </section >
     );
 };
 

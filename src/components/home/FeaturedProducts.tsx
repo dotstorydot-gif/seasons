@@ -66,13 +66,16 @@ const FeaturedProducts = () => {
                                 />
                             ))}
                         </div>
-                        ) : (
-                        <div className={styles.empty}>
-                            <p>No featured pieces found. Please ensure you have run the database scripts.</p>
-                        </div>
-                )}
+                        <ScrollIndicator containerRef={scrollRef} />
+                    </>
+                ) : (
+                    <div className={styles.empty}>
+                        <p>No featured pieces found. Please ensure you have run the database scripts.</p>
                     </div>
+                )}
+            </div>
         </section>
+        </section >
     );
 };
 
