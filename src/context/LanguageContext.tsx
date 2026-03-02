@@ -36,6 +36,16 @@ const translations: Record<Language, Record<string, string>> = {
         'contact.info.email': 'hello@seasonsbynature.com',
         'contact.info.hours': 'Sat - Thu: 10am - 8pm',
         'contact.success': 'Thank you! Your message has been sent.',
+        'shop.search': 'Search items...',
+        'shop.sort': 'Sort by',
+        'shop.sort.featured': 'Featured',
+        'shop.sort.newest': 'Newest',
+        'shop.sort.priceLow': 'Price: Low to High',
+        'shop.sort.priceHigh': 'Price: High to Low',
+        'shop.sort.az': 'Alphabetical: A-Z',
+        'shop.sort.za': 'Alphabetical: Z-A',
+        'shop.noResults': 'No items found',
+        'shop.noResults.sub': 'Try adjusting your filters or search.',
     },
     ar: {
         'nav.home': 'الرئيسية',
@@ -59,6 +69,16 @@ const translations: Record<Language, Record<string, string>> = {
         'contact.info.email': 'hello@seasonsbynature.com',
         'contact.info.hours': 'السبت - الخميس: 10 صباحًا - 8 مساءً',
         'contact.success': 'شكرًا لك! تم إرسال رسالتك بنجاح.',
+        'shop.search': 'البحث عن منتجات...',
+        'shop.sort': 'ترتيب حسب',
+        'shop.sort.featured': 'المميز',
+        'shop.sort.newest': 'الأحدث',
+        'shop.sort.priceLow': 'السعر: من الأقل للأعلى',
+        'shop.sort.priceHigh': 'السعر: من الأعلى للأقل',
+        'shop.sort.az': 'أبجدياً: أ-ي',
+        'shop.sort.za': 'أبجدياً: ي-أ',
+        'shop.noResults': 'لم يتم العثور على نتائج',
+        'shop.noResults.sub': 'حاول تغيير الفلاتر أو البحث.',
     }
 };
 
