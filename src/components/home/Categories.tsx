@@ -34,7 +34,7 @@ const Categories = () => {
         <section className={styles.categories}>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>Browse Categories</h2>
+                    <h2 className={styles.title}>{language === 'en' ? 'Categories' : 'التصنيفات'}</h2>
                 </div>
 
                 {loading ? (
