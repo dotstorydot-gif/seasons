@@ -86,6 +86,16 @@
     font-weight: 400;
 }
 
+@media (max-width: 768px) {
+    .name {
+        font-size: 0.95rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+}
+
 .priceRow {
     display: flex;
     align-items: center;
