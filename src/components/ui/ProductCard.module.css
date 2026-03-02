@@ -11,6 +11,8 @@
     overflow: hidden;
     margin-bottom: 12px;
     background-color: #F9F7F2;
+    border: 1px solid rgba(61, 46, 30, 0.05);
+    /* Subtle border for definition */
 }
 
 @supports not (aspect-ratio: 3 / 4) {
@@ -75,9 +77,9 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
-    padding: 0 4px;
-    min-height: 80px;
-    /* Ensure alignment */
+    padding: 0 2px;
+    min-height: 72px;
+    /* Professional spacing */
 }
 
 .category {
@@ -99,11 +101,14 @@
 
 @media (max-width: 768px) {
     .name {
-        font-size: 0.95rem;
-        white-space: nowrap;
+        font-size: 0.9rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
         width: 100%;
+        line-height: 1.3;
     }
 }
 

@@ -28,12 +28,11 @@
 }
 
 .controls {
-    padding: 30px 0;
+    padding: 24px 0;
     border-bottom: 1px solid var(--border-subtle);
     background: white;
     position: sticky;
     top: 60px;
-    /* Adjusted for smaller header/navbar if needed */
     z-index: 100;
 }
 
@@ -72,15 +71,14 @@
 
 .searchInput {
     width: 100%;
-    padding: 14px 14px 14px 44px;
+    padding: 10px 12px 10px 38px;
     border: 1px solid var(--border-subtle);
-    background: white;
+    background: #F9F7F2;
     font-family: var(--font-sans);
-    font-size: 1rem;
+    font-size: 0.9rem;
     outline: none;
     transition: all 0.3s ease;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    border-radius: 6px;
 }
 
 .searchInput:focus {
@@ -95,17 +93,18 @@
 }
 
 .filters button {
-    padding: 10px 20px;
+    padding: 8px 18px;
     border: 1px solid var(--border-subtle);
     background: none;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-family: var(--font-sans);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     border-radius: 4px;
-    color: var(--text-primary);
+    color: #3D2E1E !important;
     outline: none;
     -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
 }
 
 .filters button:hover {
@@ -151,17 +150,22 @@
 }
 
 .sortSelect {
-    padding: 10px 16px;
+    padding: 10px 14px;
     border: 1px solid var(--border-subtle);
-    background: white;
+    background: #F9F7F2;
     font-family: var(--font-sans);
-    font-size: 0.9rem;
-    border-radius: 8px;
+    font-size: 0.85rem;
+    border-radius: 6px;
     outline: none;
     cursor: pointer;
-    color: var(--text-primary);
+    color: #3D2E1E;
     transition: all 0.3s ease;
-    min-width: 160px;
+    min-width: 150px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23B8945A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
 }
 
 .sortSelect:hover {
@@ -220,14 +224,14 @@
 
     .actionsSide {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 8px;
     }
 
     .searchWrapper {
         max-width: 100%;
-        width: 100%;
     }
 
     .sortWrapper {
@@ -236,6 +240,14 @@
 
     .sortSelect {
         width: 100%;
+        min-width: 0;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .searchInput {
+        padding: 8px 10px 8px 34px;
+        font-size: 0.8rem;
     }
 
     .filters {
@@ -260,7 +272,8 @@
         flex: 0 0 auto;
         scroll-snap-align: start;
         white-space: nowrap;
-        padding: 8px 16px;
+        padding: 6px 14px;
+        font-size: 0.8rem;
     }
 }
 
