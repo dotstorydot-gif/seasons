@@ -94,13 +94,14 @@
 }
 
 .filters button:hover {
-    border-color: var(--primary);
+    border-color: #B8945A;
+    color: #B8945A;
 }
 
 .filters button.active {
-    background-color: var(--primary);
+    background-color: #B8945A;
     color: white;
-    border-color: var(--primary);
+    border-color: #B8945A;
 }
 
 .filterGroup {
@@ -133,7 +134,9 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    gap: 32px;
+    /* Standardized gap */
+    width: 100%;
 }
 
 .noResults {

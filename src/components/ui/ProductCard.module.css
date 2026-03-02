@@ -68,13 +68,15 @@
 .info {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
+    /* Reduced gap for a tighter look */
 }
 
 .category {
     font-family: var(--font-sans);
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
+    font-size: 0.65rem;
+    /* Smaller category */
+    letter-spacing: 0.08em;
     color: var(--text-muted);
     text-transform: uppercase;
 }
@@ -83,7 +85,8 @@
     font-family: var(--font-serif);
     font-size: 1.1rem;
     color: var(--text-primary);
-    font-weight: 400;
+    font-weight: 600;
+    /* Bold name */
 }
 
 @media (max-width: 768px) {
@@ -100,13 +103,15 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 4px;
+    margin-top: 2px;
+    /* Smaller spacing */
 }
 
 .price {
     font-family: var(--font-sans);
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 400;
+    /* Regular price font */
     color: var(--text-primary);
 }
 
