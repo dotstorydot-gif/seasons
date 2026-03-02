@@ -8,46 +8,60 @@ interface ScrollIndicatorProps {
 }
 
 const ScrollIndicator = ({ containerRef }: ScrollIndicatorProps) => {
-    const [progress, setProgress] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [dotCount, setDotCount] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
 
-        const updateProgress = () => {
-            const { scrollLeft, scrollWidth, clientWidth } = container;
-            const maxScroll = scrollWidth - clientWidth;
-            if (maxScroll <= 0) {
+        const calculateDots = () => {
+            const { scrollWidth, clientWidth } = container;
+            if (scrollWidth <= clientWidth) {
                 setIsVisible(false);
                 return;
             }
             setIsVisible(true);
-            const currentProgress = (scrollLeft / maxScroll) * 100;
-            setProgress(currentProgress);
+
+            // Number of children is a good proxy for dots in our snapped sliders
+            const count = container.children.length;
+            setDotCount(count);
         };
 
-        // Check visibility on mount/resize
-        updateProgress();
+        const updateActiveDot = () => {
+            const { scrollLeft, scrollWidth, clientWidth } = container;
+            const count = container.children.length;
+            if (count === 0) return;
 
-        container.addEventListener('scroll', updateProgress);
-        window.addEventListener('resize', updateProgress);
+            const scrollPercentage = scrollLeft / (scrollWidth - clientWidth);
+            const index = Math.round(scrollPercentage * (count - 1));
+            setActiveIndex(index);
+        };
+
+        calculateDots();
+        updateActiveDot();
+
+        container.addEventListener('scroll', updateActiveDot);
+        window.addEventListener('resize', calculateDots);
 
         return () => {
-            container.removeEventListener('scroll', updateProgress);
-            window.removeEventListener('resize', updateProgress);
+            container.removeEventListener('scroll', updateActiveDot);
+            window.removeEventListener('resize', calculateDots);
         };
     }, [containerRef]);
 
-    if (!isVisible) return null;
+    if (!isVisible || dotCount <= 1) return null;
 
     return (
         <div className={styles.wrapper}>
-            <div className={styles.track}>
-                <div
-                    className={styles.bar}
-                    style={{ width: `${Math.max(10, progress)}%`, left: `${progress * 0.9}%` }}
-                />
+            <div className={styles.dotsContainer}>
+                {Array.from({ length: dotCount }).map((_, i) => (
+                    <div
+                        key={i}
+                        className={`${styles.dot} ${i === activeIndex ? styles.active : ''}`}
+                    />
+                ))}
             </div>
         </div>
     );
