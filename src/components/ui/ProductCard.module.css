@@ -7,10 +7,16 @@
 .imageWrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 133.33%;
-    /* 3:4 aspect ratio */
+    aspect-ratio: 3 / 4;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
+    background-color: #F9F7F2;
+}
+
+@supports not (aspect-ratio: 3 / 4) {
+    .imageWrapper {
+        padding-bottom: 133.33%;
+    }
 }
 
 .placeholderImage {
@@ -69,7 +75,9 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
-    /* Reduced gap for a tighter look */
+    padding: 0 4px;
+    min-height: 80px;
+    /* Ensure alignment */
 }
 
 .category {

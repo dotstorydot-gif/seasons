@@ -103,6 +103,7 @@
     font-family: var(--font-sans);
     transition: all 0.3s ease;
     border-radius: 4px;
+    color: var(--text-primary);
 }
 
 .filters button:hover {
@@ -187,7 +188,8 @@
 
 @media (max-width: 1024px) {
     .grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
     }
 }
 
@@ -258,7 +260,7 @@
 
 @media (max-width: 640px) {
     .grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 16px;
     }
 
