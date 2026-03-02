@@ -25,11 +25,12 @@ const REVIEWS = [
 ];
 
 const Reviews = () => {
+    const { language } = useLanguage();
     return (
         <section className={styles.reviews}>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>What Our Customers Say</h2>
+                    <h2 className={styles.title}>{language === 'en' ? 'Testimonials' : 'آراء العملاء'}</h2>
                 </div>
                 <div className={styles.grid}>
                     {REVIEWS.map(review => (

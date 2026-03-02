@@ -30,7 +30,8 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
     const { showToast } = useToast();
     const [hovered, setHovered] = useState(false);
 
-    const name = language === 'en' ? product.nameEn : product.nameAr;
+    const nameEn = product.nameEn ? product.nameEn.charAt(0).toUpperCase() + product.nameEn.slice(1) : '';
+    const name = language === 'en' ? nameEn : product.nameAr;
     const category = language === 'en' ? product.categoryEn : product.categoryAr;
 
     const mainImage = (product.images && product.images[0]) || product.image;
