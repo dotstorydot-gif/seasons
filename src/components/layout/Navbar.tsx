@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
@@ -16,7 +15,6 @@ const Navbar = () => {
     const { count: wishlistCount } = useWishlist();
 
     const [menuOpen, setMenuOpen] = React.useState(false);
-    const router = useRouter();
 
     const toggleLanguage = () => {
         setLanguage(language === 'en' ? 'ar' : 'en');
