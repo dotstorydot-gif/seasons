@@ -14,8 +14,8 @@
 
 .heroImage {
     z-index: 1;
-    object-position: center 30%;
-    /* Focus on the wooden pieces */
+    object-position: center bottom;
+    /* Focus on the wooden pieces at the bottom */
 }
 
 .overlay {
@@ -36,10 +36,11 @@
 
 .title {
     font-size: 4.5rem;
-    margin-bottom: 20px;
+    line-height: 1.05;
+    margin-bottom: 24px;
     color: #ffffff;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     font-weight: 700;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
@@ -66,16 +67,21 @@
 
 @media (max-width: 768px) {
     .hero {
-        height: 70svh;
-        /* Reduced height to show more image context */
-        min-height: 400px;
+        height: 80svh;
+        min-height: 500px;
+    }
+
+    .heroImage {
+        object-position: center bottom;
     }
 
     .title {
-        font-size: 2.2rem;
-        line-height: 1.2;
+        font-size: 2.4rem;
+        line-height: 1.05;
         margin-bottom: 16px;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.05em;
+        font-weight: 800;
+        /* Extra bold for mobile */
     }
 
     .subtitle {
