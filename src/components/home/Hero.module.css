@@ -65,16 +65,16 @@
 
 @media (max-width: 768px) {
     .hero {
-        height: auto;
-        min-height: auto;
-        aspect-ratio: 16 / 15;
-        /* Adjust to show full image */
+        height: 65svh;
+        /* Balanced height for better framing */
+        min-height: 460px;
     }
 
     .heroImage {
-        object-fit: contain !important;
-        /* Force full image visibility */
-        object-position: center center;
+        object-fit: cover !important;
+        /* Edge-to-edge display */
+        object-position: center bottom;
+        /* Keep product in focus */
     }
 
     .title {
