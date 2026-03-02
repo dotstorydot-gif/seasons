@@ -38,6 +38,10 @@
 }
 
 @media (max-width: 640px) {
+    .featured {
+        padding: 60px 0;
+    }
+
     .grid {
         display: flex;
         overflow-x: auto;

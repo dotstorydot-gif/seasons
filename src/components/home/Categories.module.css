@@ -73,6 +73,10 @@
 }
 
 @media (max-width: 768px) {
+    .categories {
+        padding: 40px 0;
+    }
+
     .container {
         padding: 0 20px;
         overflow: hidden;

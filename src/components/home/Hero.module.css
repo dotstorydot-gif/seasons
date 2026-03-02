@@ -63,12 +63,28 @@
 }
 
 @media (max-width: 768px) {
+    .hero {
+        height: 85svh;
+        min-height: 500px;
+    }
+
     .title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 16px;
+        letter-spacing: 0.08em;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 32px;
+        padding: 0 10px;
     }
 
     .actions {
         flex-direction: column;
         align-items: stretch;
+        gap: 12px;
+        padding: 0 20px;
     }
 }
