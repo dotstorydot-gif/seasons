@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Categories.module.css';
 import { supabase } from '@/lib/supabase';
 import { useLanguage } from '@/context/LanguageContext';
 import Link from 'next/link';
 import Image from 'next/image';
 import ScrollIndicator from '../ui/ScrollIndicator';
-import { useRef } from 'react';
 
 interface Category {
     id: string;
@@ -18,6 +17,7 @@ interface Category {
 }
 
 const Categories = () => {
+    const [categories, setCategories] = useState<Category[]>([]);
     const [loading, setLoading] = useState(true);
     const { language } = useLanguage();
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -71,7 +71,6 @@ const Categories = () => {
                 )}
             </div>
         </section>
-        </section >
     );
 };
 

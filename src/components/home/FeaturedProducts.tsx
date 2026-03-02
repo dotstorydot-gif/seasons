@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ProductCard from '../ui/ProductCard';
 import ScrollIndicator from '../ui/ScrollIndicator';
-import { useRef } from 'react';
 import styles from './FeaturedProducts.module.css';
 import { supabase } from '@/lib/supabase';
 import { Product } from '@/context/CartContext';
@@ -17,7 +16,6 @@ interface Category {
 const FeaturedProducts = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
-
     const [loading, setLoading] = useState(true);
     const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -75,7 +73,6 @@ const FeaturedProducts = () => {
                 )}
             </div>
         </section>
-        </section >
     );
 };
 
