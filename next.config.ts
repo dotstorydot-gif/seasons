@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    // Optimization enabled by default
+    formats: ['image/avif', 'image/webp'],
   },
 };
 

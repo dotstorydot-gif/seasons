@@ -51,6 +51,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
                             src={mainImage}
                             alt={name}
                             fill
+                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                             className={`${styles.image} ${hovered && hoverImage ? styles.imageHidden : ''}`}
                             style={{ objectFit: 'cover' }}
                         />
@@ -59,6 +60,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
                                 src={hoverImage}
                                 alt={`${name} — alternate`}
                                 fill
+                                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                                 className={`${styles.image} ${styles.imageHover} ${hovered ? styles.imageHoverVisible : ''}`}
                                 style={{ objectFit: 'cover' }}
                             />
