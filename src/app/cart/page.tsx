@@ -6,7 +6,8 @@ import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import { useCart } from '@/context/CartContext';
 import styles from './Cart.module.css';
-import { Trash2, ChevronLeft, Minus, Plus, ClipboardList, Truck, Tag } from 'lucide-react';
+import { Trash2, ChevronLeft, Minus, Plus, ClipboardList, Truck, Tag, ShoppingBag } from 'lucide-react';
+import EmptyState from '@/components/ui/EmptyState';
 
 const SHIPPING_FEE = 30;
 
@@ -27,13 +28,13 @@ export default function CartPage() {
         return (
             <div className={styles.cartPage}>
                 <div className={styles.container}>
-                    <h1 className={styles.title}>{language === 'en' ? 'Your Bag' : 'حقيبتك'}</h1>
-                    <div className={styles.empty}>
-                        <p>{language === 'en' ? 'Your bag is empty.' : 'حقيبتك فارغة.'}</p>
-                        <Link href="/shop" className="premium-button">
-                            {language === 'en' ? 'Continue Shopping' : 'تابع التسوق'}
-                        </Link>
-                    </div>
+                    <EmptyState
+                        icon={ShoppingBag}
+                        title={language === 'en' ? 'Your Bag is Empty' : 'حقيبتك فارغة'}
+                        description={language === 'en' ? 'It looks like you haven’t added any items to your bag yet.' : 'يبدو أنك لم تضف أي منتجات إلى حقيبتك بعد.'}
+                        actionLabel={language === 'en' ? 'Explore Collection' : 'استكشف المجموعة'}
+                        actionHref="/shop"
+                    />
                 </div>
             </div>
         );

@@ -8,7 +8,8 @@ import { useWishlist } from '@/context/WishlistContext';
 import { useCart } from '@/context/CartContext';
 import { useToast } from '@/context/ToastContext';
 import styles from './Wishlist.module.css';
-import { Heart, ShoppingBag, Trash2 } from 'lucide-react';
+import { Heart, ShoppingBag, Trash2, ShoppingCart } from 'lucide-react';
+import EmptyState from '@/components/ui/EmptyState';
 
 export default function WishlistPage() {
     const { language } = useLanguage();
@@ -32,13 +33,13 @@ export default function WishlistPage() {
                 </header>
 
                 {items.length === 0 ? (
-                    <div className={styles.empty}>
-                        <Heart size={48} strokeWidth={1} className={styles.emptyIcon} />
-                        <p>{language === 'en' ? 'Your wishlist is empty.' : 'قائمتك فارغة.'}</p>
-                        <Link href="/shop" className="premium-button">
-                            {language === 'en' ? 'Explore Products' : 'استكشف المنتجات'}
-                        </Link>
-                    </div>
+                    <EmptyState
+                        icon={Heart}
+                        title={language === 'en' ? 'Your Wishlist is Empty' : 'قائمة الأمنيات فارغة'}
+                        description={language === 'en' ? 'Save items you love to find them easily later.' : 'احفظ المنتجات التي تحبها لتجدها بسهولة لاحقاً.'}
+                        actionLabel={language === 'en' ? 'Start Shopping' : 'ابدأ التسوق'}
+                        actionHref="/shop"
+                    />
                 ) : (
                     <div className={styles.grid}>
                         {items.map(item => {

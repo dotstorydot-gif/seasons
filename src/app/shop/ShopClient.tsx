@@ -36,7 +36,7 @@ const ShopContent = ({ initialProducts, initialCategories }: ShopClientProps) =>
 
     const [products] = useState<ShopProduct[]>(initialProducts);
     const [categories] = useState<ShopCategory[]>(initialCategories);
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState(searchParams.get('search') || '');
     const [sortOrder, setSortOrder] = useState('featured');
 
     const filteredAndSortedProducts = products

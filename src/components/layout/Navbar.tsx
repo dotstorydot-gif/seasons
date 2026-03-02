@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
@@ -15,9 +16,21 @@ const Navbar = () => {
     const { count: wishlistCount } = useWishlist();
 
     const [menuOpen, setMenuOpen] = React.useState(false);
+    const [searchOpen, setSearchOpen] = React.useState(false);
+    const [searchQuery, setSearchQuery] = React.useState('');
+    const router = useRouter();
 
     const toggleLanguage = () => {
         setLanguage(language === 'en' ? 'ar' : 'en');
+    };
+
+    const handleSearch = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (searchQuery.trim()) {
+            router.push(`/shop?search=${encodeURIComponent(searchQuery.trim())}`);
+            setSearchOpen(false);
+            setSearchQuery('');
+        }
     };
 
     return (
@@ -49,7 +62,7 @@ const Navbar = () => {
                             <Globe size={20} />
                             <span className={styles.langLabel}>{language.toUpperCase()}</span>
                         </button>
-                        <button className={styles.iconButton}>
+                        <button className={styles.iconButton} onClick={() => setSearchOpen(true)} aria-label="Search">
                             <Search size={20} />
                         </button>
                         {/* Wishlist */}
@@ -73,6 +86,28 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
+
+            {/* Search Overlay */}
+            {searchOpen && (
+                <div className={styles.searchOverlay}>
+                    <div className={styles.searchContainer}>
+                        <form onSubmit={handleSearch} className={styles.searchForm}>
+                            <Search size={24} className={styles.searchIconOverlay} />
+                            <input
+                                autoFocus
+                                type="text"
+                                placeholder={t('shop.search')}
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className={styles.searchInputGlobal}
+                            />
+                            <button type="button" onClick={() => setSearchOpen(false)} className={styles.closeSearch}>
+                                <X size={24} />
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            )}
 
             {/* Mobile Menu - Moved outside <nav> to avoid clipping/filter issues */}
             {menuOpen && (
