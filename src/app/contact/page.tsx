@@ -3,10 +3,10 @@
 import React, { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from './Contact.module.css';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 
 export default function ContactPage() {
-    const { t, dir, language } = useLanguage();
+    const { t, dir } = useLanguage();
     const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
