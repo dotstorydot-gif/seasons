@@ -58,7 +58,7 @@ const Hero = () => {
                         </h1>
                         <div className={styles.actions}>
                             <Link href="/shop" className="hero-button-primary">
-                                SHOP COLLECTION
+                                SHOP NOW
                             </Link>
                             <Link href="/about" className="hero-button-ghost">
                                 ABOUT
