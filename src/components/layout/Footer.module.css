@@ -69,8 +69,8 @@
 }
 
 .socialIcon {
-    color: var(--text-primary);
-    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.75);
+    opacity: 0.8;
     transition: all 0.3s ease;
 }
 
@@ -89,9 +89,9 @@
 
 .legalLinks a {
     font-size: 0.8rem;
-    color: var(--text-primary);
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 1;
+    transition: all 0.3s ease;
 }
 
 .legalLinks a:hover {
