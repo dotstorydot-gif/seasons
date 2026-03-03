@@ -42,8 +42,8 @@ const Footer = () => {
                             <li><Link href="/">{t('nav.home')}</Link></li>
                             <li><Link href="/shop">{t('nav.shop')}</Link></li>
                             <li><Link href="/about">{t('nav.about')}</Link></li>
-                            <li><Link href="/track-order">{language === 'en' ? 'Track Order' : 'تتبع الطلب'}</Link></li>
-                            <li><Link href="/wishlist">{language === 'en' ? 'Wishlist' : 'قائمة الأمنيات'}</Link></li>
+                            <li><Link href="/track-order">{language === 'en' ? '📦 Track Order' : '📦 تتبع الطلب'}</Link></li>
+                            <li><Link href="/wishlist">{language === 'en' ? '♥️ Wishlist' : '♥️ قائمة الأمنيات'}</Link></li>
                         </ul>
                     </div>
 
@@ -74,11 +74,11 @@ const Footer = () => {
                             </a>
                         </div>
                     </div>
-                    <div className={styles.securityNote}>
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                        {language === 'en' ? "HTTPS Encrypted — Verified by Let's Encrypt" : "مشفر بـ HTTPS — تم التحقق منه بواسطة Let's Encrypt"}
-                    </div>
+                </div>
 
+                <div className={styles.securityNote}>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                    {language === 'en' ? "HTTPS Encrypted — Verified by Let's Encrypt" : "مشفر بـ HTTPS — تم التحقق منه بواسطة Let's Encrypt"}
                 </div>
             </div>
 

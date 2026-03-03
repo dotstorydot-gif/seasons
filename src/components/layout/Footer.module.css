@@ -167,10 +167,13 @@
 .securityNote {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 8px;
     font-size: 0.72rem;
     color: rgba(255, 255, 255, 0.4);
-    margin-top: 8px;
+    margin-top: -40px;
+    margin-bottom: 20px;
+    padding-right: 20px;
 }
 
 .securityNote svg {
@@ -183,4 +186,12 @@
     color: rgba(255, 255, 255, 0.3);
     margin-top: 4px;
     letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+    .securityNote {
+        justify-content: center;
+        margin-top: 20px;
+        padding-right: 0;
+    }
 }
