@@ -35,6 +35,15 @@ function ThankYouContent() {
                     </div>
                 </div>
 
+                <div className={styles.careReminder}>
+                    <p>
+                        <strong>Don&apos;t forget to check:</strong><br />
+                        <Link href="/product-care" className={styles.careLink}>
+                            Product Care Guide - Caring for Your Handcrafted Wood
+                        </Link>
+                    </p>
+                </div>
+
                 <div className={styles.support}>
                     <p>Need help with your order? <Link href="/contact">Contact Support</Link></p>
                 </div>

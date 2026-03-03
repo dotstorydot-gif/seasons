@@ -22,7 +22,10 @@ export default function PrivacyPolicy() {
             <p>We implement strict security measures to protect your personal information. Our website uses SSL encryption to ensure that your data is transmitted securely.</p>
 
             <h2>4. Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy, please contact us at support@seasonsbynature.com or via WhatsApp at +20100000000.</p>
+            <p>If you have any questions about this Privacy Policy, please contact us at info@seasonsbynature.com or via WhatsApp at +20 113 037 3971.</p>
+
+            <h2>5. Related Policies</h2>
+            <p>For more information, please review our <a href="/refund-policy">Refund & Exchange Policy</a> and our <a href="/product-care">Product Care Guide</a>.</p>
         </div>
     );
 
@@ -41,7 +44,10 @@ export default function PrivacyPolicy() {
             <p>نقوم بتنفيذ تدابير أمنية صارمة لحماية معلوماتك الشخصية. يستخدم موقعنا تشفير SSL لضمان نقل بياناتك بأمان.</p>
 
             <h2>4. اتصل بنا</h2>
-            <p>إذا كانت لديك أي أسئلة حول سياسة الخصوصية هذه، يرجى الاتصال بنا عبر البريد الإلكتروني support@seasonsbynature.com أو عبر واتساب على الرقم +20100000000.</p>
+            <p>إذا كانت لديك أي أسئلة حول سياسة الخصوصية هذه، يرجى الاتصال بنا عبر البريد الإلكتروني info@seasonsbynature.com أو عبر واتساب على الرقم +20 113 037 3971.</p>
+
+            <h2>5. سياسات ذات صلة</h2>
+            <p>لمزيد من المعلومات، يرجى مراجعة <a href="/refund-policy">سياسة الاستبدال والاسترجاع</a> و <a href="/product-care">دليل العناية بالمنتجات</a>.</p>
         </div>
     );
 

@@ -1,7 +1,7 @@
 import Hero from "@/components/home/Hero";
 import FeaturedProducts from "@/components/home/FeaturedProducts";
 import Categories from "@/components/home/Categories";
-import Reviews from "@/components/home/Reviews";
+{/* import Reviews from "@/components/home/Reviews"; */ }
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import EmailPopup from "@/components/ui/EmailPopup";
 import { Metadata } from 'next';
@@ -44,7 +44,7 @@ export default function Home() {
       <Hero />
       <FeaturedProducts />
       <Categories />
-      <Reviews />
+      {/* <Reviews /> */}
       <WhatsAppButton />
       <EmailPopup />
     </>

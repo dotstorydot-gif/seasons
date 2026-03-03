@@ -82,8 +82,36 @@
     transform: translateX(4px);
 }
 
+.careReminder {
+    margin-top: 40px;
+    padding: 20px;
+    background: var(--bg-creme);
+    border-radius: 8px;
+    text-align: center;
+    border: 1px dashed var(--accent-gold);
+}
+
+.careReminder p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.careLink {
+    color: var(--accent-gold);
+    font-weight: 600;
+    text-decoration: underline;
+    display: inline-block;
+    margin-top: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.careLink:hover {
+    opacity: 0.8;
+}
+
 .support {
-    margin-top: 32px;
+    margin-top: 30px;
     text-align: center;
     font-size: 0.9rem;
     color: var(--text-muted);
