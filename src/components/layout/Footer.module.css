@@ -14,8 +14,8 @@
 
 .grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
     padding-bottom: 60px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -65,7 +65,7 @@
 .socialLinks {
     display: flex;
     gap: 15px;
-    margin: 15px 0 25px;
+    margin: 5px 0 10px;
 }
 
 .socialIcon {
@@ -81,22 +81,8 @@
 }
 
 .legalLinks {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.legalLinks a {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-    opacity: 1;
-    transition: all 0.3s ease;
-}
-
-.legalLinks a:hover {
-    opacity: 1;
-    color: var(--accent-gold);
+    display: none;
+    /* Removed as they are now in a separate column */
 }
 
 .colList {
@@ -133,6 +119,13 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 0 24px;
