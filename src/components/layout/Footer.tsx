@@ -64,7 +64,6 @@ const Footer = () => {
                         <ul className={styles.colList}>
                             <li>info@seasonsbynature.com</li>
                             <li>+20 113 037 3971</li>
-                            <li>Online Store</li>
                         </ul>
                         <div className={styles.socialLinks}>
                             <a href="https://www.instagram.com/seasonsbynature/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram">

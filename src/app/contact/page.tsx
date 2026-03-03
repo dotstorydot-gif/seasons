@@ -56,15 +56,8 @@ export default function ContactPage() {
 
                     <div className={styles.infoSection}>
                         <div className={styles.infoBlock}>
-                            <h2>{t('contact.info.title')}</h2>
+                            <h2>Contact Information</h2>
                             <div className={styles.infoItems}>
-                                <div className={styles.infoItem}>
-                                    <MapPin className={styles.infoIcon} size={24} />
-                                    <div className={styles.infoText}>
-                                        <h3>Address</h3>
-                                        <p>{language === 'en' ? 'Online Store' : 'متجر إلكتروني'}</p>
-                                    </div>
-                                </div>
                                 <div className={styles.infoItem}>
                                     <Phone className={styles.infoIcon} size={24} />
                                     <div className={styles.infoText}>
