@@ -50,41 +50,50 @@ export default function AdminCataloguePage() {
         );
     }
 
+    // Chunk products into groups of 5
+    const chunkProducts = (items: Product[], size: number) => {
+        const chunks = [];
+        for (let i = 0; i < items.length; i += size) {
+            chunks.push(items.slice(i, i + size));
+        }
+        return chunks;
+    };
+
+    const productSlides = chunkProducts(products, 5);
+
     return (
         <div className={styles.container}>
             <div className={styles.grid}>
-                {products.map(product => {
-                    // Use index 1 ("-02") if available, otherwise index 0
-                    const displayImage = product.images?.[1] || product.images?.[0] || '/images/placeholder.png';
-                    const categoryName = product.categories?.name_en || 'Collection';
+                {productSlides.map((slideProducts, slideIndex) => (
+                    <div key={slideIndex} className={styles.slide}>
+                        <div className={styles.cardRow}>
+                            {slideProducts.map(product => {
+                                // Prioritize index 2 (-03) then 3 (-04), fallback to index 0
+                                const displayImage = product.images?.[2] || product.images?.[3] || product.images?.[0] || '/images/placeholder.png';
+                                const categoryName = product.categories?.name_en || 'Collection';
 
-                    return (
-                        <div key={product.id} className={styles.productCard}>
-                            <div className={styles.card}>
-                                <div className={styles.imageWrapper}>
-                                    <Image
-                                        src={displayImage}
-                                        alt={product.name_en}
-                                        fill
-                                        style={{ objectFit: 'cover' }}
-                                        className={styles.productImage}
-                                        unoptimized
-                                    />
-                                </div>
-                                <div className={styles.info}>
-                                    <span className={styles.category}>{categoryName}</span>
-                                    <h3 className={styles.name}>{product.name_en}</h3>
-                                    <div className={styles.priceRow}>
-                                        {product.compare_at_price && product.compare_at_price > product.price && (
-                                            <span className={styles.originalPrice}>{product.compare_at_price} EGP</span>
-                                        )}
-                                        <p className={styles.price}>{product.price} EGP</p>
+                                return (
+                                    <div key={product.id} className={styles.card}>
+                                        <div className={styles.imageWrapper}>
+                                            <Image
+                                                src={displayImage}
+                                                alt={product.name_en}
+                                                fill
+                                                style={{ objectFit: 'contain' }}
+                                                className={styles.productImage}
+                                                unoptimized
+                                            />
+                                        </div>
+                                        <div className={styles.info}>
+                                            <span className={styles.category}>{categoryName}</span>
+                                            <h3 className={styles.name}>{product.name_en}</h3>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                );
+                            })}
                         </div>
-                    );
-                })}
+                    </div>
+                ))}
             </div>
         </div>
     );
