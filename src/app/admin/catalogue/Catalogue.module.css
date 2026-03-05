@@ -1,0 +1,118 @@
+.container {
+    padding: 0;
+    width: 1920px;
+    margin: 0 auto;
+    background: #fff;
+    /* White background for the slide deck */
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.productCard {
+    width: 1920px;
+    height: 1080px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* Replicating Website Product Card Styling */
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    /* Larger version of the card for the 1920x1080 slide */
+    text-decoration: none;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    margin-bottom: 24px;
+    background-color: #F9F7F2;
+    border: 1px solid rgba(61, 46, 30, 0.05);
+}
+
+.productImage {
+    object-fit: cover;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 4px;
+    text-align: center;
+}
+
+.category {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.name {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    color: #3D2E1E;
+    font-weight: 600;
+    margin: 0;
+}
+
+.priceRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.price {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #3D2E1E;
+    margin: 0;
+}
+
+.originalPrice {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    color: #999;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.loadingWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+    color: #3D2E1E;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
