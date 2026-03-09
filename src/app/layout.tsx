@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     default: "Seasons by Nature | Handcrafted Wooden Pieces",
     template: "%s | Seasons by Nature"
   },
-  description: "Timeless wooden pieces for the modern home. Handcrafted with love and natural materials.",
+  description: "From serving boards to seasonal treasures, every piece is made to turn simple moments into lasting memories.",
   keywords: ["handcrafted", "wooden decor", "modern home", "natural materials", "interior design", "egyptian crafts"],
   authors: [{ name: "Seasons by Nature" }],
   creator: "Seasons by Nature",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://seasons-nature.com",
     title: "Seasons by Nature | Handcrafted Wooden Pieces",
-    description: "Timeless wooden pieces for the modern home. Handcrafted with love.",
+    description: "From serving boards to seasonal treasures, every piece is made to turn simple moments into lasting memories.",
     siteName: "Seasons by Nature",
     images: [{
       url: "/og-image.jpg",
@@ -53,8 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Seasons by Nature | Handcrafted Wooden Pieces",
-    description: "Timeless wooden pieces for the modern home. Handcrafted with love.",
+    description: "From serving boards to seasonal treasures, every piece is made to turn simple moments into lasting memories.",
     images: ["/og-image.jpg"],
   },
   icons: {

@@ -10,10 +10,10 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Seasons by Nature | Handcrafted Wooden Decor",
-  description: "Exquisite handcrafted wooden pieces for your modern home. From unique trays to artistic carvings, discover the soul of nature in every piece.",
+  description: "From serving boards to seasonal treasures, every piece is made to turn simple moments into lasting memories.",
   openGraph: {
     title: "Seasons by Nature | Handcrafted Wooden Decor",
-    description: "Exquisite handcrafted wooden pieces for your modern home. Handcrafted with love in Egypt.",
+    description: "From serving boards to seasonal treasures, every piece is made to turn simple moments into lasting memories.",
   }
 };
 
