@@ -4,6 +4,7 @@ import { supabase } from '@/lib/supabase';
 import ShopClient from './ShopClient';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export const metadata: Metadata = {
     title: 'Shop Collection',
@@ -16,13 +17,23 @@ export const metadata: Metadata = {
 
 
 export default async function ShopPage() {
-    const { data: productsData } = await supabase.from('products').select('*');
-    const { data: categoriesData } = await supabase.from('categories').select('*');
+    try {
+        const { data: productsData } = await supabase.from('products').select('*');
+        const { data: categoriesData } = await supabase.from('categories').select('*');
 
-    return (
-        <ShopClient
-            initialProducts={productsData || []}
-            initialCategories={categoriesData || []}
-        />
-    );
+        return (
+            <ShopClient
+                initialProducts={productsData || []}
+                initialCategories={categoriesData || []}
+            />
+        );
+    } catch (error) {
+        console.error("Error fetching shop data:", error);
+        return (
+            <ShopClient
+                initialProducts={[]}
+                initialCategories={[]}
+            />
+        );
+    }
 }
