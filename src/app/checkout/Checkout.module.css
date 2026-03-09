@@ -349,13 +349,20 @@
         padding: 40px 0;
     }
 
+    .container {
+        padding: 0 20px;
+    }
+
     .title {
         font-size: 1.8rem;
         margin-bottom: 30px;
+        text-align: center;
     }
 
-    .section, .orderSummary {
-        padding: 24px;
+    .section,
+    .orderSummary {
+        padding: 20px;
+        border-radius: 8px;
     }
 
     .formGrid {
@@ -365,5 +372,28 @@
 
     .full {
         grid-column: span 1;
+    }
+
+    .paymentMethod {
+        padding: 16px;
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .paymentLabel strong {
+        font-size: 0.85rem;
+    }
+
+    .paymentLabel span {
+        font-size: 0.75rem;
+    }
+
+    .couponInput {
+        flex-direction: column;
+    }
+
+    .applyBtn {
+        padding: 12px;
+        justify-content: center;
     }
 }
