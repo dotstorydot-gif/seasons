@@ -120,23 +120,28 @@
     font-weight: 600;
 }
 
-.pending {
-    background-color: #FFF3E0;
+.processing {
+    background: #FFF3E0;
     color: #EF6C00;
 }
 
-.shipped {
-    background-color: #E3F2FD;
+.ready_for_pickup {
+    background: #E1F5FE;
+    color: #0277BD;
+}
+
+.on_the_way {
+    background: #E3F2FD;
     color: #1565C0;
 }
 
-.completed {
-    background-color: #E8F5E9;
+.delivered {
+    background: #E8F5E9;
     color: #2E7D32;
 }
 
 .cancelled {
-    background-color: #FFEBEE;
+    background: #FFEBEE;
     color: #C62828;
 }
 
@@ -239,12 +244,17 @@
     color: inherit;
 }
 
-.confirmed {
-    background: #EDE7F6;
-    color: #4527A0;
+.processing {
+    background: #FFF3E0;
+    color: #EF6C00;
 }
 
-.shipped {
+.ready_for_pickup {
+    background: #E1F5FE;
+    color: #0277BD;
+}
+
+.on_the_way {
     background: #E3F2FD;
     color: #1565C0;
 }
@@ -252,11 +262,6 @@
 .delivered {
     background: #E8F5E9;
     color: #2E7D32;
-}
-
-.pending {
-    background: #FFF3E0;
-    color: #EF6C00;
 }
 
 .cancelled {

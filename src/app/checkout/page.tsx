@@ -148,7 +148,7 @@ export default function CheckoutPage() {
             address: formData.address,
             delivery_notes: formData.notes,
             total_amount: finalTotal,
-            status: 'pending',
+            status: 'processing',
             coupon_code: appliedCoupon?.code || null,
             discount_amount: discount,
             items: items.map(item => ({

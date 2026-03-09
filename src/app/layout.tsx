@@ -26,6 +26,7 @@ const poppinsSerif = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://seasons-nature.com"),
   title: {
     default: "Seasons by Nature | Handcrafted Wooden Pieces",
     template: "%s | Seasons by Nature"

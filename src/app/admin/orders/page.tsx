@@ -6,17 +6,19 @@ import styles from './Orders.module.css';
 import { Search, Download, Loader2, ChevronDown, Package, Truck, CheckCircle, XCircle, Clock, X, Bell, CornerDownLeft } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
-const STATUS_OPTIONS = ['pending', 'confirmed', 'shipped', 'delivered', 'cancelled', 'returned'] as const;
+const STATUS_OPTIONS = ['processing', 'ready_for_pickup', 'on_the_way', 'delivered', 'cancelled', 'returned'] as const;
 type OrderStatus = typeof STATUS_OPTIONS[number];
 
 const STATUS_ICONS: Record<OrderStatus, React.ReactNode> = {
-    pending: <Clock size={14} />,
-    confirmed: <Package size={14} />,
-    shipped: <Truck size={14} />,
+    processing: <Clock size={14} />,
+    ready_for_pickup: <Package size={14} />,
+    on_the_way: <Truck size={14} />,
     delivered: <CheckCircle size={14} />,
     cancelled: <XCircle size={14} />,
     returned: <CornerDownLeft size={14} />,
 };
+
+const formatStatus = (s: string) => s.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
 interface OrderItem {
     nameEn?: string;
@@ -154,7 +156,7 @@ export default function OrdersPage() {
                                 className={`${styles.filterBtn} ${activeFilter === f ? styles.activeFilter : ''}`}
                                 onClick={() => setActiveFilter(f)}
                             >
-                                {f.charAt(0).toUpperCase() + f.slice(1)}
+                                {formatStatus(f)}
                                 <span className={styles.filterCount}>{counts[f] ?? 0}</span>
                             </button>
                         ))}
@@ -202,7 +204,7 @@ export default function OrdersPage() {
                                                         className={styles.statusSelect}
                                                     >
                                                         {STATUS_OPTIONS.map(s => (
-                                                            <option key={s} value={s}>{s.charAt(0).toUpperCase() + s.slice(1)}</option>
+                                                            <option key={s} value={s}>{formatStatus(s)}</option>
                                                         ))}
                                                     </select>
                                                 )}
@@ -265,7 +267,7 @@ export default function OrdersPage() {
                                             className={`${styles.statusBtn} ${selectedOrder.status === s ? styles.statusBtnActive : ''}`}
                                             onClick={() => updateStatus(selectedOrder.id, s)}
                                         >
-                                            {STATUS_ICONS[s]} {s.charAt(0).toUpperCase() + s.slice(1)}
+                                            {STATUS_ICONS[s]} {formatStatus(s)}
                                         </button>
                                     ))}
                                 </div>

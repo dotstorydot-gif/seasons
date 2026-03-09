@@ -79,10 +79,10 @@ export default function TrackOrderPage() {
 
     const getStatusConfig = (status: string) => {
         switch (status) {
-            case 'pending': return { icon: <Calendar strokeWidth={1.5} />, color: '#EF6C00', bg: '#FFF3E0', text: language === 'en' ? 'Processing' : 'قيد المعالجة' };
-            case 'confirmed': return { icon: <CheckCircle2 strokeWidth={1.5} />, color: '#4527A0', bg: '#EDE7F6', text: language === 'en' ? 'Confirmed' : 'مؤكد' };
-            case 'shipped': return { icon: <Truck strokeWidth={1.5} />, color: '#1565C0', bg: '#E3F2FD', text: language === 'en' ? 'Shipped' : 'تم الشحن' };
-            case 'delivered': return { icon: <Package strokeWidth={1.5} />, color: '#2E7D32', bg: '#E8F5E9', text: language === 'en' ? 'Delivered' : 'تم التوصيل' };
+            case 'processing': return { icon: <Calendar strokeWidth={1.5} />, color: '#EF6C00', bg: '#FFF3E0', text: language === 'en' ? 'Processing' : 'قيد المعالجة' };
+            case 'ready_for_pickup': return { icon: <Package strokeWidth={1.5} />, color: '#0277BD', bg: '#E1F5FE', text: language === 'en' ? 'Ready for Pickup' : 'جاهز للاستلام' };
+            case 'on_the_way': return { icon: <Truck strokeWidth={1.5} />, color: '#1565C0', bg: '#E3F2FD', text: language === 'en' ? 'On the Way' : 'في الطريق' };
+            case 'delivered': return { icon: <CheckCircle2 strokeWidth={1.5} />, color: '#2E7D32', bg: '#E8F5E9', text: language === 'en' ? 'Delivered' : 'تم التوصيل' };
             case 'cancelled': return { icon: <XCircle strokeWidth={1.5} />, color: '#C62828', bg: '#FFEBEE', text: language === 'en' ? 'Cancelled' : 'ملغى' };
             case 'returned': return { icon: <CornerDownLeft strokeWidth={1.5} />, color: '#616161', bg: '#F5F5F5', text: language === 'en' ? 'Returned' : 'مسترجع' };
             default: return { icon: <Package strokeWidth={1.5} />, color: '#666', bg: '#eee', text: status };
@@ -171,7 +171,7 @@ export default function TrackOrderPage() {
                             </div>
                         </div>
 
-                        {order.status === 'pending' && (
+                        {order.status === 'processing' && (
                             <div className={styles.cancelSection}>
                                 <p>{language === 'en' ? 'You can cancel your order while it is still processing.' : 'يمكنك إلغاء طلبك طالما أنه لا يزال قيد المعالجة.'}</p>
                                 <button onClick={handleCancelOrder} disabled={loading} className={styles.cancelBtn}>
