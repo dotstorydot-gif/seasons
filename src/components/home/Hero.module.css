@@ -50,14 +50,15 @@
 }
 
 .title {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     line-height: 0.95;
     /* Tighter spacing as requested */
     margin-bottom: 32px;
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-weight: 700;
+    font-weight: 400;
+    /* Normal font */
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -96,7 +97,7 @@
 
 @media (max-width: 1024px) {
     .title {
-        font-size: 3.5rem;
+        font-size: 2.8rem;
     }
 }
 
@@ -107,11 +108,11 @@
     }
 
     .title {
-        font-size: 2.2rem;
+        font-size: 2.0rem;
         line-height: 1.0;
         margin-bottom: 32px;
         letter-spacing: 0.05em;
-        font-weight: 800;
+        font-weight: 400;
         white-space: normal;
         /* Allow wrap on mobile if needed */
     }

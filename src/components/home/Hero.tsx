@@ -8,15 +8,23 @@ import styles from './Hero.module.css';
 const slides = [
     {
         image: "/images/hero-banner.png",
-        title: "CRAFTED BY NATURE\nSHAPED BY HAND"
+        title: "CRAFTED BY NATURE\nSHAPED BY HAND",
+        shopLink: "/shop?category=f9197132-1dc2-410b-a755-47b7bfaa1a5e"
     },
     {
-        image: "/images/Photos/Rectangle Plate 1.png",
-        title: "TIMELESS DESIGN\nARTISAN TRADITION"
+        image: "/images/Banner-01.png",
+        title: "ELEVATE YOUR HOME\nSUSTAINABLE BEAUTY",
+        shopLink: "/shop?category=b8352ab0-c4e9-4e86-a3bc-66a391c9fbff"
     },
     {
-        image: "/images/Photos/Tray with black handle.png",
-        title: "ELEVATE YOUR HOME\nSUSTAINABLE BEAUTY"
+        image: "/images/Banner-02.png",
+        title: "TIMELESS DESIGN\nARTISAN TRADITION",
+        shopLink: "/shop?category=df87c7e6-e8c4-4152-ba6d-f9d06beb9e4a"
+    },
+    {
+        image: "/images/Banner-03.png",
+        title: "SEASONS SPECIAL\nUNIQUE CREATIONS",
+        shopLink: "/shop?category=bf9aa1db-f5b2-4599-99d9-abad59e6a0fa"
     }
 ];
 
@@ -57,7 +65,7 @@ const Hero = () => {
                             ))}
                         </h1>
                         <div className={styles.actions}>
-                            <Link href="/shop" className="hero-button-primary">
+                            <Link href={slide.shopLink || "/shop"} className="hero-button-primary">
                                 SHOP NOW
                             </Link>
                             <Link href="/about" className="hero-button-ghost">
