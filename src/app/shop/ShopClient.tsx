@@ -9,6 +9,7 @@ import { useLanguage } from '@/context/LanguageContext';
 
 interface ShopProduct {
     id: string;
+    sku?: string;
     name_en: string;
     name_ar: string;
     price: number;
@@ -43,7 +44,9 @@ const ShopContent = ({ initialProducts, initialCategories }: ShopClientProps) =>
         .filter(p => {
             const nameEn = p.name_en?.toLowerCase() || '';
             const nameAr = p.name_ar || '';
-            const matchesSearch = nameEn.includes(search.toLowerCase()) || nameAr.includes(search);
+            const sku = p.sku?.toLowerCase() || '';
+            const searchTerm = search.toLowerCase();
+            const matchesSearch = nameEn.includes(searchTerm) || nameAr.includes(search) || sku.includes(searchTerm);
             const matchesCategory = categoryParam === 'All' || p.category_id === categoryParam;
             return matchesSearch && matchesCategory;
         })
