@@ -46,6 +46,9 @@ CREATE TABLE IF NOT EXISTS public.orders (
     created_at TIMESTAMPTZ DEFAULT now()
 );
 -- 4. Initial seed data for categories
+-- First, clear existing categories to avoid duplicates and remove unwanted ones
+DELETE FROM public.categories;
+
 INSERT INTO public.categories (name_en, name_ar, slug, image_url, sort_order)
 VALUES (
         'Seasons Specials',
