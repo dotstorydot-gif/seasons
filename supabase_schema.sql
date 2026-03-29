@@ -23,6 +23,9 @@ CREATE TABLE IF NOT EXISTS public.products (
         stock INTEGER DEFAULT 0,
         images TEXT [] DEFAULT '{}',
         is_featured BOOLEAN DEFAULT false,
+        size_en TEXT,
+        size_ar TEXT,
+        tags TEXT [] DEFAULT '{}',
         created_at TIMESTAMPTZ DEFAULT now()
 );
 -- 3. Create orders table

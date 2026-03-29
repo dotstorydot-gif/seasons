@@ -16,6 +16,7 @@ interface ShopProduct {
     category_id: string;
     image_url?: string;
     images?: string[];
+    tags?: string[];
 }
 
 interface ShopCategory {
@@ -46,7 +47,8 @@ const ShopContent = ({ initialProducts, initialCategories }: ShopClientProps) =>
             const nameAr = p.name_ar || '';
             const sku = p.sku?.toLowerCase() || '';
             const searchTerm = search.toLowerCase();
-            const matchesSearch = nameEn.includes(searchTerm) || nameAr.includes(search) || sku.includes(searchTerm);
+            const tagsMatch = p.tags?.some(tag => tag.toLowerCase().includes(searchTerm)) || false;
+            const matchesSearch = nameEn.includes(searchTerm) || nameAr.includes(search) || sku.includes(searchTerm) || tagsMatch;
             const matchesCategory = categoryParam === 'All' || p.category_id === categoryParam;
             return matchesSearch && matchesCategory;
         })

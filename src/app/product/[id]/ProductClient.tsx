@@ -8,7 +8,6 @@ import { useToast } from '@/context/ToastContext';
 import styles from './ProductPage.module.css';
 import { MessageCircle, Share2, ChevronLeft, ChevronRight, Heart } from 'lucide-react';
 import Link from 'next/link';
-
 import Image from 'next/image';
 
 interface Product {
@@ -22,6 +21,9 @@ interface Product {
     sku: string;
     stock: number;
     images: string[];
+    size_en?: string;
+    size_ar?: string;
+    tags?: string[];
 }
 
 interface ProductClientProps {
@@ -39,6 +41,7 @@ export default function ProductClient({ product }: ProductClientProps) {
     const name = language === 'en' ? product.name_en : product.name_ar;
     const shortDesc = language === 'en' ? product.description_en?.substring(0, 100) : product.description_ar?.substring(0, 100);
     const description = language === 'en' ? product.description_en : product.description_ar;
+    const size = language === 'en' ? product.size_en : product.size_ar;
 
     const whatsappMessage = `New Order Inquiry:\nProduct: ${product.name_en}\nSKU: ${product.sku}\nQuantity: ${quantity}\nPrice: ${product.price} EGP`;
     const whatsappUrl = `https://wa.me/201234567890?text=${encodeURIComponent(whatsappMessage)}`;
@@ -158,9 +161,26 @@ export default function ProductClient({ product }: ProductClientProps) {
                         </div>
 
                         <div className={styles.fullDescription}>
-                            <h3>Description</h3>
+                            <h3>{language === 'en' ? 'Description' : 'الوصف'}</h3>
                             <p>{description}</p>
                         </div>
+
+                        {size && (
+                            <div className={styles.sizeSection}>
+                                <h4>{language === 'en' ? 'Size' : 'المقاس'}</h4>
+                                <p className={styles.sizeText}>{size}</p>
+                            </div>
+                        )}
+
+                        {product.tags && product.tags.length > 0 && (
+                            <div className={styles.tagsSection}>
+                                {product.tags.map((tag: string, i: number) => (
+                                    <Link key={i} href={`/shop?search=${encodeURIComponent(tag)}`} className={styles.tag}>
+                                        {tag}
+                                    </Link>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

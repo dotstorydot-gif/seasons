@@ -25,6 +25,9 @@ interface AdminProduct {
     is_featured: boolean;
     category_id: string | null;
     images: string[];
+    size_en?: string;
+    size_ar?: string;
+    tags?: string[];
     categories?: { name_en: string };
 }
 
@@ -40,12 +43,16 @@ interface ProductForm {
     is_featured: boolean;
     category_id: string;
     images: string[];
+    size_en: string;
+    size_ar: string;
+    tags: string; // Comma separated for input
 }
 
 const EMPTY_FORM: ProductForm = {
     name_en: '', name_ar: '', description_en: '', description_ar: '',
     price: '', compare_at_price: '', sku: '', stock: '', is_featured: false, category_id: '',
     images: [] as string[],
+    size_en: '', size_ar: '', tags: '',
 };
 
 export default function AdminProductsPage() {
@@ -91,6 +98,9 @@ export default function AdminProductsPage() {
             is_featured: product.is_featured || false,
             category_id: product.category_id || '',
             images: product.images || [],
+            size_en: product.size_en || '',
+            size_ar: product.size_ar || '',
+            tags: product.tags?.join(', ') || '',
         });
     };
 
@@ -111,6 +121,9 @@ export default function AdminProductsPage() {
             is_featured: form.is_featured,
             category_id: form.category_id || null,
             images: form.images,
+            size_en: form.size_en,
+            size_ar: form.size_ar,
+            tags: form.tags.split(',').map(t => t.trim()).filter(Boolean),
         };
 
         if (editProduct?.id) {
@@ -311,6 +324,22 @@ export default function AdminProductsPage() {
                                         <span className={styles.toggleSlider} />
                                         {form.is_featured ? 'Yes' : 'No'}
                                     </label>
+                                </div>
+
+                                {/* Size */}
+                                <div className={styles.formGroup}>
+                                    <label>Size (EN)</label>
+                                    <input value={form.size_en} onChange={e => setForm(f => ({ ...f, size_en: e.target.value }))} placeholder="Large, 40x60 cm..." />
+                                </div>
+                                <div className={styles.formGroup}>
+                                    <label>Size (AR)</label>
+                                    <input value={form.size_ar} onChange={e => setForm(f => ({ ...f, size_ar: e.target.value }))} dir="rtl" placeholder="كبير، ٤٠*٦٠ سم..." />
+                                </div>
+
+                                {/* Tags */}
+                                <div className={`${styles.formGroup} ${styles.fullWidth}`}>
+                                    <label>Tags (Comma separated)</label>
+                                    <input value={form.tags} onChange={e => setForm(f => ({ ...f, tags: e.target.value }))} placeholder="decor, lighting, handmade..." />
                                 </div>
 
                                 {/* Images */}
