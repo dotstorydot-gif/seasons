@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS public.categories (
     name_ar TEXT NOT NULL,
     slug TEXT UNIQUE NOT NULL,
     image_url TEXT,
+    sort_order INTEGER DEFAULT 0,
     created_at TIMESTAMPTZ DEFAULT now()
 );
 -- 2. Create products table
@@ -45,65 +46,70 @@ CREATE TABLE IF NOT EXISTS public.orders (
     created_at TIMESTAMPTZ DEFAULT now()
 );
 -- 4. Initial seed data for categories
-INSERT INTO public.categories (name_en, name_ar, slug, image_url)
+INSERT INTO public.categories (name_en, name_ar, slug, image_url, sort_order)
 VALUES (
-        'Seating',
-        'كراسي',
-        'seating',
-        'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&q=80'
+        'Seasons Specials',
+        'عروض سيزونز',
+        'specials',
+        '/images/categories/seasons.jpg',
+        1
     ),
     (
-        'Tables',
-        'طاولات',
-        'tables',
-        'https://images.unsplash.com/photo-1530018607912-eff2df114f11?auto=format&fit=crop&q=80'
+        'Boards',
+        'ألواح تقديم',
+        'boards',
+        '/images/categories/boards.jpg',
+        2
     ),
     (
-        'Lighting',
-        'إضاءة',
-        'lighting',
-        'https://images.unsplash.com/photo-1507473885765-e6ed657db981?auto=format&fit=crop&q=80'
+        'Trays',
+        'صواني',
+        'trays',
+        '/images/categories/trays.png',
+        3
     ),
     (
-        'Decor',
-        'ديكور',
-        'decor',
-        'https://images.unsplash.com/photo-1583847268964-b28dc2f51ac9?auto=format&fit=crop&q=80'
+        'Serving',
+        'أدوات تقديم',
+        'serving',
+        '/images/categories/serving.png',
+        4
     ) ON CONFLICT (slug) DO NOTHING;
 -- 5. Initial seed data for products
-INSERT INTO public.products (
-        category_id,
-        name_en,
-        name_ar,
-        description_en,
-        description_ar,
-        price,
-        sku,
-        stock,
-        images,
-        is_featured
-    )
-VALUES (
-        (
-            SELECT id
-            FROM public.categories
-            WHERE slug = 'seating'
-            LIMIT 1
-        ), 'Serene Lounge Chair', 'كرسي استرخاء هادئ', 'A minimalist piece designed for ultimate comfort.', 'قطعة بسيطة مصممة لتوفير أقصى درجات الراحة.', 4500, 'SL-001', 12, '{"https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&q=80"}', true
-    ),
-    (
-        (
-            SELECT id
-            FROM public.categories
-            WHERE slug = 'tables'
-            LIMIT 1
-        ), 'Oak Coffee Table', 'طاولة قهوة خشبية', 'Solid oak coffee table with a natural finish.', 'طاولة قهوة من خشب البلوط الصلب مع لمسة نهائية طبيعية.', 3200, 'CT-012', 8, '{"https://images.unsplash.com/photo-1530018607912-eff2df114f11?auto=format&fit=crop&q=80"}', true
-    ),
-    (
-        (
-            SELECT id
-            FROM public.categories
-            WHERE slug = 'lighting'
-            LIMIT 1
-        ), 'Minimalist Floor Lamp', 'مصباح أرضي عصري', 'Warm ambient lighting for your living room.', 'إضاءة محيطة دافئة لغرفة المعيشة الخاصة بك.', 1800, 'FL-005', 24, '{"https://images.unsplash.com/photo-1507473885765-e6ed657db981?auto=format&fit=crop&q=80"}', false
-    ) ON CONFLICT (sku) DO NOTHING;
+-- Commented out because they reference removed categories
+-- INSERT INTO public.products (
+--         category_id,
+--         name_en,
+--         name_ar,
+--         description_en,
+--         description_ar,
+--         price,
+--         sku,
+--         stock,
+--         images,
+--         is_featured
+--     )
+-- VALUES (
+--         (
+--             SELECT id
+--             FROM public.categories
+--             WHERE slug = 'seating'
+--             LIMIT 1
+--         ), 'Serene Lounge Chair', 'كرسي استرخاء هادئ', 'A minimalist piece designed for ultimate comfort.', 'قطعة بسيطة مصممة لتوفير أقصى درجات الراحة.', 4500, 'SL-001', 12, '{"https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&q=80"}', true
+--     ),
+--     (
+--         (
+--             SELECT id
+--             FROM public.categories
+--             WHERE slug = 'tables'
+--             LIMIT 1
+--         ), 'Oak Coffee Table', 'طاولة قهوة خشبية', 'Solid oak coffee table with a natural finish.', 'طاولة قهوة من خشب البلوط الصلب مع لمسة نهائية طبيعية.', 3200, 'CT-012', 8, '{"https://images.unsplash.com/photo-1530018607912-eff2df114f11?auto=format&fit=crop&q=80"}', true
+--     ),
+--     (
+--         (
+--             SELECT id
+--             FROM public.categories
+--             WHERE slug = 'lighting'
+--             LIMIT 1
+--         ), 'Minimalist Floor Lamp', 'مصباح أرضي عصري', 'Warm ambient lighting for your living room.', 'إضاءة محيطة دافئة لغرفة المعيشة الخاصة بك.', 1800, 'FL-005', 24, '{"https://images.unsplash.com/photo-1507473885765-e6ed657db981?auto=format&fit=crop&q=80"}', false
+--     ) ON CONFLICT (sku) DO NOTHING;
