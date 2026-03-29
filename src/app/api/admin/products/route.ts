@@ -9,8 +9,10 @@ const getAdmin = () => createClient(
 
 export async function PUT(req: NextRequest) {
     const { id, payload } = await req.json();
-    // Strip null/undefined to avoid "column not found in schema cache" errors
-    const clean = Object.fromEntries(Object.entries(payload).filter(([, v]) => v !== null && v !== undefined));
+    // Allow null for category_id specifically, filter out undefined
+    const clean = Object.fromEntries(
+        Object.entries(payload).filter(([k, v]) => v !== undefined || k === 'category_id')
+    );
     const { error } = await getAdmin().from('products').update(clean).eq('id', id);
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
     return NextResponse.json({ success: true });

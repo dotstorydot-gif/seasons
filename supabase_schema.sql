@@ -79,40 +79,47 @@ VALUES (
         4
     ) ON CONFLICT (slug) DO NOTHING;
 -- 5. Initial seed data for products
--- Commented out because they reference removed categories
--- INSERT INTO public.products (
---         category_id,
---         name_en,
---         name_ar,
---         description_en,
---         description_ar,
---         price,
---         sku,
---         stock,
---         images,
---         is_featured
---     )
--- VALUES (
---         (
---             SELECT id
---             FROM public.categories
---             WHERE slug = 'seating'
---             LIMIT 1
---         ), 'Serene Lounge Chair', 'كرسي استرخاء هادئ', 'A minimalist piece designed for ultimate comfort.', 'قطعة بسيطة مصممة لتوفير أقصى درجات الراحة.', 4500, 'SL-001', 12, '{"https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&q=80"}', true
---     ),
---     (
---         (
---             SELECT id
---             FROM public.categories
---             WHERE slug = 'tables'
---             LIMIT 1
---         ), 'Oak Coffee Table', 'طاولة قهوة خشبية', 'Solid oak coffee table with a natural finish.', 'طاولة قهوة من خشب البلوط الصلب مع لمسة نهائية طبيعية.', 3200, 'CT-012', 8, '{"https://images.unsplash.com/photo-1530018607912-eff2df114f11?auto=format&fit=crop&q=80"}', true
---     ),
---     (
---         (
---             SELECT id
---             FROM public.categories
---             WHERE slug = 'lighting'
---             LIMIT 1
---         ), 'Minimalist Floor Lamp', 'مصباح أرضي عصري', 'Warm ambient lighting for your living room.', 'إضاءة محيطة دافئة لغرفة المعيشة الخاصة بك.', 1800, 'FL-005', 24, '{"https://images.unsplash.com/photo-1507473885765-e6ed657db981?auto=format&fit=crop&q=80"}', false
---     ) ON CONFLICT (sku) DO NOTHING;
+INSERT INTO public.products (
+        category_id,
+        name_en,
+        name_ar,
+        description_en,
+        description_ar,
+        price,
+        sku,
+        stock,
+        images,
+        is_featured
+    )
+VALUES (
+        (
+            SELECT id
+            FROM public.categories
+            WHERE slug = 'specials'
+            LIMIT 1
+        ), 'Ramadan Moon Plate', 'طبق الهلال لرمضان', 'Beautiful crescent moon shaped wooden tray for nuts and dates.', 'صينية خشبية على شكل هلال جميلة للمكسرات والتمر.', 610, 'RS-001', 25, '{"/images/categories/seasons.jpg"}', true
+    ),
+    (
+        (
+            SELECT id
+            FROM public.categories
+            WHERE slug = 'boards'
+            LIMIT 1
+        ), 'Oak Serving Board', 'لوح تقديم خشب البلوط', 'Premium solid oak board for charcuterie and appetizers.', 'لوح من خشب البلوط الصلب الممتاز للمقبلات.', 450, 'BD-012', 15, '{"/images/categories/boards.jpg"}', true
+    ),
+    (
+        (
+            SELECT id
+            FROM public.categories
+            WHERE slug = 'trays'
+            LIMIT 1
+        ), 'Handcrafted Sushi Tray', 'صينية سوشي مصنوعة يدوياً', 'Elegant wooden tray designed specifically for serving sushi.', 'صينية خشبية أنيقة مصممة خصيصاً لتقديم السوشي.', 380, 'TR-005', 30, '{"/images/categories/trays.png"}', false
+    ),
+    (
+        (
+            SELECT id
+            FROM public.categories
+            WHERE slug = 'serving'
+            LIMIT 1
+        ), 'Wooden Glass Stand', 'قاعدة تقديم خشبية للزجاج', 'A sturdy wooden base to elevate your glass serving dishes.', 'قاعدة خشبية متينة لرفع أطباق التقديم الزجاجية.', 290, 'SV-008', 20, '{"/images/categories/serving.png"}', false
+    ) ON CONFLICT (sku) DO NOTHING;
