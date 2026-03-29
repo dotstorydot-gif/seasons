@@ -42,7 +42,30 @@ CREATE TABLE IF NOT EXISTS public.orders (
     delivery_notes TEXT,
     total_amount NUMERIC NOT NULL,
     status TEXT DEFAULT 'pending',
+    coupon_code TEXT,
+    discount_amount NUMERIC DEFAULT 0,
     items JSONB NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT now()
+);
+-- 4. Create coupons table
+CREATE TABLE IF NOT EXISTS public.coupons (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    code TEXT UNIQUE NOT NULL,
+    discount_type TEXT NOT NULL CHECK (discount_type IN ('percentage', 'free_delivery')),
+    discount_value NUMERIC NOT NULL DEFAULT 0,
+    max_uses INTEGER,
+    per_user_limit INTEGER DEFAULT 1,
+    expires_at TIMESTAMPTZ,
+    is_active BOOLEAN DEFAULT true,
+    used_count INTEGER DEFAULT 0,
+    created_at TIMESTAMPTZ DEFAULT now()
+);
+-- 5. Create coupon_usages table
+CREATE TABLE IF NOT EXISTS public.coupon_usages (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    coupon_id UUID REFERENCES public.coupons(id) ON DELETE CASCADE,
+    order_id UUID REFERENCES public.orders(id) ON DELETE CASCADE,
+    user_phone TEXT NOT NULL,
     created_at TIMESTAMPTZ DEFAULT now()
 );
 -- 4. Initial seed data for categories
