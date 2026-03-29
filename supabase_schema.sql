@@ -68,3 +68,19 @@ CREATE TABLE IF NOT EXISTS public.coupon_usages (
     user_phone TEXT NOT NULL,
     created_at TIMESTAMPTZ DEFAULT now()
 );
+-- 6. Row Level Security (RLS) Policies
+-- These allow visitors to place orders and check coupons without a login.
+
+-- Orders policies
+ALTER TABLE public.orders ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow anonymous orders" ON public.orders FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow anonymous order lookup" ON public.orders FOR SELECT USING (true);
+
+-- Coupons policies
+ALTER TABLE public.coupons ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Public lookup of active coupons" ON public.coupons FOR SELECT USING (is_active = true);
+
+-- Coupon Usage policies
+ALTER TABLE public.coupon_usages ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow public coupon tracking" ON public.coupon_usages FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow public usage check" ON public.coupon_usages FOR SELECT USING (true);
