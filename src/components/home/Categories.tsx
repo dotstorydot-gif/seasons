@@ -49,10 +49,11 @@ const Categories = () => {
                                     <div className={styles.imagePlaceholder}>
                                         {cat.image_url && (
                                             <Image
-                                                src={cat.image_url}
+                                                src={`${cat.image_url}?v=2`}
                                                 alt={language === 'en' ? cat.name_en : cat.name_ar}
                                                 fill
                                                 className={styles.categoryImage}
+                                                unoptimized
                                             />
                                         )}
                                     </div>
