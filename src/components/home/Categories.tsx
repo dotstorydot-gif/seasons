@@ -49,7 +49,7 @@ const Categories = () => {
                                     <div className={styles.imagePlaceholder}>
                                         {cat.image_url && (
                                             <Image
-                                                src={`${cat.image_url}?v=2`}
+                                                src={`${cat.image_url}?v=3`}
                                                 alt={language === 'en' ? cat.name_en : cat.name_ar}
                                                 fill
                                                 className={styles.categoryImage}
