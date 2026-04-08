@@ -65,7 +65,12 @@ const ShopContent = ({ initialProducts, initialCategories }: ShopClientProps) =>
                 const nameB = language === 'en' ? b.name_en : b.name_ar;
                 return (nameB || '').localeCompare(nameA || '', language);
             }
-            return 0; // featured/default
+            // featured/default
+            const aIsEaster = a.tags?.includes('easter eggs');
+            const bIsEaster = b.tags?.includes('easter eggs');
+            if (aIsEaster && !bIsEaster) return -1;
+            if (!aIsEaster && bIsEaster) return 1;
+            return 0;
         });
 
     const handleCategoryChange = (catId: string) => {
