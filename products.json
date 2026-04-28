@@ -5,31 +5,31 @@
     "images": [
       "/images/1-seasons special/005-Easter holder - 8 eggs/005-Easter-holder---8-eggs-01.webp",
       "/images/1-seasons special/005-Easter holder - 8 eggs/005-Easter-holder---8-eggs-02.webp",
-      "/images/1-seasons special/005-Easter holder - 8 eggs/005-Easter-holder---8-eggs-03.png"
+      "/images/1-seasons special/005-Easter holder - 8 eggs/005-Easter-holder---8-eggs-03.webp"
     ]
   },
   {
     "name_en": "Candle Coasters",
     "sku": "017",
     "images": [
-      "/images/1-seasons special/017-Circle coaster/017-Circle-coaster-01.jpg",
-      "/images/1-seasons special/017-Circle coaster/017-Circle-coaster-02.jpg"
+      "/images/1-seasons special/017-Circle coaster/017-Circle-coaster-01.webp",
+      "/images/1-seasons special/017-Circle coaster/017-Circle-coaster-02.webp"
     ]
   },
   {
     "name_en": "Deep Bowls",
     "sku": "018",
     "images": [
-      "/images/1-seasons special/018-Coffee coaster/018-Coffee-coaster-01.jpg",
-      "/images/1-seasons special/018-Coffee coaster/018-Coffee-coaster-02.jpg"
+      "/images/1-seasons special/018-Coffee coaster/018-Coffee-coaster-01.webp",
+      "/images/1-seasons special/018-Coffee coaster/018-Coffee-coaster-02.webp"
     ]
   },
   {
     "name_en": "Large Cheese Board",
     "sku": "019B",
     "images": [
-      "/images/3-trays/019B-Large Cheese Board/019B-Large Cheese Board-01.jpg",
-      "/images/3-trays/019B-Large Cheese Board/019B-Large Cheese Board-02.jpg",
+      "/images/3-trays/019B-Large Cheese Board/019B-Large Cheese Board-01.webp",
+      "/images/3-trays/019B-Large Cheese Board/019B-Large Cheese Board-02.webp",
       "/images/3-trays/019B-Large Cheese Board/019B-Large Cheese Board-03.jpg"
     ]
   },
@@ -39,7 +39,7 @@
     "images": [
       "/images/2-Boards/044-Large Cutting board/044-Large Cutting board-01.webp",
       "/images/2-Boards/044-Large Cutting board/044-Large Cutting board-02.webp",
-      "/images/2-Boards/044-Large Cutting board/044-Large Cutting board-03.png"
+      "/images/2-Boards/044-Large Cutting board/044-Large Cutting board-03.webp"
     ]
   },
   {
@@ -48,7 +48,7 @@
     "images": [
       "/images/2-Boards/045-Cutting board/045-Cutting board-01.webp",
       "/images/2-Boards/045-Cutting board/045-Cutting board-02.webp",
-      "/images/2-Boards/045-Cutting board/045-Cutting board-03.png"
+      "/images/2-Boards/045-Cutting board/045-Cutting board-03.webp"
     ]
   },
   {
@@ -57,7 +57,7 @@
     "images": [
       "/images/2-Boards/046-Stripe cutting board/046-Stripe cutting board-01.webp",
       "/images/2-Boards/046-Stripe cutting board/046-Stripe cutting board-02.webp",
-      "/images/2-Boards/046-Stripe cutting board/046-Stripe cutting board-03.png"
+      "/images/2-Boards/046-Stripe cutting board/046-Stripe cutting board-03.webp"
     ]
   },
   {
@@ -66,7 +66,7 @@
     "images": [
       "/images/2-Boards/047-Round cutting board/047-Round cutting board-01.webp",
       "/images/2-Boards/047-Round cutting board/047-Round cutting board-02.webp",
-      "/images/2-Boards/047-Round cutting board/047-Round cutting board-03.png"
+      "/images/2-Boards/047-Round cutting board/047-Round cutting board-03.webp"
     ]
   },
   {
@@ -75,7 +75,7 @@
     "images": [
       "/images/2-Boards/048-Mini Round board/048-Mini Round board-01.webp",
       "/images/2-Boards/048-Mini Round board/048-Mini Round board-02.webp",
-      "/images/2-Boards/048-Mini Round board/048-Mini Round board-03.png"
+      "/images/2-Boards/048-Mini Round board/048-Mini Round board-03.webp"
     ]
   },
   {
@@ -84,7 +84,7 @@
     "images": [
       "/images/2-Boards/049-Round sheesham board/049-Round sheesham board-01.webp",
       "/images/2-Boards/049-Round sheesham board/049-Round sheesham board-02.webp",
-      "/images/2-Boards/049-Round sheesham board/049-Round sheesham board-03.png"
+      "/images/2-Boards/049-Round sheesham board/049-Round sheesham board-03.webp"
     ]
   },
   {
@@ -93,7 +93,7 @@
     "images": [
       "/images/4-serving/050-Kaia large plate/050-Kaia-large-plate-01.webp",
       "/images/4-serving/050-Kaia large plate/050-Kaia-large-plate-02.webp",
-      "/images/4-serving/050-Kaia large plate/050-Kaia-large-plate-03.png"
+      "/images/4-serving/050-Kaia large plate/050-Kaia-large-plate-03.webp"
     ]
   },
   {
@@ -102,7 +102,7 @@
     "images": [
       "/images/4-serving/051-01-Set of Mini plates/051-01-Set of Mini plates-01.webp",
       "/images/4-serving/051-01-Set of Mini plates/051-01-Set of Mini plates-02.webp",
-      "/images/4-serving/051-01-Set of Mini plates/051-01-Set of Mini plates-03.png"
+      "/images/4-serving/051-01-Set of Mini plates/051-01-Set of Mini plates-03.webp"
     ]
   },
   {
@@ -110,8 +110,7 @@
     "sku": "051-02",
     "images": [
       "/images/4-serving/051-02-Small Mini plate /051-02-Small Mini plate-01.webp",
-      "/images/4-serving/051-02-Small Mini plate /051-02-Small Mini plate-01.webp",
-      "/images/4-serving/051-02-Small Mini plate /051-02-Small Mini plate-03.png"
+      "/images/4-serving/051-02-Small Mini plate /051-02-Small Mini plate-03.webp"
     ]
   },
   {
@@ -119,8 +118,7 @@
     "sku": "051-03",
     "images": [
       "/images/4-serving/051-03-Medium Mini plate/051-03-Medium Mini plate-01.webp",
-      "/images/4-serving/051-03-Medium Mini plate/051-03-Medium Mini plate-02.png",
-      "/images/4-serving/051-03-Medium Mini plate/051-03-Medium Mini plate-01.webp"
+      "/images/4-serving/051-03-Medium Mini plate/051-03-Medium Mini plate-02.webp"
     ]
   },
   {
@@ -128,8 +126,8 @@
     "sku": "052",
     "images": [
       "/images/4-serving/052-Small-Heart-Plate/052-Small-Heart-Plate-01.webp",
-      "/images/4-serving/052-Small-Heart-Plate/052-Small-Heart-Plate-02.png",
-      "/images/4-serving/052-Small-Heart-Plate/052-Small-Heart-Plate-03.png"
+      "/images/4-serving/052-Small-Heart-Plate/052-Small-Heart-Plate-02.webp",
+      "/images/4-serving/052-Small-Heart-Plate/052-Small-Heart-Plate-03.webp"
     ]
   },
   {
@@ -137,8 +135,8 @@
     "sku": "053",
     "images": [
       "/images/4-serving/053-Big Heart/053-Big Heart-01.webp",
-      "/images/4-serving/053-Big Heart/053-Big Heart-02.png",
-      "/images/4-serving/053-Big Heart/053-Big Heart-03.png"
+      "/images/4-serving/053-Big Heart/053-Big Heart-02.webp",
+      "/images/4-serving/053-Big Heart/053-Big Heart-03.webp"
     ]
   },
   {
@@ -170,14 +168,14 @@
     "sku": "055",
     "images": [
       "/images/1-seasons special/055-Ramadan napkin holder/Ramadan-napkin-holder-01.webp",
-      "/images/1-seasons special/055-Ramadan napkin holder/Ramadan-napkin-holder-02.png"
+      "/images/1-seasons special/055-Ramadan napkin holder/Ramadan-napkin-holder-02.webp"
     ]
   },
   {
     "name_en": "Crescent Decoration",
     "sku": "056",
     "images": [
-      "/images/1-seasons special/056-Crescent decoration/Crescent decoration-01.jpg",
+      "/images/1-seasons special/056-Crescent decoration/Crescent decoration-01.webp",
       "/images/1-seasons special/056-Crescent decoration/Crescent decoration-02.jpg"
     ]
   },
@@ -185,8 +183,8 @@
     "name_en": "Crescent plate",
     "sku": "057",
     "images": [
-      "/images/1-seasons special/057-Crescent plate/Crescent plate-01.jpg",
-      "/images/1-seasons special/057-Crescent plate/Crescent plate-02.jpg",
+      "/images/1-seasons special/057-Crescent plate/Crescent plate-01.webp",
+      "/images/1-seasons special/057-Crescent plate/Crescent plate-02.webp",
       "/images/1-seasons special/057-Crescent plate/Crescent plate-03.jpg"
     ]
   },
@@ -194,26 +192,26 @@
     "name_en": "Ramadan Mosque Plate",
     "sku": "058",
     "images": [
-      "/images/1-seasons special/058-Ramadan Mosque Plate/Ramadan Mosque Plate-01.jpg",
-      "/images/1-seasons special/058-Ramadan Mosque Plate/Ramadan Mosque Plate-02.jpg"
+      "/images/1-seasons special/058-Ramadan Mosque Plate/Ramadan Mosque Plate-01.webp",
+      "/images/1-seasons special/058-Ramadan Mosque Plate/Ramadan Mosque Plate-02.webp"
     ]
   },
   {
     "name_en": "Lantern Plate",
     "sku": "059",
     "images": [
-      "/images/1-seasons special/059-Lantern plate/059-Lantern plat-01.jpg",
-      "/images/1-seasons special/059-Lantern plate/059-Lantern plat-02.jpg",
-      "/images/1-seasons special/059-Lantern plate/059-Lantern plate-03.jpg"
+      "/images/1-seasons special/059-Lantern plate/059-Lantern plat-01.webp",
+      "/images/1-seasons special/059-Lantern plate/059-Lantern plat-02.webp",
+      "/images/1-seasons special/059-Lantern plate/059-Lantern plate-03.webp"
     ]
   },
   {
     "name_en": "Set of 3-Star serving plate",
     "sku": "060-01",
     "images": [
-      "/images/1-seasons special/060-01-Set of Star serving plate/Set of Star serving plate-01.jpg",
-      "/images/1-seasons special/060-01-Set of Star serving plate/Set of Star serving plate-02.jpg",
-      "/images/1-seasons special/060-01-Set of Star serving plate/Set of Star serving plate-03.jpg"
+      "/images/1-seasons special/060-01-Set of Star serving plate/Set of Star serving plate-01.webp",
+      "/images/1-seasons special/060-01-Set of Star serving plate/Set of Star serving plate-02.webp",
+      "/images/1-seasons special/060-01-Set of Star serving plate/Set of Star serving plate-03.webp"
     ]
   },
   {
@@ -229,7 +227,7 @@
     "sku": "060-03",
     "images": [
       "/images/1-seasons special/060-03-Meduim Star serving plate/Medium-Star-serving-plate-01.webp",
-      "/images/1-seasons special/060-03-Meduim Star serving plate/Medium-Star-serving-plate-02.png"
+      "/images/1-seasons special/060-03-Meduim Star serving plate/Medium-Star-serving-plate-02.webp"
     ]
   },
   {
@@ -237,16 +235,16 @@
     "sku": "060-04",
     "images": [
       "/images/1-seasons special/060-04-Large Star serving plate/Large Star serving plate-01.webp",
-      "/images/1-seasons special/060-04-Large Star serving plate/Large Star serving plate-02.jpg"
+      "/images/1-seasons special/060-04-Large Star serving plate/Large Star serving plate-02.webp"
     ]
   },
   {
     "name_en": "Star & Crescent Serving Plate",
     "sku": "061",
     "images": [
-      "/images/1-seasons special/061-Star serving plate/Star serving plate-01.jpg",
-      "/images/1-seasons special/061-Star serving plate/Star serving plate-02.jpg",
-      "/images/1-seasons special/061-Star serving plate/Star serving plate-03.jpg"
+      "/images/1-seasons special/061-Star serving plate/Star serving plate-01.webp",
+      "/images/1-seasons special/061-Star serving plate/Star serving plate-02.webp",
+      "/images/1-seasons special/061-Star serving plate/Star serving plate-03.webp"
     ]
   },
   {
@@ -254,7 +252,7 @@
     "sku": "062",
     "images": [
       "/images/4-serving/062-Serving Set/062-Serving Set-01.webp",
-      "/images/4-serving/062-Serving Set/062-Serving Set-02.png"
+      "/images/4-serving/062-Serving Set/062-Serving Set-02.webp"
     ]
   },
   {
@@ -262,7 +260,7 @@
     "sku": "063",
     "images": [
       "/images/1-seasons special/063-01-Set of Crescent Serving Stand, light brown/063-01-Set-of-Crescent-Serving-Stand,-light-brown-01.webp",
-      "/images/1-seasons special/063-01-Set of Crescent Serving Stand, light brown/063-01-Set-of-Crescent-Serving-Stand,-light-brown-02.png"
+      "/images/1-seasons special/063-01-Set of Crescent Serving Stand, light brown/063-01-Set-of-Crescent-Serving-Stand,-light-brown-02.webp"
     ]
   },
   {
@@ -270,7 +268,7 @@
     "sku": "063-01",
     "images": [
       "/images/1-seasons special/063-01-Set of Crescent Serving Stand, light brown/063-01-Set-of-Crescent-Serving-Stand,-light-brown-01.webp",
-      "/images/1-seasons special/063-01-Set of Crescent Serving Stand, light brown/063-01-Set-of-Crescent-Serving-Stand,-light-brown-02.png"
+      "/images/1-seasons special/063-01-Set of Crescent Serving Stand, light brown/063-01-Set-of-Crescent-Serving-Stand,-light-brown-02.webp"
     ]
   },
   {
@@ -278,7 +276,7 @@
     "sku": "063-02",
     "images": [
       "/images/1-seasons special/063-02-Crescent Serving Stand, light brown-small/063-02-Set-of-Crescent-Serving-Stand,-light-brow-small-01.webp",
-      "/images/1-seasons special/063-02-Crescent Serving Stand, light brown-small/063-02-Set-of-Crescent-Serving-Stand,-light-brow-small-02.png"
+      "/images/1-seasons special/063-02-Crescent Serving Stand, light brown-small/063-02-Set-of-Crescent-Serving-Stand,-light-brow-small-02.webp"
     ]
   },
   {
@@ -286,7 +284,7 @@
     "sku": "063-03",
     "images": [
       "/images/1-seasons special/063-03-Crescent Serving Stand, light brown-large/063-02-Set-of-Crescent-Serving-Stand,-light-brow-large-01.webp",
-      "/images/1-seasons special/063-03-Crescent Serving Stand, light brown-large/063-02-Set-of-Crescent-Serving-Stand,-light-brow-large-02.png"
+      "/images/1-seasons special/063-03-Crescent Serving Stand, light brown-large/063-02-Set-of-Crescent-Serving-Stand,-light-brow-large-02.webp"
     ]
   },
   {
@@ -294,7 +292,7 @@
     "sku": "064",
     "images": [
       "/images/1-seasons special/064-01-Set of Crescent Serving Stand, dark brown/064-01-Set of Crescent Serving Stand, dark brown-01.webp",
-      "/images/1-seasons special/064-01-Set of Crescent Serving Stand, dark brown/064-02-Set of Crescent Serving Stand, dark brown-02.png"
+      "/images/1-seasons special/064-01-Set of Crescent Serving Stand, dark brown/064-02-Set of Crescent Serving Stand, dark brown-02.webp"
     ]
   },
   {
@@ -302,7 +300,7 @@
     "sku": "064-01",
     "images": [
       "/images/1-seasons special/064-01-Set of Crescent Serving Stand, dark brown/064-01-Set of Crescent Serving Stand, dark brown-01.webp",
-      "/images/1-seasons special/064-01-Set of Crescent Serving Stand, dark brown/064-02-Set of Crescent Serving Stand, dark brown-02.png"
+      "/images/1-seasons special/064-01-Set of Crescent Serving Stand, dark brown/064-02-Set of Crescent Serving Stand, dark brown-02.webp"
     ]
   },
   {
@@ -310,7 +308,7 @@
     "sku": "064-02",
     "images": [
       "/images/1-seasons special/064-02-small of Crescent Serving Stand, dark brown/064-02-Small Crescent Serving Stand, dark brown-01.webp",
-      "/images/1-seasons special/064-02-small of Crescent Serving Stand, dark brown/064-02-Small Crescent Serving Stand, dark brown-02.png"
+      "/images/1-seasons special/064-02-small of Crescent Serving Stand, dark brown/064-02-Small Crescent Serving Stand, dark brown-02.webp"
     ]
   },
   {
@@ -318,32 +316,32 @@
     "sku": "064-03",
     "images": [
       "/images/1-seasons special/064-03-Large of Crescent Serving Stand, dark brown/064-03-Large of Crescent Serving Stand, dark brown-01.webp",
-      "/images/1-seasons special/064-03-Large of Crescent Serving Stand, dark brown/064-03-Large of Crescent Serving Stand, dark brown-02.png"
+      "/images/1-seasons special/064-03-Large of Crescent Serving Stand, dark brown/064-03-Large of Crescent Serving Stand, dark brown-02.webp"
     ]
   },
   {
     "name_en": "Kitchen magnet",
     "sku": "065",
     "images": [
-      "/images/4-serving/065-Kitchen Magnet/065-Kitchen Magnet-01.jpg",
-      "/images/4-serving/065-Kitchen Magnet/065-Kitchen Magnet-02.jpg"
+      "/images/4-serving/065-Kitchen Magnet/065-Kitchen Magnet-01.webp",
+      "/images/4-serving/065-Kitchen Magnet/065-Kitchen Magnet-02.webp"
     ]
   },
   {
     "name_en": "Welcome magnet",
     "sku": "066",
     "images": [
-      "/images/4-serving/066-Welcome magnet/066-Welcome magnet-01.jpg",
-      "/images/4-serving/066-Welcome magnet/066-Welcome magnet-02.jpg"
+      "/images/4-serving/066-Welcome magnet/066-Welcome magnet-01.webp",
+      "/images/4-serving/066-Welcome magnet/066-Welcome magnet-02.webp"
     ]
   },
   {
     "name_en": "Cutlery Set Magnet",
     "sku": "067",
     "images": [
-      "/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-01.jpg",
+      "/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-01.webp",
       "/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-02.jpg",
-      "/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-03.jpg"
+      "/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-03.webp"
     ]
   },
   {
@@ -355,11 +353,11 @@
     "name_en": "Pizza Set",
     "sku": "069",
     "images": [
-      "/images/4-serving/069-Pizza Set/069-Pizza Set-01.jpg",
-      "/images/4-serving/069-Pizza Set/069-Pizza Set-02.jpg",
-      "/images/4-serving/069-Pizza Set/069-Pizza Set-03.jpg",
-      "/images/4-serving/069-Pizza Set/069-Pizza Set-04.jpg",
-      "/images/4-serving/069-Pizza Set/069-Pizza Set-05.jpg"
+      "/images/4-serving/069-Pizza Set/069-Pizza Set-01.webp",
+      "/images/4-serving/069-Pizza Set/069-Pizza Set-02.webp",
+      "/images/4-serving/069-Pizza Set/069-Pizza Set-03.webp",
+      "/images/4-serving/069-Pizza Set/069-Pizza Set-04.webp",
+      "/images/4-serving/069-Pizza Set/069-Pizza Set-05.webp"
     ]
   },
   {
@@ -367,7 +365,7 @@
     "sku": "070",
     "images": [
       "/images/4-serving/070-Kitchen-Tissue/070-Kitchen-tissue-holder-01.webp",
-      "/images/4-serving/070-Kitchen-Tissue/070-Kitchen-tissue-holder-02.png"
+      "/images/4-serving/070-Kitchen-Tissue/070-Kitchen-tissue-holder-02.webp"
     ]
   },
   {
@@ -375,7 +373,7 @@
     "sku": "071",
     "images": [
       "/images/4-serving/071-Toilet tissue holder/071-Toilet-tissue-holder-01.webp",
-      "/images/4-serving/071-Toilet tissue holder/071-Toilet-tissue-holder-02.png"
+      "/images/4-serving/071-Toilet tissue holder/071-Toilet-tissue-holder-02.webp"
     ]
   },
   {
@@ -383,7 +381,7 @@
     "sku": "072",
     "images": [
       "/images/4-serving/072-Large Coaster with Candle/075-Large Coaster with Candle-01.webp",
-      "/images/4-serving/072-Large Coaster with Candle/075-Large Coaster with Candle-02.png"
+      "/images/4-serving/072-Large Coaster with Candle/075-Large Coaster with Candle-02.webp"
     ]
   },
   {
@@ -396,7 +394,7 @@
     "sku": "074",
     "images": [
       "/images/4-serving/074-Small Coaster with Candle/074-Small Coaster with Candle-01.webp",
-      "/images/4-serving/074-Small Coaster with Candle/074-Small Coaster with Candle-02.png"
+      "/images/4-serving/074-Small Coaster with Candle/074-Small Coaster with Candle-02.webp"
     ]
   },
   {
@@ -405,16 +403,16 @@
     "images": [
       "/images/4-serving/075-Oval Plate/075-Oval-Plate-01.webp",
       "/images/4-serving/075-Oval Plate/075-Oval-Plate-02.webp",
-      "/images/4-serving/075-Oval Plate/075-Oval-Plate-03.png"
+      "/images/4-serving/075-Oval Plate/075-Oval-Plate-03.webp"
     ]
   },
   {
     "name_en": "Square Plate",
     "sku": "076",
     "images": [
-      "/images/4-serving/076-Square-Plate/076-Square-Plate-01.png",
-      "/images/4-serving/076-Square-Plate/076-Square-Plate-02.png",
-      "/images/4-serving/076-Square-Plate/076-Square-Plate-03.png"
+      "/images/4-serving/076-Square-Plate/076-Square-Plate-01.webp",
+      "/images/4-serving/076-Square-Plate/076-Square-Plate-02.webp",
+      "/images/4-serving/076-Square-Plate/076-Square-Plate-03.webp"
     ]
   },
   {
@@ -423,7 +421,7 @@
     "images": [
       "/images/4-serving/077-Oval Deep Plate /077-Oval-Deep-Plate-01.webp",
       "/images/4-serving/077-Oval Deep Plate /077-Oval-Deep-Plate-02.webp",
-      "/images/4-serving/077-Oval Deep Plate /077-Oval-Deep-Plate-03.png"
+      "/images/4-serving/077-Oval Deep Plate /077-Oval-Deep-Plate-03.webp"
     ]
   },
   {
@@ -432,7 +430,7 @@
     "images": [
       "/images/4-serving/078-Oval Deep Plate with legs/078-Oval-Deep-Plate-with-legs-01.webp",
       "/images/4-serving/078-Oval Deep Plate with legs/078-Oval-Deep-Plate-with-legs-02.webp",
-      "/images/4-serving/078-Oval Deep Plate with legs/078-Oval-Deep-Plate-with-legs-03.png"
+      "/images/4-serving/078-Oval Deep Plate with legs/078-Oval-Deep-Plate-with-legs-03.webp"
     ]
   },
   {
@@ -440,7 +438,7 @@
     "sku": "079",
     "images": [
       "/images/4-serving/079-Fish-Napkin/079-Fish-Napking-01.webp",
-      "/images/4-serving/079-Fish-Napkin/079-Fish-Napking-02.png"
+      "/images/4-serving/079-Fish-Napkin/079-Fish-Napking-02.webp"
     ]
   },
   {
@@ -449,7 +447,7 @@
     "images": [
       "/images/4-serving/080-Oval dipping plate/080-Oval-dipping-plate-01.webp",
       "/images/4-serving/080-Oval dipping plate/080-Oval-dipping-plate-02.webp",
-      "/images/4-serving/080-Oval dipping plate/080-Oval-dipping-plate-03.png"
+      "/images/4-serving/080-Oval dipping plate/080-Oval-dipping-plate-03.webp"
     ]
   },
   {
@@ -458,7 +456,7 @@
     "images": [
       "/images/4-serving/081-Mini oval dipping plate/081-Mini-oval-dipping-plate-01.webp",
       "/images/4-serving/081-Mini oval dipping plate/081-Mini-oval-dipping-plate-02.webp",
-      "/images/4-serving/081-Mini oval dipping plate/081-Mini-oval-dipping-plate-03.png"
+      "/images/4-serving/081-Mini oval dipping plate/081-Mini-oval-dipping-plate-03.webp"
     ]
   },
   {
@@ -477,7 +475,6 @@
     "sku": "082-02",
     "images": [
       "/images/4-serving/082-02-Large-Food-Warmer/082-02-Large-Food-Warmer-01.webp",
-      "/images/4-serving/082-02-Large-Food-Warmer/082-02-Large-Food-Warmer-01.webp",
       "/images/4-serving/082-02-Large-Food-Warmer/082-03-Large-Food-Warmer-02.webp"
     ]
   },
@@ -486,8 +483,7 @@
     "sku": "082-03",
     "images": [
       "/images/4-serving/082-03-Small-Food-Warmer/082-02-Small-Food-Warmer-01.webp",
-      "/images/4-serving/082-03-Small-Food-Warmer/082-02-Small-Food-Warmer-01.webp",
-      "/images/4-serving/082-03-Small-Food-Warmer/082-02-Small-Food-Warmer-03.png"
+      "/images/4-serving/082-03-Small-Food-Warmer/082-02-Small-Food-Warmer-03.webp"
     ]
   },
   {
@@ -524,8 +520,8 @@
     "sku": "084",
     "images": [
       "/images/4-serving/084-sheesham wooden plate/084-sheesham-wooden-plate-01.webp",
-      "/images/4-serving/084-sheesham wooden plate/084-sheesham-wooden-plate-02.png",
-      "/images/4-serving/084-sheesham wooden plate/084-sheesham-wooden-plate-03.png"
+      "/images/4-serving/084-sheesham wooden plate/084-sheesham-wooden-plate-02.webp",
+      "/images/4-serving/084-sheesham wooden plate/084-sheesham-wooden-plate-03.webp"
     ]
   },
   {
@@ -543,7 +539,7 @@
     "images": [
       "/images/4-serving/086-Large-Bowl/086-Large-Bowl-01.webp",
       "/images/4-serving/086-Large-Bowl/086-Large-Bowl-02.webp",
-      "/images/4-serving/086-Large-Bowl/086-Large-Bowl-03.png"
+      "/images/4-serving/086-Large-Bowl/086-Large-Bowl-03.webp"
     ]
   },
   {
@@ -552,7 +548,7 @@
     "images": [
       "/images/4-serving/087-Medium-Bowl/087-Medium-Bowl-01.webp",
       "/images/4-serving/087-Medium-Bowl/087-Medium-Bowl-02.webp",
-      "/images/4-serving/087-Medium-Bowl/87-Medium-Bowl-03.png"
+      "/images/4-serving/087-Medium-Bowl/87-Medium-Bowl-03.webp"
     ]
   },
   {
@@ -561,7 +557,7 @@
     "images": [
       "/images/4-serving/088-Small-Bowl/088-Small-Bowl-01.webp",
       "/images/4-serving/088-Small-Bowl/088-Small-Bowl-02.webp",
-      "/images/4-serving/088-Small-Bowl/088-Small-Bowl-03.png"
+      "/images/4-serving/088-Small-Bowl/088-Small-Bowl-03.webp"
     ]
   },
   {
@@ -578,14 +574,13 @@
     "sku": "089-02",
     "images": [
       "/images/4-serving/089-02-Large-Deep-Bowl/089-02-large-Deep-Bowl-02.webp",
-      "/images/4-serving/089-02-Large-Deep-Bowl/089-02-large-Deep-Bowl-03.png"
+      "/images/4-serving/089-02-Large-Deep-Bowl/089-02-large-Deep-Bowl-03.webp"
     ]
   },
   {
     "name_en": "Meduim Deep Bowl",
     "sku": "089-03",
     "images": [
-      "/images/4-serving/089-03-Medium-Deep-Bowl/089-03-Medium-Deep-Bowl-02.webp",
       "/images/4-serving/089-03-Medium-Deep-Bowl/089-03-Medium-Deep-Bowl-02.webp"
     ]
   },
@@ -594,8 +589,7 @@
     "sku": "089-04",
     "images": [
       "/images/4-serving/089-04-Small-Deep-Bowl/089-04-Small-Deep-Bowl-02.webp",
-      "/images/4-serving/089-04-Small-Deep-Bowl/089-04-Small-Deep-Bowl-03.png",
-      "/images/4-serving/089-04-Small-Deep-Bowl/089-04-Small-Deep-Bowl-02.webp"
+      "/images/4-serving/089-04-Small-Deep-Bowl/089-04-Small-Deep-Bowl-03.webp"
     ]
   },
   {
@@ -604,7 +598,7 @@
     "images": [
       "/images/4-serving/090-Medium-Bowl/090-Medium-Bowl-01.webp",
       "/images/4-serving/090-Medium-Bowl/090-Medium-Bowl-02.webp",
-      "/images/4-serving/090-Medium-Bowl/090-Medium-Bowl-03.png"
+      "/images/4-serving/090-Medium-Bowl/090-Medium-Bowl-03.webp"
     ]
   },
   {
@@ -622,7 +616,7 @@
     "images": [
       "/images/3-trays/92-The Grill/092-The-Grill-01.webp",
       "/images/3-trays/92-The Grill/092-The-Grill-02.webp",
-      "/images/3-trays/92-The Grill/092-The-Grill-03.png"
+      "/images/3-trays/92-The Grill/092-The-Grill-03.webp"
     ]
   },
   {
@@ -631,7 +625,7 @@
     "images": [
       "/images/3-trays/093-01-Set of wooden tray with wood handle/trayset-01.webp",
       "/images/3-trays/093-01-Set of wooden tray with wood handle/trayset-02.webp",
-      "/images/3-trays/093-01-Set of wooden tray with wood handle/trayset-03.png"
+      "/images/3-trays/093-01-Set of wooden tray with wood handle/trayset-03.webp"
     ]
   },
   {
@@ -640,7 +634,7 @@
     "images": [
       "/images/3-trays/093-02-Large of wooden tray with wood handle/093-02-Large of wooden tray with wood handle-01.webp",
       "/images/3-trays/093-02-Large of wooden tray with wood handle/093-02-Large of wooden tray with wood handle-02.webp",
-      "/images/3-trays/093-02-Large of wooden tray with wood handle/093-02-Large of wooden tray with wood handle-03.png"
+      "/images/3-trays/093-02-Large of wooden tray with wood handle/093-02-Large of wooden tray with wood handle-03.webp"
     ]
   },
   {
@@ -648,7 +642,7 @@
     "sku": "093-03",
     "images": [
       "/images/3-trays/093-03-Medium of wooden tray with wood handle /093-03-Medium of wooden tray with wood handle-01.webp",
-      "/images/3-trays/093-03-Medium of wooden tray with wood handle /093-03-Medium of wooden tray with wood handle-02.png",
+      "/images/3-trays/093-03-Medium of wooden tray with wood handle /093-03-Medium of wooden tray with wood handle-02.webp",
       "/images/3-trays/093-03-Medium of wooden tray with wood handle /093-03-Medium of wooden tray with wood handle-03.webp"
     ]
   },
@@ -658,7 +652,7 @@
     "images": [
       "/images/3-trays/093-04-Small of wooden tray with wood handle/093-04-Small of wooden tray with wood handle-01.webp",
       "/images/3-trays/093-04-Small of wooden tray with wood handle/093-04-Small of wooden tray with wood handle-02.webp",
-      "/images/3-trays/093-04-Small of wooden tray with wood handle/093-04-Small of wooden tray with wood handle-03.png"
+      "/images/3-trays/093-04-Small of wooden tray with wood handle/093-04-Small of wooden tray with wood handle-03.webp"
     ]
   },
   {
@@ -667,7 +661,7 @@
     "images": [
       "/images/3-trays/094-Wooden tray with handle/094-Wooden tray with handl-01.webp",
       "/images/3-trays/094-Wooden tray with handle/094-Wooden tray with handl-02.webp",
-      "/images/3-trays/094-Wooden tray with handle/094-Wooden tray with handl-03.png"
+      "/images/3-trays/094-Wooden tray with handle/094-Wooden tray with handl-03.webp"
     ]
   },
   {
@@ -676,9 +670,9 @@
     "images": [
       "/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-01.webp",
       "/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-02.webp",
-      "/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-03.png",
-      "/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-04.png",
-      "/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-05.png"
+      "/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-03.webp",
+      "/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-04.webp",
+      "/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-05.webp"
     ]
   },
   {
@@ -686,7 +680,7 @@
     "sku": "095-02",
     "images": [
       "/images/2-Boards/095-02-Small Puzzle Board /095-02-Small Puzzle Board-01.webp",
-      "/images/2-Boards/095-02-Small Puzzle Board /095-02-Small Puzzle Board-02.png"
+      "/images/2-Boards/095-02-Small Puzzle Board /095-02-Small Puzzle Board-02.webp"
     ]
   },
   {
@@ -694,7 +688,7 @@
     "sku": "095-03",
     "images": [
       "/images/2-Boards/095-03-Large Puzzle Board/095-03-Large Puzzle Board-01.webp",
-      "/images/2-Boards/095-03-Large Puzzle Board/095-03-Large Puzzle Board-02.png"
+      "/images/2-Boards/095-03-Large Puzzle Board/095-03-Large Puzzle Board-02.webp"
     ]
   },
   {
@@ -703,7 +697,7 @@
     "images": [
       "/images/2-Boards/096-Sheesham cutting board /096-Sheesham cutting board-01.webp",
       "/images/2-Boards/096-Sheesham cutting board /096-Sheesham cutting board-02.webp",
-      "/images/2-Boards/096-Sheesham cutting board /096-Sheesham cutting board-03.png"
+      "/images/2-Boards/096-Sheesham cutting board /096-Sheesham cutting board-03.webp"
     ]
   },
   {
@@ -711,15 +705,15 @@
     "sku": "097",
     "images": [
       "/images/2-Boards/097- Small Sheesham cutting board/097-Small Sheesham-cutting-board-01.webp",
-      "/images/2-Boards/097- Small Sheesham cutting board/097-Small Sheesham-cutting-board-02.png"
+      "/images/2-Boards/097- Small Sheesham cutting board/097-Small Sheesham-cutting-board-02.webp"
     ]
   },
   {
     "name_en": "Flat Cheese Board",
     "sku": "098",
     "images": [
-      "/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-01.jpg",
-      "/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-02.jpg",
+      "/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-01.webp",
+      "/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-02.webp",
       "/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-03.jpg"
     ]
   },
@@ -729,16 +723,16 @@
     "images": [
       "/images/3-trays/099-Deep Cheese Board/099-Deep Cheese Board-01.webp",
       "/images/3-trays/099-Deep Cheese Board/099-Deep Cheese Board-02.webp",
-      "/images/3-trays/099-Deep Cheese Board/099-Deep Cheese Board-03.png"
+      "/images/3-trays/099-Deep Cheese Board/099-Deep Cheese Board-03.webp"
     ]
   },
   {
     "name_en": "Set of 2-Bloom Board",
     "sku": "100-01",
     "images": [
-      "/images/3-trays/100-01-Set of Bloom Board/100-01-Set of Bloom Board-01.jpg",
-      "/images/3-trays/100-01-Set of Bloom Board/100-01-Set of Bloom Board-02.jpg",
-      "/images/3-trays/100-01-Set of Bloom Board/100-01-Set of Bloom Board-03.jpg"
+      "/images/3-trays/100-01-Set of Bloom Board/100-01-Set of Bloom Board-01.webp",
+      "/images/3-trays/100-01-Set of Bloom Board/100-01-Set of Bloom Board-02.webp",
+      "/images/3-trays/100-01-Set of Bloom Board/100-01-Set of Bloom Board-03.webp"
     ]
   },
   {
@@ -747,7 +741,7 @@
     "images": [
       "/images/3-trays/100-02-Small Bloom Board/100-02-Small-Bloom-Board-01.webp",
       "/images/3-trays/100-02-Small Bloom Board/100-02-Small-Bloom-Board-02.webp",
-      "/images/3-trays/100-02-Small Bloom Board/100-02-Small-Bloom-Board-03.png"
+      "/images/3-trays/100-02-Small Bloom Board/100-02-Small-Bloom-Board-03.webp"
     ]
   },
   {
@@ -756,25 +750,25 @@
     "images": [
       "/images/3-trays/100-03-Large Bloom Board copy/100-03-Large-Bloom-Board-01.webp",
       "/images/3-trays/100-03-Large Bloom Board copy/100-03-Large-Bloom-Board-02.webp",
-      "/images/3-trays/100-03-Large Bloom Board copy/100-03-Large-Bloom-Board-03.png"
+      "/images/3-trays/100-03-Large Bloom Board copy/100-03-Large-Bloom-Board-03.webp"
     ]
   },
   {
     "name_en": "Board with Ears",
     "sku": "041",
     "images": [
-      "/images/2-Boards/041-Board with Ears/041-Board-with-Ears-01.jpg",
-      "/images/2-Boards/041-Board with Ears/041-Board-with-Ears-02.jpg",
-      "/images/2-Boards/041-Board with Ears/041-Board with Ears-03.jpg"
+      "/images/2-Boards/041-Board with Ears/041-Board-with-Ears-01.webp",
+      "/images/2-Boards/041-Board with Ears/041-Board-with-Ears-02.webp",
+      "/images/2-Boards/041-Board with Ears/041-Board with Ears-03.webp"
     ]
   },
   {
     "name_en": "Waves board",
     "sku": "040",
     "images": [
-      "/images/4-serving/040-Waves board/040-Waves-Board-01.jpg",
-      "/images/4-serving/040-Waves board/040-Waves-Board-02.jpg",
-      "/images/4-serving/040-Waves board/040-Waves-Board-03.jpg"
+      "/images/4-serving/040-Waves board/040-Waves-Board-01.webp",
+      "/images/4-serving/040-Waves board/040-Waves-Board-02.webp",
+      "/images/4-serving/040-Waves board/040-Waves-Board-03.webp"
     ]
   },
   {
@@ -782,26 +776,26 @@
     "sku": "039",
     "images": [
       "/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-01.webp",
-      "/images/4-serving/039-Meduim Taco Holder/039-Meduim-Taco-Holder-02.jpg",
-      "/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-03.jpg"
+      "/images/4-serving/039-Meduim Taco Holder/039-Meduim-Taco-Holder-02.webp",
+      "/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-03.webp"
     ]
   },
   {
     "name_en": "Small Taco Holder",
     "sku": "038",
     "images": [
-      "/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-01.jpg",
-      "/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-02.jpg",
-      "/images/4-serving/038-Small Taco Holder/038-Small Taco Holder-03.jpg"
+      "/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-01.webp",
+      "/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-02.webp",
+      "/images/4-serving/038-Small Taco Holder/038-Small Taco Holder-03.webp"
     ]
   },
   {
     "name_en": "large Sushi tray",
     "sku": "036",
     "images": [
-      "/images/3-trays/036-large Sushi tray/036-large-Sushi-tray-01.jpg",
-      "/images/3-trays/036-large Sushi tray/036-large-Sushi-tray-02.jpg",
-      "/images/3-trays/036-large Sushi tray/036-large-Sushi-tray-03.jpg"
+      "/images/3-trays/036-large Sushi tray/036-large-Sushi-tray-01.webp",
+      "/images/3-trays/036-large Sushi tray/036-large-Sushi-tray-02.webp",
+      "/images/3-trays/036-large Sushi tray/036-large-Sushi-tray-03.webp"
     ]
   },
   {
@@ -809,17 +803,17 @@
     "sku": "035",
     "images": [
       "/images/3-trays/035-Disassembly and assembly board/035-Disassembly-and-assembly-board-01.webp",
-      "/images/3-trays/035-Disassembly and assembly board/035-Disassembly-and-assembly-board-02.jpg",
-      "/images/3-trays/035-Disassembly and assembly board/035-Disassembly-and-assembly-board-03.jpg"
+      "/images/3-trays/035-Disassembly and assembly board/035-Disassembly-and-assembly-board-02.webp",
+      "/images/3-trays/035-Disassembly and assembly board/035-Disassembly-and-assembly-board-03.webp"
     ]
   },
   {
     "name_en": "small Split serving board",
     "sku": "034",
     "images": [
-      "/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-01.jpg",
-      "/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-02.jpg",
-      "/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-03.jpg"
+      "/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-01.webp",
+      "/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-02.webp",
+      "/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-03.webp"
     ]
   },
   {
@@ -827,92 +821,92 @@
     "sku": "033",
     "images": [
       "/images/1-seasons special/033-Large-Star/033-Large-Star-01.webp",
-      "/images/1-seasons special/033-Large-Star/033-Large-Star-02.jpg",
-      "/images/1-seasons special/033-Large-Star/033-Large-Star-03.jpg"
+      "/images/1-seasons special/033-Large-Star/033-Large-Star-02.webp",
+      "/images/1-seasons special/033-Large-Star/033-Large-Star-03.webp"
     ]
   },
   {
     "name_en": "Small Star",
     "sku": "032",
     "images": [
-      "/images/1-seasons special/032-small-Star/032-small-Star-01.jpg",
-      "/images/1-seasons special/032-small-Star/032-small-Star-02.jpg",
-      "/images/1-seasons special/032-small-Star/032-small-Star-03.jpg"
+      "/images/1-seasons special/032-small-Star/032-small-Star-01.webp",
+      "/images/1-seasons special/032-small-Star/032-small-Star-02.webp",
+      "/images/1-seasons special/032-small-Star/032-small-Star-03.webp"
     ]
   },
   {
     "name_en": "Meduim Cutting board with handle",
     "sku": "030",
     "images": [
-      "/images/2-Boards/030-Cutting board /030-Large-Cutting-board-01.jpg",
-      "/images/2-Boards/030-Cutting board /030-Large-Cutting-board-02.jpg",
-      "/images/2-Boards/030-Cutting board /030-Large-Cutting-board-03.jpg"
+      "/images/2-Boards/030-Cutting board /030-Large-Cutting-board-01.webp",
+      "/images/2-Boards/030-Cutting board /030-Large-Cutting-board-02.webp",
+      "/images/2-Boards/030-Cutting board /030-Large-Cutting-board-03.webp"
     ]
   },
   {
     "name_en": "Rectangle dip plate",
     "sku": "029",
     "images": [
-      "/images/4-serving/029-Rectangle dip plate/029-Rectangle-dip-plate-01.jpg",
-      "/images/4-serving/029-Rectangle dip plate/029-Rectangle-dip-plate-02.jpg",
-      "/images/4-serving/029-Rectangle dip plate/029-Rectangle-dip-plate-03.jpg"
+      "/images/4-serving/029-Rectangle dip plate/029-Rectangle-dip-plate-01.webp",
+      "/images/4-serving/029-Rectangle dip plate/029-Rectangle-dip-plate-02.webp",
+      "/images/4-serving/029-Rectangle dip plate/029-Rectangle-dip-plate-03.webp"
     ]
   },
   {
     "name_en": "medium cutting board",
     "sku": "028",
     "images": [
-      "/images/2-Boards/028-Medium cutting board/028-Medium-Cutting-board-01.jpg",
-      "/images/2-Boards/028-Medium cutting board/028-Medium-Cutting-board-02.jpg",
-      "/images/2-Boards/028-Medium cutting board/028-Medium-Cutting-board-03.jpg"
+      "/images/2-Boards/028-Medium cutting board/028-Medium-Cutting-board-01.webp",
+      "/images/2-Boards/028-Medium cutting board/028-Medium-Cutting-board-02.webp",
+      "/images/2-Boards/028-Medium cutting board/028-Medium-Cutting-board-03.webp"
     ]
   },
   {
     "name_en": "small Cutting Board",
     "sku": "027",
     "images": [
-      "/images/2-Boards/027-Small cutting board/027-Small-Cutting-board-01.jpg",
-      "/images/2-Boards/027-Small cutting board/027-Small-Cutting-board-02.jpg"
+      "/images/2-Boards/027-Small cutting board/027-Small-Cutting-board-01.webp",
+      "/images/2-Boards/027-Small cutting board/027-Small-Cutting-board-02.webp"
     ]
   },
   {
     "name_en": "Large Cutting board",
     "sku": "026",
     "images": [
-      "/images/2-Boards/026-Large cutting board/026-large-cutting-board-01.jpg",
-      "/images/2-Boards/026-Large cutting board/026-large-cutting-board-02.jpg",
-      "/images/2-Boards/026-Large cutting board/026-large-cutting-board-03.jpg"
+      "/images/2-Boards/026-Large cutting board/026-large-cutting-board-01.webp",
+      "/images/2-Boards/026-Large cutting board/026-large-cutting-board-02.webp",
+      "/images/2-Boards/026-Large cutting board/026-large-cutting-board-03.webp"
     ]
   },
   {
     "name_en": "blocks hot dish holder",
     "sku": "022",
     "images": [
-      "/images/4-serving/022-blocks hot dish holder/022-blocks-hot-dish-holder-01.jpg",
-      "/images/4-serving/022-blocks hot dish holder/022-blocks-hot-dish-holder-02.jpg"
+      "/images/4-serving/022-blocks hot dish holder/022-blocks-hot-dish-holder-01.webp",
+      "/images/4-serving/022-blocks hot dish holder/022-blocks-hot-dish-holder-02.webp"
     ]
   },
   {
     "name_en": "squares hot dish holder",
     "sku": "021",
     "images": [
-      "/images/4-serving/021-squares hot dish holder/021-squares-hot-dish-holder-01.jpg",
-      "/images/4-serving/021-squares hot dish holder/021-squares-hot-dish-holder-02.jpg"
+      "/images/4-serving/021-squares hot dish holder/021-squares-hot-dish-holder-01.webp",
+      "/images/4-serving/021-squares hot dish holder/021-squares-hot-dish-holder-02.webp"
     ]
   },
   {
     "name_en": "Stand coasters",
     "sku": "020",
     "images": [
-      "/images/4-serving/020-Stand coasters/020-Stand-coasters-02.jpg"
+      "/images/4-serving/020-Stand coasters/020-Stand-coasters-02.webp"
     ]
   },
   {
     "name_en": "edged coaster",
     "sku": "019",
     "images": [
-      "/images/1-seasons special/019-Edged coaster/019-Edged-coaster-01.jpg",
-      "/images/1-seasons special/019-Edged coaster/019-Edged-coaster-02.jpg"
+      "/images/1-seasons special/019-Edged coaster/019-Edged-coaster-01.webp",
+      "/images/1-seasons special/019-Edged coaster/019-Edged-coaster-02.webp"
     ]
   },
   {
@@ -926,32 +920,32 @@
     "name_en": "big heart coaster",
     "sku": "015",
     "images": [
-      "/images/1-seasons special/015-Big Heart coaster/013-3-hearts-coaster-01.jpg",
-      "/images/1-seasons special/015-Big Heart coaster/013-3-hearts-coaster-02.jpg"
+      "/images/1-seasons special/015-Big Heart coaster/013-3-hearts-coaster-01.webp",
+      "/images/1-seasons special/015-Big Heart coaster/013-3-hearts-coaster-02.webp"
     ]
   },
   {
     "name_en": "2 hearts coaster",
     "sku": "014",
     "images": [
-      "/images/1-seasons special/012-2 hearts coaster /012-2-hearts-coaster-01.jpg",
-      "/images/1-seasons special/012-2 hearts coaster /012-2-hearts-coaster-02.jpg"
+      "/images/1-seasons special/012-2 hearts coaster /012-2-hearts-coaster-01.webp",
+      "/images/1-seasons special/012-2 hearts coaster /012-2-hearts-coaster-02.webp"
     ]
   },
   {
     "name_en": "3 hearts coaster",
     "sku": "013",
     "images": [
-      "/images/1-seasons special/013-3 hearts coaster/013-3-hearts-coaster-01.jpg",
-      "/images/1-seasons special/013-3 hearts coaster/013-3-hearts-coaster-02.jpg"
+      "/images/1-seasons special/013-3 hearts coaster/013-3-hearts-coaster-01.webp",
+      "/images/1-seasons special/013-3 hearts coaster/013-3-hearts-coaster-02.webp"
     ]
   },
   {
     "name_en": "big coaster",
     "sku": "012",
     "images": [
-      "/images/4-serving/014-Big Coaster/014-Big-Coaster-01.jpg",
-      "/images/4-serving/014-Big Coaster/014-Big Coaster-02.jpg"
+      "/images/4-serving/014-Big Coaster/014-Big-Coaster-01.webp",
+      "/images/4-serving/014-Big Coaster/014-Big Coaster-02.webp"
     ]
   }
 ]
