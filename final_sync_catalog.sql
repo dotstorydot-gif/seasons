@@ -1,9 +1,6 @@
--- Final Product Catalog Sync (Optimized Images & Clean Data)
--- Generated on 2026-04-28T06:55:56.898Z
-
+-- Final Sync - Refined Photos & Dimensions
+-- Generated on 2026-04-28T07:03:45.380Z
 BEGIN;
-
--- 1. Insert or update products
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
 VALUES (
   '005',
@@ -114,7 +111,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'boards' LIMIT 1),
   800,
   4,
-  '',
+  '46*25',
   '{}'::TEXT[],
   ARRAY['/images/2-Boards/044-Large Cutting board/044-Large Cutting board-01.webp','/images/2-Boards/044-Large Cutting board/044-Large Cutting board-02.webp','/images/2-Boards/044-Large Cutting board/044-Large Cutting board-03.webp']::TEXT[]
 )
@@ -139,7 +136,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'boards' LIMIT 1),
   700,
   3,
-  '',
+  '42*25',
   '{}'::TEXT[],
   ARRAY['/images/2-Boards/045-Cutting board/045-Cutting board-01.webp','/images/2-Boards/045-Cutting board/045-Cutting board-02.webp','/images/2-Boards/045-Cutting board/045-Cutting board-03.webp']::TEXT[]
 )
@@ -164,7 +161,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'boards' LIMIT 1),
   650,
   2,
-  '',
+  '42*20',
   '{}'::TEXT[],
   ARRAY['/images/2-Boards/046-Stripe cutting board/046-Stripe cutting board-01.webp','/images/2-Boards/046-Stripe cutting board/046-Stripe cutting board-02.webp','/images/2-Boards/046-Stripe cutting board/046-Stripe cutting board-03.webp']::TEXT[]
 )
@@ -189,7 +186,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'boards' LIMIT 1),
   600,
   4,
-  '',
+  '34*29',
   '{}'::TEXT[],
   ARRAY['/images/2-Boards/047-Round cutting board/047-Round cutting board-01.webp','/images/2-Boards/047-Round cutting board/047-Round cutting board-02.webp','/images/2-Boards/047-Round cutting board/047-Round cutting board-03.webp']::TEXT[]
 )
@@ -214,7 +211,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'boards' LIMIT 1),
   350,
   1,
-  '',
+  '27*18',
   '{}'::TEXT[],
   ARRAY['/images/2-Boards/048-Mini Round board/048-Mini Round board-01.webp','/images/2-Boards/048-Mini Round board/048-Mini Round board-02.webp','/images/2-Boards/048-Mini Round board/048-Mini Round board-03.webp']::TEXT[]
 )
@@ -239,7 +236,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'boards' LIMIT 1),
   600,
   6,
-  '',
+  '29cm',
   '{}'::TEXT[],
   ARRAY['/images/2-Boards/049-Round sheesham board/049-Round sheesham board-01.webp','/images/2-Boards/049-Round sheesham board/049-Round sheesham board-02.webp','/images/2-Boards/049-Round sheesham board/049-Round sheesham board-03.webp']::TEXT[]
 )
@@ -264,7 +261,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   800,
   1,
-  '',
+  '38*23',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/050-Kaia large plate/050-Kaia-large-plate-01.webp','/images/4-serving/050-Kaia large plate/050-Kaia-large-plate-02.webp','/images/4-serving/050-Kaia large plate/050-Kaia-large-plate-03.webp']::TEXT[]
 )
@@ -289,7 +286,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   500,
   1,
-  '',
+  '14cm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/051-01-Set of Mini plates/051-01-Set of Mini plates-01.webp','/images/4-serving/051-01-Set of Mini plates/051-01-Set of Mini plates-02.webp','/images/4-serving/051-01-Set of Mini plates/051-01-Set of Mini plates-03.webp']::TEXT[]
 )
@@ -314,7 +311,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   250,
   7,
-  '',
+  'sm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/051-02-Small Mini plate /051-02-Small Mini plate-01.webp','/images/4-serving/051-02-Small Mini plate /051-02-Small Mini plate-02.webp','/images/4-serving/051-02-Small Mini plate /051-02-Small Mini plate-03.webp']::TEXT[]
 )
@@ -364,7 +361,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   500,
   1,
-  '',
+  '24*20',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/052-Small-Heart-Plate/052-Small-Heart-Plate-01.webp','/images/4-serving/052-Small-Heart-Plate/052-Small-Heart-Plate-02.webp','/images/4-serving/052-Small-Heart-Plate/052-Small-Heart-Plate-03.webp']::TEXT[]
 )
@@ -389,7 +386,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   600,
   1,
-  '',
+  '26*27',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/053-Big Heart/053-Big Heart-01.webp','/images/4-serving/053-Big Heart/053-Big Heart-02.webp','/images/4-serving/053-Big Heart/053-Big Heart-03.webp']::TEXT[]
 )
@@ -416,7 +413,7 @@ VALUES (
   1,
   '',
   '{}'::TEXT[],
-  ARRAY['/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-01png.webp','/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-02.webp','/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-03.webp']::TEXT[]
+  ARRAY['/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-02.webp','/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-03.webp','/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-01png.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
@@ -439,7 +436,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   400,
   1,
-  '',
+  'sm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-02.webp']::TEXT[]
 )
@@ -514,7 +511,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'seasons' LIMIT 1),
   150,
   10,
-  '',
+  '7*5',
   '{}'::TEXT[],
   ARRAY['/images/1-seasons special/055-Ramadan napkin holder/Ramadan-napkin-holder-01.webp','/images/1-seasons special/055-Ramadan napkin holder/Ramadan-napkin-holder-02.webp']::TEXT[]
 )
@@ -539,7 +536,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'seasons' LIMIT 1),
   100,
   3,
-  '',
+  '18*15',
   '{}'::TEXT[],
   ARRAY['/images/1-seasons special/056-Crescent decoration/Crescent decoration-01.webp','/images/1-seasons special/056-Crescent decoration/Crescent decoration-02.webp']::TEXT[]
 )
@@ -564,7 +561,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'seasons' LIMIT 1),
   450,
   8,
-  '',
+  '29*25',
   '{}'::TEXT[],
   ARRAY['/images/1-seasons special/057-Crescent plate/Crescent plate-01.webp','/images/1-seasons special/057-Crescent plate/Crescent plate-02.webp','/images/1-seasons special/057-Crescent plate/Crescent plate-03.webp']::TEXT[]
 )
@@ -589,7 +586,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'seasons' LIMIT 1),
   600,
   8,
-  '',
+  '38*28',
   '{}'::TEXT[],
   ARRAY['/images/1-seasons special/058-Ramadan Mosque Plate/Ramadan Mosque Plate-01.webp','/images/1-seasons special/058-Ramadan Mosque Plate/Ramadan Mosque Plate-02.webp']::TEXT[]
 )
@@ -614,7 +611,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'seasons' LIMIT 1),
   600,
   10,
-  '',
+  '36*21',
   '{}'::TEXT[],
   ARRAY['/images/1-seasons special/059-Lantern plate/059-Lantern plat-01.webp','/images/1-seasons special/059-Lantern plate/059-Lantern plat-02.webp','/images/1-seasons special/059-Lantern plate/059-Lantern plate-03.webp']::TEXT[]
 )
@@ -664,7 +661,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'seasons' LIMIT 1),
   250,
   8,
-  '',
+  'sm',
   '{}'::TEXT[],
   ARRAY['/images/1-seasons special/060-02-Small Star serving plate/Small Star serving plate-01.webp','/images/1-seasons special/060-02-Small Star serving plate/Small Star serving plate-02.webp']::TEXT[]
 )
@@ -739,7 +736,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'seasons' LIMIT 1),
   550,
   9,
-  '',
+  '28cm',
   '{}'::TEXT[],
   ARRAY['/images/1-seasons special/061-Star serving plate/Star serving plate-01.webp','/images/1-seasons special/061-Star serving plate/Star serving plate-02.webp','/images/1-seasons special/061-Star serving plate/Star serving plate-03.webp']::TEXT[]
 )
@@ -839,7 +836,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'seasons' LIMIT 1),
   500,
   6,
-  '',
+  '59*31',
   '{}'::TEXT[],
   ARRAY['/images/1-seasons special/063-02-Crescent Serving Stand, light brown-small/063-02-Set-of-Crescent-Serving-Stand,-light-brow-small-01.webp','/images/1-seasons special/063-02-Crescent Serving Stand, light brown-small/063-02-Set-of-Crescent-Serving-Stand,-light-brow-small-02.webp']::TEXT[]
 )
@@ -864,7 +861,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'seasons' LIMIT 1),
   500,
   3,
-  '',
+  '50*25',
   '{}'::TEXT[],
   ARRAY['/images/1-seasons special/063-03-Crescent Serving Stand, light brown-large/063-02-Set-of-Crescent-Serving-Stand,-light-brow-large-01.webp','/images/1-seasons special/063-03-Crescent Serving Stand, light brown-large/063-02-Set-of-Crescent-Serving-Stand,-light-brow-large-02.webp']::TEXT[]
 )
@@ -939,7 +936,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'seasons' LIMIT 1),
   500,
   7,
-  '',
+  '50*25',
   '{}'::TEXT[],
   ARRAY['/images/1-seasons special/064-02-small of Crescent Serving Stand, dark brown/064-02-Small Crescent Serving Stand, dark brown-01.webp','/images/1-seasons special/064-02-small of Crescent Serving Stand, dark brown/064-02-Small Crescent Serving Stand, dark brown-02.webp']::TEXT[]
 )
@@ -964,7 +961,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'seasons' LIMIT 1),
   700,
   2,
-  '',
+  '59*31',
   '{}'::TEXT[],
   ARRAY['/images/1-seasons special/064-03-Large of Crescent Serving Stand, dark brown/064-03-Large of Crescent Serving Stand, dark brown-01.webp','/images/1-seasons special/064-03-Large of Crescent Serving Stand, dark brown/064-03-Large of Crescent Serving Stand, dark brown-02.webp']::TEXT[]
 )
@@ -1039,7 +1036,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   60,
   22,
-  '',
+  '18*13',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-01.webp','/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-02.webp','/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-03.webp']::TEXT[]
 )
@@ -1114,7 +1111,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   350,
   9,
-  '',
+  '36cm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/070-Kitchen-Tissue/070-Kitchen-tissue-holder-01.webp','/images/4-serving/070-Kitchen-Tissue/070-Kitchen-tissue-holder-02.webp']::TEXT[]
 )
@@ -1139,7 +1136,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   450,
   10,
-  '',
+  '45cm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/071-Toilet tissue holder/071-Toilet-tissue-holder-01.webp','/images/4-serving/071-Toilet tissue holder/071-Toilet-tissue-holder-02.webp']::TEXT[]
 )
@@ -1214,7 +1211,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   300,
   5,
-  '',
+  'sm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/074-Small Coaster with Candle/074-Small Coaster with Candle-01.webp','/images/4-serving/074-Small Coaster with Candle/074-Small Coaster with Candle-02.webp']::TEXT[]
 )
@@ -1239,7 +1236,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   500,
   10,
-  '',
+  '14* 30',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/075-Oval Plate/075-Oval-Plate-01.webp','/images/4-serving/075-Oval Plate/075-Oval-Plate-02.webp','/images/4-serving/075-Oval Plate/075-Oval-Plate-03.webp']::TEXT[]
 )
@@ -1264,7 +1261,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   400,
   2,
-  '',
+  '20cm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/076-Square-Plate/076-Square-Plate-01.webp','/images/4-serving/076-Square-Plate/076-Square-Plate-02.webp','/images/4-serving/076-Square-Plate/076-Square-Plate-03.webp']::TEXT[]
 )
@@ -1289,7 +1286,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   300,
   2,
-  '',
+  '9* 25',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/077-Oval Deep Plate /077-Oval-Deep-Plate-01.webp','/images/4-serving/077-Oval Deep Plate /077-Oval-Deep-Plate-02.webp','/images/4-serving/077-Oval Deep Plate /077-Oval-Deep-Plate-03.webp']::TEXT[]
 )
@@ -1314,7 +1311,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   350,
   1,
-  '',
+  '9* 25',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/078-Oval Deep Plate with legs/078-Oval-Deep-Plate-with-legs-01.webp','/images/4-serving/078-Oval Deep Plate with legs/078-Oval-Deep-Plate-with-legs-02.webp','/images/4-serving/078-Oval Deep Plate with legs/078-Oval-Deep-Plate-with-legs-03.webp']::TEXT[]
 )
@@ -1464,7 +1461,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   350,
   17,
-  '',
+  'sm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/082-03-Small-Food-Warmer/082-02-Small-Food-Warmer-01.webp','/images/4-serving/082-03-Small-Food-Warmer/082-02-Small-Food-Warmer-02.webp','/images/4-serving/082-03-Small-Food-Warmer/082-02-Small-Food-Warmer-03.webp']::TEXT[]
 )
@@ -1514,7 +1511,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   350,
   4,
-  '',
+  'sm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/083-02-Small-rectangle-plates/083-01-set-of-rectangle-plates-01.webp','/images/4-serving/083-02-Small-rectangle-plates/083-01-set-of-rectangle-plates-02.webp','/images/4-serving/083-02-Small-rectangle-plates/083-01-set-of-rectangle-plates-03.webp']::TEXT[]
 )
@@ -1589,7 +1586,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   450,
   1,
-  '',
+  '16cm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/084-sheesham wooden plate/084-sheesham-wooden-plate-01.webp','/images/4-serving/084-sheesham wooden plate/084-sheesham-wooden-plate-02.webp','/images/4-serving/084-sheesham wooden plate/084-sheesham-wooden-plate-03.webp']::TEXT[]
 )
@@ -1614,7 +1611,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   450,
   2,
-  '',
+  '27cm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/085-XLarge-Bowl/085-XL-Bowl-01.webp','/images/4-serving/085-XLarge-Bowl/085-XL-Bowl-02.webp','/images/4-serving/085-XLarge-Bowl/085-XL-Bowl-03.webp']::TEXT[]
 )
@@ -1639,7 +1636,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   400,
   19,
-  '',
+  '22cm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/086-Large-Bowl/086-Large-Bowl-01.webp','/images/4-serving/086-Large-Bowl/086-Large-Bowl-02.webp','/images/4-serving/086-Large-Bowl/086-Large-Bowl-03.webp']::TEXT[]
 )
@@ -1664,7 +1661,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   350,
   7,
-  '',
+  '19cm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/087-Medium-Bowl/087-Medium-Bowl-01.webp','/images/4-serving/087-Medium-Bowl/087-Medium-Bowl-02.webp','/images/4-serving/087-Medium-Bowl/87-Medium-Bowl-03.webp']::TEXT[]
 )
@@ -1689,7 +1686,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   300,
   12,
-  '',
+  '16cm',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/088-Small-Bowl/088-Small-Bowl-01.webp','/images/4-serving/088-Small-Bowl/088-Small-Bowl-02.webp','/images/4-serving/088-Small-Bowl/088-Small-Bowl-03.webp']::TEXT[]
 )
@@ -1714,7 +1711,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   2000,
   1,
-  '',
+  '25*13',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/089-01-Set-Of-Deep-Bowls/089-01-Set-Of-Deep-Bowls-01.webp','/images/4-serving/089-01-Set-Of-Deep-Bowls/089-01-Set-Of-Deep-Bowls-02.webp','/images/4-serving/089-01-Set-Of-Deep-Bowls/089-01-Set-Of-Deep-Bowls-03.webp']::TEXT[]
 )
@@ -1739,7 +1736,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   800,
   1,
-  '',
+  '28*12',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/089-02-Large-Deep-Bowl/089-02-large-Deep-Bowl-02.webp','/images/4-serving/089-02-Large-Deep-Bowl/089-02-large-Deep-Bowl-03.webp']::TEXT[]
 )
@@ -1764,7 +1761,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   700,
   1,
-  '',
+  '32*11',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/089-03-Medium-Deep-Bowl/089-03-Medium-Deep-Bowl-02.webp','/images/4-serving/089-03-Medium-Deep-Bowl/089-03-Medium-Deep-Bowl-03.webp']::TEXT[]
 )
@@ -1789,7 +1786,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   600,
   10,
-  '',
+  '25* 13',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/089-04-Small-Deep-Bowl/089-04-Small-Deep-Bowl-02.webp','/images/4-serving/089-04-Small-Deep-Bowl/089-04-Small-Deep-Bowl-03.webp']::TEXT[]
 )
@@ -1814,7 +1811,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   700,
   5,
-  '',
+  '33',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/090-Medium-Bowl/090-Medium-Bowl-01.webp','/images/4-serving/090-Medium-Bowl/090-Medium-Bowl-02.webp','/images/4-serving/090-Medium-Bowl/090-Medium-Bowl-03.webp']::TEXT[]
 )
@@ -1839,7 +1836,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
   850,
   6,
-  '',
+  '37',
   '{}'::TEXT[],
   ARRAY['/images/4-serving/091-LargeBowl/091-Large-Bowl-01.webp','/images/4-serving/091-LargeBowl/091-Large-Bowl-02.webp','/images/4-serving/091-LargeBowl/091-Large-Bowl-03.webp']::TEXT[]
 )
@@ -1864,7 +1861,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'trays' LIMIT 1),
   1000,
   5,
-  '',
+  '26*50',
   '{}'::TEXT[],
   ARRAY['/images/3-trays/92-The Grill/092-The-Grill-01.webp','/images/3-trays/92-The Grill/092-The-Grill-02.webp','/images/3-trays/92-The Grill/092-The-Grill-03.webp']::TEXT[]
 )
@@ -1889,7 +1886,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'trays' LIMIT 1),
   2000,
   2,
-  '',
+  '43*20',
   '{}'::TEXT[],
   ARRAY['/images/3-trays/093-01-Set of wooden tray with wood handle/trayset-01.webp','/images/3-trays/093-01-Set of wooden tray with wood handle/trayset-02.webp','/images/3-trays/093-01-Set of wooden tray with wood handle/trayset-03.webp']::TEXT[]
 )
@@ -1914,7 +1911,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'trays' LIMIT 1),
   850,
   2,
-  '',
+  '43*20',
   '{}'::TEXT[],
   ARRAY['/images/3-trays/093-02-Large of wooden tray with wood handle/093-02-Large of wooden tray with wood handle-01.webp','/images/3-trays/093-02-Large of wooden tray with wood handle/093-02-Large of wooden tray with wood handle-02.webp','/images/3-trays/093-02-Large of wooden tray with wood handle/093-02-Large of wooden tray with wood handle-03.webp']::TEXT[]
 )
@@ -1939,7 +1936,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'trays' LIMIT 1),
   750,
   2,
-  '',
+  '48*25',
   '{}'::TEXT[],
   ARRAY['/images/3-trays/093-03-Medium of wooden tray with wood handle /093-03-Medium of wooden tray with wood handle-01.webp','/images/3-trays/093-03-Medium of wooden tray with wood handle /093-03-Medium of wooden tray with wood handle-02.webp','/images/3-trays/093-03-Medium of wooden tray with wood handle /093-03-Medium of wooden tray with wood handle-03.webp']::TEXT[]
 )
@@ -1964,7 +1961,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'trays' LIMIT 1),
   650,
   2,
-  '',
+  '53*29',
   '{}'::TEXT[],
   ARRAY['/images/3-trays/093-04-Small of wooden tray with wood handle/093-04-Small of wooden tray with wood handle-01.webp','/images/3-trays/093-04-Small of wooden tray with wood handle/093-04-Small of wooden tray with wood handle-02.webp','/images/3-trays/093-04-Small of wooden tray with wood handle/093-04-Small of wooden tray with wood handle-03.webp']::TEXT[]
 )
@@ -1989,7 +1986,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'trays' LIMIT 1),
   950,
   2,
-  '',
+  '47*31',
   '{}'::TEXT[],
   ARRAY['/images/3-trays/094-Wooden tray with handle/094-Wooden tray with handl-01.webp','/images/3-trays/094-Wooden tray with handle/094-Wooden tray with handl-02.webp','/images/3-trays/094-Wooden tray with handle/094-Wooden tray with handl-03.webp']::TEXT[]
 )
@@ -2014,7 +2011,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'boards' LIMIT 1),
   800,
   5,
-  '',
+  '40cm',
   '{}'::TEXT[],
   ARRAY['/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-01.webp','/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-02.webp','/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-03.webp','/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-04.webp','/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-05.webp']::TEXT[]
 )
@@ -2039,7 +2036,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'boards' LIMIT 1),
   400,
   5,
-  '',
+  '40cm',
   '{}'::TEXT[],
   ARRAY['/images/2-Boards/095-02-Small Puzzle Board /095-02-Small Puzzle Board-01.webp','/images/2-Boards/095-02-Small Puzzle Board /095-02-Small Puzzle Board-02.webp']::TEXT[]
 )
@@ -2064,7 +2061,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'boards' LIMIT 1),
   500,
   5,
-  '',
+  '50sm',
   '{}'::TEXT[],
   ARRAY['/images/2-Boards/095-03-Large Puzzle Board/095-03-Large Puzzle Board-01.webp','/images/2-Boards/095-03-Large Puzzle Board/095-03-Large Puzzle Board-02.webp']::TEXT[]
 )
@@ -2089,7 +2086,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'boards' LIMIT 1),
   650,
   4,
-  '',
+  '52 *17',
   '{}'::TEXT[],
   ARRAY['/images/2-Boards/096-Sheesham cutting board /096-Sheesham cutting board-01.webp','/images/2-Boards/096-Sheesham cutting board /096-Sheesham cutting board-02.webp','/images/2-Boards/096-Sheesham cutting board /096-Sheesham cutting board-03.webp']::TEXT[]
 )
@@ -2114,7 +2111,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'boards' LIMIT 1),
   600,
   3,
-  '',
+  '40 * 20',
   '{}'::TEXT[],
   ARRAY['/images/2-Boards/097- Small Sheesham cutting board/097-Small Sheesham-cutting-board-01.webp','/images/2-Boards/097- Small Sheesham cutting board/097-Small Sheesham-cutting-board-02.webp']::TEXT[]
 )
@@ -2139,7 +2136,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'trays' LIMIT 1),
   350,
   1,
-  '',
+  '50cm',
   '{}'::TEXT[],
   ARRAY['/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-01.webp','/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-02.webp','/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-03.webp']::TEXT[]
 )
@@ -2164,7 +2161,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'trays' LIMIT 1),
   400,
   1,
-  '',
+  '50 cm',
   '{}'::TEXT[],
   ARRAY['/images/3-trays/099-Deep Cheese Board/099-Deep Cheese Board-01.webp','/images/3-trays/099-Deep Cheese Board/099-Deep Cheese Board-02.webp','/images/3-trays/099-Deep Cheese Board/099-Deep Cheese Board-03.webp']::TEXT[]
 )
@@ -2189,7 +2186,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'trays' LIMIT 1),
   600,
   2,
-  '',
+  '40cm',
   '{}'::TEXT[],
   ARRAY['/images/3-trays/100-01-Set of Bloom Board/100-01-Set of Bloom Board-01.webp','/images/3-trays/100-01-Set of Bloom Board/100-01-Set of Bloom Board-02.webp','/images/3-trays/100-01-Set of Bloom Board/100-01-Set of Bloom Board-03.webp']::TEXT[]
 )
@@ -2214,7 +2211,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'trays' LIMIT 1),
   300,
   3,
-  '',
+  '40cm',
   '{}'::TEXT[],
   ARRAY['/images/3-trays/100-02-Small Bloom Board/100-02-Small-Bloom-Board-01.webp','/images/3-trays/100-02-Small Bloom Board/100-02-Small-Bloom-Board-02.webp','/images/3-trays/100-02-Small Bloom Board/100-02-Small-Bloom-Board-03.webp']::TEXT[]
 )
@@ -2239,7 +2236,7 @@ VALUES (
   (SELECT id FROM public.categories WHERE slug = 'trays' LIMIT 1),
   350,
   2,
-  '',
+  '50 cm',
   '{}'::TEXT[],
   ARRAY['/images/3-trays/100-03-Large Bloom Board copy/100-03-Large-Bloom-Board-01.webp','/images/3-trays/100-03-Large Bloom Board copy/100-03-Large-Bloom-Board-02.webp','/images/3-trays/100-03-Large Bloom Board copy/100-03-Large-Bloom-Board-03.webp']::TEXT[]
 )
@@ -2266,7 +2263,7 @@ VALUES (
   4,
   '46*42',
   ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','cheese board','glasses','movie nights','gathering']::TEXT[],
-  ARRAY['/images/2-Boards/041-Board with Ears/041-Board with Ears-03.webp','/images/2-Boards/041-Board with Ears/041-Board-with-Ears-01.webp','/images/2-Boards/041-Board with Ears/041-Board-with-Ears-02.webp']::TEXT[]
+  ARRAY['/images/2-Boards/041-Board with Ears/041-Board-with-Ears-01.webp','/images/2-Boards/041-Board with Ears/041-Board-with-Ears-02.webp','/images/2-Boards/041-Board with Ears/041-Board with Ears-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
@@ -2316,7 +2313,7 @@ VALUES (
   1,
   '37*7.5',
   ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','tacos']::TEXT[],
-  ARRAY['/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-01.webp','/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-03.webp','/images/4-serving/039-Meduim Taco Holder/039-Meduim-Taco-Holder-02.webp']::TEXT[]
+  ARRAY['/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-01.webp','/images/4-serving/039-Meduim Taco Holder/039-Meduim-Taco-Holder-02.webp','/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
@@ -2341,7 +2338,7 @@ VALUES (
   4,
   '16*7.5',
   ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','tacos']::TEXT[],
-  ARRAY['/images/4-serving/038-Small Taco Holder/038-Small Taco Holder-03.webp','/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-01.webp','/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-02.webp']::TEXT[]
+  ARRAY['/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-01.webp','/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-02.webp','/images/4-serving/038-Small Taco Holder/038-Small Taco Holder-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
@@ -2766,7 +2763,7 @@ VALUES (
   0,
   '',
   ARRAY['wood','tray','kitchen','tools','engraved','sheesham','wooden','gifts','natural wood','tableware','heart','valentine','special season','valentine','mother''s day']::TEXT[],
-  ARRAY['/images/4-serving/014-Big Coaster/014-Big Coaster-02.webp','/images/4-serving/014-Big Coaster/014-Big-Coaster-01.webp']::TEXT[]
+  ARRAY['/images/4-serving/014-Big Coaster/014-Big-Coaster-01.webp','/images/4-serving/014-Big Coaster/014-Big Coaster-02.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
@@ -2829,5 +2826,154 @@ ON CONFLICT (sku) DO UPDATE SET
   size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
-
+INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
+VALUES (
+  '023',
+  'Square Puzzle',
+  'بازل مربع',
+  'Square Puzzle',
+  'بازل مربع',
+  (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
+  0,
+  0,
+  '',
+  '{}'::TEXT[],
+  ARRAY['/images/4-serving/024-Square Puzzle/024-Square-Puzzle-01.webp','/images/4-serving/024-Square Puzzle/024-Square-Puzzle-02.webp']::TEXT[]
+)
+ON CONFLICT (sku) DO UPDATE SET
+  name_en = EXCLUDED.name_en,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
+  category_id = EXCLUDED.category_id,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
+  stock = EXCLUDED.stock,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
+  tags = EXCLUDED.tags,
+  images = EXCLUDED.images;
+INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
+VALUES (
+  '024',
+  'Crescent Puzzle',
+  'بازل هلال',
+  'Crescent Puzzle',
+  'بازل هلال',
+  (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
+  0,
+  0,
+  '',
+  '{}'::TEXT[],
+  ARRAY['/images/4-serving/025-Cresent Puzzle/025-Cresent-Puzzle-01.webp','/images/4-serving/025-Cresent Puzzle/025-Cresent-Puzzle-02.webp']::TEXT[]
+)
+ON CONFLICT (sku) DO UPDATE SET
+  name_en = EXCLUDED.name_en,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
+  category_id = EXCLUDED.category_id,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
+  stock = EXCLUDED.stock,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
+  tags = EXCLUDED.tags,
+  images = EXCLUDED.images;
+INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
+VALUES (
+  '025',
+  'Movie Night Tray',
+  'صينية سهرة',
+  'Movie Night Tray',
+  'صينية سهرة',
+  (SELECT id FROM public.categories WHERE slug = 'trays' LIMIT 1),
+  0,
+  0,
+  '',
+  '{}'::TEXT[],
+  ARRAY['/images/3-trays/037-Movie Night Tray/037-Movie-Night-Tray-01.webp','/images/3-trays/037-Movie Night Tray/037-Movie-Night-Tray-02.webp','/images/3-trays/037-Movie Night Tray/037-Movie-Night-Tray-03.webp']::TEXT[]
+)
+ON CONFLICT (sku) DO UPDATE SET
+  name_en = EXCLUDED.name_en,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
+  category_id = EXCLUDED.category_id,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
+  stock = EXCLUDED.stock,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
+  tags = EXCLUDED.tags,
+  images = EXCLUDED.images;
+INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
+VALUES (
+  '037',
+  'sticks hot dishes holder',
+  'حامل اطباق ساخنة',
+  'sticks hot dishes holder',
+  'حامل اطباق ساخنة',
+  (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
+  0,
+  0,
+  '',
+  '{}'::TEXT[],
+  ARRAY['/images/4-serving/042-sticks hot dishes holder/042-sticks-hot-dishes-holder-01.webp','/images/4-serving/042-sticks hot dishes holder/042-sticks-hot-dishes-holder-02.webp']::TEXT[]
+)
+ON CONFLICT (sku) DO UPDATE SET
+  name_en = EXCLUDED.name_en,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
+  category_id = EXCLUDED.category_id,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
+  stock = EXCLUDED.stock,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
+  tags = EXCLUDED.tags,
+  images = EXCLUDED.images;
+INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
+VALUES (
+  '042',
+  'Large Split serving board',
+  'لوح تقديم مقسم كبير',
+  'Large Split serving board',
+  'لوح تقديم مقسم كبير',
+  (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
+  0,
+  0,
+  '',
+  '{}'::TEXT[],
+  ARRAY['/images/4-serving/043-Large Split serving board/043-Large Split serving board-01.webp','/images/4-serving/043-Large Split serving board/043-Large Split serving board-02.webp','/images/4-serving/043-Large Split serving board/043-Large Split serving board-03.webp']::TEXT[]
+)
+ON CONFLICT (sku) DO UPDATE SET
+  name_en = EXCLUDED.name_en,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
+  category_id = EXCLUDED.category_id,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
+  stock = EXCLUDED.stock,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
+  tags = EXCLUDED.tags,
+  images = EXCLUDED.images;
+INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
+VALUES (
+  '043',
+  'Large Taco Holder',
+  'حامل تاكو كبير',
+  'Large Taco Holder',
+  'حامل تاكو كبير',
+  (SELECT id FROM public.categories WHERE slug = 'serving' LIMIT 1),
+  0,
+  0,
+  '',
+  '{}'::TEXT[],
+  ARRAY['/images/4-serving/023-Large Taco Holder/023-Large-Taco-Holder-01.webp','/images/4-serving/023-Large Taco Holder/023-Large-Taco-Holder-02.webp','/images/4-serving/023-Large Taco Holder/023-Large-Taco-Holder-03.webp']::TEXT[]
+)
+ON CONFLICT (sku) DO UPDATE SET
+  name_en = EXCLUDED.name_en,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
+  category_id = EXCLUDED.category_id,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
+  stock = EXCLUDED.stock,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
+  tags = EXCLUDED.tags,
+  images = EXCLUDED.images;
 COMMIT;
