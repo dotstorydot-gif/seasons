@@ -9,19 +9,54 @@
     ]
   },
   {
-    "name_en": "Candle Coasters",
+    "name_en": "circle coaster",
     "sku": "017",
     "images": [
       "/images/1-seasons special/017-Circle coaster/017-Circle-coaster-01.webp",
       "/images/1-seasons special/017-Circle coaster/017-Circle-coaster-02.webp"
+    ],
+    "category_slug": "seasons",
+    "name_ar": "كوستر دائري",
+    "description_en": "Round cup holder",
+    "description_ar": "حامل اكواب بشكل دائري",
+    "price": 200,
+    "stock": 0,
+    "size_en": "",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "coasters']::TEXT["
     ]
   },
   {
-    "name_en": "Deep Bowls",
+    "name_en": "coffee coaster",
     "sku": "018",
     "images": [
       "/images/1-seasons special/018-Coffee coaster/018-Coffee-coaster-01.webp",
       "/images/1-seasons special/018-Coffee coaster/018-Coffee-coaster-02.webp"
+    ],
+    "category_slug": "seasons",
+    "name_ar": "كوستر للقهوه",
+    "description_en": "Coffee cup holder",
+    "description_ar": "حامل اكواب للقهوه",
+    "price": 300,
+    "stock": 0,
+    "size_en": "",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "coasters",
+      "tray']::TEXT["
     ]
   },
   {
@@ -766,6 +801,27 @@
       "/images/2-Boards/041-Board with Ears/041-Board-with-Ears-01.webp",
       "/images/2-Boards/041-Board with Ears/041-Board-with-Ears-02.webp",
       "/images/2-Boards/041-Board with Ears/041-Board with Ears-03.webp"
+    ],
+    "category_slug": "boards",
+    "name_ar": "لوح  بودان",
+    "description_en": "searving board with 2 cup place",
+    "description_ar": "لوح تقديم يحتوي علي اماكن لحمل الاكواب",
+    "price": 600,
+    "stock": 4,
+    "size_en": "46*42",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "board",
+      "natural wood",
+      "cheese board",
+      "glasses",
+      "movie nights",
+      "gathering']::TEXT["
     ]
   },
   {
@@ -775,6 +831,26 @@
       "/images/4-serving/040-Waves board/040-Waves-Board-01.webp",
       "/images/4-serving/040-Waves board/040-Waves-Board-02.webp",
       "/images/4-serving/040-Waves board/040-Waves-Board-03.webp"
+    ],
+    "category_slug": "serving",
+    "name_ar": "لوح مموج",
+    "description_en": "serving board with multi-purposes, for cheese, for sushi or desserts",
+    "description_ar": "",
+    "price": 400,
+    "stock": 1,
+    "size_en": "",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "board",
+      "natural wood",
+      "cheese board",
+      "movie nights",
+      "gathering']::TEXT["
     ]
   },
   {
@@ -784,6 +860,24 @@
       "/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-01.webp",
       "/images/4-serving/039-Meduim Taco Holder/039-Meduim-Taco-Holder-02.webp",
       "/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-03.webp"
+    ],
+    "category_slug": "serving",
+    "name_ar": "حامل تاكو متوسط الحجم",
+    "description_en": "Medium-sized taco holder",
+    "description_ar": "حامل للتاكو متوسط الحجم",
+    "price": 260,
+    "stock": 1,
+    "size_en": "37*7.5",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "board",
+      "natural wood",
+      "tacos']::TEXT["
     ]
   },
   {
@@ -793,6 +887,24 @@
       "/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-01.webp",
       "/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-02.webp",
       "/images/4-serving/038-Small Taco Holder/038-Small Taco Holder-03.webp"
+    ],
+    "category_slug": "serving",
+    "name_ar": "حامل تاكو صغير الحجم",
+    "description_en": "Mini taco holder",
+    "description_ar": "حامل للتاكو صغير",
+    "price": 180,
+    "stock": 4,
+    "size_en": "16*7.5",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "board",
+      "natural wood",
+      "tacos']::TEXT["
     ]
   },
   {
@@ -802,6 +914,27 @@
       "/images/3-trays/036-large Sushi tray/036-large-Sushi-tray-01.webp",
       "/images/3-trays/036-large Sushi tray/036-large-Sushi-tray-02.webp",
       "/images/3-trays/036-large Sushi tray/036-large-Sushi-tray-03.webp"
+    ],
+    "category_slug": "trays",
+    "name_ar": "صينيه سوشي كبيره",
+    "description_en": "large Sushi tray",
+    "description_ar": "صينيه سوشي كبيره",
+    "price": 1800,
+    "stock": 1,
+    "size_en": "68.5*14.5",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "board",
+      "natural wood",
+      "cheese board",
+      "sushi",
+      "gathering",
+      "tray']::TEXT["
     ]
   },
   {
@@ -811,6 +944,28 @@
       "/images/3-trays/035-Disassembly and assembly board/035-Disassembly-and-assembly-board-01.webp",
       "/images/3-trays/035-Disassembly and assembly board/035-Disassembly-and-assembly-board-02.webp",
       "/images/3-trays/035-Disassembly and assembly board/035-Disassembly-and-assembly-board-03.webp"
+    ],
+    "category_slug": "trays",
+    "name_ar": "لوح فك وتركيب",
+    "description_en": "Disassembly and assembly board",
+    "description_ar": "لوح فك وتركيب",
+    "price": 900,
+    "stock": 3,
+    "size_en": "69.5*15*25",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "board",
+      "natural wood",
+      "cheese board",
+      "glasses",
+      "sushi",
+      "gathering",
+      "tray']::TEXT["
     ]
   },
   {
@@ -820,6 +975,23 @@
       "/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-01.webp",
       "/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-02.webp",
       "/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-03.webp"
+    ],
+    "category_slug": "serving",
+    "name_ar": "لوح تقديم مقسم صغير",
+    "description_en": "small divided snack serving tray",
+    "description_ar": "لوح لتقديم التسالي مقسم صغير",
+    "price": 450,
+    "stock": 0,
+    "size_en": "24.5*12",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "serving']::TEXT["
     ]
   },
   {
@@ -829,6 +1001,32 @@
       "/images/1-seasons special/033-Large-Star/033-Large-Star-01.webp",
       "/images/1-seasons special/033-Large-Star/033-Large-Star-02.webp",
       "/images/1-seasons special/033-Large-Star/033-Large-Star-03.webp"
+    ],
+    "category_slug": "seasons",
+    "name_ar": "نجمه كبيره",
+    "description_en": "A large star-shaped dish",
+    "description_ar": "طبق علي شكل نجمه كبير",
+    "price": 400,
+    "stock": 1,
+    "size_en": "large",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "tableware",
+      "serving",
+      "beech pine",
+      "wood plate",
+      "serving plate",
+      "ramadan",
+      "special season",
+      "christmas",
+      "star",
+      "dipping']::TEXT["
     ]
   },
   {
@@ -838,6 +1036,32 @@
       "/images/1-seasons special/032-small-Star/032-small-Star-01.webp",
       "/images/1-seasons special/032-small-Star/032-small-Star-02.webp",
       "/images/1-seasons special/032-small-Star/032-small-Star-03.webp"
+    ],
+    "category_slug": "seasons",
+    "name_ar": "نجمه صغيره",
+    "description_en": "A small star-shaped dish",
+    "description_ar": "طبق علي شكل نجمه صغيره",
+    "price": 300,
+    "stock": 1,
+    "size_en": "small",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "tableware",
+      "serving",
+      "beech pine",
+      "wood plate",
+      "serving plate",
+      "ramadan",
+      "special season",
+      "christmas",
+      "star",
+      "dipping']::TEXT["
     ]
   },
   {
@@ -847,6 +1071,25 @@
       "/images/2-Boards/030-Cutting board /030-Large-Cutting-board-01.webp",
       "/images/2-Boards/030-Cutting board /030-Large-Cutting-board-02.webp",
       "/images/2-Boards/030-Cutting board /030-Large-Cutting-board-03.webp"
+    ],
+    "category_slug": "boards",
+    "name_ar": "لوح تقطيع متوسط ب يد",
+    "description_en": "Medium-sized cutting board with a dark brown handle",
+    "description_ar": "لوح تقطيع متوسط ب يد بني غامق",
+    "price": 550,
+    "stock": 0,
+    "size_en": "medium",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "sheesham",
+      "wooden",
+      "gifts",
+      "board",
+      "cutting board",
+      "natural wood']::TEXT["
     ]
   },
   {
@@ -856,6 +1099,26 @@
       "/images/4-serving/029-Rectangle dip plate/029-Rectangle-dip-plate-01.webp",
       "/images/4-serving/029-Rectangle dip plate/029-Rectangle-dip-plate-02.webp",
       "/images/4-serving/029-Rectangle dip plate/029-Rectangle-dip-plate-03.webp"
+    ],
+    "category_slug": "serving",
+    "name_ar": "طبق مستطيل عميق",
+    "description_en": "Deep rectangular beechwood dish",
+    "description_ar": "طبق مستطيل عميق من خشب البيتش",
+    "price": 0,
+    "stock": 0,
+    "size_en": "",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "beech pine",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "tableware",
+      "dipping",
+      "serving']::TEXT["
     ]
   },
   {
@@ -865,6 +1128,24 @@
       "/images/2-Boards/028-Medium cutting board/028-Medium-Cutting-board-01.webp",
       "/images/2-Boards/028-Medium cutting board/028-Medium-Cutting-board-02.webp",
       "/images/2-Boards/028-Medium cutting board/028-Medium-Cutting-board-03.webp"
+    ],
+    "category_slug": "boards",
+    "name_ar": "لوح تقطيع متوسط",
+    "description_en": "Medium cutting board",
+    "description_ar": "لوح خشبي للتقطيع متوسط",
+    "price": 675,
+    "stock": 1,
+    "size_en": "medium",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "board",
+      "cutting board",
+      "natural wood']::TEXT["
     ]
   },
   {
@@ -873,6 +1154,24 @@
     "images": [
       "/images/2-Boards/027-Small cutting board/027-Small-Cutting-board-01.webp",
       "/images/2-Boards/027-Small cutting board/027-Small-Cutting-board-02.webp"
+    ],
+    "category_slug": "boards",
+    "name_ar": "لوح تقطيع صغير",
+    "description_en": "small Cutting Board",
+    "description_ar": "لوح تقطيع صغير",
+    "price": 550,
+    "stock": 1,
+    "size_en": "small",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "board",
+      "cutting board",
+      "natural wood']::TEXT["
     ]
   },
   {
@@ -882,6 +1181,24 @@
       "/images/2-Boards/026-Large cutting board/026-large-cutting-board-01.webp",
       "/images/2-Boards/026-Large cutting board/026-large-cutting-board-02.webp",
       "/images/2-Boards/026-Large cutting board/026-large-cutting-board-03.webp"
+    ],
+    "category_slug": "boards",
+    "name_ar": "لوح تقطيع كبير",
+    "description_en": "Large wooden board for the flock",
+    "description_ar": "لوح خشبي للتقطيع مقاس كبير",
+    "price": 800,
+    "stock": 1,
+    "size_en": "large",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "board",
+      "cutting board",
+      "natural wood']::TEXT["
     ]
   },
   {
@@ -890,6 +1207,23 @@
     "images": [
       "/images/4-serving/022-blocks hot dish holder/022-blocks-hot-dish-holder-01.webp",
       "/images/4-serving/022-blocks hot dish holder/022-blocks-hot-dish-holder-02.webp"
+    ],
+    "category_slug": "serving",
+    "name_ar": "حامل اطباق ساخنه مكعبات",
+    "description_en": "blocks hot dish holder",
+    "description_ar": "حامل اطباق ساخنه مكعبات",
+    "price": 40,
+    "stock": 0,
+    "size_en": "",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "hot dishes']::TEXT["
     ]
   },
   {
@@ -898,6 +1232,23 @@
     "images": [
       "/images/4-serving/021-squares hot dish holder/021-squares-hot-dish-holder-01.webp",
       "/images/4-serving/021-squares hot dish holder/021-squares-hot-dish-holder-02.webp"
+    ],
+    "category_slug": "serving",
+    "name_ar": "حامل اطباق ساخنه مربع",
+    "description_en": "squares hot dish holder",
+    "description_ar": "حامل اطباق ساخنه مربع",
+    "price": 40,
+    "stock": 0,
+    "size_en": "",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "hot dishes']::TEXT["
     ]
   },
   {
@@ -905,6 +1256,23 @@
     "sku": "020",
     "images": [
       "/images/4-serving/020-Stand coasters/020-Stand-coasters-02.webp"
+    ],
+    "category_slug": "serving",
+    "name_ar": "حامل كوستر",
+    "description_en": "Coaster holder",
+    "description_ar": "حامل ل حامل الاكواب",
+    "price": 250,
+    "stock": 5,
+    "size_en": "",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "coasters']::TEXT["
     ]
   },
   {
@@ -913,6 +1281,26 @@
     "images": [
       "/images/1-seasons special/019-Edged coaster/019-Edged-coaster-01.webp",
       "/images/1-seasons special/019-Edged coaster/019-Edged-coaster-02.webp"
+    ],
+    "category_slug": "seasons",
+    "name_ar": "كوستر بحواف",
+    "description_en": "Cup holder with edges",
+    "description_ar": "حامل اكواب بحواف",
+    "price": 300,
+    "stock": 0,
+    "size_en": "",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "beech pine",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "tableware",
+      "dipping",
+      "serving']::TEXT["
     ]
   },
   {
@@ -920,6 +1308,22 @@
     "sku": "016",
     "images": [
       "/images/1-seasons special/016-Rectangle-Coaster/016-Rectangle-Coaster-01.webp"
+    ],
+    "category_slug": "seasons",
+    "name_ar": "كوستر مستطيل",
+    "description_en": "Rectangular cup holder",
+    "description_ar": "حامل اكواب مستطيل",
+    "price": 250,
+    "stock": 0,
+    "size_en": "",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "natural wood']::TEXT["
     ]
   },
   {
@@ -928,6 +1332,30 @@
     "images": [
       "/images/1-seasons special/015-Big Heart coaster/013-3-hearts-coaster-01.webp",
       "/images/1-seasons special/015-Big Heart coaster/013-3-hearts-coaster-02.webp"
+    ],
+    "category_slug": "seasons",
+    "name_ar": "كوستر قلب كبير",
+    "description_en": "Large heart cup holder",
+    "description_ar": "حامل اكواب قلب كبير",
+    "price": 350,
+    "stock": 0,
+    "size_en": "",
+    "tags": [
+      "wood",
+      "tray",
+      "kitchen",
+      "tools",
+      "engraved",
+      "sheesham",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "tableware",
+      "heart",
+      "valentine",
+      "special season",
+      "valentine",
+      "mother's day']::TEXT["
     ]
   },
   {
@@ -936,6 +1364,30 @@
     "images": [
       "/images/1-seasons special/012-2 hearts coaster /012-2-hearts-coaster-01.webp",
       "/images/1-seasons special/012-2 hearts coaster /012-2-hearts-coaster-02.webp"
+    ],
+    "category_slug": "seasons",
+    "name_ar": "2 كوستر قلب",
+    "description_en": "eart-shaped cup holder with 2 coasters",
+    "description_ar": "حامل اكواب علي شكل قلب 2 كوستر",
+    "price": 250,
+    "stock": 0,
+    "size_en": "",
+    "tags": [
+      "wood",
+      "tray",
+      "kitchen",
+      "tools",
+      "engraved",
+      "sheesham",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "tableware",
+      "heart",
+      "valentine",
+      "special season",
+      "valentine",
+      "mother's day']::TEXT["
     ]
   },
   {
@@ -944,6 +1396,30 @@
     "images": [
       "/images/1-seasons special/013-3 hearts coaster/013-3-hearts-coaster-01.webp",
       "/images/1-seasons special/013-3 hearts coaster/013-3-hearts-coaster-02.webp"
+    ],
+    "category_slug": "seasons",
+    "name_ar": "3 كوستر قلب",
+    "description_en": "Heart-shaped cup holder with 3 coasters",
+    "description_ar": "حامل اكواب علي شكل قلب 3 كوستر",
+    "price": 300,
+    "stock": 0,
+    "size_en": "15*33",
+    "tags": [
+      "wood",
+      "tray",
+      "kitchen",
+      "tools",
+      "engraved",
+      "sheesham",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "tableware",
+      "heart",
+      "valentine",
+      "special season",
+      "valentine",
+      "mother'sday']::TEXT["
     ]
   },
   {
@@ -952,6 +1428,23 @@
     "images": [
       "/images/4-serving/014-Big Coaster/014-Big-Coaster-01.webp",
       "/images/4-serving/014-Big Coaster/014-Big Coaster-02.webp"
+    ],
+    "category_slug": "serving",
+    "name_ar": "كوستر كبير",
+    "description_en": "large cup holder",
+    "description_ar": "حامل اكواب كبير",
+    "price": 60,
+    "stock": 0,
+    "size_en": "",
+    "tags": [
+      "wood",
+      "kitchen",
+      "tools",
+      "engraved",
+      "wooden",
+      "gifts",
+      "natural wood",
+      "hot dishes']::TEXT["
     ]
   }
 ]
