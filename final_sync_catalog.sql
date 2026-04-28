@@ -1,5 +1,5 @@
 -- Final Product Catalog Sync
--- Generated on 2026-04-28T06:14:52.382Z
+-- Generated on 2026-04-28T06:15:59.885Z
 
 BEGIN;
 
@@ -406,7 +406,7 @@ VALUES (
   0,
   '',
   '',
-  '[]'::jsonb
+  '["/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-02.webp"]'::jsonb
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
@@ -429,7 +429,7 @@ VALUES (
   0,
   '',
   '',
-  '[]'::jsonb
+  '["/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-03.webp"]'::jsonb
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
@@ -452,7 +452,7 @@ VALUES (
   0,
   '',
   '',
-  '[]'::jsonb
+  '["/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-01png.webp"]'::jsonb
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,

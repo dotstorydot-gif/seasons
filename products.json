@@ -151,17 +151,23 @@
   {
     "name_en": "Small Pizza Serving Plates",
     "sku": "054-02",
-    "images": []
+    "images": [
+      "/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-02.webp"
+    ]
   },
   {
     "name_en": "Meduim pizza serving plates",
     "sku": "054-03",
-    "images": []
+    "images": [
+      "/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-03.webp"
+    ]
   },
   {
     "name_en": "Large Pizza Serving plates",
     "sku": "054-04",
-    "images": []
+    "images": [
+      "/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-01png.webp"
+    ]
   },
   {
     "name_en": "Ramadan napkin holder",
