@@ -1,5 +1,5 @@
 -- Final Product Catalog Sync
--- Generated on 2026-04-28T06:22:40.073Z
+-- Generated on 2026-04-28T06:26:40.836Z
 
 BEGIN;
 
@@ -20,13 +20,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -40,18 +40,18 @@ VALUES (
   200,
   0,
   '',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','coasters'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','coasters']::TEXT[],
   ARRAY['/images/1-seasons special/017-Circle coaster/017-Circle-coaster-01.webp','/images/1-seasons special/017-Circle coaster/017-Circle-coaster-02.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -65,18 +65,18 @@ VALUES (
   300,
   0,
   '',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','coasters','tray'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','coasters','tray']::TEXT[],
   ARRAY['/images/1-seasons special/018-Coffee coaster/018-Coffee-coaster-01.webp','/images/1-seasons special/018-Coffee coaster/018-Coffee-coaster-02.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -95,13 +95,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -120,13 +120,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -145,13 +145,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -170,13 +170,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -195,13 +195,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -220,13 +220,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -245,13 +245,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -270,13 +270,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -295,13 +295,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -320,13 +320,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -345,13 +345,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -370,13 +370,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -395,13 +395,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -420,13 +420,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -445,13 +445,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -470,13 +470,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -495,13 +495,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -520,13 +520,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -545,13 +545,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -570,13 +570,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -595,13 +595,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -620,13 +620,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -645,13 +645,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -670,13 +670,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -695,13 +695,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -720,13 +720,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -745,13 +745,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -770,13 +770,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -795,13 +795,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -820,13 +820,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -845,13 +845,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -870,13 +870,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -895,13 +895,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -920,13 +920,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -945,13 +945,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -970,13 +970,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -995,13 +995,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1020,13 +1020,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1045,13 +1045,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1066,17 +1066,17 @@ VALUES (
   0,
   '',
   '{}'::TEXT[],
-  ARRAY[]::TEXT[]
+  '{}'::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1095,13 +1095,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1120,13 +1120,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1145,13 +1145,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1170,13 +1170,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1191,17 +1191,17 @@ VALUES (
   0,
   '',
   '{}'::TEXT[],
-  ARRAY[]::TEXT[]
+  '{}'::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1220,13 +1220,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1245,13 +1245,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1270,13 +1270,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1295,13 +1295,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1320,13 +1320,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1345,13 +1345,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1370,13 +1370,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1395,13 +1395,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1420,13 +1420,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1445,13 +1445,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1470,13 +1470,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1495,13 +1495,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1520,13 +1520,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1541,17 +1541,17 @@ VALUES (
   0,
   '',
   '{}'::TEXT[],
-  ARRAY[]::TEXT[]
+  '{}'::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1566,17 +1566,17 @@ VALUES (
   0,
   '',
   '{}'::TEXT[],
-  ARRAY[]::TEXT[]
+  '{}'::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1595,13 +1595,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1620,13 +1620,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1645,13 +1645,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1670,13 +1670,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1695,13 +1695,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1720,13 +1720,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1745,13 +1745,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1770,13 +1770,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1795,13 +1795,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1820,13 +1820,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1845,13 +1845,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1870,13 +1870,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1895,13 +1895,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1920,13 +1920,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1945,13 +1945,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1970,13 +1970,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -1995,13 +1995,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2020,13 +2020,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2045,13 +2045,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2070,13 +2070,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2095,13 +2095,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2120,13 +2120,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2145,13 +2145,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2170,13 +2170,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2195,13 +2195,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2220,13 +2220,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2245,13 +2245,13 @@ VALUES (
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2265,18 +2265,18 @@ VALUES (
   600,
   4,
   '46*42',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','cheese board','glasses','movie nights','gathering'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','cheese board','glasses','movie nights','gathering']::TEXT[],
   ARRAY['/images/2-Boards/041-Board with Ears/041-Board-with-Ears-01.webp','/images/2-Boards/041-Board with Ears/041-Board-with-Ears-02.webp','/images/2-Boards/041-Board with Ears/041-Board with Ears-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2290,18 +2290,18 @@ VALUES (
   400,
   1,
   '',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','cheese board','movie nights','gathering'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','cheese board','movie nights','gathering']::TEXT[],
   ARRAY['/images/4-serving/040-Waves board/040-Waves-Board-01.webp','/images/4-serving/040-Waves board/040-Waves-Board-02.webp','/images/4-serving/040-Waves board/040-Waves-Board-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2315,18 +2315,18 @@ VALUES (
   260,
   1,
   '37*7.5',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','tacos'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','tacos']::TEXT[],
   ARRAY['/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-01.webp','/images/4-serving/039-Meduim Taco Holder/039-Meduim-Taco-Holder-02.webp','/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2340,18 +2340,18 @@ VALUES (
   180,
   4,
   '16*7.5',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','tacos'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','tacos']::TEXT[],
   ARRAY['/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-01.webp','/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-02.webp','/images/4-serving/038-Small Taco Holder/038-Small Taco Holder-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2365,18 +2365,18 @@ VALUES (
   1800,
   1,
   '68.5*14.5',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','cheese board','sushi','gathering','tray'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','cheese board','sushi','gathering','tray']::TEXT[],
   ARRAY['/images/3-trays/036-large Sushi tray/036-large-Sushi-tray-01.webp','/images/3-trays/036-large Sushi tray/036-large-Sushi-tray-02.webp','/images/3-trays/036-large Sushi tray/036-large-Sushi-tray-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2390,18 +2390,18 @@ VALUES (
   900,
   3,
   '69.5*15*25',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','cheese board','glasses','sushi','gathering','tray'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','natural wood','cheese board','glasses','sushi','gathering','tray']::TEXT[],
   ARRAY['/images/3-trays/035-Disassembly and assembly board/035-Disassembly-and-assembly-board-01.webp','/images/3-trays/035-Disassembly and assembly board/035-Disassembly-and-assembly-board-02.webp','/images/3-trays/035-Disassembly and assembly board/035-Disassembly-and-assembly-board-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2415,18 +2415,18 @@ VALUES (
   450,
   0,
   '24.5*12',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','serving'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','serving']::TEXT[],
   ARRAY['/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-01.webp','/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-02.webp','/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2440,18 +2440,18 @@ VALUES (
   400,
   1,
   'large',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','tableware','serving','beech pine','wood plate','serving plate','ramadan','special season','christmas','star','dipping'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','tableware','serving','beech pine','wood plate','serving plate','ramadan','special season','christmas','star','dipping']::TEXT[],
   ARRAY['/images/1-seasons special/033-Large-Star/033-Large-Star-01.webp','/images/1-seasons special/033-Large-Star/033-Large-Star-02.webp','/images/1-seasons special/033-Large-Star/033-Large-Star-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2465,18 +2465,18 @@ VALUES (
   300,
   1,
   'small',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','tableware','serving','beech pine','wood plate','serving plate','ramadan','special season','christmas','star','dipping'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','tableware','serving','beech pine','wood plate','serving plate','ramadan','special season','christmas','star','dipping']::TEXT[],
   ARRAY['/images/1-seasons special/032-small-Star/032-small-Star-01.webp','/images/1-seasons special/032-small-Star/032-small-Star-02.webp','/images/1-seasons special/032-small-Star/032-small-Star-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2490,18 +2490,18 @@ VALUES (
   550,
   0,
   'medium',
-  ARRAY['wood','kitchen','tools','engraved','sheesham','wooden','gifts','board','cutting board','natural wood'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','sheesham','wooden','gifts','board','cutting board','natural wood']::TEXT[],
   ARRAY['/images/2-Boards/030-Cutting board /030-Large-Cutting-board-01.webp','/images/2-Boards/030-Cutting board /030-Large-Cutting-board-02.webp','/images/2-Boards/030-Cutting board /030-Large-Cutting-board-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2515,18 +2515,18 @@ VALUES (
   0,
   0,
   '',
-  ARRAY['wood','kitchen','tools','engraved','beech pine','wooden','gifts','natural wood','tableware','dipping','serving'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','beech pine','wooden','gifts','natural wood','tableware','dipping','serving']::TEXT[],
   ARRAY['/images/4-serving/029-Rectangle dip plate/029-Rectangle-dip-plate-01.webp','/images/4-serving/029-Rectangle dip plate/029-Rectangle-dip-plate-02.webp','/images/4-serving/029-Rectangle dip plate/029-Rectangle-dip-plate-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2540,18 +2540,18 @@ VALUES (
   675,
   1,
   'medium',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','cutting board','natural wood'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','cutting board','natural wood']::TEXT[],
   ARRAY['/images/2-Boards/028-Medium cutting board/028-Medium-Cutting-board-01.webp','/images/2-Boards/028-Medium cutting board/028-Medium-Cutting-board-02.webp','/images/2-Boards/028-Medium cutting board/028-Medium-Cutting-board-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2565,18 +2565,18 @@ VALUES (
   550,
   1,
   'small',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','cutting board','natural wood'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','cutting board','natural wood']::TEXT[],
   ARRAY['/images/2-Boards/027-Small cutting board/027-Small-Cutting-board-01.webp','/images/2-Boards/027-Small cutting board/027-Small-Cutting-board-02.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2590,18 +2590,18 @@ VALUES (
   800,
   1,
   'large',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','cutting board','natural wood'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','board','cutting board','natural wood']::TEXT[],
   ARRAY['/images/2-Boards/026-Large cutting board/026-large-cutting-board-01.webp','/images/2-Boards/026-Large cutting board/026-large-cutting-board-02.webp','/images/2-Boards/026-Large cutting board/026-large-cutting-board-03.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2615,18 +2615,18 @@ VALUES (
   40,
   0,
   '',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','hot dishes'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','hot dishes']::TEXT[],
   ARRAY['/images/4-serving/022-blocks hot dish holder/022-blocks-hot-dish-holder-01.webp','/images/4-serving/022-blocks hot dish holder/022-blocks-hot-dish-holder-02.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2640,18 +2640,18 @@ VALUES (
   40,
   0,
   '',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','hot dishes'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','hot dishes']::TEXT[],
   ARRAY['/images/4-serving/021-squares hot dish holder/021-squares-hot-dish-holder-01.webp','/images/4-serving/021-squares hot dish holder/021-squares-hot-dish-holder-02.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2665,18 +2665,18 @@ VALUES (
   250,
   5,
   '',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','coasters'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','coasters']::TEXT[],
   ARRAY['/images/4-serving/020-Stand coasters/020-Stand-coasters-02.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2690,18 +2690,18 @@ VALUES (
   300,
   0,
   '',
-  ARRAY['wood','kitchen','tools','engraved','beech pine','wooden','gifts','natural wood','tableware','dipping','serving'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','beech pine','wooden','gifts','natural wood','tableware','dipping','serving']::TEXT[],
   ARRAY['/images/1-seasons special/019-Edged coaster/019-Edged-coaster-01.webp','/images/1-seasons special/019-Edged coaster/019-Edged-coaster-02.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2715,18 +2715,18 @@ VALUES (
   250,
   0,
   '',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood']::TEXT[],
   ARRAY['/images/1-seasons special/016-Rectangle-Coaster/016-Rectangle-Coaster-01.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2740,18 +2740,18 @@ VALUES (
   350,
   0,
   '',
-  ARRAY['wood','tray','kitchen','tools','engraved','sheesham','wooden','gifts','natural wood','tableware','heart','valentine','special season','valentine','mother''s day'']::TEXT[']::TEXT[],
+  ARRAY['wood','tray','kitchen','tools','engraved','sheesham','wooden','gifts','natural wood','tableware','heart','valentine','special season','valentine','mother''s day']::TEXT[],
   ARRAY['/images/1-seasons special/015-Big Heart coaster/013-3-hearts-coaster-01.webp','/images/1-seasons special/015-Big Heart coaster/013-3-hearts-coaster-02.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2765,18 +2765,18 @@ VALUES (
   250,
   0,
   '',
-  ARRAY['wood','tray','kitchen','tools','engraved','sheesham','wooden','gifts','natural wood','tableware','heart','valentine','special season','valentine','mother''s day'']::TEXT[']::TEXT[],
+  ARRAY['wood','tray','kitchen','tools','engraved','sheesham','wooden','gifts','natural wood','tableware','heart','valentine','special season','valentine','mother''s day']::TEXT[],
   ARRAY['/images/1-seasons special/012-2 hearts coaster /012-2-hearts-coaster-01.webp','/images/1-seasons special/012-2 hearts coaster /012-2-hearts-coaster-02.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2790,18 +2790,18 @@ VALUES (
   300,
   0,
   '15*33',
-  ARRAY['wood','tray','kitchen','tools','engraved','sheesham','wooden','gifts','natural wood','tableware','heart','valentine','special season','valentine','mother''sday'']::TEXT[']::TEXT[],
+  ARRAY['wood','tray','kitchen','tools','engraved','sheesham','wooden','gifts','natural wood','tableware','heart','valentine','special season','valentine','mother''sday']::TEXT[],
   ARRAY['/images/1-seasons special/013-3 hearts coaster/013-3-hearts-coaster-01.webp','/images/1-seasons special/013-3 hearts coaster/013-3-hearts-coaster-02.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 INSERT INTO public.products (sku, name_en, name_ar, description_en, description_ar, category_id, price, stock, size_en, tags, images)
@@ -2815,18 +2815,18 @@ VALUES (
   60,
   0,
   '',
-  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','hot dishes'']::TEXT[']::TEXT[],
+  ARRAY['wood','kitchen','tools','engraved','wooden','gifts','natural wood','hot dishes']::TEXT[],
   ARRAY['/images/4-serving/014-Big Coaster/014-Big-Coaster-01.webp','/images/4-serving/014-Big Coaster/014-Big Coaster-02.webp']::TEXT[]
 )
 ON CONFLICT (sku) DO UPDATE SET
   name_en = EXCLUDED.name_en,
-  name_ar = EXCLUDED.name_ar,
-  description_en = EXCLUDED.description_en,
-  description_ar = EXCLUDED.description_ar,
+  name_ar = CASE WHEN EXCLUDED.name_ar <> '' THEN EXCLUDED.name_ar ELSE public.products.name_ar END,
+  description_en = CASE WHEN EXCLUDED.description_en <> '' THEN EXCLUDED.description_en ELSE public.products.description_en END,
+  description_ar = CASE WHEN EXCLUDED.description_ar <> '' THEN EXCLUDED.description_ar ELSE public.products.description_ar END,
   category_id = EXCLUDED.category_id,
-  price = EXCLUDED.price,
+  price = CASE WHEN EXCLUDED.price > 0 THEN EXCLUDED.price ELSE public.products.price END,
   stock = EXCLUDED.stock,
-  size_en = EXCLUDED.size_en,
+  size_en = CASE WHEN EXCLUDED.size_en <> '' THEN EXCLUDED.size_en ELSE public.products.size_en END,
   tags = EXCLUDED.tags,
   images = EXCLUDED.images;
 

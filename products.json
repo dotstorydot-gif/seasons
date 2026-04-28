@@ -30,7 +30,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "coasters']::TEXT["
+      "coasters"
     ]
   },
   {
@@ -56,7 +56,7 @@
       "gifts",
       "natural wood",
       "coasters",
-      "tray']::TEXT["
+      "tray"
     ]
   },
   {
@@ -821,7 +821,7 @@
       "cheese board",
       "glasses",
       "movie nights",
-      "gathering']::TEXT["
+      "gathering"
     ]
   },
   {
@@ -850,7 +850,7 @@
       "natural wood",
       "cheese board",
       "movie nights",
-      "gathering']::TEXT["
+      "gathering"
     ]
   },
   {
@@ -877,7 +877,7 @@
       "gifts",
       "board",
       "natural wood",
-      "tacos']::TEXT["
+      "tacos"
     ]
   },
   {
@@ -904,7 +904,7 @@
       "gifts",
       "board",
       "natural wood",
-      "tacos']::TEXT["
+      "tacos"
     ]
   },
   {
@@ -934,7 +934,7 @@
       "cheese board",
       "sushi",
       "gathering",
-      "tray']::TEXT["
+      "tray"
     ]
   },
   {
@@ -965,7 +965,7 @@
       "glasses",
       "sushi",
       "gathering",
-      "tray']::TEXT["
+      "tray"
     ]
   },
   {
@@ -991,7 +991,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "serving']::TEXT["
+      "serving"
     ]
   },
   {
@@ -1026,7 +1026,7 @@
       "special season",
       "christmas",
       "star",
-      "dipping']::TEXT["
+      "dipping"
     ]
   },
   {
@@ -1061,7 +1061,7 @@
       "special season",
       "christmas",
       "star",
-      "dipping']::TEXT["
+      "dipping"
     ]
   },
   {
@@ -1089,7 +1089,7 @@
       "gifts",
       "board",
       "cutting board",
-      "natural wood']::TEXT["
+      "natural wood"
     ]
   },
   {
@@ -1118,7 +1118,7 @@
       "natural wood",
       "tableware",
       "dipping",
-      "serving']::TEXT["
+      "serving"
     ]
   },
   {
@@ -1145,7 +1145,7 @@
       "gifts",
       "board",
       "cutting board",
-      "natural wood']::TEXT["
+      "natural wood"
     ]
   },
   {
@@ -1171,7 +1171,7 @@
       "gifts",
       "board",
       "cutting board",
-      "natural wood']::TEXT["
+      "natural wood"
     ]
   },
   {
@@ -1198,7 +1198,7 @@
       "gifts",
       "board",
       "cutting board",
-      "natural wood']::TEXT["
+      "natural wood"
     ]
   },
   {
@@ -1223,7 +1223,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "hot dishes']::TEXT["
+      "hot dishes"
     ]
   },
   {
@@ -1248,7 +1248,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "hot dishes']::TEXT["
+      "hot dishes"
     ]
   },
   {
@@ -1272,7 +1272,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "coasters']::TEXT["
+      "coasters"
     ]
   },
   {
@@ -1300,7 +1300,7 @@
       "natural wood",
       "tableware",
       "dipping",
-      "serving']::TEXT["
+      "serving"
     ]
   },
   {
@@ -1323,7 +1323,7 @@
       "engraved",
       "wooden",
       "gifts",
-      "natural wood']::TEXT["
+      "natural wood"
     ]
   },
   {
@@ -1355,7 +1355,7 @@
       "valentine",
       "special season",
       "valentine",
-      "mother's day']::TEXT["
+      "mother's day"
     ]
   },
   {
@@ -1387,7 +1387,7 @@
       "valentine",
       "special season",
       "valentine",
-      "mother's day']::TEXT["
+      "mother's day"
     ]
   },
   {
@@ -1419,7 +1419,7 @@
       "valentine",
       "special season",
       "valentine",
-      "mother'sday']::TEXT["
+      "mother'sday"
     ]
   },
   {
@@ -1444,7 +1444,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "hot dishes']::TEXT["
+      "hot dishes"
     ]
   }
 ]
