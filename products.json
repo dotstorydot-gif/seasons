@@ -30,7 +30,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "coasters"
+      "coasters']::TEXT["
     ]
   },
   {
@@ -56,7 +56,7 @@
       "gifts",
       "natural wood",
       "coasters",
-      "tray"
+      "tray']::TEXT["
     ]
   },
   {
@@ -69,84 +69,138 @@
     ]
   },
   {
-    "name_en": "Cutting Board",
+    "name_en": "Cutting board",
     "sku": "044",
     "images": [
       "/images/2-Boards/044-Large Cutting board/044-Large Cutting board-01.webp",
       "/images/2-Boards/044-Large Cutting board/044-Large Cutting board-02.webp",
       "/images/2-Boards/044-Large Cutting board/044-Large Cutting board-03.webp"
-    ]
+    ],
+    "name_ar": "لوح تقطيع",
+    "description_en": "Large Sheesham wood Cutting board - Size: 46*25",
+    "description_ar": "لوح تقطيع خشب السرسوع - المقاس: 46*25",
+    "price": 800,
+    "stock": 4,
+    "category_slug": "boards"
   },
   {
-    "name_en": "Cutting Board",
+    "name_en": "Cutting board",
     "sku": "045",
     "images": [
       "/images/2-Boards/045-Cutting board/045-Cutting board-01.webp",
       "/images/2-Boards/045-Cutting board/045-Cutting board-02.webp",
       "/images/2-Boards/045-Cutting board/045-Cutting board-03.webp"
-    ]
+    ],
+    "name_ar": "لوح تقطيع",
+    "description_en": "Small Sheesham wood Cutting board - Size: 42*25",
+    "description_ar": "لوح تقطيع خشب السرسوع - المقاس: 42*25",
+    "price": 700,
+    "stock": 3,
+    "category_slug": "boards"
   },
   {
-    "name_en": "Stripe Cutting Board",
+    "name_en": "Stripe cutting board",
     "sku": "046",
     "images": [
       "/images/2-Boards/046-Stripe cutting board/046-Stripe cutting board-01.webp",
       "/images/2-Boards/046-Stripe cutting board/046-Stripe cutting board-02.webp",
       "/images/2-Boards/046-Stripe cutting board/046-Stripe cutting board-03.webp"
-    ]
+    ],
+    "name_ar": "لوح تقطيع مخطط",
+    "description_en": "mix sheesham - Beech Pine Wood cutting board with handle - Size: 42*20",
+    "description_ar": "لوح تقطيع من خشب السرسوع و خشب البيتش باين - المقاس: 42*20",
+    "price": 650,
+    "stock": 2,
+    "category_slug": "boards"
   },
   {
-    "name_en": "Round Cutting Board",
+    "name_en": "Round cutting board",
     "sku": "047",
     "images": [
       "/images/2-Boards/047-Round cutting board/047-Round cutting board-01.webp",
       "/images/2-Boards/047-Round cutting board/047-Round cutting board-02.webp",
       "/images/2-Boards/047-Round cutting board/047-Round cutting board-03.webp"
-    ]
+    ],
+    "name_ar": "لوح دائرى للتقطيع",
+    "description_en": "Round sheesham wooden cutting board - Size: 34*29",
+    "description_ar": "لوح تقطيع خشبي دائري من خشب السرسوع - المقاس: 34*29",
+    "price": 600,
+    "stock": 4,
+    "category_slug": "boards"
   },
   {
-    "name_en": "Mini Round Board",
+    "name_en": "Mini Round board",
     "sku": "048",
     "images": [
       "/images/2-Boards/048-Mini Round board/048-Mini Round board-01.webp",
       "/images/2-Boards/048-Mini Round board/048-Mini Round board-02.webp",
       "/images/2-Boards/048-Mini Round board/048-Mini Round board-03.webp"
-    ]
+    ],
+    "name_ar": "لوح مستدير صغير",
+    "description_en": "Mini Round board with handle - Size: 27*18",
+    "description_ar": "لوح مستدير صغير مصنوع من البيتش باين بيد - المقاس: 27*18",
+    "price": 350,
+    "stock": 1,
+    "category_slug": "boards"
   },
   {
-    "name_en": "Round Sheesham Board",
+    "name_en": "Round sheesham board",
     "sku": "049",
     "images": [
       "/images/2-Boards/049-Round sheesham board/049-Round sheesham board-01.webp",
       "/images/2-Boards/049-Round sheesham board/049-Round sheesham board-02.webp",
       "/images/2-Boards/049-Round sheesham board/049-Round sheesham board-03.webp"
-    ]
+    ],
+    "name_ar": "بورد دائرى سرسوع",
+    "description_en": "Round sheesham board - Size: 29cm",
+    "description_ar": "بورد دائره خشب السرسوع - المقاس: 29cm",
+    "price": 600,
+    "stock": 6,
+    "category_slug": "boards"
   },
   {
-    "name_en": "Large Kaia Plate",
+    "name_en": "Kaia large plate",
     "sku": "050",
     "images": [
       "/images/4-serving/050-Kaia large plate/050-Kaia-large-plate-01.webp",
       "/images/4-serving/050-Kaia large plate/050-Kaia-large-plate-02.webp",
       "/images/4-serving/050-Kaia large plate/050-Kaia-large-plate-03.webp"
-    ]
+    ],
+    "name_ar": "طبق كايا كبير",
+    "description_en": "Large Kaia Wood Plate - Size: 38*23",
+    "description_ar": "طبق كبير خشب كايا - المقاس: 38*23",
+    "price": 800,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
-    "name_en": "Set of 2-Mini plates",
+    "name_en": "Set of Mini plates",
     "sku": "051-01",
     "images": [
       "/images/4-serving/051-01-Set of Mini plates/051-01-Set of Mini plates-01.webp",
       "/images/4-serving/051-01-Set of Mini plates/051-01-Set of Mini plates-02.webp",
       "/images/4-serving/051-01-Set of Mini plates/051-01-Set of Mini plates-03.webp"
-    ]
+    ],
+    "name_ar": "طقم اطباق صغيره",
+    "description_en": "Beech Pine wooden plate with handle Set of 2 - Size: 14cm",
+    "description_ar": "طبق خشبي من خشب البيتش باين بمقبض خشبي، طقم من قطعتين - المقاس: 14cm",
+    "price": 500,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
-    "name_en": "Mini Plates",
+    "name_en": "Mini plates",
     "sku": "051-02",
     "images": [
       "/images/4-serving/051-02-Small Mini plate /051-02-Small Mini plate-01.webp",
       "/images/4-serving/051-02-Small Mini plate /051-02-Small Mini plate-03.webp"
-    ]
+    ],
+    "name_ar": "طبق صغير",
+    "description_en": "Small Beech Pine wooden plate with handle - Size: small",
+    "description_ar": "طبق خشبي صغير من خشب البيتش باين بمقبض خشبي - المقاس: small",
+    "price": 250,
+    "stock": 7,
+    "category_slug": "serving"
   },
   {
     "name_en": "Mini plates",
@@ -154,7 +208,13 @@
     "images": [
       "/images/4-serving/051-03-Medium Mini plate/051-03-Medium Mini plate-01.webp",
       "/images/4-serving/051-03-Medium Mini plate/051-03-Medium Mini plate-02.webp"
-    ]
+    ],
+    "name_ar": "طبق صغير",
+    "description_en": "Meduim Beech Pine wooden plate with handle - Size: meduim",
+    "description_ar": "طبق خشبي وسط من خشب البيتش باين بمقبض خشبي - المقاس: meduim",
+    "price": 300,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
     "name_en": "Small Heart",
@@ -163,7 +223,13 @@
       "/images/4-serving/052-Small-Heart-Plate/052-Small-Heart-Plate-01.webp",
       "/images/4-serving/052-Small-Heart-Plate/052-Small-Heart-Plate-02.webp",
       "/images/4-serving/052-Small-Heart-Plate/052-Small-Heart-Plate-03.webp"
-    ]
+    ],
+    "name_ar": "طبق قلب صغير",
+    "description_en": "sheesham wooden crafted small heart plate - Size: 24*20",
+    "description_ar": "طبق قلب صغير مصنوع من خشب السرسوع - المقاس: 24*20",
+    "price": 500,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
     "name_en": "Big Heart",
@@ -172,7 +238,13 @@
       "/images/4-serving/053-Big Heart/053-Big Heart-01.webp",
       "/images/4-serving/053-Big Heart/053-Big Heart-02.webp",
       "/images/4-serving/053-Big Heart/053-Big Heart-03.webp"
-    ]
+    ],
+    "name_ar": "طبق قلب كبير",
+    "description_en": "sheesham wooden crafted big heart plate - Size: 26*27",
+    "description_ar": "طبق قلب كبير مصنوع من خشب السرسوع - المقاس: 26*27",
+    "price": 600,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
     "name_en": "Set of pizza serving plates",
@@ -181,28 +253,52 @@
       "/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-01png.webp",
       "/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-02.webp",
       "/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-03.webp"
-    ]
+    ],
+    "name_ar": "مجموعة أطباق تقديم البيتزا",
+    "description_en": "Kaia wooden crafted pizza serving plates set of 3",
+    "description_ar": "طقم اطباق بيتزا من خشب كايا طقم 3 قطع",
+    "price": 1400,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
-    "name_en": "Small Pizza Serving Plates",
+    "name_en": "Small pizza serving plates",
     "sku": "054-02",
     "images": [
       "/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-02.webp"
-    ]
+    ],
+    "name_ar": "طبق بيتزا صغير",
+    "description_en": "Small Kaia wooden crafted pizza serving plates - Size: small",
+    "description_ar": "طبق تقديم بيتزا صغير من خشب كايا - المقاس: small",
+    "price": 400,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
     "name_en": "Meduim pizza serving plates",
     "sku": "054-03",
     "images": [
       "/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-03.webp"
-    ]
+    ],
+    "name_ar": "طبق بيتزا وسط",
+    "description_en": "Meduim Kaia wooden crafted pizza serving plates - Size: meduim",
+    "description_ar": "طبق تقديم بيتزا وسط من خشب كايا - المقاس: meduim",
+    "price": 500,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
-    "name_en": "Large Pizza Serving plates",
+    "name_en": "Large pizza serving plates",
     "sku": "054-04",
     "images": [
       "/images/4-serving/054-01-Set-Pizza/054-01-Set-Pizza-01png.webp"
-    ]
+    ],
+    "name_ar": "طبق بيتزا كبير",
+    "description_en": "Large Kaia wooden crafted pizza serving plates - Size: large",
+    "description_ar": "طبق تقديم بيتزا كبير من خشب كايا - المقاس: large",
+    "price": 600,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
     "name_en": "Ramadan napkin holder",
@@ -210,15 +306,27 @@
     "images": [
       "/images/1-seasons special/055-Ramadan napkin holder/Ramadan-napkin-holder-01.webp",
       "/images/1-seasons special/055-Ramadan napkin holder/Ramadan-napkin-holder-02.webp"
-    ]
+    ],
+    "name_ar": "حامل مناديل",
+    "description_en": "Ramadan napkin wooden holder - Size: 7*5",
+    "description_ar": "حامل مناديل صغير - المقاس: 7*5",
+    "price": 150,
+    "stock": 10,
+    "category_slug": "seasons"
   },
   {
-    "name_en": "Crescent Decoration",
+    "name_en": "Crescent decoration",
     "sku": "056",
     "images": [
       "/images/1-seasons special/056-Crescent decoration/Crescent decoration-01.webp",
       "/images/1-seasons special/056-Crescent decoration/Crescent decoration-02.jpg"
-    ]
+    ],
+    "name_ar": "",
+    "description_en": "Crescent wooden decoration - Size: 18*15",
+    "description_ar": "قانوس رمضان خشب صغير - المقاس: 18*15",
+    "price": 100,
+    "stock": 3,
+    "category_slug": "seasons"
   },
   {
     "name_en": "Crescent plate",
@@ -227,7 +335,13 @@
       "/images/1-seasons special/057-Crescent plate/Crescent plate-01.webp",
       "/images/1-seasons special/057-Crescent plate/Crescent plate-02.webp",
       "/images/1-seasons special/057-Crescent plate/Crescent plate-03.jpg"
-    ]
+    ],
+    "name_ar": "طبق هلال",
+    "description_en": "Crescent plate Beech Pine wooden - Size: 29*25",
+    "description_ar": "طبق هلال خشب بيتش باين - المقاس: 29*25",
+    "price": 450,
+    "stock": 8,
+    "category_slug": "seasons"
   },
   {
     "name_en": "Ramadan Mosque Plate",
@@ -235,66 +349,114 @@
     "images": [
       "/images/1-seasons special/058-Ramadan Mosque Plate/Ramadan Mosque Plate-01.webp",
       "/images/1-seasons special/058-Ramadan Mosque Plate/Ramadan Mosque Plate-02.webp"
-    ]
+    ],
+    "name_ar": "طبق رمضان",
+    "description_en": "Beech Pine Ramadan Mosque Plate - Size: 38*28",
+    "description_ar": "طبق مسجد رمضان من خشب البيتش باين - المقاس: 38*28",
+    "price": 600,
+    "stock": 8,
+    "category_slug": "seasons"
   },
   {
-    "name_en": "Lantern Plate",
+    "name_en": "Lantern plate",
     "sku": "059",
     "images": [
       "/images/1-seasons special/059-Lantern plate/059-Lantern plat-01.webp",
       "/images/1-seasons special/059-Lantern plate/059-Lantern plat-02.webp",
       "/images/1-seasons special/059-Lantern plate/059-Lantern plate-03.webp"
-    ]
+    ],
+    "name_ar": "طبق فانوس",
+    "description_en": "Beech Pine lantern wooden serving plate - Size: 36*21",
+    "description_ar": "طبق فانوس رمضان من خشب البيتش باين - المقاس: 36*21",
+    "price": 600,
+    "stock": 10,
+    "category_slug": "seasons"
   },
   {
-    "name_en": "Set of 3-Star serving plate",
+    "name_en": "Set of Star serving plate",
     "sku": "060-01",
     "images": [
       "/images/1-seasons special/060-01-Set of Star serving plate/Set of Star serving plate-01.webp",
       "/images/1-seasons special/060-01-Set of Star serving plate/Set of Star serving plate-02.webp",
       "/images/1-seasons special/060-01-Set of Star serving plate/Set of Star serving plate-03.webp"
-    ]
+    ],
+    "name_ar": "طقم اطباق نجمه",
+    "description_en": "Set of 2 beech pine wooden star serving plate",
+    "description_ar": "طقم اطباق نجمه مصنوع من خشب البيتش باين، طقم مكون من ٣ قطع",
+    "price": 800,
+    "stock": 2,
+    "category_slug": "seasons"
   },
   {
-    "name_en": "Small Star Serving Plate",
+    "name_en": "Small Star serving plate",
     "sku": "060-02",
     "images": [
       "/images/1-seasons special/060-02-Small Star serving plate/Small Star serving plate-01.webp",
       "/images/1-seasons special/060-02-Small Star serving plate/Small Star serving plate-02.jpg"
-    ]
+    ],
+    "name_ar": "طبق نجمه صغير",
+    "description_en": "Small beech pine wooden star serving plate - Size: small",
+    "description_ar": "طبق صغير علي شكل نجمه مصنوع من خشب البيتش باين - المقاس: small",
+    "price": 250,
+    "stock": 8,
+    "category_slug": "seasons"
   },
   {
-    "name_en": "Medium Star Serving Plate",
+    "name_en": "Meduim Star serving plate",
     "sku": "060-03",
     "images": [
       "/images/1-seasons special/060-03-Meduim Star serving plate/Medium-Star-serving-plate-01.webp",
       "/images/1-seasons special/060-03-Meduim Star serving plate/Medium-Star-serving-plate-02.webp"
-    ]
+    ],
+    "name_ar": "طبق نجمه وسط",
+    "description_en": "Meduim beech pine wooden star serving plate - Size: meduim",
+    "description_ar": "طبق وسط علي شكل نجمه مصنوع من خشب البيتش باين - المقاس: meduim",
+    "price": 300,
+    "stock": 2,
+    "category_slug": "seasons"
   },
   {
-    "name_en": "Large Star Serving Plate",
+    "name_en": "Large Star serving plate",
     "sku": "060-04",
     "images": [
       "/images/1-seasons special/060-04-Large Star serving plate/Large Star serving plate-01.webp",
       "/images/1-seasons special/060-04-Large Star serving plate/Large Star serving plate-02.webp"
-    ]
+    ],
+    "name_ar": "طبق نجمه كبير",
+    "description_en": "Large beech pine wooden star serving plate - Size: large",
+    "description_ar": "طبق كبير علي شكل نجمه مصنوع من خشب البيتش باين - المقاس: large",
+    "price": 350,
+    "stock": 3,
+    "category_slug": "seasons"
   },
   {
-    "name_en": "Star & Crescent Serving Plate",
+    "name_en": "Star serving plate",
     "sku": "061",
     "images": [
       "/images/1-seasons special/061-Star serving plate/Star serving plate-01.webp",
       "/images/1-seasons special/061-Star serving plate/Star serving plate-02.webp",
       "/images/1-seasons special/061-Star serving plate/Star serving plate-03.webp"
-    ]
+    ],
+    "name_ar": "طبق تقديم علي شكل نجمه",
+    "description_en": "Beech Pine star-shaped wooden serving plate - Size: 28cm",
+    "description_ar": "طبق خشبي علي شكل نجمه مصنوع من البيتش باين - المقاس: 28cm",
+    "price": 550,
+    "stock": 9,
+    "category_slug": "seasons"
   },
   {
-    "name_en": "Serving Set",
+    "name_en": "Serving set",
     "sku": "062",
     "images": [
       "/images/4-serving/062-Serving Set/062-Serving Set-01.webp",
       "/images/4-serving/062-Serving Set/062-Serving Set-02.webp"
-    ]
+    ],
+    "name_ar": "طقم معالق",
+    "description_en": "Serving set Beech Pine wooden, 4 pieces",
+    "description_ar": "طقم معالق بيتش باين",
+    "price": 400,
+    "stock": 10,
+    "category_slug": "serving"
   },
   {
     "name_en": "Moon Serving Stand (Wood) III",
@@ -305,12 +467,18 @@
     ]
   },
   {
-    "name_en": "Set of 2-Crescent Serving Stand, light brown",
+    "name_en": "Set of Crescent Serving Stand, light brown",
     "sku": "063-01",
     "images": [
       "/images/1-seasons special/063-01-Set of Crescent Serving Stand, light brown/063-01-Set-of-Crescent-Serving-Stand,-light-brown-01.webp",
       "/images/1-seasons special/063-01-Set of Crescent Serving Stand, light brown/063-01-Set-of-Crescent-Serving-Stand,-light-brown-02.webp"
-    ]
+    ],
+    "name_ar": "ستاند تقديم شكل القمر",
+    "description_en": "Set of 2, Wooden crescent-shaped serving stands, easy to assemble and disassemble, light brown",
+    "description_ar": "ستاند تقديم شكل القمر خشب",
+    "price": 1100,
+    "stock": 10,
+    "category_slug": "seasons"
   },
   {
     "name_en": "Small Crescent Serving Stand",
@@ -318,7 +486,13 @@
     "images": [
       "/images/1-seasons special/063-02-Crescent Serving Stand, light brown-small/063-02-Set-of-Crescent-Serving-Stand,-light-brow-small-01.webp",
       "/images/1-seasons special/063-02-Crescent Serving Stand, light brown-small/063-02-Set-of-Crescent-Serving-Stand,-light-brow-small-02.webp"
-    ]
+    ],
+    "name_ar": "ستاند صغير تقديم شكل هلال، بني فاتح",
+    "description_en": "Small Wooden crescent-shaped serving stand, easy to assemble and disassemble, light brown - Size: 59*31",
+    "description_ar": "ستاند صغير خشبي تقديم علي شكل هلال، ستاند فك وتركيب ، بني فاتح - المقاس: 59*31",
+    "price": 500,
+    "stock": 6,
+    "category_slug": "seasons"
   },
   {
     "name_en": "Large Crescent Serving Stand",
@@ -326,7 +500,13 @@
     "images": [
       "/images/1-seasons special/063-03-Crescent Serving Stand, light brown-large/063-02-Set-of-Crescent-Serving-Stand,-light-brow-large-01.webp",
       "/images/1-seasons special/063-03-Crescent Serving Stand, light brown-large/063-02-Set-of-Crescent-Serving-Stand,-light-brow-large-02.webp"
-    ]
+    ],
+    "name_ar": "ستاند كبير تقديم شكل هلال، بني فاتح",
+    "description_en": "Large Wooden crescent-shaped serving stand, easy to assemble and disassemble, light brown - Size: 50*25",
+    "description_ar": "ستاند كبير خشبي تقديم علي شكل هلال، ستاند فك وتركيب ، بني فاتح - المقاس: 50*25",
+    "price": 500,
+    "stock": 3,
+    "category_slug": "seasons"
   },
   {
     "name_en": "Moon Serving Stand (Wood) IV",
@@ -337,12 +517,18 @@
     ]
   },
   {
-    "name_en": "Set of 2-Crescent Serving Stand, dark brown",
+    "name_en": "Set of Crescent Serving Stand, dark brown",
     "sku": "064-01",
     "images": [
       "/images/1-seasons special/064-01-Set of Crescent Serving Stand, dark brown/064-01-Set of Crescent Serving Stand, dark brown-01.webp",
       "/images/1-seasons special/064-01-Set of Crescent Serving Stand, dark brown/064-02-Set of Crescent Serving Stand, dark brown-02.webp"
-    ]
+    ],
+    "name_ar": "ستاند تقديم شكل القمر",
+    "description_en": "Set of 2, Wooden crescent-shaped serving stands, easy to assemble and disassemble, dark brown",
+    "description_ar": "ستاند تقديم شكل القمر خشب",
+    "price": 1100,
+    "stock": 10,
+    "category_slug": "seasons"
   },
   {
     "name_en": "Small Crescent Serving Stand",
@@ -350,7 +536,13 @@
     "images": [
       "/images/1-seasons special/064-02-small of Crescent Serving Stand, dark brown/064-02-Small Crescent Serving Stand, dark brown-01.webp",
       "/images/1-seasons special/064-02-small of Crescent Serving Stand, dark brown/064-02-Small Crescent Serving Stand, dark brown-02.webp"
-    ]
+    ],
+    "name_ar": "ستاند صغير تقديم شكل هلال، بني غامق",
+    "description_en": "Small Wooden crescent-shaped serving stand, easy to assemble and disassemble, dark brown - Size: 50*25",
+    "description_ar": "ستاند صغير خشبي تقديم علي شكل هلال، ستاند فك وتركيب ، بني غامق - المقاس: 50*25",
+    "price": 500,
+    "stock": 7,
+    "category_slug": "seasons"
   },
   {
     "name_en": "Large Crescent Serving Stand",
@@ -358,7 +550,13 @@
     "images": [
       "/images/1-seasons special/064-03-Large of Crescent Serving Stand, dark brown/064-03-Large of Crescent Serving Stand, dark brown-01.webp",
       "/images/1-seasons special/064-03-Large of Crescent Serving Stand, dark brown/064-03-Large of Crescent Serving Stand, dark brown-02.webp"
-    ]
+    ],
+    "name_ar": "ستاند كبير تقديم شكل هلال، بني غامق",
+    "description_en": "Large Wooden crescent-shaped serving stand, easy to assemble and disassemble, dark brown - Size: 59*31",
+    "description_ar": "ستاند كبير خشبي تقديم علي شكل هلال، ستاند فك وتركيب ، بني غامق - المقاس: 59*31",
+    "price": 700,
+    "stock": 2,
+    "category_slug": "seasons"
   },
   {
     "name_en": "Kitchen magnet",
@@ -366,7 +564,13 @@
     "images": [
       "/images/4-serving/065-Kitchen Magnet/065-Kitchen Magnet-01.webp",
       "/images/4-serving/065-Kitchen Magnet/065-Kitchen Magnet-02.webp"
-    ]
+    ],
+    "name_ar": "مطبخ مغناطيس",
+    "description_en": "Wood \"Kitchen\" magnet",
+    "description_ar": "مغناطيس خشبي مكتوب عليه \"مطبخ\"",
+    "price": 100,
+    "stock": 12,
+    "category_slug": "serving"
   },
   {
     "name_en": "Welcome magnet",
@@ -374,7 +578,13 @@
     "images": [
       "/images/4-serving/066-Welcome magnet/066-Welcome magnet-01.webp",
       "/images/4-serving/066-Welcome magnet/066-Welcome magnet-02.webp"
-    ]
+    ],
+    "name_ar": "اهلا مغناطيس",
+    "description_en": "Wood \"Welcome\" magnet",
+    "description_ar": "مغناطيس خشبي مكتوب عليه \"مرحباً\"",
+    "price": 100,
+    "stock": 2,
+    "category_slug": "serving"
   },
   {
     "name_en": "Cutlery Set Magnet",
@@ -383,7 +593,13 @@
       "/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-01.webp",
       "/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-02.jpg",
       "/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-03.webp"
-    ]
+    ],
+    "name_ar": "معالق مغناطيس",
+    "description_en": "Cutlery Set Fridge Magnet, 3 pieces - Size: 18*13",
+    "description_ar": "شكل مغناطيس للمطبخ - المقاس: 18*13",
+    "price": 60,
+    "stock": 22,
+    "category_slug": "serving"
   },
   {
     "name_en": "Desposable cutlery",
@@ -399,7 +615,13 @@
       "/images/4-serving/069-Pizza Set/069-Pizza Set-03.webp",
       "/images/4-serving/069-Pizza Set/069-Pizza Set-04.webp",
       "/images/4-serving/069-Pizza Set/069-Pizza Set-05.webp"
-    ]
+    ],
+    "name_ar": "طقم بيتزا",
+    "description_en": "A puzzle-style pizza set crafted from natural beech pine wood, 6 pieces",
+    "description_ar": "طقم بيتزا 6 قطع مصنوع من خشب البيتش باين",
+    "price": 900,
+    "stock": 9,
+    "category_slug": "serving"
   },
   {
     "name_en": "Kitchen tissue holder",
@@ -407,7 +629,13 @@
     "images": [
       "/images/4-serving/070-Kitchen-Tissue/070-Kitchen-tissue-holder-01.webp",
       "/images/4-serving/070-Kitchen-Tissue/070-Kitchen-tissue-holder-02.webp"
-    ]
+    ],
+    "name_ar": "حامل منديل للمطبخ",
+    "description_en": "Wooden Kitchen paper holder - Size: 36cm",
+    "description_ar": "حامل مناديل للمطبخ خشب - المقاس: 36cm",
+    "price": 350,
+    "stock": 9,
+    "category_slug": "serving"
   },
   {
     "name_en": "Toilet tissue holder",
@@ -415,28 +643,52 @@
     "images": [
       "/images/4-serving/071-Toilet tissue holder/071-Toilet-tissue-holder-01.webp",
       "/images/4-serving/071-Toilet tissue holder/071-Toilet-tissue-holder-02.webp"
-    ]
+    ],
+    "name_ar": "حامل مناديل للحمام",
+    "description_en": "Wooden Toilet paper holder - Size: 45cm",
+    "description_ar": "حامل منايل للحمام خشب - المقاس: 45cm",
+    "price": 450,
+    "stock": 10,
+    "category_slug": "serving"
   },
   {
-    "name_en": "Large Coaster with Candle",
+    "name_en": "Large Coaster with candle",
     "sku": "072",
     "images": [
       "/images/4-serving/072-Large Coaster with Candle/075-Large Coaster with Candle-01.webp",
       "/images/4-serving/072-Large Coaster with Candle/075-Large Coaster with Candle-02.webp"
-    ]
+    ],
+    "name_ar": "قاعدة أكواب كبير خشبية مع مكان لشمعة",
+    "description_en": "Large wooden coaster with a candle holder, made of sheesham - Size: large",
+    "description_ar": "قاعدة أكواب كبير خشبية مع مكان لشمعة مصنوعة من خشب السرسوع - المقاس: large",
+    "price": 400,
+    "stock": 3,
+    "category_slug": "serving"
   },
   {
-    "name_en": "Medium Coaster with Candle",
+    "name_en": "Meduim Coaster with candle",
     "sku": "073",
-    "images": []
+    "images": [],
+    "name_ar": "قاعدة أكواب وسط خشبية مع مكان لشمعة",
+    "description_en": "Meduim wooden coaster with a candle holder, made of sheesham - Size: meduim",
+    "description_ar": "قاعدة أكواب وسط خشبية مع مكان لشمعة مصنوعة من خشب السرسوع - المقاس: meduim",
+    "price": 350,
+    "stock": 18,
+    "category_slug": "serving"
   },
   {
-    "name_en": "Small Coaster with Candle",
+    "name_en": "Small Coaster with candle",
     "sku": "074",
     "images": [
       "/images/4-serving/074-Small Coaster with Candle/074-Small Coaster with Candle-01.webp",
       "/images/4-serving/074-Small Coaster with Candle/074-Small Coaster with Candle-02.webp"
-    ]
+    ],
+    "name_ar": "قاعدة أكواب صغيرة خشبية مع مكان لشمعة",
+    "description_en": "Small wooden coaster with a candle holder, made of sheesham - Size: small",
+    "description_ar": "قاعدة أكواب صغيرة خشبية مع مكان لشمعة مصنوعة من خشب السرسوع - المقاس: small",
+    "price": 300,
+    "stock": 5,
+    "category_slug": "serving"
   },
   {
     "name_en": "Oval Plate",
@@ -445,7 +697,13 @@
       "/images/4-serving/075-Oval Plate/075-Oval-Plate-01.webp",
       "/images/4-serving/075-Oval Plate/075-Oval-Plate-02.webp",
       "/images/4-serving/075-Oval Plate/075-Oval-Plate-03.webp"
-    ]
+    ],
+    "name_ar": "طبق بيضاوى",
+    "description_en": "Oval Beech Pine Wood Plate - Size: 14* 30",
+    "description_ar": "طبق بيضاوى مصنوع من خشب البيتش باين - المقاس: 14* 30",
+    "price": 500,
+    "stock": 10,
+    "category_slug": "serving"
   },
   {
     "name_en": "Square Plate",
@@ -454,7 +712,13 @@
       "/images/4-serving/076-Square-Plate/076-Square-Plate-01.webp",
       "/images/4-serving/076-Square-Plate/076-Square-Plate-02.webp",
       "/images/4-serving/076-Square-Plate/076-Square-Plate-03.webp"
-    ]
+    ],
+    "name_ar": "طبق مربع",
+    "description_en": "Square Beech Pine Wood Plate - Size: 20cm",
+    "description_ar": "طبق مربع عميق مصنوع من خشب البيتش باين - المقاس: 20cm",
+    "price": 400,
+    "stock": 2,
+    "category_slug": "serving"
   },
   {
     "name_en": "Oval Deep Plate",
@@ -463,7 +727,13 @@
       "/images/4-serving/077-Oval Deep Plate /077-Oval-Deep-Plate-01.webp",
       "/images/4-serving/077-Oval Deep Plate /077-Oval-Deep-Plate-02.webp",
       "/images/4-serving/077-Oval Deep Plate /077-Oval-Deep-Plate-03.webp"
-    ]
+    ],
+    "name_ar": "طبق بيضاوى عميق بارجل",
+    "description_en": "oval Beech Pine Wood Plate - Size: 9* 25",
+    "description_ar": "طبق بيضاوي الشكل من خشب البيتش باين - المقاس: 9* 25",
+    "price": 300,
+    "stock": 2,
+    "category_slug": "serving"
   },
   {
     "name_en": "Oval Deep Plate with legs",
@@ -472,7 +742,13 @@
       "/images/4-serving/078-Oval Deep Plate with legs/078-Oval-Deep-Plate-with-legs-01.webp",
       "/images/4-serving/078-Oval Deep Plate with legs/078-Oval-Deep-Plate-with-legs-02.webp",
       "/images/4-serving/078-Oval Deep Plate with legs/078-Oval-Deep-Plate-with-legs-03.webp"
-    ]
+    ],
+    "name_ar": "طبق بيضاوى عميق بارجل",
+    "description_en": "oval Beech Pine Wood Plate with legs with an engraved floral detail - Size: 9* 25",
+    "description_ar": "طبق بيضاوي الشكل من خشب البيتش باين، مزود بأرجل ونقوش محفورة. - المقاس: 9* 25",
+    "price": 350,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
     "name_en": "Fish Napkin",
@@ -480,16 +756,28 @@
     "images": [
       "/images/4-serving/079-Fish-Napkin/079-Fish-Napking-01.webp",
       "/images/4-serving/079-Fish-Napkin/079-Fish-Napking-02.webp"
-    ]
+    ],
+    "name_ar": "حامل مناديل سمكه",
+    "description_en": "Fish-Shaped Table Napkins",
+    "description_ar": "حامل مناديل خشب على شكل سمكه",
+    "price": 400,
+    "stock": 31,
+    "category_slug": "serving"
   },
   {
-    "name_en": "Oval Dipping Plate",
+    "name_en": "Oval dipping plate",
     "sku": "080",
     "images": [
       "/images/4-serving/080-Oval dipping plate/080-Oval-dipping-plate-01.webp",
       "/images/4-serving/080-Oval dipping plate/080-Oval-dipping-plate-02.webp",
       "/images/4-serving/080-Oval dipping plate/080-Oval-dipping-plate-03.webp"
-    ]
+    ],
+    "name_ar": "طبق غمس بيضاوي",
+    "description_en": "Oval Beech Pine Wood Dipping Sauce Plates, Set of 3",
+    "description_ar": "طقم اطباق غمس بيضاوي مصنوع من خشب البيتش باين، مكون من ٣ اطباق",
+    "price": 100,
+    "stock": 2,
+    "category_slug": "serving"
   },
   {
     "name_en": "Mini oval dipping plate",
@@ -498,10 +786,16 @@
       "/images/4-serving/081-Mini oval dipping plate/081-Mini-oval-dipping-plate-01.webp",
       "/images/4-serving/081-Mini oval dipping plate/081-Mini-oval-dipping-plate-02.webp",
       "/images/4-serving/081-Mini oval dipping plate/081-Mini-oval-dipping-plate-03.webp"
-    ]
+    ],
+    "name_ar": "طبق غمس بيضاوي صغير",
+    "description_en": "Mini Beech Pine Wood Dipping Sauce Plates, Set of 3",
+    "description_ar": "طقم اطباق غمس بيضاوي صغير مصنوع من خشب البيتش باين، مكون من ٣ اطباق",
+    "price": 100,
+    "stock": 2,
+    "category_slug": "serving"
   },
   {
-    "name_en": "Set of 2-wood food warmer",
+    "name_en": "Set of wood food warmer",
     "sku": "082-01",
     "images": [
       "/images/4-serving/082-01-Set-Of-Food-Warmer/082-01-Set-Of-Food-Warmer-01.webp",
@@ -509,33 +803,57 @@
       "/images/4-serving/082-01-Set-Of-Food-Warmer/082-01-Set-Of-Food-Warmer-03.webp",
       "/images/4-serving/082-01-Set-Of-Food-Warmer/082-01-Set-Of-Food-Warmer-04.webp",
       "/images/4-serving/082-01-Set-Of-Food-Warmer/082-01-Set-Of-Food-Warmer-05.webp"
-    ]
+    ],
+    "name_ar": "طقم سخان طعام خشبي",
+    "description_en": "Set of 2 wood food warmers",
+    "description_ar": "طقم من قطعتين، سخان طعام خشبي",
+    "price": 700,
+    "stock": 7,
+    "category_slug": "serving"
   },
   {
-    "name_en": "Large Wood Food Warmer",
+    "name_en": "Large wood food warmer",
     "sku": "082-02",
     "images": [
       "/images/4-serving/082-02-Large-Food-Warmer/082-02-Large-Food-Warmer-01.webp",
       "/images/4-serving/082-02-Large-Food-Warmer/082-03-Large-Food-Warmer-02.webp"
-    ]
+    ],
+    "name_ar": "سخان طعام خشبي كبير",
+    "description_en": "Large wood food warmer with 2 candle places - Size: large",
+    "description_ar": "مدفأة طعام خشبية كبيرة مزودة بمكانين للشموع - المقاس: large",
+    "price": 450,
+    "stock": 7,
+    "category_slug": "serving"
   },
   {
-    "name_en": "Small Wood Food Warmer",
+    "name_en": "Small wood food warmer",
     "sku": "082-03",
     "images": [
       "/images/4-serving/082-03-Small-Food-Warmer/082-02-Small-Food-Warmer-01.webp",
       "/images/4-serving/082-03-Small-Food-Warmer/082-02-Small-Food-Warmer-03.webp"
-    ]
+    ],
+    "name_ar": "سخان طعام خشبي صغير",
+    "description_en": "Small wood food warmer with 1 candle - Size: small",
+    "description_ar": "مدفأة طعام خشبية صغيرة مزودة بمكان لشمعة - المقاس: small",
+    "price": 350,
+    "stock": 17,
+    "category_slug": "serving"
   },
   {
-    "name_en": "Set of 3-Rectangle Plates",
+    "name_en": "Set of Rectangle Plates",
     "sku": "083-01",
     "images": [
       "/images/4-serving/083-01-set-of-rectangle-plates/083-01-set-of-rectangle-plates-01.webp",
       "/images/4-serving/083-01-set-of-rectangle-plates/083-01-set-of-rectangle-plates-02.webp",
       "/images/4-serving/083-01-set-of-rectangle-plates/083-01-set-of-rectangle-plates-03.webp",
       "/images/4-serving/083-01-set-of-rectangle-plates/083-01-set-of-rectangle-plates-04.webp"
-    ]
+    ],
+    "name_ar": "طقم أطباق مستطيلة",
+    "description_en": "Set of 3 rectangle sheesham wooden plates",
+    "description_ar": "طقم اطباق مستطيله مصنوع من خشب السرسوع ، طقم مكون من ٣ قطع",
+    "price": 1100,
+    "stock": 2,
+    "category_slug": "serving"
   },
   {
     "name_en": "Small Rectangle Plates",
@@ -544,17 +862,35 @@
       "/images/4-serving/083-02-Small-rectangle-plates/083-01-set-of-rectangle-plates-01.webp",
       "/images/4-serving/083-02-Small-rectangle-plates/083-01-set-of-rectangle-plates-02.webp",
       "/images/4-serving/083-02-Small-rectangle-plates/083-01-set-of-rectangle-plates-03.webp"
-    ]
+    ],
+    "name_ar": "طبق مستطيل صغير",
+    "description_en": "Small rectangle sheesham wooden plates - Size: small",
+    "description_ar": "طبق مستطيل صغير مصنوع من خشب السرسوع - المقاس: small",
+    "price": 350,
+    "stock": 4,
+    "category_slug": "serving"
   },
   {
     "name_en": "Meduim Rectangle Plates",
     "sku": "083-03",
-    "images": []
+    "images": [],
+    "name_ar": "طبق مستطيل وسط",
+    "description_en": "Meduim rectangle sheesham wooden plates - Size: meduim",
+    "description_ar": "طبق مستطيل وسط مصنوع من خشب السرسوع - المقاس: meduim",
+    "price": 400,
+    "stock": 2,
+    "category_slug": "serving"
   },
   {
     "name_en": "Large Rectangle Plates",
     "sku": "083-04",
-    "images": []
+    "images": [],
+    "name_ar": "طبق مستطيل كبير",
+    "description_en": "Large rectangle sheesham wooden plates - Size: large",
+    "description_ar": "طبق مستطيل كبير مصنوع من خشب السرسوع - المقاس: large",
+    "price": 450,
+    "stock": 6,
+    "category_slug": "serving"
   },
   {
     "name_en": "Sheesham Plate",
@@ -563,7 +899,13 @@
       "/images/4-serving/084-sheesham wooden plate/084-sheesham-wooden-plate-01.webp",
       "/images/4-serving/084-sheesham wooden plate/084-sheesham-wooden-plate-02.webp",
       "/images/4-serving/084-sheesham wooden plate/084-sheesham-wooden-plate-03.webp"
-    ]
+    ],
+    "name_ar": "طبق صغير",
+    "description_en": "sheesham wooden plate - Size: 16cm",
+    "description_ar": "طبق صغير خشب سرسوع - المقاس: 16cm",
+    "price": 450,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
     "name_en": "X-Large Bowl",
@@ -572,7 +914,13 @@
       "/images/4-serving/085-XLarge-Bowl/085-XL-Bowl-01.webp",
       "/images/4-serving/085-XLarge-Bowl/085-XL-Bowl-02.webp",
       "/images/4-serving/085-XLarge-Bowl/085-XL-Bowl-03.webp"
-    ]
+    ],
+    "name_ar": "طبق عميق كبير",
+    "description_en": "X-Large sheesham wooden bowl - Size: 27cm",
+    "description_ar": "طبق عميق كبير مصنوع من خشب سرسوع - المقاس: 27cm",
+    "price": 450,
+    "stock": 2,
+    "category_slug": "serving"
   },
   {
     "name_en": "Large Bowl",
@@ -581,7 +929,13 @@
       "/images/4-serving/086-Large-Bowl/086-Large-Bowl-01.webp",
       "/images/4-serving/086-Large-Bowl/086-Large-Bowl-02.webp",
       "/images/4-serving/086-Large-Bowl/086-Large-Bowl-03.webp"
-    ]
+    ],
+    "name_ar": "طبق عميق كبير",
+    "description_en": "Large sheesham wooden bowl - Size: 22cm",
+    "description_ar": "طبق عميق كبير مصنوع من خشب سرسوع - المقاس: 22cm",
+    "price": 400,
+    "stock": 19,
+    "category_slug": "serving"
   },
   {
     "name_en": "Meduim Bowl",
@@ -590,7 +944,13 @@
       "/images/4-serving/087-Medium-Bowl/087-Medium-Bowl-01.webp",
       "/images/4-serving/087-Medium-Bowl/087-Medium-Bowl-02.webp",
       "/images/4-serving/087-Medium-Bowl/87-Medium-Bowl-03.webp"
-    ]
+    ],
+    "name_ar": "طبق عميق وسط",
+    "description_en": "Meduim sheesham wooden bowl - Size: 19cm",
+    "description_ar": "طبق عميق وسط مصنوع من خشب سرسوع - المقاس: 19cm",
+    "price": 350,
+    "stock": 7,
+    "category_slug": "serving"
   },
   {
     "name_en": "Small Bowl",
@@ -599,16 +959,28 @@
       "/images/4-serving/088-Small-Bowl/088-Small-Bowl-01.webp",
       "/images/4-serving/088-Small-Bowl/088-Small-Bowl-02.webp",
       "/images/4-serving/088-Small-Bowl/088-Small-Bowl-03.webp"
-    ]
+    ],
+    "name_ar": "طبق عميق صغير",
+    "description_en": "Small sheesham wooden bowl - Size: 16cm",
+    "description_ar": "طبق عميق صغير مصنوع من خشب سرسوع - المقاس: 16cm",
+    "price": 300,
+    "stock": 12,
+    "category_slug": "serving"
   },
   {
-    "name_en": "Set of 3-Deep Bowls",
+    "name_en": "Set of Deep Bowls",
     "sku": "089-01",
     "images": [
       "/images/4-serving/089-01-Set-Of-Deep-Bowls/089-01-Set-Of-Deep-Bowls-01.webp",
       "/images/4-serving/089-01-Set-Of-Deep-Bowls/089-01-Set-Of-Deep-Bowls-02.webp",
       "/images/4-serving/089-01-Set-Of-Deep-Bowls/089-01-Set-Of-Deep-Bowls-03.webp"
-    ]
+    ],
+    "name_ar": "طقم اطباق كايا عميق",
+    "description_en": "Set of 3 Kaia wooden deep bowls - Size: 25*13, 32*11, 28*12",
+    "description_ar": "طقم اطباق كايا عميق ، ٣ اطباق - المقاس: 25*13, 32*11, 28*12",
+    "price": 2000,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
     "name_en": "Large Deep Bowl",
@@ -616,14 +988,26 @@
     "images": [
       "/images/4-serving/089-02-Large-Deep-Bowl/089-02-large-Deep-Bowl-02.webp",
       "/images/4-serving/089-02-Large-Deep-Bowl/089-02-large-Deep-Bowl-03.webp"
-    ]
+    ],
+    "name_ar": "طبق كايا عميق كبير",
+    "description_en": "Large Kaia wooden deep bowl - Size: 28*12",
+    "description_ar": "طبق عميق خشب كايا - المقاس: 28*12",
+    "price": 800,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
     "name_en": "Meduim Deep Bowl",
     "sku": "089-03",
     "images": [
       "/images/4-serving/089-03-Medium-Deep-Bowl/089-03-Medium-Deep-Bowl-02.webp"
-    ]
+    ],
+    "name_ar": "طبق كايا عميق وسط",
+    "description_en": "Meduim Kaia wooden deep bowl - Size: 32*11",
+    "description_ar": "طبق عميق خشب كايا - المقاس: 32*11",
+    "price": 700,
+    "stock": 1,
+    "category_slug": "serving"
   },
   {
     "name_en": "Small Deep Bowl",
@@ -631,7 +1015,13 @@
     "images": [
       "/images/4-serving/089-04-Small-Deep-Bowl/089-04-Small-Deep-Bowl-02.webp",
       "/images/4-serving/089-04-Small-Deep-Bowl/089-04-Small-Deep-Bowl-03.webp"
-    ]
+    ],
+    "name_ar": "طبق كايا عميق صغير",
+    "description_en": "Small Kaia wooden deep bowl - Size: 25* 13",
+    "description_ar": "طبق عميق خشب كايا - المقاس: 25* 13",
+    "price": 600,
+    "stock": 10,
+    "category_slug": "serving"
   },
   {
     "name_en": "Meduim Bowl",
@@ -640,7 +1030,13 @@
       "/images/4-serving/090-Medium-Bowl/090-Medium-Bowl-01.webp",
       "/images/4-serving/090-Medium-Bowl/090-Medium-Bowl-02.webp",
       "/images/4-serving/090-Medium-Bowl/090-Medium-Bowl-03.webp"
-    ]
+    ],
+    "name_ar": "طبق كايا وسط",
+    "description_en": "Kaia wooden crafted big bowl - Size: 33-35",
+    "description_ar": "طبق كايا خشب وسط - المقاس: 33-35",
+    "price": 700,
+    "stock": 5,
+    "category_slug": "serving"
   },
   {
     "name_en": "Large Bowl",
@@ -649,7 +1045,13 @@
       "/images/4-serving/091-LargeBowl/091-Large-Bowl-01.webp",
       "/images/4-serving/091-LargeBowl/091-Large-Bowl-02.webp",
       "/images/4-serving/091-LargeBowl/091-Large-Bowl-03.webp"
-    ]
+    ],
+    "name_ar": "طبق كايا كبير",
+    "description_en": "Kaia wooden crafted big bowl - Size: 37-40cm",
+    "description_ar": "طبق كايا خشب كبير - المقاس: 37-40cm",
+    "price": 850,
+    "stock": 6,
+    "category_slug": "serving"
   },
   {
     "name_en": "The Grill",
@@ -658,55 +1060,91 @@
       "/images/3-trays/92-The Grill/092-The-Grill-01.webp",
       "/images/3-trays/92-The Grill/092-The-Grill-02.webp",
       "/images/3-trays/92-The Grill/092-The-Grill-03.webp"
-    ]
+    ],
+    "name_ar": "شوايه",
+    "description_en": "Beech pine wood grill, detachable and assembleable - Size: 26*50",
+    "description_ar": "شواية خشب بيتش باين قابلة للفك والتركيب - المقاس: 26*50",
+    "price": 1000,
+    "stock": 5,
+    "category_slug": "trays"
   },
   {
-    "name_en": "Set of 3-Wooden Tray with Wooden Handle",
+    "name_en": "Set of wooden tray with wood handle",
     "sku": "093-01",
     "images": [
       "/images/3-trays/093-01-Set of wooden tray with wood handle/trayset-01.webp",
       "/images/3-trays/093-01-Set of wooden tray with wood handle/trayset-02.webp",
       "/images/3-trays/093-01-Set of wooden tray with wood handle/trayset-03.webp"
-    ]
+    ],
+    "name_ar": "طقم صواني خشب بيد خشبية",
+    "description_en": "Set of 3 wooden Rectangular traies with 2 wood handles, made of Beech Pine - Size: 43*20, 48*25, 53*29",
+    "description_ar": "صوانى تقديم مصنوعه من خشب البيتش باين بأيدى خشبية جانبيه ، ٣ صواني - المقاس: 43*20, 48*25, 53*29",
+    "price": 2000,
+    "stock": 2,
+    "category_slug": "trays"
   },
   {
-    "name_en": "Large Wooden Tray with Wooden Handle",
+    "name_en": "large wooden tray with wood handle",
     "sku": "093-02",
     "images": [
       "/images/3-trays/093-02-Large of wooden tray with wood handle/093-02-Large of wooden tray with wood handle-01.webp",
       "/images/3-trays/093-02-Large of wooden tray with wood handle/093-02-Large of wooden tray with wood handle-02.webp",
       "/images/3-trays/093-02-Large of wooden tray with wood handle/093-02-Large of wooden tray with wood handle-03.webp"
-    ]
+    ],
+    "name_ar": "صنيه صغيرة خشب بيد خشبية",
+    "description_en": "Large wooden Rectangular traies with 2 wood handles, made of Beech Pine - Size: 43*20",
+    "description_ar": "صنية تقديم صغيرة مصنوعه من خشب البيتش باين بأيدى خشبية جانبيه - المقاس: 43*20",
+    "price": 850,
+    "stock": 2,
+    "category_slug": "trays"
   },
   {
-    "name_en": "Medium Wooden Tray with Wooden Handle",
+    "name_en": "meduim wooden tray with wood handle",
     "sku": "093-03",
     "images": [
       "/images/3-trays/093-03-Medium of wooden tray with wood handle /093-03-Medium of wooden tray with wood handle-01.webp",
       "/images/3-trays/093-03-Medium of wooden tray with wood handle /093-03-Medium of wooden tray with wood handle-02.webp",
       "/images/3-trays/093-03-Medium of wooden tray with wood handle /093-03-Medium of wooden tray with wood handle-03.webp"
-    ]
+    ],
+    "name_ar": "صنيه وسط خشب بيد خشبية",
+    "description_en": "Meduim wooden Rectangular traies with 2 wood handles, made of Beech Pine - Size: 48*25",
+    "description_ar": "صنية تقديم وسط مصنوعه من خشب البيتش باين بأيدى خشبية جانبيه - المقاس: 48*25",
+    "price": 750,
+    "stock": 2,
+    "category_slug": "trays"
   },
   {
-    "name_en": "Small Wooden Tray with Wooden Handle",
+    "name_en": "small wooden tray with wood handle",
     "sku": "093-04",
     "images": [
       "/images/3-trays/093-04-Small of wooden tray with wood handle/093-04-Small of wooden tray with wood handle-01.webp",
       "/images/3-trays/093-04-Small of wooden tray with wood handle/093-04-Small of wooden tray with wood handle-02.webp",
       "/images/3-trays/093-04-Small of wooden tray with wood handle/093-04-Small of wooden tray with wood handle-03.webp"
-    ]
+    ],
+    "name_ar": "صنيه كبيرة خشب بيد خشبية",
+    "description_en": "Small wooden Rectangular traies with 2 wood handles, made of Beech Pine - Size: 53*29",
+    "description_ar": "صنية تقديم كبيرة مصنوعه من خشب البيتش باين بأيدى خشبية جانبيه - المقاس: 53*29",
+    "price": 650,
+    "stock": 2,
+    "category_slug": "trays"
   },
   {
-    "name_en": "Wooden Tray with Black Handle",
+    "name_en": "Wooden tray with handle",
     "sku": "094",
     "images": [
       "/images/3-trays/094-Wooden tray with handle/094-Wooden tray with handl-01.webp",
       "/images/3-trays/094-Wooden tray with handle/094-Wooden tray with handl-02.webp",
       "/images/3-trays/094-Wooden tray with handle/094-Wooden tray with handl-03.webp"
-    ]
+    ],
+    "name_ar": "صينية خشب بيد",
+    "description_en": "sheesham Wooden Tray with black handle - Size: 47*31",
+    "description_ar": "صنيه تقديم مصنوعه من خشب السرسوع بأيدى سوداء - المقاس: 47*31",
+    "price": 950,
+    "stock": 2,
+    "category_slug": "trays"
   },
   {
-    "name_en": "Set of 2-Puzzle Board",
+    "name_en": "Puzzle Board Set",
     "sku": "095-01",
     "images": [
       "/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-01.webp",
@@ -714,7 +1152,13 @@
       "/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-03.webp",
       "/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-04.webp",
       "/images/2-Boards/095-01-Puzzle Board Set/095-01-Puzzle Board Set-05.webp"
-    ]
+    ],
+    "name_ar": "طقم ألواح بازل",
+    "description_en": "mix sheesham - Beech Pine Wood Puzzle Cheese Board, 2 pieces - Size: 40cm & 50 cm",
+    "description_ar": "طقم ألواح بازل مصنوعه من خشب السرسوع و البيتش باين، مكون من قطعتين - المقاس: 40cm & 50 cm",
+    "price": 800,
+    "stock": 5,
+    "category_slug": "boards"
   },
   {
     "name_en": "Small Puzzle Board",
@@ -722,7 +1166,13 @@
     "images": [
       "/images/2-Boards/095-02-Small Puzzle Board /095-02-Small Puzzle Board-01.webp",
       "/images/2-Boards/095-02-Small Puzzle Board /095-02-Small Puzzle Board-02.webp"
-    ]
+    ],
+    "name_ar": "لوح بازل صغير",
+    "description_en": "mix sheesham - Beech Pine Wood Puzzle Cheese Board - Size: 40cm",
+    "description_ar": "لوح بازل صغير مصنوع من خشب السرسوع و البيتش باين - المقاس: 40cm",
+    "price": 400,
+    "stock": 5,
+    "category_slug": "boards"
   },
   {
     "name_en": "Large Puzzle Board",
@@ -730,7 +1180,13 @@
     "images": [
       "/images/2-Boards/095-03-Large Puzzle Board/095-03-Large Puzzle Board-01.webp",
       "/images/2-Boards/095-03-Large Puzzle Board/095-03-Large Puzzle Board-02.webp"
-    ]
+    ],
+    "name_ar": "لوح بازل كبير",
+    "description_en": "mix sheesham - Beech Pine Wood Puzzle Cheese Board - Size: 50sm",
+    "description_ar": "لوح بازل كبير مصنوع من خشب السرسوع و البيتش باين - المقاس: 50sm",
+    "price": 500,
+    "stock": 5,
+    "category_slug": "boards"
   },
   {
     "name_en": "Sheesham cutting board",
@@ -739,15 +1195,27 @@
       "/images/2-Boards/096-Sheesham cutting board /096-Sheesham cutting board-01.webp",
       "/images/2-Boards/096-Sheesham cutting board /096-Sheesham cutting board-02.webp",
       "/images/2-Boards/096-Sheesham cutting board /096-Sheesham cutting board-03.webp"
-    ]
+    ],
+    "name_ar": "لوح تقطيع",
+    "description_en": "Large sheesham Wooden cutting board - Size: 52 *17",
+    "description_ar": "لوح تقطيع كبير مصنوع خشب السرسوع - المقاس: 52 *17",
+    "price": 650,
+    "stock": 4,
+    "category_slug": "boards"
   },
   {
-    "name_en": "Sheesham Cutting Board",
+    "name_en": "Sheesham cutting board",
     "sku": "097",
     "images": [
       "/images/2-Boards/097- Small Sheesham cutting board/097-Small Sheesham-cutting-board-01.webp",
       "/images/2-Boards/097- Small Sheesham cutting board/097-Small Sheesham-cutting-board-02.webp"
-    ]
+    ],
+    "name_ar": "لوح تقطيع",
+    "description_en": "Small sheesham Wooden cutting board - Size: 40 * 20",
+    "description_ar": "لوح تقطيع صغير مصنوع خشب السرسوع - المقاس: 40 * 20",
+    "price": 600,
+    "stock": 3,
+    "category_slug": "boards"
   },
   {
     "name_en": "Flat Cheese Board",
@@ -756,7 +1224,13 @@
       "/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-01.webp",
       "/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-02.webp",
       "/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-03.jpg"
-    ]
+    ],
+    "name_ar": "لوح خشبي كبير مسطح",
+    "description_en": "Flat Large cheese board, crafted from Beech Pine - Size: 50cm",
+    "description_ar": "لوح جبن كبير مسطح من خشب البيتش - المقاس: 50cm",
+    "price": 350,
+    "stock": 1,
+    "category_slug": "trays"
   },
   {
     "name_en": "Deep Cheese Board",
@@ -765,16 +1239,28 @@
       "/images/3-trays/099-Deep Cheese Board/099-Deep Cheese Board-01.webp",
       "/images/3-trays/099-Deep Cheese Board/099-Deep Cheese Board-02.webp",
       "/images/3-trays/099-Deep Cheese Board/099-Deep Cheese Board-03.webp"
-    ]
+    ],
+    "name_ar": "لوح خشبي كبير محفور",
+    "description_en": "Deep Large cheese board, crafted from Beech Pine - Size: 50 cm",
+    "description_ar": "لوح جبن كبير محفور من خشب البيتش – عميق - المقاس: 50 cm",
+    "price": 400,
+    "stock": 1,
+    "category_slug": "trays"
   },
   {
-    "name_en": "Set of 2-Bloom Board",
+    "name_en": "Set of Bloom Board",
     "sku": "100-01",
     "images": [
       "/images/3-trays/100-01-Set of Bloom Board/100-01-Set of Bloom Board-01.webp",
       "/images/3-trays/100-01-Set of Bloom Board/100-01-Set of Bloom Board-02.webp",
       "/images/3-trays/100-01-Set of Bloom Board/100-01-Set of Bloom Board-03.webp"
-    ]
+    ],
+    "name_ar": "طقم ألواح خشبية منقوش",
+    "description_en": "Set of 2, Bloom Board Crafted from natural beech pine wood with an engraved floral detail - Size: 40cm, 50 cm",
+    "description_ar": "طقم ألواح خشبية منقوش مصنوع من خشب البيتش الطبيعي ، مكون من قطعتين - المقاس: 40cm, 50 cm",
+    "price": 600,
+    "stock": 2,
+    "category_slug": "trays"
   },
   {
     "name_en": "Small Bloom Board",
@@ -783,7 +1269,13 @@
       "/images/3-trays/100-02-Small Bloom Board/100-02-Small-Bloom-Board-01.webp",
       "/images/3-trays/100-02-Small Bloom Board/100-02-Small-Bloom-Board-02.webp",
       "/images/3-trays/100-02-Small Bloom Board/100-02-Small-Bloom-Board-03.webp"
-    ]
+    ],
+    "name_ar": "لوح خشبي صغير منقوش",
+    "description_en": "Small Bloom Board Crafted from natural beech pine wood with an engraved floral detail - Size: 40cm",
+    "description_ar": "لوح خشبي صغيرمنقوش مصنوع من خشب البيتش الطبيعي - المقاس: 40cm",
+    "price": 300,
+    "stock": 3,
+    "category_slug": "trays"
   },
   {
     "name_en": "Large Bloom Board",
@@ -792,7 +1284,13 @@
       "/images/3-trays/100-03-Large Bloom Board copy/100-03-Large-Bloom-Board-01.webp",
       "/images/3-trays/100-03-Large Bloom Board copy/100-03-Large-Bloom-Board-02.webp",
       "/images/3-trays/100-03-Large Bloom Board copy/100-03-Large-Bloom-Board-03.webp"
-    ]
+    ],
+    "name_ar": "لوح خشبي كبير منقوش",
+    "description_en": "Large Bloom Board Crafted from natural beech pine wood with an engraved floral detail - Size: 50 cm",
+    "description_ar": "لوح خشبي كبير مصنوع من خشب البيتش الطبيعي - المقاس: 50 cm",
+    "price": 350,
+    "stock": 2,
+    "category_slug": "trays"
   },
   {
     "name_en": "Board with Ears",
@@ -821,7 +1319,7 @@
       "cheese board",
       "glasses",
       "movie nights",
-      "gathering"
+      "gathering']::TEXT["
     ]
   },
   {
@@ -850,7 +1348,7 @@
       "natural wood",
       "cheese board",
       "movie nights",
-      "gathering"
+      "gathering']::TEXT["
     ]
   },
   {
@@ -877,7 +1375,7 @@
       "gifts",
       "board",
       "natural wood",
-      "tacos"
+      "tacos']::TEXT["
     ]
   },
   {
@@ -904,7 +1402,7 @@
       "gifts",
       "board",
       "natural wood",
-      "tacos"
+      "tacos']::TEXT["
     ]
   },
   {
@@ -934,7 +1432,7 @@
       "cheese board",
       "sushi",
       "gathering",
-      "tray"
+      "tray']::TEXT["
     ]
   },
   {
@@ -965,7 +1463,7 @@
       "glasses",
       "sushi",
       "gathering",
-      "tray"
+      "tray']::TEXT["
     ]
   },
   {
@@ -991,7 +1489,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "serving"
+      "serving']::TEXT["
     ]
   },
   {
@@ -1026,7 +1524,7 @@
       "special season",
       "christmas",
       "star",
-      "dipping"
+      "dipping']::TEXT["
     ]
   },
   {
@@ -1061,7 +1559,7 @@
       "special season",
       "christmas",
       "star",
-      "dipping"
+      "dipping']::TEXT["
     ]
   },
   {
@@ -1089,7 +1587,7 @@
       "gifts",
       "board",
       "cutting board",
-      "natural wood"
+      "natural wood']::TEXT["
     ]
   },
   {
@@ -1118,7 +1616,7 @@
       "natural wood",
       "tableware",
       "dipping",
-      "serving"
+      "serving']::TEXT["
     ]
   },
   {
@@ -1145,7 +1643,7 @@
       "gifts",
       "board",
       "cutting board",
-      "natural wood"
+      "natural wood']::TEXT["
     ]
   },
   {
@@ -1171,7 +1669,7 @@
       "gifts",
       "board",
       "cutting board",
-      "natural wood"
+      "natural wood']::TEXT["
     ]
   },
   {
@@ -1198,7 +1696,7 @@
       "gifts",
       "board",
       "cutting board",
-      "natural wood"
+      "natural wood']::TEXT["
     ]
   },
   {
@@ -1223,7 +1721,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "hot dishes"
+      "hot dishes']::TEXT["
     ]
   },
   {
@@ -1248,7 +1746,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "hot dishes"
+      "hot dishes']::TEXT["
     ]
   },
   {
@@ -1272,7 +1770,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "coasters"
+      "coasters']::TEXT["
     ]
   },
   {
@@ -1300,7 +1798,7 @@
       "natural wood",
       "tableware",
       "dipping",
-      "serving"
+      "serving']::TEXT["
     ]
   },
   {
@@ -1323,7 +1821,7 @@
       "engraved",
       "wooden",
       "gifts",
-      "natural wood"
+      "natural wood']::TEXT["
     ]
   },
   {
@@ -1355,7 +1853,7 @@
       "valentine",
       "special season",
       "valentine",
-      "mother's day"
+      "mother's day']::TEXT["
     ]
   },
   {
@@ -1387,7 +1885,7 @@
       "valentine",
       "special season",
       "valentine",
-      "mother's day"
+      "mother's day']::TEXT["
     ]
   },
   {
@@ -1419,7 +1917,7 @@
       "valentine",
       "special season",
       "valentine",
-      "mother'sday"
+      "mother'sday']::TEXT["
     ]
   },
   {
@@ -1444,7 +1942,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "hot dishes"
+      "hot dishes']::TEXT["
     ]
   }
 ]
