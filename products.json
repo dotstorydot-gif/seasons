@@ -30,7 +30,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "coasters']::TEXT["
+      "coasters"
     ]
   },
   {
@@ -56,7 +56,7 @@
       "gifts",
       "natural wood",
       "coasters",
-      "tray']::TEXT["
+      "tray"
     ]
   },
   {
@@ -65,7 +65,7 @@
     "images": [
       "/images/3-trays/019B-Large Cheese Board/019B-Large Cheese Board-01.webp",
       "/images/3-trays/019B-Large Cheese Board/019B-Large Cheese Board-02.webp",
-      "/images/3-trays/019B-Large Cheese Board/019B-Large Cheese Board-03.jpg"
+      "/images/3-trays/019B-Large Cheese Board/019B-Large Cheese Board-03.webp"
     ]
   },
   {
@@ -193,6 +193,7 @@
     "sku": "051-02",
     "images": [
       "/images/4-serving/051-02-Small Mini plate /051-02-Small Mini plate-01.webp",
+      "/images/4-serving/051-02-Small Mini plate /051-02-Small Mini plate-02.webp",
       "/images/4-serving/051-02-Small Mini plate /051-02-Small Mini plate-03.webp"
     ],
     "name_ar": "طبق صغير",
@@ -207,7 +208,8 @@
     "sku": "051-03",
     "images": [
       "/images/4-serving/051-03-Medium Mini plate/051-03-Medium Mini plate-01.webp",
-      "/images/4-serving/051-03-Medium Mini plate/051-03-Medium Mini plate-02.webp"
+      "/images/4-serving/051-03-Medium Mini plate/051-03-Medium Mini plate-02.webp",
+      "/images/4-serving/051-03-Medium Mini plate/051-03-Medium Mini plate-03.webp"
     ],
     "name_ar": "طبق صغير",
     "description_en": "Meduim Beech Pine wooden plate with handle - Size: meduim",
@@ -319,7 +321,7 @@
     "sku": "056",
     "images": [
       "/images/1-seasons special/056-Crescent decoration/Crescent decoration-01.webp",
-      "/images/1-seasons special/056-Crescent decoration/Crescent decoration-02.jpg"
+      "/images/1-seasons special/056-Crescent decoration/Crescent decoration-02.webp"
     ],
     "name_ar": "",
     "description_en": "Crescent wooden decoration - Size: 18*15",
@@ -334,7 +336,7 @@
     "images": [
       "/images/1-seasons special/057-Crescent plate/Crescent plate-01.webp",
       "/images/1-seasons special/057-Crescent plate/Crescent plate-02.webp",
-      "/images/1-seasons special/057-Crescent plate/Crescent plate-03.jpg"
+      "/images/1-seasons special/057-Crescent plate/Crescent plate-03.webp"
     ],
     "name_ar": "طبق هلال",
     "description_en": "Crescent plate Beech Pine wooden - Size: 29*25",
@@ -392,7 +394,7 @@
     "sku": "060-02",
     "images": [
       "/images/1-seasons special/060-02-Small Star serving plate/Small Star serving plate-01.webp",
-      "/images/1-seasons special/060-02-Small Star serving plate/Small Star serving plate-02.jpg"
+      "/images/1-seasons special/060-02-Small Star serving plate/Small Star serving plate-02.webp"
     ],
     "name_ar": "طبق نجمه صغير",
     "description_en": "Small beech pine wooden star serving plate - Size: small",
@@ -591,7 +593,7 @@
     "sku": "067",
     "images": [
       "/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-01.webp",
-      "/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-02.jpg",
+      "/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-02.webp",
       "/images/4-serving/067-Cutlery Set Magnet/067-Cutlery Set Magnet-03.webp"
     ],
     "name_ar": "معالق مغناطيس",
@@ -816,7 +818,8 @@
     "sku": "082-02",
     "images": [
       "/images/4-serving/082-02-Large-Food-Warmer/082-02-Large-Food-Warmer-01.webp",
-      "/images/4-serving/082-02-Large-Food-Warmer/082-03-Large-Food-Warmer-02.webp"
+      "/images/4-serving/082-02-Large-Food-Warmer/082-03-Large-Food-Warmer-02.webp",
+      "/images/4-serving/082-02-Large-Food-Warmer/082-03-Large-Food-Warmer-03.webp"
     ],
     "name_ar": "سخان طعام خشبي كبير",
     "description_en": "Large wood food warmer with 2 candle places - Size: large",
@@ -830,6 +833,7 @@
     "sku": "082-03",
     "images": [
       "/images/4-serving/082-03-Small-Food-Warmer/082-02-Small-Food-Warmer-01.webp",
+      "/images/4-serving/082-03-Small-Food-Warmer/082-02-Small-Food-Warmer-02.webp",
       "/images/4-serving/082-03-Small-Food-Warmer/082-02-Small-Food-Warmer-03.webp"
     ],
     "name_ar": "سخان طعام خشبي صغير",
@@ -1000,7 +1004,8 @@
     "name_en": "Meduim Deep Bowl",
     "sku": "089-03",
     "images": [
-      "/images/4-serving/089-03-Medium-Deep-Bowl/089-03-Medium-Deep-Bowl-02.webp"
+      "/images/4-serving/089-03-Medium-Deep-Bowl/089-03-Medium-Deep-Bowl-02.webp",
+      "/images/4-serving/089-03-Medium-Deep-Bowl/089-03-Medium-Deep-Bowl-03.webp"
     ],
     "name_ar": "طبق كايا عميق وسط",
     "description_en": "Meduim Kaia wooden deep bowl - Size: 32*11",
@@ -1223,7 +1228,7 @@
     "images": [
       "/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-01.webp",
       "/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-02.webp",
-      "/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-03.jpg"
+      "/images/3-trays/098-Flat Cheese Board/098-Flat Cheese Board-03.webp"
     ],
     "name_ar": "لوح خشبي كبير مسطح",
     "description_en": "Flat Large cheese board, crafted from Beech Pine - Size: 50cm",
@@ -1296,9 +1301,9 @@
     "name_en": "Board with Ears",
     "sku": "041",
     "images": [
+      "/images/2-Boards/041-Board with Ears/041-Board with Ears-03.webp",
       "/images/2-Boards/041-Board with Ears/041-Board-with-Ears-01.webp",
-      "/images/2-Boards/041-Board with Ears/041-Board-with-Ears-02.webp",
-      "/images/2-Boards/041-Board with Ears/041-Board with Ears-03.webp"
+      "/images/2-Boards/041-Board with Ears/041-Board-with-Ears-02.webp"
     ],
     "category_slug": "boards",
     "name_ar": "لوح  بودان",
@@ -1319,7 +1324,7 @@
       "cheese board",
       "glasses",
       "movie nights",
-      "gathering']::TEXT["
+      "gathering"
     ]
   },
   {
@@ -1348,7 +1353,7 @@
       "natural wood",
       "cheese board",
       "movie nights",
-      "gathering']::TEXT["
+      "gathering"
     ]
   },
   {
@@ -1356,8 +1361,8 @@
     "sku": "039",
     "images": [
       "/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-01.webp",
-      "/images/4-serving/039-Meduim Taco Holder/039-Meduim-Taco-Holder-02.webp",
-      "/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-03.webp"
+      "/images/4-serving/039-Meduim Taco Holder/039-Meduim Taco Holder-03.webp",
+      "/images/4-serving/039-Meduim Taco Holder/039-Meduim-Taco-Holder-02.webp"
     ],
     "category_slug": "serving",
     "name_ar": "حامل تاكو متوسط الحجم",
@@ -1375,16 +1380,16 @@
       "gifts",
       "board",
       "natural wood",
-      "tacos']::TEXT["
+      "tacos"
     ]
   },
   {
     "name_en": "Small Taco Holder",
     "sku": "038",
     "images": [
+      "/images/4-serving/038-Small Taco Holder/038-Small Taco Holder-03.webp",
       "/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-01.webp",
-      "/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-02.webp",
-      "/images/4-serving/038-Small Taco Holder/038-Small Taco Holder-03.webp"
+      "/images/4-serving/038-Small Taco Holder/038-Small-Taco-Holder-02.webp"
     ],
     "category_slug": "serving",
     "name_ar": "حامل تاكو صغير الحجم",
@@ -1402,7 +1407,7 @@
       "gifts",
       "board",
       "natural wood",
-      "tacos']::TEXT["
+      "tacos"
     ]
   },
   {
@@ -1432,7 +1437,7 @@
       "cheese board",
       "sushi",
       "gathering",
-      "tray']::TEXT["
+      "tray"
     ]
   },
   {
@@ -1463,16 +1468,16 @@
       "glasses",
       "sushi",
       "gathering",
-      "tray']::TEXT["
+      "tray"
     ]
   },
   {
     "name_en": "small Split serving board",
     "sku": "034",
     "images": [
-      "/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-01.webp",
-      "/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-02.webp",
-      "/images/4-serving/034-Small Split serving board/034-Small-Split-serving-board-03.webp"
+      "/images/4-serving/034-Small Split serving board 2/034-Small-Split-serving-board-01.webp",
+      "/images/4-serving/034-Small Split serving board 2/034-Small-Split-serving-board-02.webp",
+      "/images/4-serving/034-Small Split serving board 2/034-Small-Split-serving-board-03.webp"
     ],
     "category_slug": "serving",
     "name_ar": "لوح تقديم مقسم صغير",
@@ -1489,7 +1494,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "serving']::TEXT["
+      "serving"
     ]
   },
   {
@@ -1524,7 +1529,7 @@
       "special season",
       "christmas",
       "star",
-      "dipping']::TEXT["
+      "dipping"
     ]
   },
   {
@@ -1559,7 +1564,7 @@
       "special season",
       "christmas",
       "star",
-      "dipping']::TEXT["
+      "dipping"
     ]
   },
   {
@@ -1587,7 +1592,7 @@
       "gifts",
       "board",
       "cutting board",
-      "natural wood']::TEXT["
+      "natural wood"
     ]
   },
   {
@@ -1616,7 +1621,7 @@
       "natural wood",
       "tableware",
       "dipping",
-      "serving']::TEXT["
+      "serving"
     ]
   },
   {
@@ -1643,7 +1648,7 @@
       "gifts",
       "board",
       "cutting board",
-      "natural wood']::TEXT["
+      "natural wood"
     ]
   },
   {
@@ -1669,7 +1674,7 @@
       "gifts",
       "board",
       "cutting board",
-      "natural wood']::TEXT["
+      "natural wood"
     ]
   },
   {
@@ -1696,7 +1701,7 @@
       "gifts",
       "board",
       "cutting board",
-      "natural wood']::TEXT["
+      "natural wood"
     ]
   },
   {
@@ -1721,7 +1726,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "hot dishes']::TEXT["
+      "hot dishes"
     ]
   },
   {
@@ -1746,14 +1751,15 @@
       "wooden",
       "gifts",
       "natural wood",
-      "hot dishes']::TEXT["
+      "hot dishes"
     ]
   },
   {
     "name_en": "Stand coasters",
     "sku": "020",
     "images": [
-      "/images/4-serving/020-Stand coasters/020-Stand-coasters-02.webp"
+      "/images/4-serving/020-Stand coasters/020-Stand-coasters-02.webp",
+      "/images/4-serving/020-Stand coasters/020-Stand-coasters-0`.webp"
     ],
     "category_slug": "serving",
     "name_ar": "حامل كوستر",
@@ -1770,7 +1776,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "coasters']::TEXT["
+      "coasters"
     ]
   },
   {
@@ -1798,7 +1804,7 @@
       "natural wood",
       "tableware",
       "dipping",
-      "serving']::TEXT["
+      "serving"
     ]
   },
   {
@@ -1821,7 +1827,7 @@
       "engraved",
       "wooden",
       "gifts",
-      "natural wood']::TEXT["
+      "natural wood"
     ]
   },
   {
@@ -1853,15 +1859,15 @@
       "valentine",
       "special season",
       "valentine",
-      "mother's day']::TEXT["
+      "mother's day"
     ]
   },
   {
     "name_en": "2 hearts coaster",
     "sku": "014",
     "images": [
-      "/images/1-seasons special/012-2 hearts coaster /012-2-hearts-coaster-01.webp",
-      "/images/1-seasons special/012-2 hearts coaster /012-2-hearts-coaster-02.webp"
+      "/images/4-serving/014-Big Coaster/014-Big Coaster-02.webp",
+      "/images/4-serving/014-Big Coaster/014-Big-Coaster-01.webp"
     ],
     "category_slug": "seasons",
     "name_ar": "2 كوستر قلب",
@@ -1885,7 +1891,7 @@
       "valentine",
       "special season",
       "valentine",
-      "mother's day']::TEXT["
+      "mother's day"
     ]
   },
   {
@@ -1917,7 +1923,7 @@
       "valentine",
       "special season",
       "valentine",
-      "mother'sday']::TEXT["
+      "mother'sday"
     ]
   },
   {
@@ -1942,7 +1948,7 @@
       "wooden",
       "gifts",
       "natural wood",
-      "hot dishes']::TEXT["
+      "hot dishes"
     ]
   }
 ]
