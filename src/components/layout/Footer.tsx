@@ -54,6 +54,7 @@ const Footer = () => {
                             <li><Link href="/product-care">{language === 'en' ? 'Care Guide' : 'دليل العناية'}</Link></li>
                             <li><Link href="/refund-policy">{language === 'en' ? 'Refund Policy' : 'سياسة الاستبدال'}</Link></li>
                             <li><Link href="/privacy-policy">{language === 'en' ? 'Privacy Policy' : 'سياسة الخصوصية'}</Link></li>
+                            <li><Link href="/review">{language === 'en' ? '⭐ Leave a Review' : '⭐ أضف تقييمك'}</Link></li>
                             <li><Link href="/contact">{t('nav.contact')}</Link></li>
                         </ul>
                     </div>

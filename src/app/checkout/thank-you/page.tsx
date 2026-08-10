@@ -45,7 +45,7 @@ function ThankYouContent() {
                 </div>
 
                 <div className={styles.support}>
-                    <p>Need help with your order? <Link href="/contact">Contact Support</Link></p>
+                    <p>Need help with your order? <Link href="/contact">Contact Support</Link> · <Link href="/review">Leave a Review</Link></p>
                 </div>
             </div>
         </div>

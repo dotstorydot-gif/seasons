@@ -16,7 +16,15 @@ export interface ReviewPayload {
 /** Save a review to the Supabase "reviews" table */
 export async function saveReview(payload: ReviewPayload) {
   const { error } = await supabaseAdmin.from('reviews').insert({
-    ...payload,
+    name: payload.name,
+    phone: payload.phone,
+    quality: payload.quality,
+    durability: payload.durability,
+    shape: payload.shape,
+    packaging: payload.packaging,
+    delivery_time: payload.deliveryTime,
+    delivery_speed: payload.deliverySpeed,
+    shipping_company: payload.shippingCompany,
     created_at: new Date().toISOString(),
   });
   if (error) {
