@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import * as gtag from '@/lib/gtag';
+import Head from 'next/head';
+import Script from 'next/script';
+import { Poppins, Outfit } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { CartProvider } from "@/context/CartContext";
@@ -8,7 +13,21 @@ import { ToastProvider } from "@/context/ToastContext";
 import Shell from "@/components/layout/Shell";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import Script from 'next/script';
+import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import * as gtag from '@/lib/gtag';
 import { FacebookPixel } from "@/components/marketing/FacebookPixel";
+import { CustomScripts } from "@/components/marketing/CustomScripts";
+import Head from "next/head";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import Script from 'next/script';
+import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import * as gtag from '@/lib/gtag';
+import { FacebookPixel } from "@/components/marketing/FacebookPixel";
+import { CustomScripts } from "@/components/marketing/CustomScripts";
+import Head from "next/head";
 import { CustomScripts } from "@/components/marketing/CustomScripts";
 
 const poppins = Poppins({
@@ -24,6 +43,8 @@ const poppinsSerif = Poppins({
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
+
+const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], weight: ["400","500","600","700"], display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://seasons-nature.com"),
@@ -63,6 +84,14 @@ export const metadata: Metadata = {
   },
 };
 
+function RouteTracker() {
+  const pathname = usePathname();
+  useEffect(() => {
+    gtag.pageview(pathname);
+  }, [pathname]);
+  return null;
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -70,7 +99,42 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${poppinsSerif.variable} antialiased`}>
+      <Head>
+        {/* Google tag (gtag.js) */}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZTZJH136K"></script>
+<script dangerouslySetInnerHTML={{
+  __html: `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZZTZJH136K');
+  `
+}} />
+        {gtag.GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              id="gtag-base"
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`}
+            />
+            <Script
+              id="gtag-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${gtag.GA_MEASUREMENT_ID}', { page_path: window.location.pathname });`
+              }}
+            />
+          </>
+        )}
+      </Head>
+      <body className={`${poppins.variable} ${poppinsSerif.variable} ${outfit.variable} antialiased`}>
+        <Analytics />
+        <SpeedInsights />
+        <FacebookPixel />
+        <CustomScripts />
         <LanguageProvider>
           <CartProvider>
             <WishlistProvider>
@@ -80,10 +144,8 @@ export default function RootLayout({
             </WishlistProvider>
           </CartProvider>
         </LanguageProvider>
-        <Analytics />
-        <SpeedInsights />
-        <FacebookPixel />
-        <CustomScripts />
+        {/* Track pageviews on route change */}
+        <RouteTracker />
       </body>
     </html>
   );

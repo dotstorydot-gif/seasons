@@ -48,7 +48,7 @@ const ShopContent = ({ initialProducts, initialCategories }: ShopClientProps) =>
             const sku = p.sku?.toLowerCase() || '';
             const searchTerm = search.toLowerCase();
             const tagsMatch = p.tags?.some(tag => tag.toLowerCase().includes(searchTerm)) || false;
-            const matchesSearch = nameEn.includes(searchTerm) || nameAr.includes(search) || sku.includes(searchTerm) || tagsMatch;
+            const matchesSearch = nameEn.includes(searchTerm) || nameAr.toLowerCase().includes(searchTerm) || sku.includes(searchTerm) || tagsMatch;
             const matchesCategory = categoryParam === 'All' || p.category_id === categoryParam;
             return matchesSearch && matchesCategory;
         })

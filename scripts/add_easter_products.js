@@ -1,8 +1,6 @@
 const { createClient } = require('@supabase/supabase-js');
 
-const supabase = createClient(
-    'https://itbgqzgummdfcrzsydmc.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml0Ymdxemd1bW1kZmNyenN5ZG1jIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MTc1NDY4MiwiZXhwIjoyMDg3MzMwNjgyfQ.vayQiU1abJ8bvZ4DbovsVWaywRRNtSofzUUq3lz0ywc'
+
 );
 
 const easterProducts = [
