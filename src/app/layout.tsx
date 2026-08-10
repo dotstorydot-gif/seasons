@@ -13,22 +13,7 @@ import { ToastProvider } from "@/context/ToastContext";
 import Shell from "@/components/layout/Shell";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import Script from 'next/script';
-import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
-import * as gtag from '@/lib/gtag';
-import { FacebookPixel } from "@/components/marketing/FacebookPixel";
-import { CustomScripts } from "@/components/marketing/CustomScripts";
-import Head from "next/head";
-import { SpeedInsights } from "@vercel/speed-insights/react";
-import Script from 'next/script';
-import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
-import * as gtag from '@/lib/gtag';
-import { FacebookPixel } from "@/components/marketing/FacebookPixel";
-import { CustomScripts } from "@/components/marketing/CustomScripts";
-import Head from "next/head";
-import { CustomScripts } from "@/components/marketing/CustomScripts";
+
 
 const poppins = Poppins({
   variable: "--font-sans",
