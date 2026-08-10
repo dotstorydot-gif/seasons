@@ -33,8 +33,9 @@ export async function POST(request: NextRequest) {
 
     // Validate rating fields (must be numbers between 0 and 5)
     for (const field of RATING_FIELDS) {
-      const val = data[field];
-      if (typeof val !== 'number' || val < 0 || val > 5 || !Number.isInteger(val)) {
+      const rawVal = data[field];
+      const val = typeof rawVal === 'number' ? rawVal : Number(rawVal);
+      if (isNaN(val) || val < 0 || val > 5 || !Number.isInteger(val)) {
         return NextResponse.json({ error: `${field} must be an integer rating between 0 and 5` }, { status: 400 });
       }
     }
@@ -42,20 +43,21 @@ export async function POST(request: NextRequest) {
     const cleanPayload: ReviewPayload = {
       name: name.trim(),
       phone: phone.trim(),
-      quality: data.quality ?? 0,
-      durability: data.durability ?? 0,
-      shape: data.shape ?? 0,
-      packaging: data.packaging ?? 0,
-      deliveryTime: data.deliveryTime ?? 0,
-      deliverySpeed: data.deliverySpeed ?? 0,
-      shippingCompany: data.shippingCompany ?? 0,
+      quality: Number(data.quality ?? 0),
+      durability: Number(data.durability ?? 0),
+      shape: Number(data.shape ?? 0),
+      packaging: Number(data.packaging ?? 0),
+      deliveryTime: Number(data.deliveryTime ?? 0),
+      deliverySpeed: Number(data.deliverySpeed ?? 0),
+      shippingCompany: Number(data.shippingCompany ?? 0),
     };
 
     await saveReview(cleanPayload);
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Failed to submit review';
     console.error('Error in review API route:', error);
-    return NextResponse.json({ error: 'Failed to submit review' }, { status: 500 });
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

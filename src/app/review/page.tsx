@@ -30,35 +30,41 @@ export default function ReviewPage() {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleRating = (field: keyof ReviewPayload) => (value: number) => {
-    setForm({ ...form, [field]: value });
+    setForm((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await fetch('/api/reviews', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
-    });
-    if (res.ok) {
-      alert('Thank you for your review!');
-      setForm({
-        name: '',
-        phone: '',
-        quality: 0,
-        durability: 0,
-        shape: 0,
-        packaging: 0,
-        deliveryTime: 0,
-        deliverySpeed: 0,
-        shippingCompany: 0,
+    try {
+      const res = await fetch('/api/reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
       });
-    } else {
-      alert('Failed to submit review.');
+      if (res.ok) {
+        alert('Thank you for your review!');
+        setForm({
+          name: '',
+          phone: '',
+          quality: 0,
+          durability: 0,
+          shape: 0,
+          packaging: 0,
+          deliveryTime: 0,
+          deliverySpeed: 0,
+          shippingCompany: 0,
+        });
+      } else {
+        const errorData = await res.json().catch(() => null);
+        alert(errorData?.error || 'Failed to submit review. Please try again.');
+      }
+    } catch {
+      alert('Network error. Failed to submit review.');
     }
   };
 
