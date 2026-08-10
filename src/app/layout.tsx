@@ -1,9 +1,10 @@
+"use client";
+
 import type { Metadata } from "next";
-import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
-import * as gtag from '@/lib/gtag';
-import Head from 'next/head';
-import Script from 'next/script';
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+import * as gtag from "@/lib/gtag";
+import Script from "next/script";
 import { Poppins, Outfit } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
@@ -13,7 +14,8 @@ import { ToastProvider } from "@/context/ToastContext";
 import Shell from "@/components/layout/Shell";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-
+import { FacebookPixel } from "@/components/marketing/FacebookPixel";
+import { CustomScripts } from "@/components/marketing/CustomScripts";
 
 const poppins = Poppins({
   variable: "--font-sans",
@@ -29,16 +31,29 @@ const poppinsSerif = Poppins({
   display: "swap",
 });
 
-const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], weight: ["400","500","600","700"], display: "swap" });
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://seasons-nature.com"),
   title: {
     default: "Seasons by Nature | Handcrafted Wooden Pieces",
-    template: "%s | Seasons by Nature"
+    template: "%s | Seasons by Nature",
   },
-  description: "From serving boards to seasonal treasures, every piece is made to turn simple moments into lasting memories.",
-  keywords: ["handcrafted", "wooden decor", "modern home", "natural materials", "interior design", "egyptian crafts"],
+  description:
+    "From serving boards to seasonal treasures, every piece is made to turn simple moments into lasting memories.",
+  keywords: [
+    "handcrafted",
+    "wooden decor",
+    "modern home",
+    "natural materials",
+    "interior design",
+    "egyptian crafts",
+  ],
   authors: [{ name: "Seasons by Nature" }],
   creator: "Seasons by Nature",
   publisher: "Seasons by Nature",
@@ -48,18 +63,22 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://seasons-nature.com",
     title: "Seasons by Nature | Handcrafted Wooden Pieces",
-    description: "From serving boards to seasonal treasures, every piece is made to turn simple moments into lasting memories.",
+    description:
+      "From serving boards to seasonal treasures, every piece is made to turn simple moments into lasting memories.",
     siteName: "Seasons by Nature",
-    images: [{
-      url: "/og-image.jpg",
-      width: 1200,
-      height: 630,
-      alt: "Seasons by Nature Collection"
-    }],
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Seasons by Nature Collection",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    description: "From serving boards to seasonal treasures, every piece is made to turn simple moments into lasting memories.",
+    description:
+      "From serving boards to seasonal treasures, every piece is made to turn simple moments into lasting memories.",
     images: ["/og-image.jpg"],
   },
   icons: {
@@ -68,6 +87,8 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
 };
+
+const GA_ID = "G-ZZTZJH136K";
 
 function RouteTracker() {
   const pathname = usePathname();
@@ -84,38 +105,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
+      <head>
         {/* Google tag (gtag.js) */}
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZTZJH136K"></script>
-<script dangerouslySetInnerHTML={{
-  __html: `
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ZZTZJH136K');
-  `
-}} />
-        {gtag.GA_MEASUREMENT_ID && (
-          <>
-            <Script
-              id="gtag-base"
-              strategy="afterInteractive"
-              src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`}
-            />
-            <Script
-              id="gtag-init"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '${gtag.GA_MEASUREMENT_ID}', { page_path: window.location.pathname });`
-              }}
-            />
-          </>
-        )}
-      </Head>
-      <body className={`${poppins.variable} ${poppinsSerif.variable} ${outfit.variable} antialiased`}>
+        <Script
+          id="gtag-base"
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}');
+            `,
+          }}
+        />
+      </head>
+      <body
+        className={`${poppins.variable} ${poppinsSerif.variable} ${outfit.variable} antialiased`}
+      >
         <Analytics />
         <SpeedInsights />
         <FacebookPixel />
