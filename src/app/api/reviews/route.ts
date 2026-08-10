@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
     await saveReview(cleanPayload);
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error in review API route:', error);
     return NextResponse.json({ error: 'Failed to submit review' }, { status: 500 });
   }
