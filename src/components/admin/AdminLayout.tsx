@@ -3,11 +3,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { LayoutDashboard, ShoppingCart, Package, Settings, LogOut, BarChart3, Tag } from 'lucide-react';
 
 import styles from './AdminLayout.module.css';
 
 const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const router = useRouter();
     return (
         <div className={styles.adminContainer}>
             <aside className={styles.sidebar}>
@@ -27,7 +29,7 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 </nav>
 
                 <div className={styles.sidebarFooter}>
-                    <button className={styles.logout}>
+                    <button className={styles.logout} onClick={() => router.push('/admin/login')}>
                         <LogOut size={18} /> Logout
                     </button>
                 </div>

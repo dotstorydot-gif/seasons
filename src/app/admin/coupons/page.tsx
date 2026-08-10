@@ -5,6 +5,7 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import styles from './Coupons.module.css';
 import { Plus, X, Loader2, Save, Trash2, Copy, Check } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import { adminHeaders } from '@/lib/adminHeaders';
 
 type DiscountType = 'percentage' | 'free_delivery';
 
@@ -98,7 +99,7 @@ export default function CouponsPage() {
         };
         const res = await fetch('/api/admin/coupons', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: adminHeaders(),
             body: JSON.stringify({ payload }),
         });
         const json = await res.json();
@@ -112,7 +113,7 @@ export default function CouponsPage() {
     const toggleActive = async (id: string, current: boolean) => {
         await fetch('/api/admin/coupons', {
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
+            headers: adminHeaders(),
             body: JSON.stringify({ id, is_active: !current }),
         });
         fetchCoupons();
@@ -122,7 +123,7 @@ export default function CouponsPage() {
         if (!confirm('Delete this coupon?')) return;
         await fetch('/api/admin/coupons', {
             method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' },
+            headers: adminHeaders(),
             body: JSON.stringify({ id }),
         });
         fetchCoupons();

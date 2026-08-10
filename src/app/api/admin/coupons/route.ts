@@ -1,29 +1,76 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { supabaseAdmin } from '@/lib/supabaseAdmin';
 
-const getAdmin = () => createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    { auth: { autoRefreshToken: false, persistSession: false } }
-);
+function checkAdminSecret(req: NextRequest): NextResponse | null {
+    const secret = req.headers.get('x-admin-secret');
+    if (!process.env.ADMIN_SECRET || secret !== process.env.ADMIN_SECRET) {
+        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+    return null;
+}
 
 export async function POST(req: NextRequest) {
-    const { payload } = await req.json();
-    const { error } = await getAdmin().from('coupons').insert([payload]);
+    const authError = checkAdminSecret(req);
+    if (authError) return authError;
+
+    let body: { payload?: unknown };
+    try {
+        body = await req.json();
+    } catch {
+        return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+    }
+
+    const { payload } = body;
+    if (!payload || typeof payload !== 'object') {
+        return NextResponse.json({ error: 'payload is required' }, { status: 400 });
+    }
+
+    const { error } = await supabaseAdmin.from('coupons').insert([payload]);
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
     return NextResponse.json({ success: true });
 }
 
 export async function PUT(req: NextRequest) {
-    const { id, is_active } = await req.json();
-    const { error } = await getAdmin().from('coupons').update({ is_active }).eq('id', id);
+    const authError = checkAdminSecret(req);
+    if (authError) return authError;
+
+    let body: { id?: unknown; is_active?: unknown };
+    try {
+        body = await req.json();
+    } catch {
+        return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+    }
+
+    const { id, is_active } = body;
+    if (!id || typeof id !== 'string') {
+        return NextResponse.json({ error: 'id is required' }, { status: 400 });
+    }
+    if (typeof is_active !== 'boolean') {
+        return NextResponse.json({ error: 'is_active must be a boolean' }, { status: 400 });
+    }
+
+    const { error } = await supabaseAdmin.from('coupons').update({ is_active }).eq('id', id);
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
     return NextResponse.json({ success: true });
 }
 
 export async function DELETE(req: NextRequest) {
-    const { id } = await req.json();
-    const { error } = await getAdmin().from('coupons').delete().eq('id', id);
+    const authError = checkAdminSecret(req);
+    if (authError) return authError;
+
+    let body: { id?: unknown };
+    try {
+        body = await req.json();
+    } catch {
+        return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+    }
+
+    const { id } = body;
+    if (!id || typeof id !== 'string') {
+        return NextResponse.json({ error: 'id is required' }, { status: 400 });
+    }
+
+    const { error } = await supabaseAdmin.from('coupons').delete().eq('id', id);
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
     return NextResponse.json({ success: true });
 }

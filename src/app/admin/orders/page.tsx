@@ -5,6 +5,7 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import styles from './Orders.module.css';
 import { Search, Download, Loader2, ChevronDown, Package, Truck, CheckCircle, XCircle, Clock, X, Bell, CornerDownLeft } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import { adminHeaders } from '@/lib/adminHeaders';
 
 const STATUS_OPTIONS = ['processing', 'ready_for_pickup', 'on_the_way', 'delivered', 'cancelled', 'returned'] as const;
 type OrderStatus = typeof STATUS_OPTIONS[number];
@@ -86,7 +87,7 @@ export default function OrdersPage() {
         setUpdatingId(orderId);
         const res = await fetch('/api/admin/orders', {
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
+            headers: adminHeaders(),
             body: JSON.stringify({ id: orderId, status }),
         });
         const json = await res.json();

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Save, Loader2, Globe, Mail, Phone, Truck } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import { adminHeaders } from '@/lib/adminHeaders';
 import { useToast } from '@/context/ToastContext';
 
 export default function SettingsPage() {
@@ -50,7 +51,7 @@ export default function SettingsPage() {
 
         const res = await fetch('/api/admin/settings', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: adminHeaders(),
             body: JSON.stringify({ payload }),
         });
         const json = await res.json();

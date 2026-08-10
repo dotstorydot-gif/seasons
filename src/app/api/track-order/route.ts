@@ -1,0 +1,33 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { supabaseAdmin } from '@/lib/supabaseAdmin';
+
+export async function POST(req: NextRequest) {
+    let body: { orderNumber?: unknown; phone?: unknown };
+    try {
+        body = await req.json();
+    } catch {
+        return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+    }
+
+    const { orderNumber, phone } = body;
+
+    if (!orderNumber || typeof orderNumber !== 'string') {
+        return NextResponse.json({ error: 'orderNumber is required' }, { status: 400 });
+    }
+    if (!phone || typeof phone !== 'string') {
+        return NextResponse.json({ error: 'phone is required' }, { status: 400 });
+    }
+
+    const { data, error } = await supabaseAdmin
+        .from('orders')
+        .select('*')
+        .eq('order_number', orderNumber.trim().toUpperCase())
+        .eq('phone', phone.trim())
+        .single();
+
+    if (error || !data) {
+        return NextResponse.json({ error: 'Order not found' }, { status: 404 });
+    }
+
+    return NextResponse.json({ order: data });
+}

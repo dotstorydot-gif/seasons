@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from './TrackOrder.module.css';
 import { Search, Package, MapPin, Calendar, CheckCircle2, XCircle, RotateCcw, Truck, CornerDownLeft } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
 
 type OrderItem = { id: string; nameEn: string; nameAr?: string; price: number; quantity: number };
 
@@ -37,20 +36,20 @@ export default function TrackOrderPage() {
 
         const formattedOrderNumber = orderNumber.trim().toUpperCase();
 
-        const { data, error: fetchError } = await supabase
-            .from('orders')
-            .select('*')
-            .eq('order_number', formattedOrderNumber)
-            .eq('phone', phone.trim())
-            .single();
+        const res = await fetch('/api/track-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ orderNumber: formattedOrderNumber, phone: phone.trim() }),
+        });
+        const json = await res.json();
 
-        if (fetchError || !data) {
+        if (!res.ok || !json.order) {
             setError(language === 'en' ? "We couldn't find an order with that number and phone combination." : "لم نتمكن من العثور على طلب بهذا الرقم مع هذا الهاتف.");
             setLoading(false);
             return;
         }
 
-        setOrder(data as Order);
+        setOrder(json.order as Order);
         setLoading(false);
     };
 
@@ -61,12 +60,13 @@ export default function TrackOrderPage() {
         if (!confirm(confirmMsg)) return;
 
         setLoading(true);
-        const { error: updateError } = await supabase
-            .from('orders')
-            .update({ status: 'cancelled' })
-            .eq('id', order.id);
+        const res = await fetch('/api/orders/cancel', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ orderId: order.id }),
+        });
 
-        if (updateError) {
+        if (!res.ok) {
             alert(language === 'en' ? 'Failed to cancel the order. Please try again or contact support.' : 'فشل إلغاء الطلب. يرجى المحاولة مرة أخرى أو الاتصال بالدعم.');
             setLoading(false);
             return;

@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
+require('dotenv').config();
 
 const supabase = createClient(
-    'https://itbgqzgummdfcrzsydmc.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml0Ymdxemd1bW1kZmNyenN5ZG1jIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MTc1NDY4MiwiZXhwIjoyMDg3MzMwNjgyfQ.vayQiU1abJ8bvZ4DbovsVWaywRRNtSofzUUq3lz0ywc'
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
 const baseDir = path.join(__dirname, '..', 'public', 'images', '4-serving');

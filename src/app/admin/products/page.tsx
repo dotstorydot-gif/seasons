@@ -5,6 +5,7 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import styles from './AdminProducts.module.css';
 import { Search, Plus, Edit, Trash2, Loader2, X, Save, Image as ImageIcon } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import { adminHeaders } from '@/lib/adminHeaders';
 import Image from 'next/image';
 
 interface AdminCategory {
@@ -129,7 +130,7 @@ export default function AdminProductsPage() {
         if (editProduct?.id) {
             const res = await fetch('/api/admin/products', {
                 method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
+                headers: adminHeaders(),
                 body: JSON.stringify({ id: editProduct.id, payload }),
             });
             const json = await res.json();
@@ -137,7 +138,7 @@ export default function AdminProductsPage() {
         } else {
             const res = await fetch('/api/admin/products', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: adminHeaders(),
                 body: JSON.stringify({ payload }),
             });
             const json = await res.json();
@@ -152,7 +153,7 @@ export default function AdminProductsPage() {
         if (!confirm('Delete this product?')) return;
         const res = await fetch('/api/admin/products', {
             method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' },
+            headers: adminHeaders(),
             body: JSON.stringify({ id }),
         });
         const json = await res.json();

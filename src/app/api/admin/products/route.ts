@@ -1,33 +1,81 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { supabaseAdmin } from '@/lib/supabaseAdmin';
 
-const getAdmin = () => createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    { auth: { autoRefreshToken: false, persistSession: false } }
-);
+function checkAdminSecret(req: NextRequest): NextResponse | null {
+    const secret = req.headers.get('x-admin-secret');
+    if (!process.env.ADMIN_SECRET || secret !== process.env.ADMIN_SECRET) {
+        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+    return null;
+}
 
 export async function PUT(req: NextRequest) {
-    const { id, payload } = await req.json();
+    const authError = checkAdminSecret(req);
+    if (authError) return authError;
+
+    let body: { id?: unknown; payload?: unknown };
+    try {
+        body = await req.json();
+    } catch {
+        return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+    }
+
+    const { id, payload } = body;
+    if (!id || typeof id !== 'string') {
+        return NextResponse.json({ error: 'id is required' }, { status: 400 });
+    }
+    if (!payload || typeof payload !== 'object') {
+        return NextResponse.json({ error: 'payload is required' }, { status: 400 });
+    }
+
     // Allow null for category_id specifically, filter out undefined
     const clean = Object.fromEntries(
-        Object.entries(payload).filter(([k, v]) => v !== undefined || k === 'category_id')
+        Object.entries(payload as Record<string, unknown>).filter(([k, v]) => v !== undefined || k === 'category_id')
     );
-    const { error } = await getAdmin().from('products').update(clean).eq('id', id);
+
+    const { error } = await supabaseAdmin.from('products').update(clean).eq('id', id);
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
     return NextResponse.json({ success: true });
 }
 
 export async function POST(req: NextRequest) {
-    const { payload } = await req.json();
-    const { data, error } = await getAdmin().from('products').insert([payload]).select().single();
+    const authError = checkAdminSecret(req);
+    if (authError) return authError;
+
+    let body: { payload?: unknown };
+    try {
+        body = await req.json();
+    } catch {
+        return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+    }
+
+    const { payload } = body;
+    if (!payload || typeof payload !== 'object') {
+        return NextResponse.json({ error: 'payload is required' }, { status: 400 });
+    }
+
+    const { data, error } = await supabaseAdmin.from('products').insert([payload]).select().single();
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
     return NextResponse.json({ data });
 }
 
 export async function DELETE(req: NextRequest) {
-    const { id } = await req.json();
-    const { error } = await getAdmin().from('products').delete().eq('id', id);
+    const authError = checkAdminSecret(req);
+    if (authError) return authError;
+
+    let body: { id?: unknown };
+    try {
+        body = await req.json();
+    } catch {
+        return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+    }
+
+    const { id } = body;
+    if (!id || typeof id !== 'string') {
+        return NextResponse.json({ error: 'id is required' }, { status: 400 });
+    }
+
+    const { error } = await supabaseAdmin.from('products').delete().eq('id', id);
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
     return NextResponse.json({ success: true });
 }

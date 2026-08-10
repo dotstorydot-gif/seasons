@@ -5,14 +5,10 @@ import styles from './Checkout.module.css';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { ShieldCheck, Loader2, Tag, X, Check } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
 import { useCart } from '@/context/CartContext';
 
 const SHIPPING_FEE = 30;
 
-const generateOrderNumber = () => {
-    return `ORD-${Math.random().toString(36).substring(2, 11).toUpperCase()}`;
-};
 
 type CouponResult = {
     id: string;
@@ -78,50 +74,39 @@ export default function CheckoutPage() {
 
         const code = couponCode.trim().toUpperCase();
 
-        // 1. Look up the coupon
-        const { data: coupons, error } = await supabase
-            .from('coupons')
-            .select('*')
-            .eq('code', code)
-            .eq('is_active', true)
-            .single();
+        // Validate coupon server-side (preview only — actual validation happens at checkout)
+        const res = await fetch('/api/checkout', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                formData: {
+                    fullName: formData.fullName || 'preview',
+                    phone: formData.phone || '0000000000',
+                    city: formData.city || 'preview',
+                    area: formData.area || 'preview',
+                    address: formData.address || 'preview',
+                },
+                items: items.map(i => ({ id: i.id, quantity: i.quantity })),
+                couponCode: code,
+                previewOnly: true,
+            }),
+        });
+        const json = await res.json();
 
-        if (error || !coupons) {
-            setCouponError('Invalid coupon code.');
+        if (!res.ok) {
+            setCouponError(json.error || 'Invalid coupon code.');
             setCouponLoading(false);
             return;
         }
 
-        // 2. Check expiry
-        if (coupons.expires_at && new Date(coupons.expires_at) < new Date()) {
-            setCouponError('This coupon has expired.');
-            setCouponLoading(false);
-            return;
-        }
-
-        // 3. Check max uses
-        if (coupons.max_uses !== null && coupons.used_count >= coupons.max_uses) {
-            setCouponError('This coupon has reached its usage limit.');
-            setCouponLoading(false);
-            return;
-        }
-
-        // 4. Check per-user usage (by phone if provided, otherwise skip)
-        if (coupons.per_user_limit !== null && formData.phone) {
-            const { count } = await supabase
-                .from('coupon_usages')
-                .select('*', { count: 'exact', head: true })
-                .eq('coupon_id', coupons.id)
-                .eq('user_phone', formData.phone);
-
-            if ((count ?? 0) >= coupons.per_user_limit) {
-                setCouponError('You have already used this coupon.');
-                setCouponLoading(false);
-                return;
-            }
-        }
-
-        setAppliedCoupon(coupons);
+        // Simulate appliedCoupon object for UI display
+        setAppliedCoupon({
+            id: 'preview',
+            code,
+            discount_type: json.discountType || 'percentage',
+            discount_value: json.discountType === 'percentage' ? json.discount : 0,
+            used_count: 0,
+        });
         setCouponLoading(false);
     };
 
@@ -136,55 +121,35 @@ export default function CheckoutPage() {
         if (items.length === 0) { alert('Your cart is empty'); return; }
 
         setLoading(true);
-        const orderNumber = generateOrderNumber();
 
-        const { data: orderData, error } = await supabase.from('orders').insert([{
-            order_number: orderNumber,
-            full_name: formData.fullName,
-            phone: formData.phone,
-            alt_phone: formData.altPhone,
-            city: formData.city,
-            area: formData.area,
-            address: formData.address,
-            delivery_notes: formData.notes,
-            total_amount: finalTotal,
-            status: 'processing',
-            coupon_code: appliedCoupon?.code || null,
-            discount_amount: discount,
-            items: items.map(item => ({
-                id: item.id, nameEn: item.nameEn, price: item.price, quantity: item.quantity
-            }))
-        }]).select('id').single();
+        const res = await fetch('/api/checkout', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                formData: {
+                    fullName: formData.fullName,
+                    email: formData.email,
+                    phone: formData.phone,
+                    altPhone: formData.altPhone,
+                    city: formData.city,
+                    area: formData.area,
+                    address: formData.address,
+                    notes: formData.notes,
+                },
+                items: items.map(i => ({ id: i.id, quantity: i.quantity })),
+                couponCode: appliedCoupon?.code || '',
+            }),
+        });
 
-        if (error) {
-            alert('Error placing order. Please try again.');
-            console.error(error);
+        const json = await res.json();
+
+        if (!res.ok) {
+            alert(json.error || 'Error placing order. Please try again.');
             setLoading(false);
             return;
         }
 
-        // Record coupon usage & increment count
-        if (appliedCoupon && orderData) {
-            await supabase.from('coupon_usages').insert([{
-                coupon_id: appliedCoupon.id,
-                order_id: orderData.id,
-                user_phone: formData.phone,
-            }]);
-            await supabase.from('coupons')
-                .update({ used_count: appliedCoupon.used_count + 1 })
-                .eq('id', appliedCoupon.id);
-        }
-
-        // Email confirmation (non-blocking)
-        fetch('/api/send-confirmation', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                orderNumber, fullName: formData.fullName, phone: formData.phone,
-                totalAmount: finalTotal,
-                items: items.map(i => ({ name: i.nameEn, price: i.price, quantity: i.quantity }))
-            })
-        }).catch(e => console.error('Email failed:', e));
+        const orderNumber = json.orderNumber;
 
         // Save info for next time if checked
         if (saveInfo) {
@@ -202,7 +167,7 @@ export default function CheckoutPage() {
         }
 
         clearCart();
-        localStorage.removeItem('seasons-order-note'); // clear note after order
+        localStorage.removeItem('seasons-order-note');
         router.push(`/checkout/thank-you?order=${orderNumber}`);
     };
 
