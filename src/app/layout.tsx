@@ -1,21 +1,8 @@
-"use client";
-
 import type { Metadata } from "next";
-import { usePathname } from "next/navigation";
-import { useEffect } from "react";
-import * as gtag from "@/lib/gtag";
 import Script from "next/script";
 import { Poppins, Outfit } from "next/font/google";
 import "./globals.css";
-import { LanguageProvider } from "@/context/LanguageContext";
-import { CartProvider } from "@/context/CartContext";
-import { WishlistProvider } from "@/context/WishlistContext";
-import { ToastProvider } from "@/context/ToastContext";
-import Shell from "@/components/layout/Shell";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
-import { FacebookPixel } from "@/components/marketing/FacebookPixel";
-import { CustomScripts } from "@/components/marketing/CustomScripts";
+import ClientLayout from "./ClientLayout";
 
 const poppins = Poppins({
   variable: "--font-sans",
@@ -90,14 +77,6 @@ export const metadata: Metadata = {
 
 const GA_ID = "G-ZZTZJH136K";
 
-function RouteTracker() {
-  const pathname = usePathname();
-  useEffect(() => {
-    gtag.pageview(pathname);
-  }, [pathname]);
-  return null;
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -128,21 +107,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${poppinsSerif.variable} ${outfit.variable} antialiased`}
       >
-        <Analytics />
-        <SpeedInsights />
-        <FacebookPixel />
-        <CustomScripts />
-        <LanguageProvider>
-          <CartProvider>
-            <WishlistProvider>
-              <ToastProvider>
-                <Shell>{children}</Shell>
-              </ToastProvider>
-            </WishlistProvider>
-          </CartProvider>
-        </LanguageProvider>
-        {/* Track pageviews on route change */}
-        <RouteTracker />
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
