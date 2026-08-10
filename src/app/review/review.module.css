@@ -8,7 +8,7 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.container h2 {
   text-align: center;
   margin-bottom: 1.5rem;
   font-family: var(--font-serif);
@@ -21,12 +21,12 @@ h2 {
   flex-direction: column;
 }
 
-label {
+.form-group label {
   margin-bottom: 0.5rem;
   font-weight: 500;
 }
 
-input {
+.form-group input {
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--border-subtle);
   border-radius: 0.5rem;

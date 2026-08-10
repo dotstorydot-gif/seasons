@@ -19,7 +19,7 @@ export const RatingStars: React.FC<RatingStarsProps> = ({ value = 0, onChange, l
   const rating = hover || value;
 
   const handleClick = (star: number) => {
-    onChange && onChange(star);
+    if (onChange) onChange(star);
   };
 
   const handleKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -27,8 +27,8 @@ export const RatingStars: React.FC<RatingStarsProps> = ({ value = 0, onChange, l
     if (e.key === 'ArrowRight' && newRating < 5) newRating++;
     if (e.key === 'ArrowLeft' && newRating > 1) newRating--;
     if ((e.key === 'Enter' || e.key === ' ') && hover) newRating = hover;
-    if (newRating !== value) {
-      onChange && onChange(newRating);
+    if (newRating !== value && onChange) {
+      onChange(newRating);
     }
   };
 

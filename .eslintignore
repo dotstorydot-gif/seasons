@@ -1,0 +1,6 @@
+# Exclude generated build output from linting
+.vercel/
+.next/
+
+# Node.js one-off migration scripts (use require(), not ES modules)
+scripts/

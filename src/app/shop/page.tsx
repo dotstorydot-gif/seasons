@@ -15,25 +15,16 @@ export const metadata: Metadata = {
     }
 };
 
-
 export default async function ShopPage() {
-    try {
-        const { data: productsData } = await supabase.from('products').select('*');
-        const { data: categoriesData } = await supabase.from('categories').select('*');
+    // Fetch data outside try/catch to avoid JSX-in-try/catch lint error.
+    // Supabase never throws; errors are returned in the error field.
+    const { data: productsData } = await supabase.from('products').select('*');
+    const { data: categoriesData } = await supabase.from('categories').select('*');
 
-        return (
-            <ShopClient
-                initialProducts={productsData || []}
-                initialCategories={categoriesData || []}
-            />
-        );
-    } catch (error) {
-        console.error("Error fetching shop data:", error);
-        return (
-            <ShopClient
-                initialProducts={[]}
-                initialCategories={[]}
-            />
-        );
-    }
+    return (
+        <ShopClient
+            initialProducts={productsData || []}
+            initialCategories={categoriesData || []}
+        />
+    );
 }

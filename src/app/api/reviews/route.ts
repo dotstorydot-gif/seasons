@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     }
     console.log('New review:', data);
     return NextResponse.json({ success: true });
-  } catch (err) {
+  } catch (_) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 }
