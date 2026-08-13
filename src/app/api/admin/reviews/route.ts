@@ -1,13 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
-
-function checkAdminSecret(req: NextRequest): NextResponse | null {
-  const secret = req.headers.get('x-admin-secret');
-  if (!process.env.ADMIN_SECRET || secret !== process.env.ADMIN_SECRET) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-  return null;
-}
+import { checkAdminSecret } from '@/lib/adminAuth';
 
 export async function GET(req: NextRequest) {
   const authError = checkAdminSecret(req);
