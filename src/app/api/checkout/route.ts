@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
-
-const SHIPPING_FEE = 30;
+import { fetchStoreSettings } from '@/lib/settings';
 
 type CartItem = { id: string; quantity: number };
 
@@ -68,9 +67,13 @@ export async function POST(req: NextRequest) {
         return sum + product.price * item.quantity;
     }, 0);
 
+    // Fetch dynamic store settings (shipping fee, free shipping threshold, tax rules)
+    const settings = await fetchStoreSettings();
+    const isFreeByThreshold = settings.free_shipping_threshold > 0 && subtotal >= settings.free_shipping_threshold;
+
     // --- Coupon validation (server-side) ---
     let discount = 0;
-    let shippingFee = SHIPPING_FEE;
+    let shippingFee = isFreeByThreshold ? 0 : settings.shipping_fee;
     let appliedCouponId: string | null = null;
     let appliedCouponCode: string | null = null;
     let appliedCouponUsedCount = 0;

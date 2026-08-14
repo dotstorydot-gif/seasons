@@ -6,10 +6,6 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { ShieldCheck, Loader2, Tag, X, Check } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
-
-const SHIPPING_FEE = 30;
-
-
 type CouponResult = {
     id: string;
     code: string;
@@ -26,8 +22,10 @@ export default function CheckoutPage() {
         fullName: '', email: '', phone: '', altPhone: '', city: '', area: '', address: '', notes: ''
     });
     const [saveInfo, setSaveInfo] = useState(false);
+    const [storeShippingFee, setStoreShippingFee] = useState<number>(75);
+    const [freeShippingThreshold, setFreeShippingThreshold] = useState<number>(0);
 
-    // Initial load for saved info
+    // Initial load for saved info & dynamic store settings
     React.useEffect(() => {
         const saved = localStorage.getItem('seasons-checkout-info');
         if (saved) {
@@ -45,6 +43,21 @@ export default function CheckoutPage() {
         if (cartNote) {
             setFormData(prev => ({ ...prev, notes: cartNote }));
         }
+
+        // Load dynamic shipping settings from server
+        const loadSettings = async () => {
+            try {
+                const res = await fetch('/api/settings');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (typeof data.shipping_fee === 'number') setStoreShippingFee(data.shipping_fee);
+                    if (typeof data.free_shipping_threshold === 'number') setFreeShippingThreshold(data.free_shipping_threshold);
+                }
+            } catch {
+                // Fallback to default
+            }
+        };
+        loadSettings();
     }, []);
 
     // Coupon state
@@ -57,14 +70,19 @@ export default function CheckoutPage() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    // Calculate discount
+    // Calculate dynamic shipping fee
+    const isFreeByThreshold = freeShippingThreshold > 0 && total >= freeShippingThreshold;
+    const isFreeByCoupon = appliedCoupon?.discount_type === 'free_delivery';
+    const effectiveShippingFee = isFreeByCoupon || isFreeByThreshold ? 0 : storeShippingFee;
+
     const discount = appliedCoupon
         ? appliedCoupon.discount_type === 'percentage'
             ? Math.round(total * appliedCoupon.discount_value / 100)
-            : SHIPPING_FEE // free delivery = shipping waived
+            : storeShippingFee
         : 0;
-    const shipping = appliedCoupon?.discount_type === 'free_delivery' ? 0 : SHIPPING_FEE;
-    const finalTotal = total - (appliedCoupon?.discount_type === 'percentage' ? discount : 0) + shipping;
+
+    const shipping = effectiveShippingFee;
+    const finalTotal = Math.max(0, total - (appliedCoupon?.discount_type === 'percentage' ? discount : 0) + shipping);
 
     const applyCoupon = async () => {
         if (!couponCode.trim()) return;

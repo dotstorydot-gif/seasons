@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
     const authError = checkAdminSecret(req);
     if (authError) return authError;
 
-    let body: { payload?: unknown };
+    let body: { payload?: Record<string, unknown> };
     try {
         body = await req.json();
     } catch {
@@ -18,7 +18,17 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: 'payload is required' }, { status: 400 });
     }
 
-    const { error } = await supabaseAdmin.from('settings').upsert([payload]);
-    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+    // Ensure settings record always updates singleton 'default' row
+    const cleanPayload = {
+        id: 'default',
+        ...payload,
+        updated_at: new Date().toISOString(),
+    };
+
+    const { error } = await supabaseAdmin.from('settings').upsert(cleanPayload);
+    if (error) {
+        console.error('Error saving settings in API route:', error);
+        return NextResponse.json({ error: error.message }, { status: 500 });
+    }
     return NextResponse.json({ success: true });
 }
