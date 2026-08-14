@@ -99,10 +99,14 @@ export default function OrdersPage() {
 
     const exportCSV = () => {
         const rows = [['Order #', 'Customer', 'Phone', 'City', 'Area', 'Address', 'Total', 'Shipping', 'Status', 'Date']];
-        orders.forEach(o => rows.push([
-            o.order_number, o.full_name, o.phone, o.city, o.area, o.address,
-            String(o.total_amount), '30 EGP', o.status, new Date(o.created_at).toLocaleDateString()
-        ]));
+        orders.forEach(o => {
+            const sub = Array.isArray(o.items) ? o.items.reduce((acc, i) => acc + (i.price * i.quantity), 0) : 0;
+            const ship = Math.max(0, o.total_amount - sub);
+            rows.push([
+                o.order_number, o.full_name, o.phone, o.city, o.area, o.address,
+                String(o.total_amount), ship === 0 ? 'FREE' : `${ship} EGP`, o.status, new Date(o.created_at).toLocaleDateString()
+            ]);
+        });
         const csv = rows.map(r => r.join(',')).join('\n');
         const blob = new Blob([csv], { type: 'text/csv' });
         const url = URL.createObjectURL(blob);
@@ -250,9 +254,15 @@ export default function OrdersPage() {
                                             <span>{(item.price * item.quantity).toLocaleString()} EGP</span>
                                         </div>
                                     )) : <p>—</p>}
-                                    <div className={styles.modalItem} style={{ marginTop: 8 }}>
-                                        <span>Shipping</span><span>30 EGP</span>
-                                    </div>
+                                    {(() => {
+                                        const sub = Array.isArray(selectedOrder.items) ? selectedOrder.items.reduce((acc, i) => acc + (i.price * i.quantity), 0) : 0;
+                                        const ship = Math.max(0, selectedOrder.total_amount - sub);
+                                        return (
+                                            <div className={styles.modalItem} style={{ marginTop: 8 }}>
+                                                <span>Shipping</span><span>{ship === 0 ? 'FREE' : `${ship} EGP`}</span>
+                                            </div>
+                                        );
+                                    })()}
                                     <div className={`${styles.modalItem} ${styles.modalTotal}`}>
                                         <strong>Total</strong><strong>{selectedOrder.total_amount} EGP</strong>
                                     </div>
