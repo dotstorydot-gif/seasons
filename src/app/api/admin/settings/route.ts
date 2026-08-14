@@ -18,9 +18,12 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: 'payload is required' }, { status: 400 });
     }
 
-    // Ensure settings record always updates singleton 'default' row
+    // Reuse existing primary key ID if table already has a row (e.g. 1 or 'default')
+    const { data: existing } = await supabaseAdmin.from('settings').select('id').limit(1).maybeSingle();
+    const targetId = existing?.id !== undefined && existing?.id !== null ? existing.id : '1';
+
     const cleanPayload = {
-        id: 'default',
+        id: targetId,
         ...payload,
         updated_at: new Date().toISOString(),
     };

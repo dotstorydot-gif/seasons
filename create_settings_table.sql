@@ -1,6 +1,6 @@
 -- SQL Migration for Store Settings & Shipping Rules
 CREATE TABLE IF NOT EXISTS public.settings (
-    id TEXT PRIMARY KEY DEFAULT 'default',
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     store_name TEXT DEFAULT 'Seasons',
     contact_email TEXT DEFAULT 'contact@seasons.com',
     whatsapp_number TEXT DEFAULT '+201234567890',
@@ -30,9 +30,15 @@ DROP POLICY IF EXISTS "Allow service role all settings" ON public.settings;
 CREATE POLICY "Allow public select settings" ON public.settings FOR SELECT USING (true);
 CREATE POLICY "Allow service role all settings" ON public.settings FOR ALL USING (true);
 
--- Insert or update default settings row
-INSERT INTO public.settings (id, store_name, contact_email, whatsapp_number, shipping_fee, free_shipping_threshold, currency, tax_percentage)
-VALUES ('default', 'Seasons', 'contact@seasons.com', '+201234567890', 75, 0, 'EGP', 0)
-ON CONFLICT (id) DO UPDATE SET
-    shipping_fee = EXCLUDED.shipping_fee,
-    free_shipping_threshold = EXCLUDED.free_shipping_threshold;
+-- Insert or update default settings record safely
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM public.settings) THEN
+        INSERT INTO public.settings (store_name, contact_email, whatsapp_number, shipping_fee, free_shipping_threshold, currency, tax_percentage)
+        VALUES ('Seasons', 'contact@seasons.com', '+201234567890', 75, 0, 'EGP', 0);
+    ELSE
+        UPDATE public.settings 
+        SET shipping_fee = COALESCE(shipping_fee, 75),
+            free_shipping_threshold = COALESCE(free_shipping_threshold, 0);
+    END IF;
+END $$;
