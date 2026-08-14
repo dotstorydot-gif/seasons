@@ -41,43 +41,35 @@ export default function CouponsPage() {
     const [copiedId, setCopiedId] = useState<string | null>(null);
 
     const fetchCoupons = useCallback(async () => {
-        const { data } = await supabase
+        const { data, error } = await supabase
             .from('coupons')
             .select('*, coupon_usages(count)')
             .order('created_at', { ascending: false });
+
+        if (error) {
+            console.error('Failed to fetch coupons:', error);
+            return;
+        }
+
         if (data) {
-            // Map usage count
             const mapped = data.map((c: Coupon) => ({
                 ...c,
                 used_count: c.coupon_usages?.[0]?.count || 0
             }));
             setCoupons(mapped);
         }
-        setLoading(false);
     }, []);
 
     useEffect(() => {
         let isMounted = true;
-        const fetch = async () => {
-            const { data } = await supabase
-                .from('coupons')
-                .select('*, coupon_usages(count)')
-                .order('created_at', { ascending: false });
-
-            if (isMounted) {
-                if (data) {
-                    const mapped = data.map((c: Coupon) => ({
-                        ...c,
-                        used_count: c.coupon_usages?.[0]?.count || 0
-                    }));
-                    setCoupons(mapped);
-                }
-                setLoading(false);
-            }
+        const load = async () => {
+            setLoading(true);
+            await fetchCoupons();
+            if (isMounted) setLoading(false);
         };
-        fetch();
+        load();
         return () => { isMounted = false; };
-    }, []);
+    }, [fetchCoupons]);
 
     const generateCode = () => {
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';

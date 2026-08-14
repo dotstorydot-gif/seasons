@@ -69,14 +69,23 @@ export default function AnalyticsPage() {
 
     // Fetch order analytics
     const fetchOrders = useCallback(async () => {
-        const { data } = await supabase.from('orders').select('*').order('created_at', { ascending: true });
+        const { data, error } = await supabase.from('orders').select('*').order('created_at', { ascending: true });
+        if (error) {
+            console.error('Error fetching orders for analytics:', error);
+            return;
+        }
         if (data) setOrders(data as AdminOrder[]);
     }, []);
 
     useEffect(() => {
         const load = async () => {
             setLoading(true);
-            await Promise.all([fetchTraffic(), fetchOrders()]);
+            const results = await Promise.allSettled([fetchTraffic(), fetchOrders()]);
+            results.forEach((res) => {
+                if (res.status === 'rejected') {
+                    console.error('Analytics fetch error:', res.reason);
+                }
+            });
             setLoading(false);
         };
         load();
