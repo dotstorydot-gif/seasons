@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { fetchStoreSettings } from '@/lib/settings';
 
+import { randomUUID } from 'crypto';
+
 type CartItem = { id: string; quantity: number };
 
 interface CheckoutBody {
@@ -21,7 +23,9 @@ interface CheckoutBody {
 }
 
 function generateOrderNumber() {
-    return `ORD-${Math.random().toString(36).substring(2, 11).toUpperCase()}`;
+    const timestamp = Date.now().toString(36).toUpperCase();
+    const uniqueSuffix = randomUUID().replace(/-/g, '').substring(0, 6).toUpperCase();
+    return `ORD-${timestamp}-${uniqueSuffix}`;
 }
 
 export async function POST(req: NextRequest) {
@@ -32,27 +36,38 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
     }
 
-    const { formData, items, couponCode, previewOnly } = body;
+    const { formData, items: rawItems, couponCode, previewOnly } = body;
 
     // --- Input validation ---
     if (!formData || typeof formData !== 'object') {
         return NextResponse.json({ error: 'formData is required' }, { status: 400 });
     }
-    if (!formData.fullName || !formData.phone || !formData.city || !formData.area || !formData.address) {
+    if (!formData.fullName?.trim() || !formData.phone?.trim() || !formData.city?.trim() || !formData.area?.trim() || !formData.address?.trim()) {
         return NextResponse.json({ error: 'Missing required delivery fields' }, { status: 400 });
     }
-    if (!Array.isArray(items) || items.length === 0) {
+    if (!Array.isArray(rawItems) || rawItems.length === 0) {
         return NextResponse.json({ error: 'Cart is empty' }, { status: 400 });
     }
-    if (items.some(i => !i.id || typeof i.quantity !== 'number' || i.quantity < 1)) {
-        return NextResponse.json({ error: 'Invalid cart items' }, { status: 400 });
+
+    // Normalize cart to aggregate duplicate product IDs & enforce integer bounds (1 <= quantity <= 100)
+    const itemMap = new Map<string, number>();
+    for (const item of rawItems) {
+        if (!item.id || typeof item.id !== 'string' || typeof item.quantity !== 'number') {
+            return NextResponse.json({ error: 'Invalid cart item structure' }, { status: 400 });
+        }
+        if (!Number.isInteger(item.quantity) || item.quantity < 1 || item.quantity > 100) {
+            return NextResponse.json({ error: 'Item quantity must be an integer between 1 and 100' }, { status: 400 });
+        }
+        itemMap.set(item.id, (itemMap.get(item.id) || 0) + item.quantity);
     }
 
-    // --- Re-fetch prices from DB (never trust client-sent prices) ---
+    const items: CartItem[] = Array.from(itemMap.entries()).map(([id, quantity]) => ({ id, quantity }));
+
+    // --- Re-fetch prices & stock from DB (never trust client-sent values) ---
     const productIds = items.map(i => i.id);
     const { data: products, error: productsError } = await supabaseAdmin
         .from('products')
-        .select('id, name_en, name_ar, price')
+        .select('id, name_en, name_ar, price, stock')
         .in('id', productIds);
 
     if (productsError || !products || products.length !== productIds.length) {
@@ -60,6 +75,16 @@ export async function POST(req: NextRequest) {
     }
 
     const productMap = Object.fromEntries(products.map(p => [p.id, p]));
+
+    // Check stock availability
+    for (const item of items) {
+        const prod = productMap[item.id];
+        if (prod.stock < item.quantity) {
+            return NextResponse.json({
+                error: `Product "${prod.name_en}" is out of stock (Available: ${prod.stock}, Requested: ${item.quantity})`
+            }, { status: 400 });
+        }
+    }
 
     // Compute subtotal from server-fetched prices
     const subtotal = items.reduce((sum, item) => {

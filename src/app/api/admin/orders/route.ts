@@ -17,8 +17,10 @@ export async function PUT(req: NextRequest) {
     if (!id || typeof id !== 'string') {
         return NextResponse.json({ error: 'id is required' }, { status: 400 });
     }
-    if (!status || typeof status !== 'string') {
-        return NextResponse.json({ error: 'status is required' }, { status: 400 });
+
+    const ALLOWED_STATUSES = ['pending', 'processing', 'shipped', 'delivered', 'cancelled'];
+    if (!status || typeof status !== 'string' || !ALLOWED_STATUSES.includes(status)) {
+        return NextResponse.json({ error: `status must be one of: ${ALLOWED_STATUSES.join(', ')}` }, { status: 400 });
     }
 
     const { error } = await supabaseAdmin.from('orders').update({ status }).eq('id', id);

@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
 
     const { data, error } = await supabaseAdmin
         .from('orders')
-        .select('*')
+        .select('order_number, status, items, total_amount, discount_amount, created_at, city, area')
         .eq('order_number', orderNumber.trim().toUpperCase())
         .eq('phone', phone.trim())
         .single();
