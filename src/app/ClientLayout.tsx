@@ -13,6 +13,8 @@ import { WishlistProvider } from "@/context/WishlistContext";
 import { ToastProvider } from "@/context/ToastContext";
 import Shell from "@/components/layout/Shell";
 
+import { TrafficTracker } from "@/components/analytics/TrafficTracker";
+
 function RouteTracker() {
   const pathname = usePathname();
   useEffect(() => {
@@ -32,6 +34,7 @@ export default function ClientLayout({
       <SpeedInsights />
       <FacebookPixel />
       <CustomScripts />
+      <TrafficTracker />
       <LanguageProvider>
         <CartProvider>
           <WishlistProvider>
