@@ -111,19 +111,30 @@ export default function AdminProductsPage() {
     };
 
     const handleSave = async () => {
+        if (!form.name_en.trim()) {
+            alert('Product Name (EN) is required.');
+            return;
+        }
+        if (!form.sku.trim()) {
+            alert('Product SKU is required.');
+            return;
+        }
+
         setSaving(true);
         const payload = {
-            name_en: form.name_en, name_ar: form.name_ar,
-            description_en: form.description_en, description_ar: form.description_ar,
+            name_en: form.name_en.trim(),
+            name_ar: form.name_ar.trim(),
+            description_en: form.description_en.trim(),
+            description_ar: form.description_ar.trim(),
             price: parseFloat(form.price) || 0,
             compare_at_price: form.compare_at_price ? parseFloat(form.compare_at_price) : null,
-            sku: form.sku,
+            sku: form.sku.trim(),
             stock: parseInt(form.stock) || 0,
             is_featured: form.is_featured,
             category_id: form.category_id || null,
             images: form.images,
-            size_en: form.size_en,
-            size_ar: form.size_ar,
+            size_en: form.size_en.trim(),
+            size_ar: form.size_ar.trim(),
             tags: form.tags.split(',').map(t => t.trim()).filter(Boolean),
         };
 
@@ -134,7 +145,7 @@ export default function AdminProductsPage() {
                 body: JSON.stringify({ id: editProduct.id, payload }),
             });
             const json = await res.json();
-            if (!res.ok) { alert('Error updating product: ' + json.error); setSaving(false); return; }
+            if (!res.ok) { alert('Error updating product: ' + (json.error || 'Unknown error')); setSaving(false); return; }
         } else {
             const res = await fetch('/api/admin/products', {
                 method: 'POST',
@@ -142,7 +153,7 @@ export default function AdminProductsPage() {
                 body: JSON.stringify({ payload }),
             });
             const json = await res.json();
-            if (!res.ok) { alert('Error creating product: ' + json.error); setSaving(false); return; }
+            if (!res.ok) { alert('Error creating product: ' + (json.error || 'Unknown error')); setSaving(false); return; }
         }
         setSaving(false);
         setEditProduct(null);
