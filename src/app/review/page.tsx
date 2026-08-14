@@ -31,7 +31,9 @@ export default function ReviewPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    if (['name', 'phone'].includes(name)) {
+      setForm((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleRating = (field: keyof ReviewPayload) => (value: number) => {

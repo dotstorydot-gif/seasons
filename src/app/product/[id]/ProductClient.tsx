@@ -39,12 +39,17 @@ export default function ProductClient({ product }: ProductClientProps) {
     const [activeImage, setActiveImage] = useState(0);
 
     const name = language === 'en' ? product.name_en : product.name_ar;
-    const shortDesc = language === 'en' ? product.description_en?.substring(0, 100) : product.description_ar?.substring(0, 100);
+    const shortDesc = (language === 'en' ? product.description_en : product.description_ar)?.substring(0, 100) ?? '';
     const description = language === 'en' ? product.description_en : product.description_ar;
     const size = language === 'en' ? product.size_en : product.size_ar;
 
+    const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '201234567890';
     const whatsappMessage = `New Order Inquiry:\nProduct: ${product.name_en}\nSKU: ${product.sku}\nQuantity: ${quantity}\nPrice: ${product.price} EGP`;
-    const whatsappUrl = `https://wa.me/201234567890?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(whatsappMessage)}`;
+
+    const totalImages = product.images?.length || 1;
+    const handlePrevImage = () => setActiveImage(prev => (prev > 0 ? prev - 1 : totalImages - 1));
+    const handleNextImage = () => setActiveImage(prev => (prev < totalImages - 1 ? prev + 1 : 0));
 
     return (
         <div className={styles.productPage}>
@@ -69,8 +74,8 @@ export default function ProductClient({ product }: ProductClientProps) {
                                 <div className={styles.placeholderMain} style={{ backgroundColor: '#E5E1DA' }}></div>
                             )}
                             <div className={styles.galleryNav}>
-                                <button onClick={() => setActiveImage(prev => (prev > 0 ? prev - 1 : (product.images?.length || 1) - 1))}><ChevronLeft /></button>
-                                <button onClick={() => setActiveImage(prev => (prev < (product.images?.length || 1) - 1 ? prev + 1 : 0))}><ChevronRight /></button>
+                                <button onClick={handlePrevImage} aria-label="Previous image"><ChevronLeft /></button>
+                                <button onClick={handleNextImage} aria-label="Next image"><ChevronRight /></button>
                             </div>
                         </div>
                         <div className={styles.thumbnails}>

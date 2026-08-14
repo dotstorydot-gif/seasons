@@ -39,8 +39,10 @@ export default function CouponsPage() {
     const [form, setForm] = useState({ ...EMPTY_FORM });
     const [saving, setSaving] = useState(false);
     const [copiedId, setCopiedId] = useState<string | null>(null);
+    const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
     const fetchCoupons = useCallback(async () => {
+        setErrorMsg(null);
         const { data, error } = await supabase
             .from('coupons')
             .select('*, coupon_usages(count)')
@@ -48,6 +50,7 @@ export default function CouponsPage() {
 
         if (error) {
             console.error('Failed to fetch coupons:', error);
+            setErrorMsg('Failed to load coupons. Please try refreshing.');
             return;
         }
 
@@ -144,6 +147,7 @@ export default function CouponsPage() {
 
                 {/* Coupons table */}
                 <div className={styles.tableWrapper}>
+                    {errorMsg && <div className={styles.empty} style={{ color: '#e53e3e' }}>{errorMsg}</div>}
                     {loading ? (
                         <div className={styles.loading}><Loader2 className={styles.spin} /> Loading...</div>
                     ) : coupons.length === 0 ? (

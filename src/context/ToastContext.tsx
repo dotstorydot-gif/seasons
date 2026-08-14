@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useRef } from 'react';
-import { createContext, useContext, useState } from 'react';
+import React, { useRef, useEffect, useCallback, createContext, useContext, useState } from 'react';
 import styles from './Toast.module.css';
 import { ShoppingBag, Heart, X } from 'lucide-react';
 
@@ -20,16 +19,32 @@ const ToastContext = createContext<ToastContextType | undefined>(undefined);
 export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [toasts, setToasts] = useState<Toast[]>([]);
     const counterRef = useRef(0);
+    const timeoutsRef = useRef<Map<number, NodeJS.Timeout>>(new Map());
 
-    const showToast = (message: string, type: 'cart' | 'wishlist' = 'cart') => {
+    useEffect(() => {
+        const currentTimers = timeoutsRef.current;
+        return () => {
+            currentTimers.forEach(timer => clearTimeout(timer));
+            currentTimers.clear();
+        };
+    }, []);
+
+    const dismiss = useCallback((id: number) => {
+        setToasts(prev => prev.filter(t => t.id !== id));
+        if (timeoutsRef.current.has(id)) {
+            clearTimeout(timeoutsRef.current.get(id));
+            timeoutsRef.current.delete(id);
+        }
+    }, []);
+
+    const showToast = useCallback((message: string, type: 'cart' | 'wishlist' = 'cart') => {
         const id = ++counterRef.current;
         setToasts(prev => [...prev, { id, message, type }]);
-        setTimeout(() => {
-            setToasts(prev => prev.filter(t => t.id !== id));
+        const timer = setTimeout(() => {
+            dismiss(id);
         }, 3000);
-    };
-
-    const dismiss = (id: number) => setToasts(prev => prev.filter(t => t.id !== id));
+        timeoutsRef.current.set(id, timer);
+    }, [dismiss]);
 
     return (
         <ToastContext.Provider value={{ showToast }}>

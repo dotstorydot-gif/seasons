@@ -67,22 +67,31 @@ export default function AdminProductsPage() {
     const [saving, setSaving] = useState(false);
     const [newImageUrl, setNewImageUrl] = useState('');
 
+    const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
     const fetchData = useCallback(async () => {
-        const [{ data: productsData }, { data: catsData }] = await Promise.all([
+        setErrorMsg(null);
+        const [{ data: productsData, error: prodErr }, { data: catsData, error: catErr }] = await Promise.all([
             supabase.from('products').select('*, categories(name_en)').order('created_at', { ascending: false }),
             supabase.from('categories').select('id, name_en').order('sort_order')
         ]);
+        if (prodErr || catErr) {
+            console.error('Failed to fetch admin products/categories:', prodErr || catErr);
+            setErrorMsg('Failed to load products or categories.');
+        }
         if (productsData) setProducts(productsData as AdminProduct[]);
         if (catsData) setCategories(catsData as AdminCategory[]);
     }, []);
 
     useEffect(() => {
+        let isMounted = true;
         const load = async () => {
             setLoading(true);
             await fetchData();
-            setLoading(false);
+            if (isMounted) setLoading(false);
         };
         load();
+        return () => { isMounted = false; };
     }, [fetchData]);
 
     const openEdit = (product: AdminProduct) => {
@@ -221,6 +230,7 @@ export default function AdminProductsPage() {
                 </div>
 
                 <div className={styles.tableWrapper}>
+                    {errorMsg && <div className={styles.loading} style={{ color: '#e53e3e' }}>{errorMsg}</div>}
                     {loading ? (
                         <div className={styles.loading}><Loader2 className={styles.spinner} /></div>
                     ) : (

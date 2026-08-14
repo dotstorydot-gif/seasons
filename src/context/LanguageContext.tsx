@@ -88,7 +88,11 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const dir = language === 'ar' ? 'rtl' : 'ltr';
 
     const t = (key: string) => {
-        return translations[language][key] || key;
+        const value = translations[language]?.[key];
+        if (!value && process.env.NODE_ENV !== 'production') {
+            console.warn(`[i18n] Missing translation key "${key}" for locale "${language}"`);
+        }
+        return value || key;
     };
 
     useEffect(() => {
