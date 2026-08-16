@@ -24,6 +24,7 @@ CREATE OR REPLACE FUNCTION place_order_atomic(
 RETURNS JSONB
 LANGUAGE plpgsql
 SECURITY DEFINER
+SET search_path = public, pg_temp
 AS $$
 DECLARE
     v_subtotal NUMERIC := 0;
@@ -41,7 +42,12 @@ BEGIN
     FOR v_item IN SELECT * FROM jsonb_array_elements(p_items)
     LOOP
         v_item_qty := (v_item.value->>'quantity')::INT;
-        
+
+        -- DB-level quantity validation (defense in depth)
+        IF v_item_qty IS NULL OR v_item_qty < 1 OR v_item_qty > 100 THEN
+            RAISE EXCEPTION 'Invalid item quantity: must be an integer between 1 and 100';
+        END IF;
+
         -- Lock product row for update to prevent overselling race conditions
         SELECT id, name_en, name_ar, price, stock
         INTO v_prod
