@@ -6,7 +6,7 @@ DROP POLICY IF EXISTS "Allow anonymous order lookup" ON public.orders;
 DROP POLICY IF EXISTS "Allow public usage check" ON public.coupon_usages;
 DROP POLICY IF EXISTS "Allow public coupon tracking" ON public.coupon_usages;
 
--- 3. Drop existing function signatures to ensure clean recreation
+-- 3. Drop existing function signatures to resolve parameter overload conflicts
 DROP FUNCTION IF EXISTS place_order_atomic(TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, JSONB);
 DROP FUNCTION IF EXISTS place_order_atomic(TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, JSONB, NUMERIC);
 DROP FUNCTION IF EXISTS place_order_atomic;
@@ -39,6 +39,8 @@ DECLARE
     v_item RECORD;
     v_prod RECORD;
     v_coupon RECORD;
+    v_applied_coupon_id UUID := NULL;
+    v_applied_coupon_code TEXT := NULL;
     v_user_coupon_count INT := 0;
     v_order_id UUID;
     v_item_qty INT;
@@ -100,6 +102,9 @@ BEGIN
             END IF;
         END IF;
 
+        v_applied_coupon_id := v_coupon.id;
+        v_applied_coupon_code := v_coupon.code;
+
         -- Calculate discount
         IF v_coupon.discount_type = 'percentage' THEN
             v_discount := ROUND(v_subtotal * v_coupon.discount_value / 100);
@@ -127,18 +132,18 @@ BEGIN
     ) VALUES (
         p_order_number, TRIM(p_full_name), TRIM(p_phone), NULLIF(TRIM(p_alt_phone), ''), NULLIF(TRIM(p_email), ''),
         TRIM(p_city), TRIM(p_area), TRIM(p_address), NULLIF(TRIM(p_delivery_notes), ''),
-        v_final_total, 'processing', v_coupon.code, v_discount, p_items
+        v_final_total, 'processing', v_applied_coupon_code, v_discount, p_items
     )
     RETURNING id INTO v_order_id;
 
     -- E. Record coupon usage and increment coupon used_count
-    IF v_coupon.id IS NOT NULL THEN
+    IF v_applied_coupon_id IS NOT NULL THEN
         INSERT INTO public.coupon_usages (coupon_id, order_id, user_phone)
-        VALUES (v_coupon.id, v_order_id, TRIM(p_phone));
+        VALUES (v_applied_coupon_id, v_order_id, TRIM(p_phone));
 
         UPDATE public.coupons
         SET used_count = used_count + 1
-        WHERE id = v_coupon.id;
+        WHERE id = v_applied_coupon_id;
     END IF;
 
     RETURN jsonb_build_object(
