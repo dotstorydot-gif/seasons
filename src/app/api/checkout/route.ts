@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { fetchStoreSettings } from '@/lib/settings';
+import { checkRateLimit } from '@/lib/rateLimit';
 
 import { randomUUID } from 'crypto';
 
@@ -29,6 +30,10 @@ function generateOrderNumber() {
 }
 
 export async function POST(req: NextRequest) {
+    // --- Rate limiting: max 5 checkout attempts per 10 minutes per IP ---
+    const rateLimitError = checkRateLimit(req, { limit: 5, windowMs: 10 * 60 * 1000 });
+    if (rateLimitError) return rateLimitError;
+
     let body: CheckoutBody;
     try {
         body = await req.json();
@@ -99,9 +104,7 @@ export async function POST(req: NextRequest) {
     // --- Coupon validation (server-side) ---
     let discount = 0;
     let shippingFee = isFreeByThreshold ? 0 : settings.shipping_fee;
-    let appliedCouponId: string | null = null;
     let appliedCouponCode: string | null = null;
-    let appliedCouponUsedCount = 0;
     let couponDiscountType: string | null = null;
 
     if (couponCode && couponCode.trim()) {
@@ -139,9 +142,7 @@ export async function POST(req: NextRequest) {
         }
 
         couponDiscountType = coupon.discount_type;
-        appliedCouponId = coupon.id;
         appliedCouponCode = coupon.code;
-        appliedCouponUsedCount = coupon.used_count;
 
         if (coupon.discount_type === 'percentage') {
             discount = Math.round(subtotal * coupon.discount_value / 100);
@@ -164,51 +165,33 @@ export async function POST(req: NextRequest) {
 
     const orderNumber = generateOrderNumber();
 
-    // --- Insert order via supabaseAdmin ---
-    const { data: orderData, error: orderError } = await supabaseAdmin
-        .from('orders')
-        .insert([{
-            order_number: orderNumber,
-            full_name: formData.fullName,
-            email: formData.email || null,
-            phone: formData.phone,
-            alt_phone: formData.altPhone || null,
-            city: formData.city,
-            area: formData.area,
-            address: formData.address,
-            delivery_notes: formData.notes || null,
-            total_amount: finalTotal,
-            status: 'processing',
-            coupon_code: appliedCouponCode,
-            discount_amount: discount,
-            items: items.map(item => ({
-                id: item.id,
-                nameEn: productMap[item.id].name_en,
-                nameAr: productMap[item.id].name_ar,
-                price: productMap[item.id].price,
-                quantity: item.quantity,
-            })),
-        }])
-        .select('id')
-        .single();
+    const formattedItems = items.map(item => ({
+        id: item.id,
+        quantity: item.quantity,
+        nameEn: productMap[item.id].name_en,
+        nameAr: productMap[item.id].name_ar,
+        price: productMap[item.id].price,
+    }));
 
-    if (orderError || !orderData) {
-        console.error('Order insert error:', orderError);
-        return NextResponse.json({ error: 'Failed to place order' }, { status: 500 });
-    }
+    // --- Execute atomic database stored procedure place_order_atomic ---
+    const { data: rpcResult, error: rpcError } = await supabaseAdmin.rpc('place_order_atomic', {
+        p_order_number: orderNumber,
+        p_full_name: formData.fullName.trim(),
+        p_phone: formData.phone.trim(),
+        p_alt_phone: formData.altPhone?.trim() || null,
+        p_email: formData.email?.trim() || null,
+        p_city: formData.city.trim(),
+        p_area: formData.area.trim(),
+        p_address: formData.address.trim(),
+        p_delivery_notes: formData.notes?.trim() || null,
+        p_coupon_code: appliedCouponCode,
+        p_items: formattedItems,
+        p_shipping_fee: shippingFee,
+    });
 
-    // --- Atomically record coupon usage & increment used_count ---
-    if (appliedCouponId && orderData.id) {
-        await supabaseAdmin.from('coupon_usages').insert([{
-            coupon_id: appliedCouponId,
-            order_id: orderData.id,
-            user_phone: formData.phone,
-        }]);
-
-        await supabaseAdmin
-            .from('coupons')
-            .update({ used_count: appliedCouponUsedCount + 1 })
-            .eq('id', appliedCouponId);
+    if (rpcError) {
+        console.error('Atomic checkout RPC error:', rpcError);
+        return NextResponse.json({ error: `Failed to process transactional checkout: ${rpcError.message}` }, { status: 500 });
     }
 
     // --- Fire confirmation email (non-blocking) ---
@@ -225,7 +208,7 @@ export async function POST(req: NextRequest) {
             orderNumber,
             fullName: formData.fullName,
             phone: formData.phone,
-            totalAmount: finalTotal,
+            totalAmount: rpcResult?.final_total ?? finalTotal,
             items: emailItems,
         }),
     }).catch(e => console.error('Email send failed:', e));
@@ -233,8 +216,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
         success: true,
         orderNumber,
-        finalTotal,
+        finalTotal: rpcResult?.final_total ?? finalTotal,
         discountType: couponDiscountType,
-        discount,
+        discount: rpcResult?.discount ?? discount,
     });
 }
+

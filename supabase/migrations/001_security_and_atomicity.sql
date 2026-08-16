@@ -18,7 +18,8 @@ CREATE OR REPLACE FUNCTION place_order_atomic(
     p_address TEXT,
     p_delivery_notes TEXT,
     p_coupon_code TEXT,
-    p_items JSONB
+    p_items JSONB,
+    p_shipping_fee NUMERIC DEFAULT 75
 )
 RETURNS JSONB
 LANGUAGE plpgsql
@@ -27,7 +28,7 @@ AS $$
 DECLARE
     v_subtotal NUMERIC := 0;
     v_discount NUMERIC := 0;
-    v_shipping_fee NUMERIC := 75; -- Default shipping fee
+    v_shipping_fee NUMERIC := COALESCE(p_shipping_fee, 75);
     v_final_total NUMERIC := 0;
     v_item RECORD;
     v_prod RECORD;
@@ -137,3 +138,7 @@ BEGIN
     );
 END;
 $$;
+
+-- 4. Restrict RPC function execution privileges to service_role only
+REVOKE EXECUTE ON FUNCTION place_order_atomic FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION place_order_atomic TO service_role;

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { saveReview, ReviewPayload } from '@/lib/db';
+import { checkRateLimit } from '@/lib/rateLimit';
 
 const RATING_FIELDS: (keyof Omit<ReviewPayload, 'name' | 'phone' | 'created_at'>)[] = [
   'quality',
@@ -12,6 +13,10 @@ const RATING_FIELDS: (keyof Omit<ReviewPayload, 'name' | 'phone' | 'created_at'>
 ];
 
 export async function POST(request: NextRequest) {
+  // --- Rate limiting: max 5 review submissions per 10 minutes per IP ---
+  const rateLimitError = checkRateLimit(request, { limit: 5, windowMs: 10 * 60 * 1000 });
+  if (rateLimitError) return rateLimitError;
+
   try {
     let data: Partial<ReviewPayload>;
     try {

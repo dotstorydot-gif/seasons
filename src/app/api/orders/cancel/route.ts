@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
+import { checkRateLimit } from '@/lib/rateLimit';
 
 export async function POST(req: NextRequest) {
+    // --- Rate limiting: max 5 cancellation attempts per 10 minutes per IP ---
+    const rateLimitError = checkRateLimit(req, { limit: 5, windowMs: 10 * 60 * 1000 });
+    if (rateLimitError) return rateLimitError;
+
     let body: { orderId?: unknown; phone?: unknown };
     try {
         body = await req.json();
