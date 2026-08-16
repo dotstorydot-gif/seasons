@@ -6,7 +6,12 @@ DROP POLICY IF EXISTS "Allow anonymous order lookup" ON public.orders;
 DROP POLICY IF EXISTS "Allow public usage check" ON public.coupon_usages;
 DROP POLICY IF EXISTS "Allow public coupon tracking" ON public.coupon_usages;
 
--- 3. Create stored procedure for atomic order placement, coupon validation, usage tracking, and stock reduction
+-- 3. Drop existing function signatures to ensure clean recreation
+DROP FUNCTION IF EXISTS place_order_atomic(TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, JSONB);
+DROP FUNCTION IF EXISTS place_order_atomic(TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, JSONB, NUMERIC);
+DROP FUNCTION IF EXISTS place_order_atomic;
+
+-- 4. Create stored procedure for atomic order placement, coupon validation, usage tracking, and stock reduction
 CREATE OR REPLACE FUNCTION place_order_atomic(
     p_order_number TEXT,
     p_full_name TEXT,
@@ -145,6 +150,6 @@ BEGIN
 END;
 $$;
 
--- 4. Restrict RPC function execution privileges to service_role only
-REVOKE EXECUTE ON FUNCTION place_order_atomic FROM PUBLIC, anon, authenticated;
-GRANT EXECUTE ON FUNCTION place_order_atomic TO service_role;
+-- 5. Restrict RPC function execution privileges to service_role only
+REVOKE EXECUTE ON FUNCTION place_order_atomic(TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, JSONB, NUMERIC) FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION place_order_atomic(TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, JSONB, NUMERIC) TO service_role;
