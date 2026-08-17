@@ -18,31 +18,33 @@ export default function CheckoutPage() {
     const router = useRouter();
     const { items, total, clearCart } = useCart();
     const [loading, setLoading] = useState(false);
-    const [formData, setFormData] = useState({
-        fullName: '', email: '', phone: '', altPhone: '', city: '', area: '', address: '', notes: ''
+    const [saveInfo, setSaveInfo] = useState<boolean>(() => {
+        if (typeof window === 'undefined') return false;
+        return !!localStorage.getItem('seasons-checkout-info');
     });
-    const [saveInfo, setSaveInfo] = useState(false);
-    const [storeShippingFee, setStoreShippingFee] = useState<number>(75);
-    const [freeShippingThreshold, setFreeShippingThreshold] = useState<number>(0);
 
-    // Initial load for saved info & dynamic store settings
-    React.useEffect(() => {
+    const [formData, setFormData] = useState(() => {
+        const defaultState = { fullName: '', email: '', phone: '', altPhone: '', city: '', area: '', address: '', notes: '' };
+        if (typeof window === 'undefined') return defaultState;
+
+        let parsedState = {};
         const saved = localStorage.getItem('seasons-checkout-info');
         if (saved) {
             try {
-                const parsed = JSON.parse(saved);
-                setFormData(prev => ({ ...prev, ...parsed }));
-                setSaveInfo(true);
+                parsedState = JSON.parse(saved);
             } catch (e) {
                 console.error('Failed to load saved info:', e);
             }
         }
+        const cartNote = localStorage.getItem('seasons-order-note') || '';
+        return { ...defaultState, ...parsedState, ...(cartNote ? { notes: cartNote } : {}) };
+    });
 
-        // Also pre-fill the notes if the user entered one in the cart
-        const cartNote = localStorage.getItem('seasons-order-note');
-        if (cartNote) {
-            setFormData(prev => ({ ...prev, notes: cartNote }));
-        }
+    const [storeShippingFee, setStoreShippingFee] = useState<number>(75);
+    const [freeShippingThreshold, setFreeShippingThreshold] = useState<number>(0);
+
+    // Initial load for dynamic store settings
+    React.useEffect(() => {
 
         // Load dynamic shipping settings from server
         const loadSettings = async () => {

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import styles from './Reviews.module.css';
 import { adminHeaders } from '@/lib/adminHeaders';
@@ -58,28 +58,31 @@ export default function AdminReviewsPage() {
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const fetchReviews = useCallback(async () => {
-    setLoading(true);
-    try {
-      const res = await fetch('/api/admin/reviews', {
-        headers: adminHeaders(),
-      });
-      if (res.ok) {
-        const data = await res.json();
-        setReviews(data.reviews || []);
-      } else {
-        console.error('Failed to fetch reviews');
-      }
-    } catch (err) {
-      console.error('Error fetching reviews:', err);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
-    fetchReviews();
-  }, [fetchReviews]);
+    let isMounted = true;
+    async function loadReviews() {
+      setLoading(true);
+      try {
+        const res = await fetch('/api/admin/reviews', {
+          headers: adminHeaders(),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (isMounted) setReviews(data.reviews || []);
+        } else {
+          console.error('Failed to fetch reviews');
+        }
+      } catch (err) {
+        console.error('Error fetching reviews:', err);
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    }
+    loadReviews();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   // Overall Statistics
   const stats = useMemo(() => {
