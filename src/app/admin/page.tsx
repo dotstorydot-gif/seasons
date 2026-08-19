@@ -14,7 +14,7 @@ import { Line, Bar } from 'react-chartjs-2';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend, Filler);
 
-type TimeRange = 'week' | 'month' | 'year';
+type TimeRange = 'week' | 'month' | 'year' | 'all';
 
 interface Order {
     id: string;
@@ -28,7 +28,7 @@ export default function AdminDashboard() {
     const [orders, setOrders] = useState<Order[]>([]);
     const [productsCount, setProductsCount] = useState(0);
     const [loading, setLoading] = useState(true);
-    const [timeRange, setTimeRange] = useState<TimeRange>('month');
+    const [timeRange, setTimeRange] = useState<TimeRange>('all');
 
     useEffect(() => {
         const fetchInitialData = async () => {
@@ -58,10 +58,10 @@ export default function AdminDashboard() {
         if (timeRange === 'week') startDate.setDate(now.getDate() - 7);
         if (timeRange === 'month') startDate.setMonth(now.getMonth() - 1);
         if (timeRange === 'year') startDate.setFullYear(now.getFullYear() - 1);
+        if (timeRange === 'all') startDate.setTime(0);
 
-        // Include all orders in range, except pure abandoned or failed if tracking status
-        // Assume 'pending', 'confirmed', 'shipped', 'delivered' are revenue-generating
-        const validStatuses = ['pending', 'confirmed', 'shipped', 'delivered'];
+        // Active/revenue-generating order statuses (including processing)
+        const validStatuses = ['processing', 'pending', 'confirmed', 'shipped', 'delivered', 'ready_for_pickup', 'on_the_way'];
         const activeOrders = orders.filter(o =>
             new Date(o.created_at) >= startDate &&
             new Date(o.created_at) <= now &&
@@ -75,7 +75,7 @@ export default function AdminDashboard() {
         const groups: Record<string, number> = {};
 
         // Init groups
-        if (timeRange === 'year') {
+        if (timeRange === 'year' || timeRange === 'all') {
             for (let i = 11; i >= 0; i--) {
                 const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
                 groups[d.toLocaleString('default', { month: 'short' })] = 0;
@@ -90,7 +90,7 @@ export default function AdminDashboard() {
 
         activeOrders.forEach(o => {
             const d = new Date(o.created_at);
-            const key = timeRange === 'year'
+            const key = (timeRange === 'year' || timeRange === 'all')
                 ? d.toLocaleString('default', { month: 'short' })
                 : d.toLocaleDateString('default', { month: 'short', day: 'numeric' });
             if (groups[key] !== undefined) {
@@ -154,6 +154,10 @@ export default function AdminDashboard() {
 
                 <div className={styles.toolbar}>
                     <div className={styles.rangeSelector}>
+                        <button
+                            className={`${styles.rangeBtn} ${timeRange === 'all' ? styles.active : ''}`}
+                            onClick={() => setTimeRange('all')}
+                        >All Time</button>
                         <button
                             className={`${styles.rangeBtn} ${timeRange === 'week' ? styles.active : ''}`}
                             onClick={() => setTimeRange('week')}
