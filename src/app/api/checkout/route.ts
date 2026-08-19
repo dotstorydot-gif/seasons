@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { fetchStoreSettings } from '@/lib/settings';
 import { checkRateLimit } from '@/lib/rateLimit';
+import { getShippingFeeForCity } from '@/lib/shipping';
 
 import { randomUUID } from 'crypto';
 
@@ -101,9 +102,10 @@ export async function POST(req: NextRequest) {
     const settings = await fetchStoreSettings();
     const isFreeByThreshold = settings.free_shipping_threshold > 0 && subtotal >= settings.free_shipping_threshold;
 
-    // --- Coupon validation (server-side) ---
+    // Calculate dynamic shipping fee by governorate/city
+    const baseCityShippingFee = getShippingFeeForCity(formData.city, settings.shipping_fee);
     let discount = 0;
-    let shippingFee = isFreeByThreshold ? 0 : settings.shipping_fee;
+    let shippingFee = isFreeByThreshold ? 0 : baseCityShippingFee;
     let appliedCouponCode: string | null = null;
     let couponDiscountType: string | null = null;
 

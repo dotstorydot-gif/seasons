@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { ShieldCheck, Loader2, Tag, X, Check } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
+import { EGYPT_GOVERNORATES, getShippingFeeForCity } from '@/lib/shipping';
 type CouponResult = {
     id: string;
     code: string;
@@ -72,15 +73,16 @@ export default function CheckoutPage() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    // Calculate dynamic shipping fee
+    // Calculate dynamic shipping fee by governorate
+    const cityShippingFee = getShippingFeeForCity(formData.city, storeShippingFee);
     const isFreeByThreshold = freeShippingThreshold > 0 && total >= freeShippingThreshold;
     const isFreeByCoupon = appliedCoupon?.discount_type === 'free_delivery';
-    const effectiveShippingFee = isFreeByCoupon || isFreeByThreshold ? 0 : storeShippingFee;
+    const effectiveShippingFee = isFreeByCoupon || isFreeByThreshold ? 0 : cityShippingFee;
 
     const discount = appliedCoupon
         ? appliedCoupon.discount_type === 'percentage'
             ? Math.round(total * appliedCoupon.discount_value / 100)
-            : storeShippingFee
+            : cityShippingFee
         : 0;
 
     const shipping = effectiveShippingFee;
@@ -233,12 +235,12 @@ export default function CheckoutPage() {
                                     </div>
                                     <div className={styles.field}>
                                         <select name="city" required value={formData.city} onChange={handleChange}>
-                                            <option value="">Governorate</option>
-                                            <option value="Cairo">Cairo</option>
-                                            <option value="Giza">Giza</option>
-                                            <option value="Alexandria">Alexandria</option>
-                                            <option value="Hurghada">Hurghada</option>
-                                            <option value="Luxor">Luxor</option>
+                                            <option value="">Governorate / المحافظة</option>
+                                            {EGYPT_GOVERNORATES.map(g => (
+                                                <option key={g.code} value={g.code}>
+                                                    {g.nameEn} - {g.nameAr} ({g.fee} EGP)
+                                                </option>
+                                            ))}
                                         </select>
                                     </div>
                                     <div className={styles.field}>

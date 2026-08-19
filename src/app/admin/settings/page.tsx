@@ -144,7 +144,7 @@ export default function SettingsPage() {
                                         style={{ padding: '12px 12px 12px 40px', width: '100%', background: 'var(--bg-primary)', border: '1px solid var(--border-subtle)', outline: 'none', borderRadius: '4px' }}
                                     />
                                 </div>
-                                <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Applies to all standard customer deliveries across Egypt</span>
+                                <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Default rate. Regional rates: Cairo/Giza 70 EGP, Alex 75 EGP, Delta 85 EGP, Upper Egypt 100 EGP</span>
                             </div>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
