@@ -5,6 +5,7 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import styles from './Dashboard.module.css';
 import { TrendingUp, Users, ShoppingBag, DollarSign, Loader2, XCircle, CornerDownLeft } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import { adminHeaders } from '@/lib/adminHeaders';
 import {
     Chart as ChartJS, CategoryScale, LinearScale, PointElement,
     LineElement, BarElement, Title, Tooltip, Legend, Filler
@@ -32,13 +33,21 @@ export default function AdminDashboard() {
     useEffect(() => {
         const fetchInitialData = async () => {
             setLoading(true);
-            const [{ data: orderData }, { count }] = await Promise.all([
-                supabase.from('orders').select('*').order('created_at', { ascending: true }),
-                supabase.from('products').select('*', { count: 'exact', head: true })
-            ]);
-            if (orderData) setOrders(orderData);
-            if (count) setProductsCount(count);
-            setLoading(false);
+            try {
+                const [ordersRes, { count }] = await Promise.all([
+                    fetch('/api/admin/orders', { headers: adminHeaders() }),
+                    supabase.from('products').select('*', { count: 'exact', head: true })
+                ]);
+                if (ordersRes.ok) {
+                    const ordersJson = await ordersRes.json();
+                    setOrders(ordersJson.orders || []);
+                }
+                if (count) setProductsCount(count);
+            } catch (err) {
+                console.error('Failed to fetch initial admin dashboard data:', err);
+            } finally {
+                setLoading(false);
+            }
         };
         fetchInitialData();
     }, []);

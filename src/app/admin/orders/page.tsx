@@ -57,8 +57,7 @@ export default function OrdersPage() {
     const fetchOrders = useCallback(async () => {
         setLoading(true);
         try {
-            const url = activeFilter !== 'all' ? `/api/admin/orders?status=${activeFilter}` : '/api/admin/orders';
-            const res = await fetch(url, { headers: adminHeaders() });
+            const res = await fetch('/api/admin/orders', { headers: adminHeaders() });
             if (res.ok) {
                 const data = await res.json();
                 setOrders(data.orders || []);
@@ -68,7 +67,7 @@ export default function OrdersPage() {
         } finally {
             setLoading(false);
         }
-    }, [activeFilter]);
+    }, []);
 
     useEffect(() => {
         // Defer to next tick to avoid cascading renders warning
@@ -120,7 +119,9 @@ export default function OrdersPage() {
         const a = document.createElement('a'); a.href = url; a.download = 'orders.csv'; a.click();
     };
 
-    const filtered = orders.filter(o =>
+    const filteredByStatus = activeFilter === 'all' ? orders : orders.filter(o => o.status === activeFilter);
+
+    const filtered = filteredByStatus.filter(o =>
         o.order_number?.toLowerCase().includes(search.toLowerCase()) ||
         o.full_name?.toLowerCase().includes(search.toLowerCase()) ||
         o.phone?.includes(search)
