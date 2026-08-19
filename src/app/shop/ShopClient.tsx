@@ -34,10 +34,13 @@ const ShopContent = ({ initialProducts, initialCategories }: ShopClientProps) =>
     const searchParams = useSearchParams();
     const router = useRouter();
     const { t, language } = useLanguage();
-    const categoryParam = searchParams.get('category') || 'All';
-
     const [products] = useState<ShopProduct[]>(initialProducts);
     const [categories] = useState<ShopCategory[]>(initialCategories);
+
+    const rawCategoryParam = searchParams.get('category');
+    const matchedCategory = categories.find(c => c.id === rawCategoryParam || (c as { slug?: string }).slug === rawCategoryParam);
+    const categoryParam = matchedCategory ? matchedCategory.id : 'All';
+
     const [search, setSearch] = useState(searchParams.get('search') || '');
     const [sortOrder, setSortOrder] = useState('featured');
 

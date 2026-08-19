@@ -1,5 +1,7 @@
--- Migration 001: Security Hardening & Atomic Checkout RPC
--- 1. Revoke public SELECT on orders table to prevent customer PII exposure
+-- 1. Ensure email column exists on orders table
+ALTER TABLE public.orders ADD COLUMN IF NOT EXISTS email TEXT;
+
+-- 2. Revoke public SELECT on orders table to prevent customer PII exposure
 DROP POLICY IF EXISTS "Allow anonymous order lookup" ON public.orders;
 
 -- 2. Revoke public SELECT and INSERT policies on coupon_usages

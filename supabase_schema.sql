@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS public.orders (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     order_number TEXT UNIQUE NOT NULL,
     full_name TEXT NOT NULL,
+    email TEXT,
     phone TEXT NOT NULL,
     alt_phone TEXT,
     city TEXT NOT NULL,
