@@ -56,11 +56,18 @@ export default function OrdersPage() {
 
     const fetchOrders = useCallback(async () => {
         setLoading(true);
-        let query = supabase.from('orders').select('*').order('created_at', { ascending: false });
-        if (activeFilter !== 'all') query = query.eq('status', activeFilter);
-        const { data } = await query;
-        if (data) setOrders(data);
-        setLoading(false);
+        try {
+            const url = activeFilter !== 'all' ? `/api/admin/orders?status=${activeFilter}` : '/api/admin/orders';
+            const res = await fetch(url, { headers: adminHeaders() });
+            if (res.ok) {
+                const data = await res.json();
+                setOrders(data.orders || []);
+            }
+        } catch (e) {
+            console.error('Failed to fetch orders:', e);
+        } finally {
+            setLoading(false);
+        }
     }, [activeFilter]);
 
     useEffect(() => {
